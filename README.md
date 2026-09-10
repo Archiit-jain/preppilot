@@ -9,31 +9,46 @@ study sessions, and see honest progress — with or without an internet connecti
 
 ## Status
 
-Early development. See [`DECISIONS.md`](DECISIONS.md) for the decisions this
-implementation is built on and [`docs/`](docs/) for the full specification.
+All planned feature areas are implemented and covered by tests. See
+[`DECISIONS.md`](DECISIONS.md) for the decisions this implementation is built on,
+[`docs/AUDIT.md`](docs/AUDIT.md) for an evidence-based audit of what the code
+actually does, and [`docs/developer/LIMITATIONS.md`](docs/developer/LIMITATIONS.md)
+for what remains unbuilt or unverified.
 
-| Phase                                                                 | Status         |
-| --------------------------------------------------------------------- | -------------- |
-| 0 — Foundation (monorepo, tooling, CI)                                | ✅ Done        |
-| 0 — Progress engine + design tokens                                   | ✅ Done        |
-| 1 — Expo app + design system components                               | ✅ Done        |
-| 2 — Authentication                                                    | ✅ Done        |
-| 3 — Offline tracker: data layer (SQLite + Drizzle)                    | ✅ Done        |
-| 3 — Offline tracker: UI                                               | ✅ Done        |
-| 5 — Timers and study sessions                                         | ⏳ Next        |
-| 6–14 — Dashboard, templates, sync, notifications, AI, Focus Mode, web | ⬜ Not started |
+| Area                                         | Status                      |
+| -------------------------------------------- | --------------------------- |
+| Foundation (monorepo, tooling, CI)           | ✅ Implemented              |
+| Progress engine + design tokens              | ✅ Implemented              |
+| Expo app + design system components          | ✅ Implemented              |
+| Authentication (email, Google, guest)        | ✅ Implemented              |
+| Phone OTP                                    | ⚙️ Behind a flag            |
+| Offline tracker: SQLite + Drizzle data layer | ✅ Implemented              |
+| Offline tracker: UI                          | ✅ Implemented              |
+| Timers and study sessions                    | ✅ Implemented              |
+| Dashboard, history and statistics            | ✅ Implemented              |
+| Syllabus templates (22 bundled)              | ✅ Implemented              |
+| Notes, flashcards, reminders                 | ✅ Implemented              |
+| Synchronisation and conflict resolution      | ✅ Implemented              |
+| AI assistant (Gemini via Edge Function)      | ✅ Implemented              |
+| Focus Mode                                   | ✅ Implemented, see caveats |
+| Web demo build                               | ✅ Implemented              |
+
+Test suite: **1,799 tests across 80 suites**, all passing.
 
 ## Repository layout
 
 ```
 apps/
-  mobile/          Expo + React Native app (Android primary)   — auth, DB, design system
-  web/             Vite + React demonstration UI               — not yet created
+  mobile/          Expo + React Native app (Android primary, also exports to web)
 packages/
-  shared/          Progress engine, design tokens, formatters  — implemented
-supabase/          Migrations, RLS policies, Edge Functions    — profiles + RLS
-docs/              Product, technical and design specification
+  shared/          Progress engine, timer, scheduling, sync merge, AI parsing, tokens
+supabase/          Migrations, RLS policies, Edge Functions (ask-gemini, delete-account)
+docs/              Product and technical documentation
 ```
+
+There is no separate web application. The browser build is the _same_ Expo app
+exported for web with `react-native-web`, backed by SQLite compiled to
+WebAssembly (`sql.js`) instead of `expo-sqlite`.
 
 `packages/shared` is deliberately framework-agnostic: the mobile app and the web
 demo compute progress with the _same_ code and render it with the _same_ tokens,

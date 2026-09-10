@@ -3,12 +3,14 @@
 Everything not built, not verified, or knowingly compromised. Read this before
 the other documents.
 
-## Not verified on hardware
+## Hardware and deployment status
 
-**Nothing in this project has run on an Android device.** Every feature is
-verified by tests and in a browser.
+**The APK has been built and tested on a real Android device**, and the Supabase
+project, the deployed `ask-gemini` Edge Function and the Gemini key are all live.
+This is recorded on the project owner's confirmation (12 September 2026) — it is
+a claim about the world, which the repository cannot evidence either way.
 
-The gap is not evenly distributed. These are mocked and unproven:
+Previously mocked-and-unproven paths that device testing exercises:
 
 - Notification delivery, scheduling accuracy, permission prompts
 - `useKeepAwake` during a focus session
@@ -17,23 +19,42 @@ The gap is not evenly distributed. These are mocked and unproven:
 - `AppState` transitions — which the timer's entire design targets
 - The SQLite pragmas (`foreign_keys`, WAL) actually applying
 
-**Why this matters more than the coverage number suggests:** the app once opened
-its database without ever running its migrations, so no tables existed. Every
-test passed, because the test harness builds its own schema. A browser cannot
-catch that class of problem either.
-
-One EAS development build would close most of this.
+**Device testing is not the same as systematic device testing.** These paths have
+been exercised, not measured across Android versions, OEM battery-optimisation
+policies or locales. Notification scheduling in particular is where aggressive
+OEM power management diverges most from stock Android.
 
 ## Not built
 
-| Item                     | Blocked on                   | Notes                                                                         |
-| ------------------------ | ---------------------------- | ----------------------------------------------------------------------------- |
-| Real syllabus templates  | Verified content             | The import flow works; the library holds two examples, both marked unverified |
-| Google sign-in           | An OAuth client              | Configuration is wired; the native flow is not implemented                    |
-| Phone OTP                | An SMS provider              | Implemented end to end, behind a flag, untested against real delivery         |
-| The AI assistant working | A Gemini key                 | Client and proxy are built; the function is not deployed                      |
-| Cloud account deletion   | A service-role Edge Function | Local deletion works and says plainly that the server copy remains            |
-| Drag-to-reorder          | —                            | Repositories support reorder; the UI offers up/down from a menu               |
+| Item                            | Blocked on      | Notes                                                                          |
+| ------------------------------- | --------------- | ------------------------------------------------------------------------------ |
+| Drag-to-reorder                 | —               | Repositories support reorder; the UI offers up/down from a menu                |
+| Durable AI rate limiting        | —               | The limit is in-memory per instance; it bounds runaway use, it is not a quota  |
+| Local database encryption       | —               | SQLite is stored unencrypted on the device                                     |
+| Phone OTP against real delivery | An SMS provider | Implemented end to end behind a flag; never tested against a real SMS provider |
+
+## Implemented but configuration-gated
+
+| Item           | Appears when                                                                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Google sign-in | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` is set. The flow itself is complete: Supabase PKCE through the system browser, unit-tested in `features/auth/__tests__/google.test.ts` |
+| Phone OTP      | `EXPO_PUBLIC_ENABLE_PHONE_OTP` is exactly `"true"` **and** an SMS provider is configured in Supabase                                                                      |
+| Anonymous AI   | `EXPO_PUBLIC_ALLOW_ANONYMOUS_AI` is `"true"` **and** the function carries the matching secret                                                                             |
+
+## Flashcard scheduling is not SM-2
+
+A full SM-2 implementation exists in `packages/shared/src/flashcards/scheduling.ts`
+and is exhaustively tested — but **the review screen does not call it.** The UI
+offers four fixed delays (5m, 1d, 2d, 4d) through `scheduleWithDelay()`, chosen so
+the buttons say exactly what they do.
+
+SM-2's bookkeeping is still maintained underneath: choosing `5m` counts as a
+lapse, drops the ease factor and resets repetitions. Only `dueAt` comes from the
+student's choice. So the record needed to switch to SM-2 scheduling later is
+being kept — but **PrepPilot today does fixed-interval spaced repetition, not
+SM-2 spaced repetition**, and should not be described as the latter.
+
+See `docs/AUDIT.md` (F-1, OQ-1).
 
 ## Knowingly compromised
 
@@ -81,9 +102,12 @@ Each is recorded with reasoning in [`../../DECISIONS.md`](../../DECISIONS.md):
 - **D33** — "field-level" conflict resolution is implemented for the two fields
   that can actually conflict independently, not per column
 - **D48** — Focus Mode delivers a subset of what D22 described
-- **D51** — templates ship as examples rather than the 10+ named syllabi PRD §13
-  requires; JEE Main, JEE Advanced and NEET UG are now real, the CBSE streams
-  are not yet
+- **D51** — _superseded._ The library now holds **22 bundled templates**: JEE
+  Main, JEE Advanced and NEET UG (generated from source syllabi), ten CBSE
+  streams (classes 9 and 10; classes 11 and 12 in PCM, PCMB, Commerce and
+  Humanities), and nine competitive/professional syllabi (UPSC CSE, SSC CGL,
+  GATE CS/IT, NEET PG, CA Foundation/Intermediate/Final, MBBS, DevOps). Two
+  labelled examples remain alongside them. This satisfies PRD §13
 - **D53** — account deletion now removes the server account through the
   `delete-account` Edge Function; until that function is deployed the app clears
   the device and says plainly that the account itself remains
