@@ -18,18 +18,12 @@ const QUICK_PROMPTS = [
   'Help me plan this week',
 ];
 
-/**
- * The AI assistant (PRD §14).
- *
- * Secondary and online-only. It can suggest additions to the tracker but never
- * makes them: a suggestion arrives as an inert proposal that the student reviews
- * and confirms before anything is written.
- */
 export function AiScreen() {
   const theme = useTheme();
   const userId = useAuthStore((state) => state.user?.id ?? null);
   const subjects = useTrackerStore((state) => state.subjects);
   const state = useAiStore();
+
   const [question, setQuestion] = useState('');
   const scrollRef = useRef<ScrollView>(null);
 
@@ -38,15 +32,23 @@ export function AiScreen() {
   }, [subjects]);
 
   const send = async (text: string) => {
+    const trimmed = text.trim();
+
+    if (trimmed.length === 0 || state.asking) {
+      return;
+    }
+
     setQuestion('');
-    await state.ask(text);
-    scrollRef.current?.scrollToEnd({ animated: true });
+    await state.ask(trimmed);
+
+    requestAnimationFrame(() => {
+      scrollRef.current?.scrollToEnd({ animated: true });
+    });
   };
 
   const online = useNetworkStore((state) => state.online);
   const isGuest = useAuthStore((state) => state.isGuest);
-  // PRD §14 makes the assistant online-only, so being offline disables it for
-  // the same reason missing configuration does: the request cannot succeed.
+
   const unavailable = unavailableReason({ isGuest });
   const configured = unavailable === null && online;
 
@@ -54,30 +56,47 @@ export function AiScreen() {
     <Screen padded={false}>
       <KeyboardAvoidingView
         style={styles.fill}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
       >
         <ScrollView
           ref={scrollRef}
-          contentContainerStyle={{ padding: theme.spacing.base, gap: theme.spacing.md }}
+          style={styles.messages}
+          contentContainerStyle={[
+            styles.messagesContent,
+            {
+              padding: theme.spacing.base,
+              gap: theme.spacing.md,
+              paddingBottom: theme.spacing.lg,
+            },
+          ]}
+          keyboardShouldPersistTaps="handled"
+          keyboardDismissMode={Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
           showsVerticalScrollIndicator={false}
+          onContentSizeChange={() => {
+            if (state.messages.length > 0) {
+              requestAnimationFrame(() => {
+                scrollRef.current?.scrollToEnd({ animated: false });
+              });
+            }
+          }}
         >
           <Text variant="heading">Assistant</Text>
 
           {!configured && (
-            // Better to say why the assistant is unavailable than to accept a
-            // question and fail after the student has typed it.
             <Card testID="ai-unavailable">
               <Text variant="small" tone="danger" accessibilityRole="alert">
                 {!online
                   ? 'The assistant needs an internet connection. Everything else keeps working offline.'
                   : UNAVAILABLE_COPY[unavailable ?? 'unconfigured']}
               </Text>
+
               {online && (
                 <Text variant="caption" tone="muted" style={{ marginTop: theme.spacing.sm }}>
                   Everything else in PrepPilot works without it.
                 </Text>
               )}
-              {/* A refusal with no way past it is a dead end. */}
+
               {unavailable === 'guest' && (
                 <View style={{ marginTop: theme.spacing.base }}>
                   <Button
@@ -122,6 +141,7 @@ export function AiScreen() {
                     {summariseProposal(message.proposal).topics} topics to{' '}
                     {message.proposal.subjectName}.
                   </Text>
+
                   <View style={{ marginTop: theme.spacing.sm }}>
                     <Button
                       label="Review suggestion"
@@ -145,6 +165,7 @@ export function AiScreen() {
               <Text variant="small" tone="danger" accessibilityRole="alert">
                 {state.error}
               </Text>
+
               <View style={{ marginTop: theme.spacing.sm }}>
                 <Button label="Dismiss" variant="ghost" size="small" onPress={state.clearError} />
               </View>
@@ -156,7 +177,10 @@ export function AiScreen() {
           <View
             style={[
               styles.prompts,
-              { paddingHorizontal: theme.spacing.base, gap: theme.spacing.sm },
+              {
+                paddingHorizontal: theme.spacing.base,
+                gap: theme.spacing.sm,
+              },
             ]}
           >
             {QUICK_PROMPTS.map((prompt) => (
@@ -187,14 +211,22 @@ export function AiScreen() {
               value={question}
               onChangeText={setQuestion}
               placeholder="e.g. Explain polynomials"
-              editable={configured}
+              editable={configured && !state.asking}
+              onFocus={() => {
+                requestAnimationFrame(() => {
+                  scrollRef.current?.scrollToEnd({ animated: true });
+                });
+              }}
               onSubmitEditing={() => void send(question)}
+              returnKeyType="send"
+              blurOnSubmit={false}
             />
           </View>
+
           <Button
             label="Ask"
             loading={state.asking}
-            disabled={!configured || question.trim().length === 0}
+            disabled={!configured || state.asking || question.trim().length === 0}
             onPress={() => void send(question)}
           />
         </View>
@@ -205,18 +237,13 @@ export function AiScreen() {
   );
 }
 
-/**
- * The confirmation step (PRD §14: Proposal → Review → Confirmation → Apply).
- *
- * Lists exactly what would be added before anything is written, so a student is
- * accepting a specific change rather than trusting a summary.
- */
 function ProposalReview({ userId }: { readonly userId: string | null }) {
   const theme = useTheme();
   const state = useAiStore();
   const proposal = state.pendingProposal;
 
   if (proposal === null) return null;
+
   const summary = summariseProposal(proposal);
 
   return (
@@ -227,6 +254,7 @@ function ProposalReview({ userId }: { readonly userId: string | null }) {
       testID="proposal-review"
     >
       <Text variant="title">Add this to your tracker?</Text>
+
       <Text variant="small" tone="secondary">
         {summary.chapters} chapters and {summary.topics} topics would be added to{' '}
         {proposal.subjectName}. Nothing is changed until you confirm, and you can edit or delete any
@@ -239,6 +267,7 @@ function ProposalReview({ userId }: { readonly userId: string | null }) {
             <Text variant="body" weight="medium">
               {chapter.name}
             </Text>
+
             {chapter.topics.map((topic) => (
               <Text
                 key={topic}
@@ -255,11 +284,14 @@ function ProposalReview({ userId }: { readonly userId: string | null }) {
 
       <View style={styles.actions}>
         <Button label="No thanks" variant="ghost" onPress={state.dismissProposal} />
+
         <Button
           label="Add to tracker"
           loading={state.applying}
           onPress={() => {
-            if (userId !== null) void state.applyProposal(userId, getRepositories());
+            if (userId !== null) {
+              void state.applyProposal(userId, getRepositories());
+            }
           }}
         />
       </View>
@@ -268,15 +300,46 @@ function ProposalReview({ userId }: { readonly userId: string | null }) {
 }
 
 const styles = StyleSheet.create({
-  fill: { flex: 1 },
-  bubble: { maxWidth: '85%' },
-  prompts: { flexDirection: 'row', flexWrap: 'wrap' },
+  fill: {
+    flex: 1,
+  },
+
+  messages: {
+    flex: 1,
+    minHeight: 0,
+  },
+
+  messagesContent: {
+    flexGrow: 1,
+  },
+
+  bubble: {
+    maxWidth: '85%',
+  },
+
+  prompts: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+
   composer: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     borderTopWidth: StyleSheet.hairlineWidth,
   },
-  field: { flex: 1 },
-  preview: { maxHeight: 200 },
-  actions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8 },
+
+  field: {
+    flex: 1,
+    minWidth: 0,
+  },
+
+  preview: {
+    maxHeight: 200,
+  },
+
+  actions: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 8,
+  },
 });

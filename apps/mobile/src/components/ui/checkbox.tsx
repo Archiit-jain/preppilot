@@ -6,18 +6,11 @@ import { ariaState } from './aria';
 export interface CheckboxProps extends Omit<PressableProps, 'onPress' | 'style'> {
   readonly checked: boolean;
   readonly onToggle: (next: boolean) => void;
-  /** What is being checked, e.g. "Decimal". Required — the control has no visible label. */
   readonly label: string;
   readonly color?: string;
   readonly size?: number;
 }
 
-/**
- * The circular topic checkbox from the tracker.
- *
- * The visual control is small, so the touch target is expanded with `hitSlop`
- * to meet the accessibility minimum without disturbing the row's layout.
- */
 export function Checkbox({
   checked,
   onToggle,
@@ -30,7 +23,12 @@ export function Checkbox({
   const theme = useTheme();
   const boxSize = size ?? theme.progressMetrics.checkSize;
   const accent = color ?? theme.colors.accent;
+
+  // The visible checkbox stays compact, but the interactive area is expanded
+  // to the application's minimum comfortable touch target.
   const slop = Math.max(0, (theme.minTouchTarget - boxSize) / 2);
+
+  const tickColor = theme.mode === 'light' ? theme.colors.textPrimary : theme.colors.textOnAccent;
 
   return (
     <Pressable
@@ -54,21 +52,11 @@ export function Checkbox({
       ]}
       {...rest}
     >
-      {/*
-        The tick is always drawn; what changes is its weight and colour, and the
-        fill behind it. An empty circle says nothing about what tapping it does,
-        whereas a faint tick reads as one waiting to be turned on.
-        
-        Completion is still not signalled by colour alone (UI_UX_SPECIFICATION.md,
-        "Accessibility"): the filled disc, the heavier stroke and the contrast all
-        change together, so the two states stay apart in greyscale and with
-        impaired colour vision.
-      */}
       <View pointerEvents="none" testID={checked ? 'checkbox-tick' : 'checkbox-tick-empty'}>
         <Svg width={boxSize * 0.6} height={boxSize * 0.6} viewBox="0 0 24 24">
           <Path
             d="M20 6L9 17l-5-5"
-            stroke={checked ? theme.colors.textOnAccent : theme.colors.border}
+            stroke={checked ? tickColor : theme.colors.textMuted}
             strokeWidth={checked ? 3 : 2}
             strokeLinecap="round"
             strokeLinejoin="round"

@@ -19,6 +19,7 @@
     "packageJson": {
       "dependencies": [
         "npm:prettier@^3.4.2",
+        "npm:supabase@^2.116.0",
         "npm:typescript@^5.7.3"
       ]
     }

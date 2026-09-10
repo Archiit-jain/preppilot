@@ -5,19 +5,36 @@ import { ariaState } from './aria';
 
 export interface PlayButtonProps {
   readonly onPress: () => void;
-  /** What starting the timer will study, e.g. "Mathematics". */
   readonly label: string;
   readonly color?: string;
   readonly size?: number;
   readonly disabled?: boolean;
+  readonly variant?: 'filled' | 'outline';
 }
 
-/** The filled circular control that opens a timer for a subject, chapter or topic. */
-export function PlayButton({ onPress, label, color, size, disabled = false }: PlayButtonProps) {
+/**
+ * Circular timer/play control.
+ *
+ * The visible size is controlled by `size`, while `hitSlop` makes the actual
+ * touch target large enough for comfortable mobile interaction.
+ */
+export function PlayButton({
+  onPress,
+  label,
+  color,
+  size,
+  disabled = false,
+  variant = 'filled',
+}: PlayButtonProps) {
   const theme = useTheme();
   const diameter = size ?? 48;
   const accent = color ?? theme.colors.accent;
+
+  // Preserve the visual size but expand the interactive area to the
+  // application's minimum touch target.
   const slop = Math.max(0, (theme.minTouchTarget - diameter) / 2);
+
+  const filled = variant === 'filled';
 
   return (
     <Pressable
@@ -34,14 +51,15 @@ export function PlayButton({ onPress, label, color, size, disabled = false }: Pl
           width: diameter,
           height: diameter,
           borderRadius: diameter / 2,
-          backgroundColor: accent,
+          backgroundColor: filled ? accent : 'transparent',
+          borderColor: filled ? 'transparent' : accent,
+          borderWidth: filled ? 0 : 1.5,
           opacity: disabled ? 0.4 : pressed ? 0.8 : 1,
         },
       ]}
     >
       <Svg width={diameter * 0.4} height={diameter * 0.4} viewBox="0 0 24 24">
-        {/* Nudged right so the triangle looks optically centred in the circle. */}
-        <Path d="M8 5v14l11-7z" fill={theme.colors.textOnAccent} />
+        <Path d="M8 5v14l11-7z" fill={filled ? theme.colors.textOnAccent : accent} />
       </Svg>
     </Pressable>
   );

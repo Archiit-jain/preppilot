@@ -2,7 +2,7 @@ import { StyleSheet, View, useWindowDimensions, type ViewProps } from 'react-nat
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../theme/theme-context';
 import { OfflineBanner } from '../../features/network/components/offline-banner';
-import { DemoBanner } from './demo-banner';
+
 
 export interface ScreenProps extends ViewProps {
   /** Applies horizontal screen padding. Disable for edge-to-edge lists. */
@@ -37,8 +37,7 @@ export function Screen({ padded = true, style, children, ...rest }: ScreenProps)
       ]}
       {...rest}
     >
-      <DemoBanner />
-      <OfflineBanner />
+      
 
       <View
         testID="screen-content"

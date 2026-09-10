@@ -34,21 +34,15 @@ export interface TopicRowProps {
   readonly onEditSubtopicNote: (subtopicId: string, current: string | null) => void;
   readonly onSummariseSubtopic: (subtopicId: string) => void;
   readonly onTestMeSubtopic: (subtopicId: string) => void;
-  /** The sub-topic whose summary or questions are being fetched, if any. */
   readonly busySubtopicId?: string | null;
   readonly onEditNote: (topicId: string, current: string | null) => void;
   readonly onDeleteNote: (topicId: string) => void;
   readonly onDeleteSubtopicNote: (subtopicId: string) => void;
   readonly onSummarise: (topicId: string) => void;
   readonly onTestMe: (topicId: string) => void;
-  /** The topic whose summary or questions are being fetched, if any. */
   readonly busyTopicId?: string | null;
 }
 
-/**
- * The deepest level of the tracker: a checkbox, a name and its own full-or-empty
- * bar, matching the reference screenshots where a topic reads 100% or 0%.
- */
 export function TopicRow({
   topic,
   accent,
@@ -82,8 +76,6 @@ export function TopicRow({
   const hasSubtopics = topic.subtopics.length > 0;
   const complete = isTopicComplete(topic);
 
-  // A topic broken into parts shows how many of them are done; one that is not
-  // still reads as the reference does, full or empty.
   const progress = hasSubtopics
     ? calculateSubtopicsProgress(topic)
     : makeProgress(complete ? 1 : 0, 1);
@@ -96,8 +88,6 @@ export function TopicRow({
     { label: 'Test me on this', onPress: () => onTestMe(topic.id) },
     { label: 'Add sub-topic', onPress: () => onAddSubtopic(topic.id) },
     { label: hasNote ? 'Edit note' : 'Add note', onPress: () => onEditNote(topic.id, topic.note) },
-    // Only offered when there is a note: an action that does nothing is worse
-    // than one that is absent, because the student has to try it to find out.
     ...(hasNote
       ? [{ label: 'Delete note', destructive: true, onPress: () => onDeleteNote(topic.id) }]
       : []),
@@ -110,11 +100,13 @@ export function TopicRow({
     <View>
       <View style={[styles.row, { paddingVertical: theme.spacing.sm }]}>
         <View style={styles.details}>
-          <Text variant="body" numberOfLines={2}>
+          <Text variant="body" numberOfLines={2} style={styles.topicName}>
             {topic.name}
           </Text>
+
           <View style={[styles.meter, { marginTop: theme.spacing.xs, gap: theme.spacing.sm }]}>
             <ProgressBar progress={progress} color={accent} label={topic.name} style={styles.bar} />
+
             <Text variant="caption" tone="muted">
               {formatPercent(progress)}
             </Text>
@@ -125,7 +117,8 @@ export function TopicRow({
           <PlayButton
             label={topic.name}
             color={accent}
-            size={32}
+            size={36}
+            variant="outline"
             onPress={() =>
               onStartTimer({
                 subjectId,
@@ -144,7 +137,9 @@ export function TopicRow({
             onToggle={() => onToggle(topic.id)}
             label={topic.name}
             color={accent}
+            size={22}
           />
+
           <RowMenu actions={actions} label={topic.name} />
         </View>
       </View>
@@ -177,11 +172,6 @@ export function TopicRow({
         </Pressable>
       )}
 
-      {/*
-        Only offered once a topic has parts, or from its menu. A disclosure on
-        every topic would put a control on every row that does nothing for most
-        of them.
-      */}
       {hasSubtopics && (
         <Pressable
           accessibilityRole="button"
@@ -189,12 +179,15 @@ export function TopicRow({
           accessibilityState={{ expanded }}
           {...ariaState({ expanded })}
           onPress={() => onToggleExpanded(topic.id)}
+          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           style={styles.disclosure}
         >
           <Text variant="caption" tone="accent">
             {expanded
               ? 'Hide sub-topics'
-              : `Show ${topic.subtopics.length} sub-topic${topic.subtopics.length === 1 ? '' : 's'}`}
+              : `Show ${topic.subtopics.length} sub-topic${
+                  topic.subtopics.length === 1 ? '' : 's'
+                }`}
           </Text>
         </Pressable>
       )}
@@ -203,7 +196,10 @@ export function TopicRow({
         <View
           style={[
             styles.subtopics,
-            { borderLeftColor: theme.colors.border, marginLeft: theme.spacing.sm },
+            {
+              borderLeftColor: theme.colors.border,
+              marginLeft: theme.spacing.sm,
+            },
           ]}
         >
           {topic.subtopics.map((subtopic) => (
@@ -236,12 +232,48 @@ export function TopicRow({
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'center' },
-  note: { borderLeftWidth: 3 },
-  disclosure: { paddingVertical: 4 },
-  subtopics: { borderLeftWidth: 1, paddingLeft: 12 },
-  details: { flex: 1 },
-  meter: { flexDirection: 'row', alignItems: 'center' },
-  bar: { flex: 1 },
-  controls: { flexDirection: 'row', alignItems: 'center', marginLeft: 12 },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  details: {
+    flex: 1,
+    minWidth: 0,
+  },
+
+  topicName: {
+    flexShrink: 1,
+  },
+
+  meter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    minWidth: 0,
+  },
+
+  bar: {
+    flex: 1,
+    minWidth: 0,
+  },
+
+  controls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 12,
+    flexShrink: 0,
+  },
+
+  note: {
+    borderLeftWidth: 3,
+  },
+
+  disclosure: {
+    paddingVertical: 8,
+  },
+
+  subtopics: {
+    borderLeftWidth: 1,
+    paddingLeft: 12,
+  },
 });

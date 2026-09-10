@@ -18,17 +18,6 @@ export interface SubtopicRowProps {
   readonly busy?: boolean;
 }
 
-/**
- * The deepest level a student can add.
- *
- * Carries the same menu as a topic — rename, move, note, summarise, test —
- * because a sub-topic is the same kind of thing one level down, and a student
- * who has broken a topic into parts is working at this level. Offering less here
- * would push them back up to a level they deliberately moved past.
- *
- * Visually lighter than a topic: no progress bar, because a sub-topic is either
- * done or not and a bar would only ever read 0% or 100%.
- */
 export function SubtopicRow({
   subtopic,
   accent,
@@ -63,7 +52,15 @@ export function SubtopicRow({
 
   return (
     <View testID={`subtopic-${subtopic.id}`}>
-      <View style={[styles.row, { paddingVertical: theme.spacing.xs, gap: theme.spacing.sm }]}>
+      <View
+        style={[
+          styles.row,
+          {
+            paddingVertical: theme.spacing.xs,
+            gap: theme.spacing.sm,
+          },
+        ]}
+      >
         <Checkbox
           checked={subtopic.completed}
           onToggle={() => onToggle(subtopic.id)}
@@ -72,12 +69,7 @@ export function SubtopicRow({
           size={20}
         />
 
-        <Text
-          variant="small"
-          tone={subtopic.completed ? 'muted' : 'secondary'}
-          numberOfLines={2}
-          style={styles.name}
-        >
+        <Text variant="small" tone={subtopic.completed ? 'muted' : 'secondary'} style={styles.name}>
           {subtopic.name}
         </Text>
 
@@ -95,6 +87,7 @@ export function SubtopicRow({
           accessibilityRole="button"
           accessibilityLabel={`Edit note on ${subtopic.name}`}
           onPress={() => onEditNote(subtopic.id, subtopic.note)}
+          hitSlop={8}
           style={[
             styles.note,
             {
@@ -116,7 +109,19 @@ export function SubtopicRow({
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'center' },
-  name: { flex: 1 },
-  note: { borderLeftWidth: 3, marginLeft: 28 },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  name: {
+    flex: 1,
+    minWidth: 0,
+    flexShrink: 1,
+  },
+
+  note: {
+    borderLeftWidth: 3,
+    marginLeft: 28,
+  },
 });

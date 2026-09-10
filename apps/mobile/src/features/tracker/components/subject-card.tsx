@@ -102,19 +102,25 @@ export function SubjectCard({
           {...ariaState({ expanded })}
           accessibilityHint={expanded ? 'Hides the chapters' : 'Shows the chapters'}
           onPress={() => onToggleExpanded(subject.id)}
+          hitSlop={8}
           style={({ pressed }) => [
             styles.identity,
-            { minHeight: theme.minTouchTarget, opacity: pressed ? 0.7 : 1 },
+            {
+              minHeight: theme.minTouchTarget,
+              opacity: pressed ? 0.7 : 1,
+            },
           ]}
         >
-          <Text variant="bodyLarge" weight="semibold" numberOfLines={2}>
+          <Text variant="bodyLarge" weight="semibold" style={styles.subjectName}>
             {subject.name}
           </Text>
+
           {subject.description !== null && subject.description.length > 0 && (
-            <Text variant="small" tone="secondary" numberOfLines={1}>
+            <Text variant="small" tone="secondary" style={styles.description}>
               {subject.description}
             </Text>
           )}
+
           <Text variant="small" tone="muted">
             {expanded ? 'Hide Details' : 'See Details'}
           </Text>
@@ -123,7 +129,13 @@ export function SubjectCard({
         <PlayButton
           label={subject.name}
           color={accent}
-          onPress={() => onStartTimer({ subjectId: subject.id, subjectName: subject.name, accent })}
+          onPress={() =>
+            onStartTimer({
+              subjectId: subject.id,
+              subjectName: subject.name,
+              accent,
+            })
+          }
         />
 
         <RowMenu
@@ -152,6 +164,7 @@ export function SubjectCard({
             <Text variant="small" tone="secondary">
               {progress.completed} of {progress.total} topics
             </Text>
+
             <Text variant="small" tone={progress.isEmpty ? 'muted' : 'secondary'}>
               {formatPercent(progress, { precision: 1 })}
             </Text>
@@ -217,7 +230,29 @@ export function SubjectCard({
 }
 
 const styles = StyleSheet.create({
-  header: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  identity: { flex: 1, justifyContent: 'center' },
-  summary: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+
+  identity: {
+    flex: 1,
+    minWidth: 0,
+    justifyContent: 'center',
+  },
+
+  subjectName: {
+    flexShrink: 1,
+  },
+
+  description: {
+    flexShrink: 1,
+  },
+
+  summary: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 4,
+  },
 });

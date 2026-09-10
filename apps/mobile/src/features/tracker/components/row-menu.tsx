@@ -18,9 +18,8 @@ export interface RowMenuProps {
 /**
  * The per-row overflow menu.
  *
- * A modal rather than a popover: it needs to sit above the scrolling tracker,
- * and it gives the sheet a focus scope so a screen reader is not left navigating
- * the list behind it.
+ * The visible three-dot icon remains compact, while the trigger itself has
+ * a comfortable mobile touch target.
  */
 export function RowMenu({ actions, label }: RowMenuProps) {
   const theme = useTheme();
@@ -39,7 +38,14 @@ export function RowMenu({ actions, label }: RowMenuProps) {
         accessibilityHint="Opens actions for this item"
         hitSlop={12}
         onPress={() => setOpen(true)}
-        style={({ pressed }) => [styles.trigger, { opacity: pressed ? 0.6 : 1 }]}
+        style={({ pressed }) => [
+          styles.trigger,
+          {
+            minWidth: theme.minTouchTarget,
+            minHeight: theme.minTouchTarget,
+            opacity: pressed ? 0.6 : 1,
+          },
+        ]}
       >
         <Text variant="body" tone="muted" weight="bold">
           ⋮
@@ -78,6 +84,12 @@ export function RowMenu({ actions, label }: RowMenuProps) {
 }
 
 const styles = StyleSheet.create({
-  trigger: { paddingHorizontal: 6, minWidth: 24, alignItems: 'center' },
-  action: { justifyContent: 'center' },
+  trigger: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 6,
+  },
+  action: {
+    justifyContent: 'center',
+  },
 });
