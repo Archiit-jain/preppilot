@@ -3,7 +3,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../theme/theme-context';
 import { OfflineBanner } from '../../features/network/components/offline-banner';
 
-
 export interface ScreenProps extends ViewProps {
   /** Applies horizontal screen padding. Disable for edge-to-edge lists. */
   readonly padded?: boolean;
@@ -37,8 +36,6 @@ export function Screen({ padded = true, style, children, ...rest }: ScreenProps)
       ]}
       {...rest}
     >
-      
-
       <View
         testID="screen-content"
         style={[
