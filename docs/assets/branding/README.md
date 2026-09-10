@@ -1,36 +1,37 @@
 # Branding assets
 
-## `vidya-university-logo.png` — PLACEHOLDER, REPLACE THIS
+## `vidya-university-logo.png`
 
-**This is not the Vidya University logo.** It is a neutral labelled placeholder,
-generated because the real logo file was not available when the presentation was
-built.
+The **official Vidya University logo**, extracted from the university's own
+_Project Synopsis Format_ document (`word/media/image1.jpeg` inside that file).
 
-To use the real logo, **overwrite this file** with the official Vidya University
-logo, keeping the same filename:
+The source was a 195 × 80 JPEG on a white background. It has been upscaled 6×
+with Lanczos resampling and the white background keyed out to transparency, so
+it sits correctly on any slide or page colour. Final size 1155 × 443 px.
 
-```
-docs/assets/branding/vidya-university-logo.png
-```
+This is the file referenced by both deliverables:
 
-Then rebuild the presentation. Every slide references this one path, so no
-layout changes are needed.
+- **Every slide** of `docs/PrepPilot_First_Project_Presentation.pptx`, as the
+  university's presentation notice requires.
+- The title page of `docs/PrepPilot_Synopsis.docx`.
 
-**Requirements for the replacement:**
+If a higher-resolution original becomes available, replace this file, keeping
+the same filename and a similar aspect ratio (2.6 : 1), and rebuild.
 
-| Property   | Value                                                                   |
-| ---------- | ----------------------------------------------------------------------- |
-| Filename   | `vidya-university-logo.png` (exactly)                                   |
-| Format     | PNG with a transparent background                                       |
-| Shape      | Square, or close to it — it is placed in a 0.52 in square on each slide |
-| Resolution | At least 300 × 300 px; 600 × 600 px preferred                           |
+## `vidya-university-mark.png`
 
-The logo appears twice at different sizes: large on the title and closing
-slides, and small in the top-right corner of every content slide. A square,
-transparent-background PNG works at both.
+The 'V' device alone, cropped from the lockup. Not currently used — kept for
+tight placements where the full horizontal lockup will not fit legibly.
+
+## `preppilot-icon.png`
+
+PrepPilot's Android launcher icon, taken from
+`apps/mobile/assets/images/icon.png` with rounded corners applied. **This is the
+mark to use on light backgrounds**, because it carries its own dark ground.
 
 ## `preppilot-logo.png`
 
-PrepPilot's own mark, rendered from `apps/mobile/assets/logo.svg` — the same
-file that drives the in-app branding and the Android launcher icon. Regenerate
-it from the SVG rather than editing it here.
+The bare PrepPilot mark rendered from `apps/mobile/assets/logo.svg` — the same
+file that drives the in-app branding. Note its tick is **white**, so it
+disappears against a light background; use `preppilot-icon.png` there instead.
+Regenerate from the SVG rather than editing this file.
