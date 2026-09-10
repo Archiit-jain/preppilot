@@ -79,10 +79,24 @@ def _tf(shape, wrap=True):
     return tf
 
 
+MIN_EXTENT = 0.06
+"""Smallest width or height any shape may have, in inches.
+
+A zero or negative extent is invalid OOXML: PowerPoint refuses to open the file
+and offers to repair it. Derived sizes — a card's body box is its height less
+the room taken by the title — can go negative when a caller passes a short box,
+so every extent is clamped here rather than trusted.
+"""
+
+
+def _extent(value):
+    return Inches(max(value, MIN_EXTENT))
+
+
 def text(slide, x, y, w, h, s, size=16, color=INK, bold=False, font=F_BODY,
          align=PP_ALIGN.LEFT, italic=False, spacing=1.0, anchor=MSO_ANCHOR.TOP,
          caps=False):
-    box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    box = slide.shapes.add_textbox(Inches(x), Inches(y), _extent(w), _extent(h))
     tf = _tf(box)
     tf.vertical_anchor = anchor
     p = tf.paragraphs[0]
@@ -101,7 +115,7 @@ def text(slide, x, y, w, h, s, size=16, color=INK, bold=False, font=F_BODY,
 def para_block(slide, x, y, w, h, lines, size=15, color=INK, font=F_BODY,
                spacing=1.25, space_after=6, bullet_color=None):
     """lines: list of (text, bold, color) or plain strings."""
-    box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    box = slide.shapes.add_textbox(Inches(x), Inches(y), _extent(w), _extent(h))
     tf = _tf(box)
     for i, item in enumerate(lines):
         if isinstance(item, str):
@@ -163,7 +177,7 @@ def bullets(slide, x, y, w, h, items, size=15, color=INK, dot=ACCENT,
 def rect(slide, x, y, w, h, fill=SURFACE, line=BORDER, radius=None, lw=1.0,
          dash=None):
     shape_type = MSO_SHAPE.ROUNDED_RECTANGLE if radius is not False else MSO_SHAPE.RECTANGLE
-    s = slide.shapes.add_shape(shape_type, Inches(x), Inches(y), Inches(w), Inches(h))
+    s = slide.shapes.add_shape(shape_type, Inches(x), Inches(y), _extent(w), _extent(h))
     if radius is not False:
         try:
             s.adjustments[0] = radius if radius else 0.08
@@ -209,7 +223,7 @@ def card(slide, x, y, w, h, title=None, body=None, accent=ACCENT,
 
 def pill(slide, x, y, w, h, label, color=ACCENT, text_color=None, size=9.5):
     s = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y),
-                               Inches(w), Inches(h))
+                               _extent(w), _extent(h))
     s.adjustments[0] = 0.5
     s.fill.solid()
     s.fill.fore_color.rgb = color
@@ -263,7 +277,7 @@ def arrow(slide, x, y, w, h, color=MUTED, direction="down"):
         "updown": MSO_SHAPE.UP_DOWN_ARROW,
         "leftright": MSO_SHAPE.LEFT_RIGHT_ARROW,
     }[direction]
-    s = slide.shapes.add_shape(shape, Inches(x), Inches(y), Inches(w), Inches(h))
+    s = slide.shapes.add_shape(shape, Inches(x), Inches(y), _extent(w), _extent(h))
     s.fill.solid()
     s.fill.fore_color.rgb = color
     s.line.fill.background()
@@ -1227,7 +1241,7 @@ secrets = [
     ("Gemini API key", "Server-side only, read from a Supabase secret.", RED),
 ]
 for i, (t, b, c) in enumerate(secrets):
-    card(s, x2, y2 + i * 0.82, CONTENT_W - (x2 - M), 0.72, t, [b], accent=c,
+    card(s, x2, y2 + i * 0.86, CONTENT_W - (x2 - M), 0.82, t, [b], accent=c,
          title_size=11.5, body_size=9.5)
 
 y3 = y2 + 2.62
@@ -1487,7 +1501,36 @@ notes(s, "To conclude. Three technical contributions: a genuinely offline-first 
 
 # --------------------------------------------------------------------- save
 
+def validate(presentation):
+    """Refuses to save a deck PowerPoint would offer to repair.
+
+    A non-positive extent is invalid OOXML and makes PowerPoint reject the whole
+    file, so it is checked here rather than discovered on someone's laptop.
+    """
+    faults = []
+    for index, slide in enumerate(presentation.slides, 1):
+        for shape in slide.shapes:
+            if shape.width is None or shape.height is None:
+                continue
+            if shape.width <= 0 or shape.height <= 0:
+                label = shape.text[:40] if shape.has_text_frame else str(shape.shape_type)
+                faults.append(
+                    f"slide {index}: {shape.width}x{shape.height} EMU — {label!r}"
+                )
+            if shape.left < 0 or shape.top < 0:
+                faults.append(f"slide {index}: negative offset {shape.left},{shape.top}")
+    return faults
+
+
+problems = validate(prs)
+if problems:
+    raise SystemExit(
+        "Refusing to save — these shapes would make PowerPoint repair the file:\n  "
+        + "\n  ".join(problems)
+    )
+
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 prs.save(OUT)
 print(f"Saved: {OUT}")
 print(f"Slides: {len(prs.slides._sldIdLst)}")
+print("Validation: no zero or negative shape extents")
