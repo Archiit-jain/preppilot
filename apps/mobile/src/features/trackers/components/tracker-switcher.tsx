@@ -75,20 +75,24 @@ export function TrackerSwitcher() {
             const current = tracker.id === activeId;
 
             return (
-              <PressableScale
-                key={tracker.id}
-                accessibilityRole="button"
-                accessibilityLabel={tracker.name}
-                accessibilityState={{ selected: current }}
-                {...ariaState({ selected: current })}
-                testID={`tracker-${tracker.id}`}
-                onPress={() => {
-                  void select(tracker.id);
-                  setOpen(false);
-                }}
-              >
-                <Card>
-                  <View style={styles.row}>
+              // The course and its Remove button sit side by side, not one
+              // inside the other: on web both render as real <button>s, and a
+              // button inside a button is invalid HTML that React warns about
+              // and a screen reader announces as one muddled control.
+              <Card key={tracker.id} padded={false}>
+                <View style={styles.row}>
+                  <PressableScale
+                    accessibilityRole="button"
+                    accessibilityLabel={tracker.name}
+                    accessibilityState={{ selected: current }}
+                    {...ariaState({ selected: current })}
+                    testID={`tracker-${tracker.id}`}
+                    onPress={() => {
+                      void select(tracker.id);
+                      setOpen(false);
+                    }}
+                    style={[styles.choose, { padding: theme.spacing.base }]}
+                  >
                     <View style={styles.rowText}>
                       <Text variant="bodyLarge" weight="semibold" numberOfLines={1}>
                         {tracker.name}
@@ -104,12 +108,14 @@ export function TrackerSwitcher() {
                         Showing
                       </Text>
                     )}
-                    {/*
-                      Hidden on the last course: removing it would leave nowhere
-                      to put a subject, and a button that always refuses is
-                      worse than one that is not there.
-                    */}
-                    {trackers.length > 1 && (
+                  </PressableScale>
+                  {/*
+                    Hidden on the last course: removing it would leave nowhere
+                    to put a subject, and a button that always refuses is worse
+                    than one that is not there.
+                  */}
+                  {trackers.length > 1 && (
+                    <View style={{ paddingRight: theme.spacing.sm }}>
                       <Button
                         label="Remove"
                         size="small"
@@ -121,10 +127,10 @@ export function TrackerSwitcher() {
                           setRemoving(tracker);
                         }}
                       />
-                    )}
-                  </View>
-                </Card>
-              </PressableScale>
+                    </View>
+                  )}
+                </View>
+              </Card>
             );
           })}
         </View>
@@ -180,6 +186,7 @@ export function TrackerSwitcher() {
 }
 
 const styles = StyleSheet.create({
+  choose: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8 },
   confirm: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8 },
   pill: { flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start' },
   row: { flexDirection: 'row', alignItems: 'center', gap: 8 },

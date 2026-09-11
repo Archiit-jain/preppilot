@@ -1,4 +1,4 @@
-import { act, fireEvent, screen, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, screen, waitFor, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import {
   createTestClock,
@@ -162,6 +162,24 @@ describe('removing a course', () => {
     const [only] = useTrackersStore.getState().trackers;
 
     expect(screen.queryByTestId(`remove-tracker-${only?.id}`)).toBeNull();
+  });
+
+  /**
+   * On web every pressable is a real <button>, and a button inside a button is
+   * invalid HTML: React flags it and a screen reader reads the row as one
+   * muddled control. Remove sits beside the course, never inside it.
+   */
+  it('keeps the Remove button outside the button that switches course', async () => {
+    await openSwitcher('NEET PG', 'UPSC CSE');
+
+    for (const tracker of useTrackersStore.getState().trackers) {
+      expect(screen.getByTestId(`remove-tracker-${tracker.id}`)).toBeOnTheScreen();
+      expect(
+        within(screen.getByTestId(`tracker-${tracker.id}`)).queryByTestId(
+          `remove-tracker-${tracker.id}`,
+        ),
+      ).toBeNull();
+    }
   });
 
   it('asks before destroying it, and names it', async () => {
