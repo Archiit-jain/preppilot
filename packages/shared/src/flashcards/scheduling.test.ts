@@ -294,7 +294,6 @@ describe('scheduling a card with a chosen delay', () => {
   });
 
   it.each([
-    ['5m' as const, 5 * 60_000],
     ['1d' as const, 24 * 60 * 60_000],
     ['2d' as const, 2 * 24 * 60 * 60_000],
     ['4d' as const, 4 * 24 * 60 * 60_000],
@@ -302,33 +301,15 @@ describe('scheduling a card with a chosen delay', () => {
     expect(scheduleWithDelay(card(), key, NOW).dueAt).toBe(NOW + ms);
   });
 
-  it('offers exactly the four the student was promised', () => {
-    expect(REVIEW_DELAYS.map((option) => option.key)).toEqual(['5m', '1d', '2d', '4d']);
+  it('offers exactly the three the student was promised', () => {
+    expect(REVIEW_DELAYS.map((option) => option.key)).toEqual(['1d', '2d', '4d']);
   });
 
-  /** The shortest delay is the student saying they did not know it. */
-  it('counts the shortest delay as a lapse and resets the streak', () => {
-    const after = scheduleWithDelay(card({ repetitions: 4, lapses: 1 }), '5m', NOW);
-
-    expect(after.repetitions).toBe(0);
-    expect(after.lapses).toBe(2);
-  });
-
-  it('lowers the ease when the card was forgotten', () => {
-    expect(scheduleWithDelay(card({ easeFactor: 2.5 }), '5m', NOW).easeFactor).toBeCloseTo(2.3);
-  });
-
-  it('never drops the ease below the floor', () => {
-    expect(scheduleWithDelay(card({ easeFactor: MINIMUM_EASE }), '5m', NOW).easeFactor).toBe(
-      MINIMUM_EASE,
-    );
-  });
-
-  it('counts a longer delay as another successful repetition', () => {
-    const after = scheduleWithDelay(card({ repetitions: 3 }), '2d', NOW);
+  it('counts every delay as another successful repetition', () => {
+    const after = scheduleWithDelay(card({ repetitions: 3, lapses: 1 }), '1d', NOW);
 
     expect(after.repetitions).toBe(4);
-    expect(after.lapses).toBe(0);
+    expect(after.lapses).toBe(1);
   });
 
   it('leaves the ease alone when the card was remembered', () => {

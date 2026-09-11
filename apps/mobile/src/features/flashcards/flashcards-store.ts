@@ -166,13 +166,8 @@ export const useFlashcardsStore = create<FlashcardsState & FlashcardsActions>((s
 
     // Advance the queue first: the student has answered, and the next card
     // should not wait on a database write.
-    //
-    // The five-minute option puts the card back in this sitting rather than
-    // ending it — a card the student has just failed is the one worth seeing
-    // again today.
-    const requeue = delay === '5m';
     set({
-      queue: requeue ? [...rest, { ...current, ...schedule }] : rest,
+      queue: rest,
       revealed: false,
       reviewedCount: get().reviewedCount + 1,
     });

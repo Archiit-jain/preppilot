@@ -115,27 +115,6 @@ describe('rating a card', () => {
     expect(cards().cards[0]!.dueAt).toBe(NOW + 4 * DAY);
   });
 
-  /** The card you just failed is the one you most need to see again today. */
-  it('brings a five-minute card back in the same sitting', async () => {
-    await seed();
-
-    await cards().rate('5m', NOW);
-
-    expect(cards().queue).toHaveLength(1);
-    expect(cards().cards[0]!.dueAt).toBe(NOW + 5 * 60_000);
-    expect(cards().cards[0]!.lapses).toBe(1);
-  });
-
-  it('puts the failed card behind the others rather than repeating it at once', async () => {
-    await repositories.flashcards.create({ userId: USER, front: 'First', back: 'a' });
-    await repositories.flashcards.create({ userId: USER, front: 'Second', back: 'b' });
-    await load();
-
-    await cards().rate('5m', NOW);
-
-    expect(cards().queue.map((card) => card.front)).toEqual(['Second', 'First']);
-  });
-
   it('hides the answer again when the next card comes up', async () => {
     await seed();
     cards().reveal();
@@ -211,7 +190,7 @@ describe('the screen', () => {
     expect(screen.getByTestId('card-back')).toBeOnTheScreen();
   });
 
-  it('offers exactly the four delays, labelled with what they do', async () => {
+  it('offers exactly the three delays, labelled with what they do', async () => {
     await repositories.flashcards.create({ userId: USER, front: 'Ohm', back: 'V = IR' });
     await render();
     await startStudying();
@@ -220,9 +199,10 @@ describe('the screen', () => {
       fireEvent.press(screen.getByTestId('show-answer'));
     });
 
-    for (const key of ['5m', '1d', '2d', '4d']) {
+    for (const key of ['1d', '2d', '4d']) {
       expect(screen.getByTestId(`review-${key}`)).toBeOnTheScreen();
     }
+    expect(screen.queryByTestId('review-5m')).toBeNull();
   });
 
   it('adds a card from the sheet', async () => {

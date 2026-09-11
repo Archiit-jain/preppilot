@@ -181,16 +181,15 @@ export function dueCards<T extends { readonly dueAt: number }>(
 // ---------------------------------------------------------------------------
 
 /**
- * The four delays a student picks from after seeing the answer.
+ * The three delays a student picks from after seeing the answer.
  *
  * Fixed rather than computed. SM-2 grows an interval as a card is remembered,
  * which is better spacing but means the button labels change every review — the
  * student cannot learn what "1d" does because on a mature card it is not a day.
- * These four say exactly what they do, which is what makes the choice a
+ * These three say exactly what they do, which is what makes the choice a
  * judgement about the card rather than a guess about the algorithm.
  */
 export const REVIEW_DELAYS = [
-  { key: '5m', label: 'now', description: 'in 5 minutes', ms: 5 * 60_000 },
   { key: '1d', label: '1d', description: 'in 1 day', ms: 24 * 60 * 60_000 },
   { key: '2d', label: '2d', description: 'in 2 days', ms: 2 * 24 * 60 * 60_000 },
   { key: '4d', label: '4d', description: 'in 4 days', ms: 4 * 24 * 60 * 60_000 },
@@ -201,10 +200,9 @@ export type ReviewDelayKey = (typeof REVIEW_DELAYS)[number]['key'];
 /**
  * Applies a chosen delay to a card.
  *
- * The SM-2 bookkeeping is kept up to date underneath — repetitions, lapses and
- * ease still move — so the record of how a card has gone is not lost, and a
- * future change of scheduler has something to work from. Only `dueAt` comes
- * from the student's choice.
+ * Every delay counts as another successful repetition, so the record of how a
+ * card has gone is not lost and a future change of scheduler has something to
+ * work from. Only `dueAt` comes from the student's choice.
  */
 export function scheduleWithDelay(
   schedule: CardSchedule,
@@ -214,15 +212,11 @@ export function scheduleWithDelay(
   const delay = REVIEW_DELAYS.find((option) => option.key === key);
   if (delay === undefined) return schedule;
 
-  // Choosing the shortest delay is the student saying they did not know it.
-  const forgotten = key === '5m';
-
   return {
+    ...schedule,
     dueAt: now + delay.ms,
     intervalDays: delay.ms / (24 * 60 * 60_000),
-    repetitions: forgotten ? 0 : schedule.repetitions + 1,
-    lapses: forgotten ? schedule.lapses + 1 : schedule.lapses,
-    easeFactor: forgotten ? Math.max(MINIMUM_EASE, schedule.easeFactor - 0.2) : schedule.easeFactor,
+    repetitions: schedule.repetitions + 1,
   };
 }
 

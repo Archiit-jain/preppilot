@@ -217,10 +217,7 @@ export function FlashcardsScreen() {
                           borderRadius: theme.radius.md,
                           paddingVertical: theme.spacing.sm,
                           minHeight: theme.minTouchTarget,
-                          backgroundColor:
-                            option.key === '5m'
-                              ? theme.colors.surfaceElevated
-                              : theme.colors.surface,
+                          backgroundColor: theme.colors.surface,
                         },
                       ]}
                     >
