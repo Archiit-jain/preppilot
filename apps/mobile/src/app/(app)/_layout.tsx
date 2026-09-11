@@ -130,14 +130,22 @@ export default function AppLayout() {
           backgroundColor: theme.colors.surface,
           borderTopColor: theme.colors.border,
           borderTopWidth: 1,
+          // The height has to hold everything stacked inside it: 6 + 8 of our
+          // padding, the 1px border, React Navigation's 5px above and below each
+          // tab, the 28px icon row and the 14px label line — 67 in all. At 62 the
+          // label was left 9px and its lower half was cut off.
+          //
           // Without labels the bar does not need the room for them, but it still
           // needs a comfortable touch target.
-          height: showLabels ? 62 : 56,
+          height: showLabels ? 67 : 56,
           paddingTop: showLabels ? 6 : 10,
           paddingBottom: 8,
         },
         tabBarShowLabel: showLabels,
-        tabBarLabelStyle: { fontSize: 11, fontFamily: 'Inter_500Medium' },
+        // The line height is pinned rather than left to the font's "normal",
+        // which differs between Inter builds and platforms and is what the bar's
+        // height above is measured against.
+        tabBarLabelStyle: { fontSize: 11, lineHeight: 14, fontFamily: 'Inter_500Medium' },
         tabBarItemStyle: { paddingHorizontal: 2 },
         sceneStyle: { backgroundColor: theme.colors.background },
       }}
