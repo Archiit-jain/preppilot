@@ -190,7 +190,7 @@ export function dueCards<T extends { readonly dueAt: number }>(
  * judgement about the card rather than a guess about the algorithm.
  */
 export const REVIEW_DELAYS = [
-  { key: '5m', label: '5m', description: 'in 5 minutes', ms: 5 * 60_000 },
+  { key: '5m', label: 'now', description: 'in 5 minutes', ms: 5 * 60_000 },
   { key: '1d', label: '1d', description: 'in 1 day', ms: 24 * 60 * 60_000 },
   { key: '2d', label: '2d', description: 'in 2 days', ms: 2 * 24 * 60 * 60_000 },
   { key: '4d', label: '4d', description: 'in 4 days', ms: 4 * 24 * 60 * 60_000 },

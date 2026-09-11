@@ -8,7 +8,6 @@ export { Logo, type LogoProps } from './logo';
 export { NamePrompt, type NamePromptProps } from './name-prompt';
 export { PressableScale, type PressableScaleProps } from './pressable-scale';
 export { Skeleton, SkeletonCard, type SkeletonProps } from './skeleton';
-export { DemoBanner } from './demo-banner';
 export { Checkbox, type CheckboxProps } from './checkbox';
 export { PlayButton, type PlayButtonProps } from './play-button';
 export { ProgressBar, type ProgressBarProps } from './progress-bar';
