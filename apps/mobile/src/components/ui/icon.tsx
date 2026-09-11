@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 import { useTheme } from '../../theme/theme-context';
 
@@ -57,8 +58,12 @@ export function Icon({ name, size = 22, color, label, testID }: IconProps) {
       height={size}
       viewBox="0 0 24 24"
       accessibilityRole={label === undefined ? 'none' : 'image'}
+      // react-native-svg hands unknown props straight to the DOM on web, where
+      // `accessibilityElementsHidden` means nothing and React warns about it.
       {...(label === undefined
-        ? { accessibilityElementsHidden: true }
+        ? Platform.OS === 'web'
+          ? { 'aria-hidden': true }
+          : { accessibilityElementsHidden: true }
         : { accessibilityLabel: label })}
     >
       {name === 'tracker' && (
