@@ -226,6 +226,33 @@ describe('removing rows', () => {
     const topics = await repositories.topics.listByChapter(chapter!.id);
     expect(topics.map((row) => row.name)).toEqual(['Preamble']);
   });
+
+  it('leaves a removed chapter out of the course', async () => {
+    renderWithTheme(<CourseBuilderScreen />);
+    fillSmallestCourse();
+    await press('subject-0-add-chapter');
+    type('subject-0-chapter-1-name', 'Discarded');
+    type('subject-0-chapter-1-topic-0', 'Gone');
+    await press('subject-0-chapter-1-remove');
+    await press('create-course');
+
+    const created = useTrackersStore.getState().activeId!;
+    const [subject] = await repositories.subjects.listByUser(USER, created);
+    const chapters = await repositories.chapters.listBySubject(subject!.id);
+    expect(chapters.map((row) => row.name)).toEqual(['Constitution']);
+  });
+
+  it('leaves a removed subject out of the course', async () => {
+    renderWithTheme(<CourseBuilderScreen />);
+    fillSmallestCourse();
+    await press('add-subject-row');
+    type('subject-1-name', 'Discarded');
+    await press('subject-1-remove');
+    await press('create-course');
+
+    const created = useTrackersStore.getState().activeId!;
+    expect(await subjectNames(created)).toEqual(['Polity']);
+  });
 });
 
 describe('leaving without creating', () => {
@@ -252,6 +279,18 @@ describe('leaving without creating', () => {
     await press('builder-cancel');
     await act(async () => {
       fireEvent.press(getInModal('Keep editing'));
+    });
+
+    expect(screen.getByTestId('course-name').props.value).toBe('UPSC Prelims');
+    expect(router.push).not.toHaveBeenCalled();
+  });
+
+  it('keeps everything when the question is dismissed by tapping outside it', async () => {
+    renderWithTheme(<CourseBuilderScreen />);
+    type('course-name', 'UPSC Prelims');
+    await press('builder-cancel');
+    await act(async () => {
+      fireEvent.press(getInModal('Dismiss Discard this course'));
     });
 
     expect(screen.getByTestId('course-name').props.value).toBe('UPSC Prelims');
