@@ -15,7 +15,6 @@ import {
   Button,
   Card,
   EmptyState,
-  NamePrompt,
   Screen,
   Sheet,
   Text,
@@ -51,7 +50,6 @@ export function TemplatesScreen() {
    * Null until it has been counted.
    */
   const [existing, setExisting] = useState<{ subjects: number; notes: number } | null>(null);
-  const [naming, setNaming] = useState(false);
   const [query, setQuery] = useState('');
   // "Search from templates" arrives here wanting the keyboard up; "Import a
   // template" arrives wanting the list. Same screen, two intents.
@@ -112,34 +110,6 @@ export function TemplatesScreen() {
       // A missing count must not stop the preview opening; the copy falls back
       // to the general warning below.
       setExisting(null);
-    }
-  };
-
-  /**
-   * Creates a custom syllabus.
-   *
-   * This remains separate from template importing because "Build your own"
-   * is intended to start a new syllabus manually.
-   */
-  const startFromScratch = async (name: string) => {
-    if (userId === null) return;
-
-    setImporting(true);
-    setError(null);
-
-    try {
-      await getRepositories().subjects.create({
-        userId,
-        name,
-        trackerId: useTrackersStore.getState().activeId,
-      });
-
-      setNaming(false);
-      router.push('/');
-    } catch {
-      setError('We could not create that subject. Try again.');
-    } finally {
-      setImporting(false);
     }
   };
 
@@ -243,19 +213,21 @@ export function TemplatesScreen() {
           </Text>
 
           <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
-            Start with a subject of your own and add chapters and topics as you go. Nothing here has
-            to come from a template.
+            Start a new course of your own: name it, then add its subjects, chapters and topics.
+            Nothing here has to come from a template, and the course you are on is left as it is.
           </Text>
 
           <View style={{ marginTop: theme.spacing.base }}>
+            {/*
+              A new course, not a subject in the one showing. It used to write a
+              subject straight into the active course, which made it a second
+              "Add subject" rather than a way to start something new.
+            */}
             <Button
-              label="Start from scratch"
+              label="Build from scratch"
               variant="secondary"
-              testID="start-from-scratch"
-              onPress={() => {
-                setError(null);
-                setNaming(true);
-              }}
+              testID="build-from-scratch"
+              onPress={() => router.push('/build-course')}
             />
           </View>
         </Card>
@@ -272,19 +244,6 @@ export function TemplatesScreen() {
           </Text>
         </Card>
       </ScrollView>
-
-      <NamePrompt
-        visible={naming}
-        title="What are you studying?"
-        placeholder="e.g. Organic Chemistry"
-        confirmLabel="Create"
-        error={naming ? error : null}
-        onCancel={() => {
-          setNaming(false);
-          setError(null);
-        }}
-        onConfirm={(name) => void startFromScratch(name)}
-      />
 
       <Sheet
         visible={previewing !== null}

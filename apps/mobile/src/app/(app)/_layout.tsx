@@ -63,6 +63,7 @@ export const TABS = [
 /** Reachable, but not from the tab bar. */
 const OFF_BAR = [
   'templates',
+  'build-course',
   'assistant',
   'settings',
   'reminders',

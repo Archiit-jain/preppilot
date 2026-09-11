@@ -388,65 +388,34 @@ describe('importing a real syllabus', () => {
  * student is studying something a template covers.
  */
 describe('building your own', () => {
-  const startNaming = async () => {
+  /**
+   * "Build from scratch" starts a NEW course, so it opens the course builder.
+   * It used to write a subject straight into the course already showing, which
+   * made it a second "Add subject" rather than a way to start something new.
+   * The builder's own tests cover what it creates.
+   */
+  it('opens the course builder', async () => {
+    await useTrackersStore.getState().load(USER, repositories);
     renderWithTheme(<TemplatesScreen />);
+
     await act(async () => {
-      fireEvent.press(screen.getByTestId('start-from-scratch'));
+      fireEvent.press(screen.getByTestId('build-from-scratch'));
     });
-  };
 
-  const typeName = async (name: string) => {
-    // By label, not by empty value: the library now has a search box, and both
-    // fields are empty when the prompt opens.
-    fireEvent.changeText(screen.getByLabelText('Name'), name);
-    await act(async () => {
-      fireEvent.press(getInModal('Create'));
-    });
-  };
-
-  it('creates the named subject and opens the tracker', async () => {
-    // Handing over with the first subject already made, rather than opening an
-    // empty syllabus: a student who chose "build my own" has something in mind.
-    await startNaming();
-    await typeName('Organic Chemistry');
-
-    const subjects = await repositories.subjects.listByUser(USER);
-    expect(subjects.map((row) => row.name)).toEqual(['Organic Chemistry']);
-    expect(router.push).toHaveBeenCalledWith('/');
+    expect(router.push).toHaveBeenCalledWith('/build-course');
   });
 
-  it('refuses an empty name without closing', async () => {
-    await startNaming();
+  it('writes nothing just by being pressed', async () => {
+    await useTrackersStore.getState().load(USER, repositories);
+    const coursesBefore = useTrackersStore.getState().trackers.length;
+    renderWithTheme(<TemplatesScreen />);
+
     await act(async () => {
-      fireEvent.press(getInModal('Create'));
+      fireEvent.press(screen.getByTestId('build-from-scratch'));
     });
 
-    expect(screen.getByText('Enter a name.')).toBeOnTheScreen();
     expect(await repositories.subjects.listByUser(USER)).toEqual([]);
-    expect(router.push).not.toHaveBeenCalled();
-  });
-
-  it('keeps what was typed when the write fails', async () => {
-    // Closing the sheet on a failure would throw away their input and leave
-    // them with no idea whether it worked.
-    jest.spyOn(repositories.subjects, 'create').mockRejectedValue(new Error('SQLITE_BUSY'));
-
-    await startNaming();
-    await typeName('Organic Chemistry');
-
-    expect(screen.getByText('We could not create that subject. Try again.')).toBeOnTheScreen();
-    expect(screen.getByDisplayValue('Organic Chemistry')).toBeOnTheScreen();
-    expect(router.push).not.toHaveBeenCalled();
-  });
-
-  it('can be abandoned', async () => {
-    await startNaming();
-    await act(async () => {
-      fireEvent.press(getInModal('Cancel'));
-    });
-
-    expect(screen.queryByText('What are you studying?')).toBeNull();
-    expect(await repositories.subjects.listByUser(USER)).toEqual([]);
+    expect(await repositories.trackers.listByUser(USER)).toHaveLength(coursesBefore);
   });
 });
 
