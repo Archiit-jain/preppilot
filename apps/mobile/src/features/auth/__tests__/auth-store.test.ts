@@ -6,6 +6,9 @@ import { signInWithGoogle } from '../google';
 
 jest.mock('../../../lib/supabase');
 jest.mock('../google', () => ({ signInWithGoogle: jest.fn() }));
+jest.mock('expo-linking', () => ({
+  createURL: (path: string) => `preppilot://${path.replace(/^\//, '')}`,
+}));
 
 // Guest state outlives a launch, so the test needs storage that does too —
 // expo-secure-store has no implementation under Jest.
@@ -28,6 +31,8 @@ const auth = {
   signInWithOtp: jest.fn(),
   verifyOtp: jest.fn(),
   signOut: jest.fn(),
+  exchangeCodeForSession: jest.fn(),
+  setSession: jest.fn(),
 };
 
 const unsubscribe = jest.fn();
@@ -193,8 +198,24 @@ describe('signUpWithPassword', () => {
     expect(auth.signUp).toHaveBeenCalledWith({
       email: 'ada@example.com',
       password: 'passw0rd',
-      options: { data: { display_name: 'Ada' } },
+      options: {
+        data: { display_name: 'Ada' },
+        emailRedirectTo: 'preppilot://auth/callback',
+      },
     });
+  });
+
+  /**
+   * Without a return address Supabase sends the confirmation email to the
+   * project's Site URL — by default a web address that does not exist on a
+   * phone, which left every link dead-ending in a browser error.
+   */
+  it('tells Supabase to send the confirmation link back into the app', async () => {
+    auth.signUp.mockResolvedValue({ error: null });
+
+    await state().signUpWithPassword('ada@example.com', 'passw0rd', 'Ada');
+
+    expect(auth.signUp.mock.calls[0]![0].options.emailRedirectTo).toBe('preppilot://auth/callback');
   });
 
   it('reports an existing account in student-facing terms', async () => {
@@ -435,5 +456,56 @@ describe('using the app without an account', () => {
 
     expect(useAuthStore.getState().status).toBe('signedOut');
     expect(useAuthStore.getState().isGuest).toBe(false);
+  });
+});
+
+/**
+ * The other half of verification: the link has to be finished when it opens the
+ * app, or confirming an account leaves the student still signed out.
+ */
+describe('completeAuthLink', () => {
+  it('exchanges the code a confirmation link carries', async () => {
+    auth.exchangeCodeForSession.mockResolvedValue({ error: null });
+
+    const outcome = await state().completeAuthLink('preppilot://auth/callback?code=abc123');
+
+    expect(auth.exchangeCodeForSession).toHaveBeenCalledWith('abc123');
+    expect(outcome).toBe('signedIn');
+    expect(state().error).toBeNull();
+  });
+
+  it('leaves a link that is nothing to do with signing in alone', async () => {
+    const outcome = await state().completeAuthLink('preppilot://timer?subjectId=maths');
+
+    expect(outcome).toBe('ignored');
+    expect(auth.exchangeCodeForSession).not.toHaveBeenCalled();
+  });
+
+  it('says plainly when a link has expired', async () => {
+    const outcome = await state().completeAuthLink(
+      'preppilot://auth/callback#error=access_denied&error_code=otp_expired',
+    );
+
+    expect(outcome).toBe('failed');
+    expect(state().error).toBe(
+      'That confirmation link has expired. Sign up again to get a new one.',
+    );
+  });
+
+  it('reports a refused exchange rather than leaving the student waiting', async () => {
+    auth.exchangeCodeForSession.mockResolvedValue({ error: { message: 'bad code' } });
+
+    const outcome = await state().completeAuthLink('preppilot://auth/callback?code=stale');
+
+    expect(outcome).toBe('failed');
+    expect(state().error).toBe('That confirmation link did not work. Try signing in.');
+  });
+
+  it('is not busy once it has finished', async () => {
+    auth.exchangeCodeForSession.mockResolvedValue({ error: null });
+
+    await state().completeAuthLink('preppilot://auth/callback?code=abc123');
+
+    expect(state().busy).toBe(false);
   });
 });

@@ -1,9 +1,11 @@
 import type { Session, User } from '@supabase/supabase-js';
+import * as Linking from 'expo-linking';
 import { create } from 'zustand';
 import { DEMO_USER_ID, isDemoMode } from '../../config/env';
 import { getSupabase } from '../../lib/supabase';
 import { secureStorage } from '../../lib/secure-storage';
 import { toStudentFacingMessage } from './auth-errors';
+import { completeAuthLink, parseAuthLink } from './auth-link';
 import { signInWithGoogle } from './google';
 
 /**
@@ -37,6 +39,8 @@ export interface AuthActions {
   signInWithPassword: (email: string, password: string) => Promise<boolean>;
   signUpWithPassword: (email: string, password: string, displayName: string) => Promise<boolean>;
   signInWithGoogle: () => Promise<boolean>;
+  /** Finishes a confirmation link the student tapped in their email. */
+  completeAuthLink: (url: string) => Promise<'signedIn' | 'ignored' | 'failed'>;
   /** Starts using the app with no account. Everything stays on this device. */
   continueAsGuest: () => Promise<void>;
   requestOtp: (phone: string) => Promise<boolean>;
@@ -194,7 +198,15 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
       const { error } = await getSupabase().auth.signUp({
         email,
         password,
-        options: { data: { display_name: displayName } },
+        options: {
+          data: { display_name: displayName },
+          // Where the confirmation email sends the phone afterwards. Without it
+          // Supabase falls back to the project's Site URL — by default a web
+          // address that does not exist on a phone, which is what made every
+          // confirmation link dead-end. Supabase refuses any address not on the
+          // project's Redirect URLs list, so this one is registered there.
+          emailRedirectTo: Linking.createURL('/auth/callback'),
+        },
       });
       if (error !== null) {
         set({ error: toStudentFacingMessage(error) });
@@ -273,6 +285,35 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
       // device must not stay signed in.
     } finally {
       set({ ...initialState, status: 'signedOut' });
+    }
+  },
+
+  /**
+   * Finishes a confirmation link.
+   *
+   * Demo mode has no project to confirm against, and a link that carries nothing
+   * of ours is left alone — the app owns a whole URL scheme, and other things
+   * open it.
+   */
+  async completeAuthLink(url) {
+    if (isDemoMode()) return 'ignored';
+
+    const link = parseAuthLink(url);
+    if (link.kind === 'none') return 'ignored';
+
+    set({ busy: true });
+    try {
+      const { outcome, message } = await completeAuthLink(link);
+      if (outcome === 'failed') set({ error: message ?? 'That confirmation link did not work.' });
+      // A success needs no message: onAuthStateChange puts the student inside
+      // the app, which says it better than a banner would.
+      else if (outcome === 'signedIn') set({ error: null });
+      return outcome;
+    } catch {
+      set({ error: 'That confirmation link did not work. Try signing in.' });
+      return 'failed';
+    } finally {
+      set({ busy: false });
     }
   },
 

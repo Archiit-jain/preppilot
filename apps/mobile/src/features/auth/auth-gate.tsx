@@ -8,6 +8,7 @@ import { getRepositories, initialiseDatabase } from '../../db/client';
 import { seedDemoData } from '../../db/demo-seed';
 import { startAutoRefresh } from '../../lib/supabase';
 import { useAuthStore } from './auth-store';
+import { useAuthLinks } from './use-auth-links';
 
 export interface AuthGateProps {
   readonly children: ReactNode;
@@ -51,6 +52,9 @@ export function describeStartupFailure(error: unknown): string {
 export function AuthGate({ children }: AuthGateProps) {
   const status = useAuthStore((state) => state.status);
   const initialise = useAuthStore((state) => state.initialise);
+  // Sits here rather than on the sign-in screen: the link may arrive while the
+  // student is anywhere in the app, or while it is not running at all.
+  useAuthLinks();
   const [ready, setReady] = useState(false);
   const [failure, setFailure] = useState<string | null>(null);
   const unsupported = needsBrowserBuildNotice();
