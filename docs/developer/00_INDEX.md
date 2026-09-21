@@ -8,17 +8,18 @@ was built that way, and where it falls short. Where the two disagree, the
 disagreement is recorded here and in [`../../DECISIONS.md`](../../DECISIONS.md)
 rather than quietly resolved in favour of the code.
 
-| Document                           | Covers                                                               |
-| ---------------------------------- | -------------------------------------------------------------------- |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Module layout, dependency rules, why the shared package exists       |
-| [DATABASE.md](DATABASE.md)         | Local and remote schemas, migrations, the columns sync depends on    |
-| [STATE.md](STATE.md)               | Stores, what each owns, and what is deliberately derived             |
-| [SYNC.md](SYNC.md)                 | The engine, conflict rules, and the failure modes they prevent       |
-| [AI.md](AI.md)                     | The proxy, and how the assistant is prevented from changing anything |
-| [SECURITY.md](SECURITY.md)         | RLS, secrets, session storage, what is not protected                 |
-| [TESTING.md](TESTING.md)           | What is tested, how, and what tests cannot reach                     |
-| [DEPLOYMENT.md](DEPLOYMENT.md)     | Running, building, and what must be configured first                 |
-| [LIMITATIONS.md](LIMITATIONS.md)   | Everything not built, not verified, or knowingly compromised         |
+| Document                               | Covers                                                                 |
+| -------------------------------------- | ---------------------------------------------------------------------- |
+| [ARCHITECTURE.md](ARCHITECTURE.md)     | Module layout, dependency rules, why the shared package exists         |
+| [DATABASE.md](DATABASE.md)             | Local and remote schemas, migrations, the columns sync depends on      |
+| [STATE.md](STATE.md)                   | Stores, what each owns, and what is deliberately derived               |
+| [SYNC.md](SYNC.md)                     | The engine, conflict rules, and the failure modes they prevent         |
+| [AI.md](AI.md)                         | The proxy, and how the assistant is prevented from changing anything   |
+| [SECURITY.md](SECURITY.md)             | RLS, secrets, session storage, what is not protected                   |
+| [TESTING.md](TESTING.md)               | What is tested, how, and what tests cannot reach                       |
+| [DEPLOYMENT.md](DEPLOYMENT.md)         | Running, building, and what must be configured first                   |
+| [GOOGLE_SIGN_IN.md](GOOGLE_SIGN_IN.md) | Switching on "Continue with Google": Google Cloud, Supabase, the build |
+| [LIMITATIONS.md](LIMITATIONS.md)       | Everything not built, not verified, or knowingly compromised           |
 
 ## Reading order
 
