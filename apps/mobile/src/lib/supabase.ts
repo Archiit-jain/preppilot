@@ -17,6 +17,13 @@ let client: SupabaseClient | null = null;
  *
  * `detectSessionInUrl` is off: that behaviour is for browser redirects and has no
  * meaning in a native app.
+ *
+ * `flowType` is PKCE rather than the library's default of implicit. Google
+ * sign-in and the email confirmation link both come back as an authorisation
+ * code, which is exchanged using a verifier that never leaves the keystore — so
+ * a redirect someone else intercepts grants them nothing. Under the default the
+ * redirect carries the session itself in the URL, and `exchangeCodeForSession`,
+ * which both flows call, has nothing to exchange.
  */
 export function getSupabase(): SupabaseClient {
   if (client !== null) return client;
@@ -29,6 +36,7 @@ export function getSupabase(): SupabaseClient {
       autoRefreshToken: true,
       persistSession: true,
       detectSessionInUrl: false,
+      flowType: 'pkce',
     },
   });
 

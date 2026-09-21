@@ -50,6 +50,20 @@ describe('getSupabase', () => {
     expect(options.auth.detectSessionInUrl).toBe(false);
   });
 
+  /**
+   * Google sign-in and the email confirmation link both return an authorisation
+   * code and call exchangeCodeForSession. Under the library's default flow the
+   * redirect carries the session in the URL instead and there is no code to
+   * exchange, so both would fail at the last step.
+   */
+  it('uses the code-exchange flow both sign-in routes depend on', () => {
+    getSupabase();
+
+    const options = mockedCreateClient.mock.calls[0]?.[2] as { auth: { flowType: string } };
+
+    expect(options.auth.flowType).toBe('pkce');
+  });
+
   it('returns the same client on repeat calls', () => {
     expect(getSupabase()).toBe(getSupabase());
     expect(mockedCreateClient).toHaveBeenCalledTimes(1);
