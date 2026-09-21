@@ -560,3 +560,88 @@ describe('topic notes', () => {
     expect(state().progress.overall.percent).toBe(100);
   });
 });
+
+/**
+ * The tree used to be walked a row at a time — a read per subject, then per
+ * chapter, then per topic. A full exam syllabus is several hundred rows, and
+ * that cost was paid on every screen focus and again after every tick, which is
+ * what made the app slow to start and slow to answer a tap.
+ */
+describe('how much it asks the database for', () => {
+  /** Counts every read the store makes while `run` is in flight. */
+  const countReads = async (run: () => Promise<unknown>) => {
+    const spies = [
+      jest.spyOn(repositories.subjects, 'listByUser'),
+      jest.spyOn(repositories.chapters, 'listByUser'),
+      jest.spyOn(repositories.chapters, 'listBySubject'),
+      jest.spyOn(repositories.topics, 'listByUser'),
+      jest.spyOn(repositories.topics, 'listByChapter'),
+      jest.spyOn(repositories.subtopics, 'listByUser'),
+      jest.spyOn(repositories.subtopics, 'listByTopic'),
+    ];
+
+    await run();
+
+    const reads = spies.reduce((total, spy) => total + spy.mock.calls.length, 0);
+    for (const spy of spies) spy.mockRestore();
+    return reads;
+  };
+
+  /** Mathematics, three chapters of four topics each, one topic broken down. */
+  const seedLargeSyllabus = async () => {
+    await state().addSubject('Mathematics');
+    const subjectId = state().subjects[0]!.id;
+
+    for (const chapterName of ['Algebra', 'Calculus', 'Geometry']) {
+      await state().addChapter(subjectId, chapterName);
+      const chapter = state().subjects[0]!.chapters.at(-1)!;
+      for (const topicName of ['One', 'Two', 'Three', 'Four']) {
+        await state().addTopic(chapter.id, topicName);
+      }
+    }
+
+    const firstTopic = state().subjects[0]!.chapters[0]!.topics[0]!;
+    await state().addSubtopic(firstTopic.id, 'A part of it');
+    return { firstTopicId: firstTopic.id };
+  };
+
+  it('reads the whole syllabus in a fixed number of queries', async () => {
+    await seedLargeSyllabus();
+
+    // One for the subjects and one each for chapters, topics and sub-topics —
+    // the same four however large the syllabus is.
+    expect(await countReads(() => state().load(USER, repositories))).toBe(4);
+  });
+
+  it('costs the same after a tick as it does on opening', async () => {
+    const { firstTopicId } = await seedLargeSyllabus();
+
+    expect(await countReads(() => state().toggleTopic(firstTopicId))).toBe(4);
+  });
+
+  it('does not go looking for children when there are no subjects', async () => {
+    expect(await countReads(() => state().load(USER, repositories))).toBe(1);
+  });
+
+  it('still builds the same tree it always did', async () => {
+    await seedLargeSyllabus();
+    await state().load(USER, repositories);
+
+    const subject = state().subjects[0]!;
+    expect(subject.chapters.map((chapter) => chapter.name)).toEqual([
+      'Algebra',
+      'Calculus',
+      'Geometry',
+    ]);
+    expect(subject.chapters[0]!.topics.map((topic) => topic.name)).toEqual([
+      'One',
+      'Two',
+      'Three',
+      'Four',
+    ]);
+    expect(subject.chapters[0]!.topics[0]!.subtopics.map((row) => row.name)).toEqual([
+      'A part of it',
+    ]);
+    expect(subject.chapters[1]!.topics[0]!.subtopics).toEqual([]);
+  });
+});

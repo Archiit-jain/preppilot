@@ -90,34 +90,62 @@ function requireContext(): Context {
   return context;
 }
 
-/** Rebuilds the tree from storage. Progress is always derived, never stored. */
+/** Groups rows under the id of the row they belong to, keeping their order. */
+function groupBy<T>(rows: readonly T[], parentIdOf: (row: T) => string | null): Map<string, T[]> {
+  const grouped = new Map<string, T[]>();
+
+  for (const row of rows) {
+    const parentId = parentIdOf(row);
+    if (parentId === null) continue;
+
+    const siblings = grouped.get(parentId);
+    if (siblings === undefined) grouped.set(parentId, [row]);
+    else siblings.push(row);
+  }
+
+  return grouped;
+}
+
+/**
+ * Rebuilds the tree from storage. Progress is always derived, never stored.
+ *
+ * Four reads for the whole syllabus, assembled here. Walking the tree instead —
+ * a read per subject, then per chapter, then per topic — is one query per row,
+ * which on a full exam syllabus is several hundred. That cost was paid on every
+ * screen focus and again after every tick, which is what made the app feel slow
+ * to start and slow to answer a tap.
+ *
+ * The three child reads are by user rather than by parent, so they also carry
+ * rows from the student's other courses; the grouping below simply never asks
+ * for those. Each read already orders by position, and filtering a sorted list
+ * keeps that order, so siblings come out exactly as they did before.
+ */
 async function readTree(ctx: Context): Promise<SubjectNode[]> {
   // Scoped to the tracker being shown: two exams' subjects interleaved is not a
   // syllabus, and progress across both is not progress towards either.
   const subjects = await ctx.repositories.subjects.listByUser(ctx.userId, activeTrackerId());
+  if (subjects.length === 0) return [];
 
-  return Promise.all(
-    subjects.map(async (subject) => {
-      const chapters = await ctx.repositories.chapters.listBySubject(subject.id);
-      const withTopics = await Promise.all(
-        chapters.map(async (chapter) => {
-          const topics = await ctx.repositories.topics.listByChapter(chapter.id);
+  const [chapters, topics, subtopics] = await Promise.all([
+    ctx.repositories.chapters.listByUser(ctx.userId),
+    ctx.repositories.topics.listByUser(ctx.userId),
+    ctx.repositories.subtopics.listByUser(ctx.userId),
+  ]);
 
-          return {
-            ...chapter,
-            topics: await Promise.all(
-              topics.map(async (topic) => ({
-                ...topic,
-                subtopics: await ctx.repositories.subtopics.listByTopic(topic.id),
-              })),
-            ),
-          };
-        }),
-      );
+  const chaptersBySubject = groupBy(chapters, (chapter) => chapter.subjectId);
+  const topicsByChapter = groupBy(topics, (topic) => topic.chapterId);
+  const subtopicsByTopic = groupBy(subtopics, (subtopic) => subtopic.topicId);
 
-      return { ...subject, chapters: withTopics };
-    }),
-  );
+  return subjects.map((subject) => ({
+    ...subject,
+    chapters: (chaptersBySubject.get(subject.id) ?? []).map((chapter) => ({
+      ...chapter,
+      topics: (topicsByChapter.get(chapter.id) ?? []).map((topic) => ({
+        ...topic,
+        subtopics: subtopicsByTopic.get(topic.id) ?? [],
+      })),
+    })),
+  }));
 }
 
 export const useTrackerStore = create<TrackerState & TrackerActions>((set, get) => {
