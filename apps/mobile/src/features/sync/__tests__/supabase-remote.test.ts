@@ -1,10 +1,12 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { toIso, type RemoteRow } from '../remote';
-import { createSupabaseRemote } from '../supabase-remote';
+import { PAGE_SIZE, createSupabaseRemote } from '../supabase-remote';
 
 interface Recorded {
   readonly table: string;
   readonly gte: readonly [string, string][];
+  readonly orders: readonly string[];
+  readonly ranges: readonly [number, number][];
   readonly upserts: readonly { rows: unknown; options: unknown }[];
 }
 
@@ -13,19 +15,27 @@ interface Recorded {
  *
  * The real client cannot be exercised without a network and a signed-in
  * session, but what this module is responsible for is the shape of the request
- * it builds — which filter it adds, and which conflict target it upserts on.
+ * it builds — which filter it adds, which conflict target it upserts on, and
+ * how it walks a table larger than one response.
+ *
+ * `maxRows` behaves like the server's own cap: a range asking for more gets at
+ * most that many rows back, and no error — which is exactly what made a single
+ * unpaged request lose data without anyone noticing.
  */
-function fakeClient(result: { data?: unknown[] | null; error?: { message: string } } = {}) {
-  const recorded: { table: string | null; gte: [string, string][]; upserts: unknown[][] } = {
-    table: null,
-    gte: [],
-    upserts: [],
-  };
+function fakeClient(
+  result: { data?: unknown[] | null; error?: { message: string }; maxRows?: number } = {},
+) {
+  const recorded: {
+    table: string | null;
+    gte: [string, string][];
+    orders: string[];
+    ranges: [number, number][];
+    upserts: unknown[][];
+  } = { table: null, gte: [], orders: [], ranges: [], upserts: [] };
 
-  const response = {
-    data: result.data === undefined ? [] : result.data,
-    error: result.error ?? null,
-  };
+  const all = result.data === undefined ? [] : result.data;
+  const error = result.error ?? null;
+  const cap = result.maxRows ?? Number.POSITIVE_INFINITY;
 
   const builder = {
     select: () => builder,
@@ -33,11 +43,21 @@ function fakeClient(result: { data?: unknown[] | null; error?: { message: string
       recorded.gte.push([column, value]);
       return builder;
     },
+    order: (column: string) => {
+      recorded.orders.push(column);
+      return builder;
+    },
+    range: (from: number, to: number) => {
+      recorded.ranges.push([from, to]);
+      if (error !== null) return Promise.resolve({ data: null, error });
+      if (all === null) return Promise.resolve({ data: null, error: null });
+      const wanted = to - from + 1;
+      return Promise.resolve({ data: all.slice(from, from + Math.min(wanted, cap)), error: null });
+    },
     upsert: (rows: unknown, options: unknown) => {
       recorded.upserts.push([rows, options]);
-      return Promise.resolve({ error: response.error });
+      return Promise.resolve({ error });
     },
-    then: (resolve: (value: typeof response) => unknown) => resolve(response),
   };
 
   const client = {
@@ -50,11 +70,17 @@ function fakeClient(result: { data?: unknown[] | null; error?: { message: string
   const seen = (): Recorded => ({
     table: recorded.table ?? '',
     gte: recorded.gte,
+    orders: recorded.orders,
+    ranges: recorded.ranges,
     upserts: recorded.upserts.map(([rows, options]) => ({ rows, options })),
   });
 
   return { client, seen };
 }
+
+/** `count` rows with ids that sort in the order they are listed. */
+const rowsOf = (count: number) =>
+  Array.from({ length: count }, (_, i) => ({ id: `row-${String(i).padStart(5, '0')}` }));
 
 describe('pulling', () => {
   it('asks only for what changed since the last sync', async () => {
@@ -65,7 +91,9 @@ describe('pulling', () => {
 
     expect(rows).toEqual([{ id: 'a' }]);
     expect(seen().table).toBe('subjects');
-    expect(seen().gte).toEqual([['updated_at', toIso(since)]]);
+    // Every page carries the filter, or the second page would pull the whole table.
+    expect(seen().gte.length).toBeGreaterThan(0);
+    for (const filter of seen().gte) expect(filter).toEqual(['updated_at', toIso(since)]);
   });
 
   it('takes everything on a device that has never synced', async () => {
@@ -90,6 +118,49 @@ describe('pulling', () => {
     const remote = createSupabaseRemote(client);
 
     await expect(remote.pull('chapters', null)).resolves.toEqual([]);
+  });
+
+  /**
+   * The bug this guards: a reinstalled phone got its courses, flashcards and
+   * sessions back but not its topic ticks. Those small tables fit in one
+   * response; a full exam syllabus does not, and the server quietly stopped at
+   * its row cap instead of failing.
+   */
+  it('takes every row of a table larger than one response', async () => {
+    const all = rowsOf(PAGE_SIZE * 2 + 500);
+    const { client } = fakeClient({ data: all, maxRows: PAGE_SIZE });
+
+    const rows = await createSupabaseRemote(client).pull('topics', null);
+
+    expect(rows).toHaveLength(all.length);
+    expect(rows).toEqual(all);
+  });
+
+  it('still takes everything when the server caps below the page size', async () => {
+    // A project configured with a lower cap answers each request with fewer
+    // rows than asked for. Stepping by the page size would skip the gap.
+    const all = rowsOf(1_250);
+    const { client } = fakeClient({ data: all, maxRows: 300 });
+
+    const rows = await createSupabaseRemote(client).pull('topics', null);
+
+    expect(rows.map((row) => row.id)).toEqual(all.map((row) => row.id));
+  });
+
+  it('orders by the primary key so pages neither overlap nor skip', async () => {
+    const { client, seen } = fakeClient({ data: rowsOf(10) });
+
+    await createSupabaseRemote(client).pull('topics', null);
+
+    expect(new Set(seen().orders)).toEqual(new Set(['id']));
+  });
+
+  it('starts each page where the last one ended', async () => {
+    const { client, seen } = fakeClient({ data: rowsOf(PAGE_SIZE + 10), maxRows: PAGE_SIZE });
+
+    await createSupabaseRemote(client).pull('topics', null);
+
+    expect(seen().ranges.map(([from]) => from)).toEqual([0, PAGE_SIZE, PAGE_SIZE + 10]);
   });
 });
 
