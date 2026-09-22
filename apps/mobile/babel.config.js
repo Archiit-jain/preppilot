@@ -2,7 +2,7 @@ module.exports = function babelConfig(api) {
   api.cache(true);
 
   return {
-    presets: [['babel-preset-expo', { jsxImportSource: 'nativewind' }], 'nativewind/babel'],
+    presets: ['babel-preset-expo'],
     plugins: [
       // Drizzle's migration bundle imports .sql files as strings. Without this
       // the app opens a database whose tables were never created, and the first

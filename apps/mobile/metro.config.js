@@ -1,7 +1,6 @@
 // Metro configuration for a pnpm monorepo.
 // https://docs.expo.dev/guides/monorepos/
 const { getDefaultConfig } = require('expo/metro-config');
-const { withNativeWind } = require('nativewind/metro');
 const path = require('node:path');
 
 const projectRoot = __dirname;
@@ -32,4 +31,4 @@ config.transformer.babelTransformerPath = require.resolve('react-native-svg-tran
 config.resolver.assetExts = config.resolver.assetExts.filter((ext) => ext !== 'svg');
 config.resolver.sourceExts = [...config.resolver.sourceExts, 'svg'];
 
-module.exports = withNativeWind(config, { input: './global.css' });
+module.exports = config;
