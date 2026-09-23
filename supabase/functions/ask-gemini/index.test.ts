@@ -391,3 +391,92 @@ Deno.test('every anonymous caller shares one budget', async () => {
     else Deno.env.set('ALLOW_ANONYMOUS_AI', previous);
   }
 });
+
+Deno.test('sends an attached picture to the model ahead of the question', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('It is a series circuit.'),
+      async (calls) => {
+        const response = await ask({
+          question: 'What is this?',
+          image: { mimeType: 'image/jpeg', data: 'aGVsbG8=' },
+        });
+
+        assertEquals(response.status, 200);
+        const sent = await calls[0]!.json();
+        assertEquals(sent.contents[0].parts, [
+          { inlineData: { mimeType: 'image/jpeg', data: 'aGVsbG8=' } },
+          { text: 'What is this?' },
+        ]);
+      },
+    );
+  });
+});
+
+Deno.test('a question without a picture sends text alone', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('Hello.'),
+      async (calls) => {
+        await ask({ question: 'Hi' });
+
+        const sent = await calls[0]!.json();
+        assertEquals(sent.contents[0].parts, [{ text: 'Hi' }]);
+      },
+    );
+  });
+});
+
+Deno.test('refuses a picture it cannot read before spending quota', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('unused'),
+      async (calls) => {
+        for (const image of [
+          { mimeType: 'application/pdf', data: 'aGVsbG8=' },
+          { mimeType: 'image/png', data: '' },
+          { mimeType: 'image/png', data: 'not base64!' },
+          'a string',
+        ]) {
+          const response = await ask({ question: 'What is this?', image });
+          assertEquals(response.status, 400);
+        }
+        assertEquals(calls.length, 0);
+      },
+    );
+  });
+});
+
+Deno.test('refuses an oversized picture before spending quota', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('unused'),
+      async (calls) => {
+        const response = await ask(
+          {
+            question: 'What is this?',
+            image: { mimeType: 'image/jpeg', data: 'A'.repeat(5_000_004) },
+          },
+          { authorization: bearer('user-big-picture') },
+        );
+
+        assertEquals(response.status, 413);
+        assertEquals(calls.length, 0);
+      },
+    );
+  });
+});
+
+Deno.test('tells the model to write maths without LaTeX', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('x² grows.'),
+      async (calls) => {
+        await ask({ question: 'What is x squared?' }, { authorization: bearer('user-maths') });
+
+        const sent = await calls[0]!.json();
+        assertStringIncludes(sent.systemInstruction.parts[0].text, 'never LaTeX');
+      },
+    );
+  });
+});

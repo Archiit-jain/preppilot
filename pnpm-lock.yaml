@@ -59,6 +59,12 @@ importers:
       expo-haptics:
         specifier: ~57.0.1
         version: 57.0.1(expo@57.0.15)
+      expo-image-manipulator:
+        specifier: ~57.0.19
+        version: 57.0.19(expo@57.0.15)
+      expo-image-picker:
+        specifier: ~57.0.19
+        version: 57.0.19(expo@57.0.15)
       expo-keep-awake:
         specifier: ~57.0.1
         version: 57.0.1(expo@57.0.15)(react@19.2.3)
@@ -3638,6 +3644,21 @@ packages:
 
   expo-haptics@57.0.1:
     resolution: {integrity: sha512-8VhbnxlIrfXjP0syZr1JT197nafYicQu9119adOJnX62osU9Cw+PdDnAx/6LxuKJRzQdwxOMq7b7eWjhNL5zAQ==}
+    peerDependencies:
+      expo: '*'
+
+  expo-image-loader@57.0.1:
+    resolution: {integrity: sha512-uhrZKLT/cTl2mXyR28kPpVkS5O+PK9N1QA/07IFM4f5T4g0lTW1JHT3NEWwEEsGFldPmVX4j7LwUVVZxE+woug==}
+    peerDependencies:
+      expo: '*'
+
+  expo-image-manipulator@57.0.19:
+    resolution: {integrity: sha512-AxqWNpKTmtyPQwMnWj4T834slKBJ7VzHx88N8b62zKBizCUC7xyEYOvUwRTOutHrADIHuN6P0PUYZxiN7+6XbQ==}
+    peerDependencies:
+      expo: '*'
+
+  expo-image-picker@57.0.19:
+    resolution: {integrity: sha512-SWKY235q7TOmlGhFTUWhJZnRqrW/HYHG/6USypa1qgnaQ0ndvToUGjZwVMeAlqtJeqJCXOXSAJzXTxkw7jJc+A==}
     peerDependencies:
       expo: '*'
 
@@ -10219,6 +10240,20 @@ snapshots:
   expo-haptics@57.0.1(expo@57.0.15):
     dependencies:
       expo: 57.0.15(00aa82779a9a99f609b4d7d61473602a)
+
+  expo-image-loader@57.0.1(expo@57.0.15):
+    dependencies:
+      expo: 57.0.15(00aa82779a9a99f609b4d7d61473602a)
+
+  expo-image-manipulator@57.0.19(expo@57.0.15):
+    dependencies:
+      expo: 57.0.15(00aa82779a9a99f609b4d7d61473602a)
+      expo-image-loader: 57.0.1(expo@57.0.15)
+
+  expo-image-picker@57.0.19(expo@57.0.15):
+    dependencies:
+      expo: 57.0.15(00aa82779a9a99f609b4d7d61473602a)
+      expo-image-loader: 57.0.1(expo@57.0.15)
 
   expo-keep-awake@57.0.1(expo@57.0.15)(react@19.2.3):
     dependencies:

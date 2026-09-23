@@ -476,3 +476,39 @@ describe('the assistant and a guest', () => {
     expect(isConfigured({ isGuest: false })).toBe(isConfigured());
   });
 });
+
+describe('asking about a picture', () => {
+  it('sends the picture with the question', async () => {
+    invoke.mockResolvedValue({ data: { reply: 'It shows a circuit.' }, error: null });
+
+    await ask({
+      question: 'What is this?',
+      subjectNames: [],
+      image: { base64: 'abc', mimeType: 'image/jpeg' },
+    });
+
+    expect(invoke).toHaveBeenCalledWith(EDGE_FUNCTION, {
+      body: {
+        question: 'What is this?',
+        subjectNames: [],
+        mode: 'ask',
+        image: { mimeType: 'image/jpeg', data: 'abc' },
+      },
+    });
+  });
+
+  it('explains a picture the server refused for its size', async () => {
+    invoke.mockResolvedValue({ data: null, error: new Error('Edge Function returned 413') });
+
+    const result = await ask({
+      question: 'What is this?',
+      subjectNames: [],
+      image: { base64: 'abc', mimeType: 'image/jpeg' },
+    });
+
+    expect(result).toEqual({
+      ok: false,
+      message: 'That picture is too large to send. Try a smaller one.',
+    });
+  });
+});

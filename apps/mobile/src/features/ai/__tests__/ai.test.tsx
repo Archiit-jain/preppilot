@@ -11,7 +11,8 @@ import { getInModal, renderWithTheme } from '../../../test-utils/render';
 import { useAuthStore } from '../../auth/auth-store';
 import * as client from '../ai-client';
 import { AiScreen } from '../ai-screen';
-import { resetAiStore, useAiStore } from '../ai-store';
+import { IMAGE_ONLY_QUESTION, resetAiStore, useAiStore } from '../ai-store';
+import { pickImage, type ImageAttachment } from '../attach-image';
 
 jest.mock('../../../db/client', () => ({ getRepositories: jest.fn() }));
 jest.mock('../../../lib/supabase', () => ({
@@ -19,6 +20,13 @@ jest.mock('../../../lib/supabase', () => ({
   startAutoRefresh: jest.fn(() => jest.fn()),
 }));
 jest.mock('../ai-client');
+jest.mock('../attach-image', () => ({
+  pickImage: jest.fn(),
+  PICK_FAILURE_COPY: {
+    denied: 'Camera access is off.',
+    failed: 'That picture could not be opened.',
+  },
+}));
 
 const USER = 'user-1';
 const mocked = client as jest.Mocked<typeof client>;
@@ -346,5 +354,117 @@ describe('quick prompts', () => {
     expect(mocked.ask).toHaveBeenCalledWith(
       expect.objectContaining({ question: 'Give me a quick insight' }),
     );
+  });
+});
+
+describe('replies', () => {
+  it('shows formatting instead of markdown symbols', async () => {
+    mocked.ask.mockResolvedValue({
+      ok: true,
+      reply: { message: '**Ohm’s law**\n\n* $V = IR$', proposal: null },
+    });
+    render();
+
+    await act(async () => {
+      await ai().ask('Explain Ohm’s law');
+    });
+
+    expect(screen.getByText('Ohm’s law')).toBeOnTheScreen();
+    expect(screen.getByText('V = IR')).toBeOnTheScreen();
+    expect(screen.queryByText(/\*\*|\$/)).toBeNull();
+  });
+});
+
+describe('attaching a picture', () => {
+  const picked = pickImage as jest.MockedFunction<typeof pickImage>;
+  const photo: ImageAttachment = { uri: 'file:///page.jpg', base64: 'abc', mimeType: 'image/jpeg' };
+
+  const choose = async (option: 'Take photo' | 'Choose from gallery') => {
+    fireEvent.press(screen.getByRole('button', { name: 'Attach a picture' }));
+    await act(async () => {
+      fireEvent.press(getInModal(option));
+    });
+  };
+
+  beforeEach(() => {
+    picked.mockResolvedValue({ ok: true, image: photo });
+  });
+
+  it('offers the camera and the gallery', async () => {
+    render();
+
+    await choose('Take photo');
+    expect(picked).toHaveBeenCalledWith('camera');
+
+    await choose('Choose from gallery');
+    expect(picked).toHaveBeenLastCalledWith('library');
+  });
+
+  it('shows the picture before it is sent, and can remove it', async () => {
+    render();
+    await choose('Choose from gallery');
+
+    expect(screen.getByLabelText('Picture to send')).toBeOnTheScreen();
+
+    fireEvent.press(screen.getByRole('button', { name: 'Remove picture' }));
+    expect(screen.queryByLabelText('Picture to send')).toBeNull();
+  });
+
+  it('sends a picture on its own, with a question the model can answer', async () => {
+    render();
+    await choose('Choose from gallery');
+
+    await act(async () => {
+      fireEvent.press(screen.getByRole('button', { name: 'Ask' }));
+    });
+
+    expect(mocked.ask).toHaveBeenCalledWith(
+      expect.objectContaining({ question: IMAGE_ONLY_QUESTION, image: photo }),
+    );
+    // Shown in the conversation, and cleared from the composer.
+    expect(screen.getByLabelText('Attached picture')).toBeOnTheScreen();
+    expect(screen.queryByLabelText('Picture to send')).toBeNull();
+  });
+
+  it('sends the typed question with the picture', async () => {
+    render();
+    await choose('Take photo');
+
+    fireEvent.changeText(screen.getByLabelText('Ask a question'), 'Solve question 3');
+    await act(async () => {
+      fireEvent.press(screen.getByRole('button', { name: 'Ask' }));
+    });
+
+    expect(mocked.ask).toHaveBeenCalledWith(
+      expect.objectContaining({ question: 'Solve question 3', image: photo }),
+    );
+    expect(screen.getByText('Solve question 3')).toBeOnTheScreen();
+  });
+
+  it('says why when the camera is not allowed', async () => {
+    picked.mockResolvedValue({ ok: false, reason: 'denied' });
+    render();
+
+    await choose('Take photo');
+
+    expect(screen.getByText('Camera access is off.')).toBeOnTheScreen();
+  });
+
+  it('shows nothing when the student backs out', async () => {
+    picked.mockResolvedValue({ ok: false, reason: 'cancelled' });
+    render();
+
+    await choose('Choose from gallery');
+
+    expect(screen.queryByTestId('ai-attachment')).toBeNull();
+  });
+
+  it('can be closed without choosing', async () => {
+    render();
+
+    fireEvent.press(screen.getByRole('button', { name: 'Attach a picture' }));
+    fireEvent.press(getInModal('Cancel'));
+
+    expect(picked).not.toHaveBeenCalled();
   });
 });

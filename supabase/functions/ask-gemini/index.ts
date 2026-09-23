@@ -147,10 +147,49 @@ Rules:
 \`\`\`
 
 - Only ever propose adding chapters or topics. You cannot delete, complete, or reorder anything.
-- Keep a proposal small enough to read: at most a handful of chapters.`;
+- Keep a proposal small enough to read: at most a handful of chapters.
+- Write maths as plain text with Unicode symbols (x², a/b, √x, π, ≤), never LaTeX. A phone shows LaTeX as raw backslashes.
+- When the student sends a picture — a textbook page, handwritten notes, a diagram, a question — read it carefully, including handwriting, and answer from what it shows. If it is too blurred or cut off to read, say what you cannot make out rather than guessing.`;
 
 /** The longest question a student may type. Generated prompts are not bound by this. */
 const MAX_QUESTION_LENGTH = 2000;
+
+/**
+ * Pictures the model can read, and how large one may be.
+ *
+ * The app sends a JPEG shrunk to 1600 pixels on its longest side, which comes to
+ * a few hundred kilobytes. The cap is several times that, so a larger picture
+ * from the web build still gets through, while an upload big enough to be abuse
+ * is refused before it costs anything.
+ */
+const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+const MAX_IMAGE_BASE64_LENGTH = 5_000_000;
+
+interface InlineImage {
+  readonly mimeType: string;
+  readonly data: string;
+}
+
+/** The attached picture, `null` when there is none, or the reason it was refused. */
+function readImage(value: unknown): InlineImage | null | { error: string; status: number } {
+  if (value === undefined || value === null) return null;
+
+  const image = value as { mimeType?: unknown; data?: unknown };
+  if (
+    typeof image.mimeType !== 'string' ||
+    !IMAGE_TYPES.includes(image.mimeType) ||
+    typeof image.data !== 'string' ||
+    image.data.length === 0 ||
+    !/^[A-Za-z0-9+/]+=*$/.test(image.data)
+  ) {
+    return { error: 'That picture could not be read.', status: 400 };
+  }
+  if (image.data.length > MAX_IMAGE_BASE64_LENGTH) {
+    return { error: 'That picture is too large.', status: 413 };
+  }
+
+  return { mimeType: image.mimeType, data: image.data };
+}
 
 /** What the caller is asking for. */
 const MODES = ['ask', 'summarize', 'quiz'] as const;
@@ -177,6 +216,8 @@ interface RequestBody {
   readonly topicName?: unknown;
   readonly chapterName?: unknown;
   readonly subjectName?: unknown;
+  /** For ask: a picture to answer from, as base64. */
+  readonly image?: unknown;
 }
 
 /**
@@ -308,6 +349,13 @@ export async function handler(request: Request): Promise<Response> {
     }
   }
 
+  // Only a question can carry a picture; summaries and quizzes work from the
+  // topic's name.
+  const image = mode === 'ask' ? readImage(body.image) : null;
+  if (image !== null && 'error' in image) {
+    return jsonResponse({ error: image.error }, image.status);
+  }
+
   const question = mode === 'ask' ? (body.question as string).trim() : studyPrompt(mode, body);
 
   const subjectNames = Array.isArray(body.subjectNames)
@@ -337,7 +385,13 @@ export async function handler(request: Request): Promise<Response> {
             },
           ],
         },
-        contents: [{ role: 'user', parts: [{ text: question }] }],
+        contents: [
+          {
+            role: 'user',
+            // The picture goes first: the model reads what follows in its light.
+            parts: [...(image !== null ? [{ inlineData: image }] : []), { text: question }],
+          },
+        ],
         generationConfig: { thinkingConfig: { thinkingBudget: THINKING_BUDGET } },
       }),
     });

@@ -34,6 +34,14 @@
         }
       ],
       [
+        "expo-image-picker",
+        {
+          "photosPermission": "PrepPilot opens your photos so you can ask the assistant about a picture.",
+          "cameraPermission": "PrepPilot uses the camera so you can photograph a question for the assistant.",
+          "microphonePermission": false
+        }
+      ],
+      [
         "expo-build-properties",
         {
           "android": {

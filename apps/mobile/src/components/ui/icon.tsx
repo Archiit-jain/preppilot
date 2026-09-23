@@ -25,6 +25,8 @@ export type IconName =
   | 'book'
   | 'sparkles'
   | 'plus'
+  | 'image'
+  | 'close'
   | 'settings';
 
 export interface IconProps {
@@ -160,6 +162,22 @@ export function Icon({ name, size = 22, color, label, testID }: IconProps) {
       {name === 'plus' && (
         <>
           <Path d="M12 5v14M5 12h14" {...common} />
+        </>
+      )}
+      {name === 'image' && (
+        <>
+          {/* A framed picture: a hill and the sun. */}
+          <Path
+            d="M5.5 4.5h13a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18V6a1.5 1.5 0 0 1 1.5-1.5Z"
+            {...common}
+          />
+          <Circle cx="9" cy="9.5" r="1.5" {...common} />
+          <Path d="m4.5 17 4.5-4.5 3.5 3.5 2.5-2.5 4.5 4.5" {...common} />
+        </>
+      )}
+      {name === 'close' && (
+        <>
+          <Path d="M6.5 6.5l11 11M17.5 6.5l-11 11" {...common} />
         </>
       )}
       {name === 'settings' && (

@@ -1,6 +1,7 @@
 import { isReviewable, type AiProposal, type ParsedReply } from '@preppilot/shared';
 import { create } from 'zustand';
 import type { Repositories } from '../../db/client';
+import type { ImageAttachment } from './attach-image';
 import * as client from './ai-client';
 import { activeTrackerId } from '../trackers/trackers-store';
 
@@ -8,6 +9,8 @@ export interface AiMessage {
   readonly id: string;
   readonly role: 'student' | 'assistant';
   readonly text: string;
+  /** A picture the student sent with the question, shown in the conversation. */
+  readonly imageUri?: string;
   /** Attached to an assistant message that asked to change the tracker. */
   readonly proposal: AiProposal | null;
 }
@@ -22,7 +25,8 @@ export interface AiState {
 }
 
 export interface AiActions {
-  ask: (question: string) => Promise<void>;
+  /** Asks a question, optionally about a picture. A picture alone is enough. */
+  ask: (question: string, image?: ImageAttachment) => Promise<void>;
   reviewProposal: (proposal: AiProposal) => void;
   dismissProposal: () => void;
   /** Applies a reviewed proposal. Only reachable after explicit confirmation. */
@@ -39,6 +43,10 @@ const initialState: AiState = {
   applying: false,
 };
 
+/** What a picture sent on its own is taken to be asking. */
+export const IMAGE_ONLY_QUESTION =
+  'Read this image and help me study it: explain what it shows, and answer any question in it.';
+
 let counter = 0;
 const nextId = () => `m${(counter += 1)}`;
 
@@ -52,20 +60,31 @@ export function setSubjectContext(names: readonly string[]): void {
 export const useAiStore = create<AiState & AiActions>((set, get) => ({
   ...initialState,
 
-  async ask(question) {
+  async ask(question, image) {
     const trimmed = question.trim();
-    if (trimmed.length === 0 || get().asking) return;
+    if ((trimmed.length === 0 && image === undefined) || get().asking) return;
 
     set({
       messages: [
         ...get().messages,
-        { id: nextId(), role: 'student', text: trimmed, proposal: null },
+        {
+          id: nextId(),
+          role: 'student',
+          text: trimmed,
+          ...(image !== undefined ? { imageUri: image.uri } : {}),
+          proposal: null,
+        },
       ],
       asking: true,
       error: null,
     });
 
-    const result = await client.ask({ question: trimmed, subjectNames });
+    const result = await client.ask({
+      // A picture sent without a question still needs one for the model.
+      question: trimmed.length > 0 ? trimmed : IMAGE_ONLY_QUESTION,
+      subjectNames,
+      ...(image !== undefined ? { image } : {}),
+    });
 
     if (!result.ok) {
       set({ error: result.message, asking: false });

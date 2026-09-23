@@ -95,6 +95,8 @@ export interface AskOptions {
   readonly question: string;
   /** Names the student can see, so the model can refer to their actual syllabus. */
   readonly subjectNames: readonly string[];
+  /** A picture to answer from, as base64 without a data-URI prefix. */
+  readonly image?: { readonly base64: string; readonly mimeType: string };
 }
 
 /**
@@ -144,14 +146,23 @@ async function invoke(body: Record<string, unknown>): Promise<{ reply?: string }
   return data ?? {};
 }
 
-export async function ask({ question, subjectNames }: AskOptions): Promise<AskResult | AskFailure> {
+export async function ask({
+  question,
+  subjectNames,
+  image,
+}: AskOptions): Promise<AskResult | AskFailure> {
   const unavailable = unavailableReason();
   if (unavailable !== null) {
     return { ok: false, message: UNAVAILABLE_COPY[unavailable] };
   }
 
   try {
-    const data = await invoke({ question, subjectNames, mode: 'ask' });
+    const data = await invoke({
+      question,
+      subjectNames,
+      mode: 'ask',
+      ...(image !== undefined ? { image: { mimeType: image.mimeType, data: image.base64 } } : {}),
+    });
 
     const reply = data.reply;
     if (typeof reply !== 'string' || reply.trim().length === 0) {
@@ -238,6 +249,9 @@ function describeFailure(error: unknown): string {
   }
   if (/rate|429|quota/i.test(message)) {
     return 'The assistant is busy right now. Try again in a moment.';
+  }
+  if (/413|too large/i.test(message)) {
+    return 'That picture is too large to send. Try a smaller one.';
   }
   if (/401|403|unauthor/i.test(message)) {
     // The proxy refuses a request with no account behind it.
