@@ -19,6 +19,7 @@ import { useAuthStore } from '../auth/auth-store';
 import { useTheme } from '../../theme/theme-context';
 import { useFlashcardsStore } from './flashcards-store';
 import { useActiveTrackerId } from '../trackers/trackers-store';
+import { useSyncGeneration } from '../sync/sync-store';
 
 /**
  * Flashcards, reviewed on a spaced-repetition schedule.
@@ -42,13 +43,16 @@ export function FlashcardsScreen() {
   const [fieldError, setFieldError] = useState<string | null>(null);
 
   const activeTracker = useActiveTrackerId();
+  // Re-reads after a sync brings in new rows, so work pulled from the server
+  // appears without leaving the screen.
+  const synced = useSyncGeneration();
   const load = useCallback(async () => {
     if (userId === null) return;
     await useFlashcardsStore.getState().load(userId, getRepositories());
     // Re-reads when the courses finish loading and whenever the student switches
     // between them: a read taken before the active course was known would sit on
     // an empty result forever.
-  }, [userId, activeTracker]);
+  }, [userId, activeTracker, synced]);
 
   /**
    * Re-reads whenever this screen comes back into view.

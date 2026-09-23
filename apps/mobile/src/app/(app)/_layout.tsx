@@ -5,9 +5,7 @@ import { Icon, type IconName } from '../../components/ui';
 import { getRepositories } from '../../db/client';
 import { useAuthStore } from '../../features/auth/auth-store';
 import { configureFocusContext } from '../../features/focus/focus-store';
-import { useNetworkStore } from '../../features/network/network-store';
-import { useSyncStore } from '../../features/sync/sync-store';
-import { useTrackersStore } from '../../features/trackers/trackers-store';
+import { startSyncSession } from '../../features/sync/sync-session';
 import { configureTimerContext } from '../../features/timer/timer-store';
 import { useTheme } from '../../theme/theme-context';
 
@@ -93,29 +91,10 @@ export default function AppLayout() {
     // abandoned rather than completed because no accurate end time exists.
     void repositories.sessions.abandonInterrupted(userId);
 
-    let stopWatching: (() => void) | undefined;
-
-    void (async () => {
-      // Before anything reads a syllabus: every screen is scoped to a tracker,
-      // and this is what decides which one — creating the first, and claiming
-      // any rows written before trackers existed.
-      await useTrackersStore.getState().load(userId, repositories);
-
-      await useSyncStore.getState().hydrate(userId, repositories);
-
-      // Watch connectivity and sync again the moment it returns. PRD §22 asks
-      // for retry after a network failure; waiting for the student to notice and
-      // press something is not that.
-      stopWatching = await useNetworkStore.getState().start(() => {
-        void useSyncStore.getState().syncNow(userId, { repositories });
-      });
-
-      // Reach the server once on entry. A failure is not fatal: everything is
-      // already on the device, and Settings offers a manual retry.
-      await useSyncStore.getState().syncNow(userId, { repositories });
-    })();
-
-    return () => stopWatching?.();
+    // Syncs on sign-in, then loads the courses — creating the first and
+    // claiming any rows written before trackers existed — and keeps syncing
+    // while the student stays signed in. See startSyncSession for the order.
+    return startSyncSession({ userId, repositories });
   }, [userId]);
 
   if (status === 'signedOut') return <Redirect href="/login" />;

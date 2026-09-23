@@ -16,6 +16,17 @@ export interface SyncState {
   /** A student-facing message, never a raw transport error. */
   readonly error: string | null;
   readonly lastResult: SyncResult | null;
+  /**
+   * Goes up by one each time a sync brings rows in from the server.
+   *
+   * Screens read from the local database once and hold the result, so a sync
+   * that lands new rows changes nothing on screen by itself — which is how a
+   * reinstalled phone signed in, synced, and still showed an empty tracker until
+   * "Sync now" sent the student somewhere else and back. Screens depend on this
+   * number and re-read when it moves; a sync that pulled nothing leaves it alone
+   * so a quiet five-minute sync does not redraw anything.
+   */
+  readonly generation: number;
 }
 
 export interface SyncActions {
@@ -33,6 +44,7 @@ const initialState: SyncState = {
   lastSyncedAt: null,
   error: null,
   lastResult: null,
+  generation: 0,
 };
 
 /**
@@ -99,7 +111,12 @@ export const useSyncStore = create<SyncState & SyncActions>((set, get) => ({
         await repositories.preferences.set(userId, LAST_SYNCED_AT, String(advanced));
       }
 
-      set({ status: 'idle', lastSyncedAt: advanced, lastResult: result });
+      set({
+        status: 'idle',
+        lastSyncedAt: advanced,
+        lastResult: result,
+        generation: result.pulled > 0 ? get().generation + 1 : get().generation,
+      });
     } catch (error) {
       set({ status: 'error', error: describeSyncFailure(error) });
     }
@@ -127,4 +144,14 @@ export function describeSyncFailure(error: unknown): string {
 /** Test seam: returns the store to its initial state. */
 export function resetSyncStore(): void {
   useSyncStore.setState({ ...initialState });
+}
+
+/**
+ * Re-renders when a sync has brought in new rows.
+ *
+ * Added to a screen's load dependencies so the screen re-reads the database
+ * after a sync that changed it, rather than only on its next focus.
+ */
+export function useSyncGeneration(): number {
+  return useSyncStore((state) => state.generation);
 }

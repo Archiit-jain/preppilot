@@ -27,6 +27,7 @@ import { ReminderRow } from './components/reminder-row';
 import { remindersSurviveClosing } from './notifications';
 import { useRemindersStore } from './reminders-store';
 import { useActiveTrackerId } from '../trackers/trackers-store';
+import { useSyncGeneration } from '../sync/sync-store';
 
 /**
  * How the student is choosing the time.
@@ -66,13 +67,16 @@ export function RemindersScreen() {
   const [titleError, setTitleError] = useState<string | null>(null);
 
   const activeTracker = useActiveTrackerId();
+  // Re-reads after a sync brings in new rows, so work pulled from the server
+  // appears without leaving the screen.
+  const synced = useSyncGeneration();
   const load = useCallback(async () => {
     if (userId === null) return;
     await useRemindersStore.getState().load(userId, getRepositories());
     // Re-reads when the courses finish loading and whenever the student switches
     // between them: a read taken before the active course was known would sit on
     // an empty result forever.
-  }, [userId, activeTracker]);
+  }, [userId, activeTracker, synced]);
 
   useEffect(() => {
     void load();

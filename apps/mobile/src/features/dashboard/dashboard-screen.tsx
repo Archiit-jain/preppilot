@@ -16,6 +16,7 @@ import { SubjectProgressList } from './components/subject-progress-list';
 import { WeekChart } from './components/week-chart';
 import { useDashboardStore } from './dashboard-store';
 import { useActiveTrackerId } from '../trackers/trackers-store';
+import { useSyncGeneration } from '../sync/sync-store';
 
 /** Dashboard — the figures PRD §12 requires, all derived from one read. */
 export function DashboardScreen() {
@@ -25,13 +26,16 @@ export function DashboardScreen() {
   const [refreshing, setRefreshing] = useState(false);
 
   const activeTracker = useActiveTrackerId();
+  // Re-reads after a sync brings in new rows, so work pulled from the server
+  // appears without leaving the screen.
+  const synced = useSyncGeneration();
   const load = useCallback(async () => {
     if (userId === null) return;
     await useDashboardStore.getState().load(userId, getRepositories());
     // Re-reads when the courses finish loading and whenever the student switches
     // between them: a read taken before the active course was known would sit on
     // an empty result forever.
-  }, [userId, activeTracker]);
+  }, [userId, activeTracker, synced]);
 
   useEffect(() => {
     void load();

@@ -39,6 +39,7 @@ import type { TimerTarget } from '../timer/timer-store';
 import { SyllabusSummary } from './components/syllabus-summary';
 import { SubjectCard } from './components/subject-card';
 import { chapterProgress, subjectProgress, useTrackerStore } from './tracker-store';
+import { useSyncGeneration } from '../sync/sync-store';
 
 /** Which prompt is open, and what it will act on. */
 type Prompt =
@@ -112,6 +113,9 @@ export function TrackerScreen() {
   const activeTrackerName =
     useTrackersStore((store) => store.trackers.find((row) => row.id === store.activeId)?.name) ??
     'your course';
+  // Re-reads after a sync brings in new rows, so work pulled from the server
+  // appears without leaving the screen.
+  const synced = useSyncGeneration();
   const load = useCallback(async () => {
     if (userId === null) return;
     await state.load(userId, getRepositories());
@@ -131,7 +135,7 @@ export function TrackerScreen() {
     // `state.load` is stable on the store; depending on the whole store object
     // would re-run this on every keystroke elsewhere in the tree.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId, activeTracker]);
+  }, [userId, activeTracker, synced]);
 
   /**
    * Re-reads whenever this screen comes back into view.

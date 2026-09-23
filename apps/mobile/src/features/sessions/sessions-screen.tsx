@@ -23,6 +23,7 @@ import { WeekChart } from '../dashboard/components/week-chart';
 import { useDashboardStore } from '../dashboard/dashboard-store';
 import { SessionRow } from '../history/components/session-row';
 import { useHistoryStore } from '../history/history-store';
+import { useSyncGeneration } from '../sync/sync-store';
 
 /**
  * Study sessions, and what they add up to.
@@ -40,6 +41,9 @@ export function SessionsScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [pendingDelete, setPendingDelete] = useState<string | null>(null);
 
+  // Re-reads after a sync brings in new rows, so work pulled from the server
+  // appears without leaving the screen.
+  const synced = useSyncGeneration();
   const load = useCallback(async () => {
     if (userId === null) return;
     const repositories = getRepositories();
@@ -47,7 +51,7 @@ export function SessionsScreen() {
       useDashboardStore.getState().load(userId, repositories),
       useHistoryStore.getState().load(userId, repositories),
     ]);
-  }, [userId]);
+  }, [userId, synced]);
 
   /**
    * Re-reads whenever this screen comes back into view.

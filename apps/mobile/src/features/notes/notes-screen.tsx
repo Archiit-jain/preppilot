@@ -19,6 +19,7 @@ import { useActiveTrackerId } from '../trackers/trackers-store';
 import { NoteEditor } from './components/note-editor';
 import { NoteTargetPicker } from './components/note-target-picker';
 import { useNotesStore, type NoteTarget } from './notes-store';
+import { useSyncGeneration } from '../sync/sync-store';
 
 /** What the editor is currently open on, if anything. */
 type Editing =
@@ -49,13 +50,16 @@ export function NotesScreen() {
   const [saving, setSaving] = useState(false);
 
   const activeTracker = useActiveTrackerId();
+  // Re-reads after a sync brings in new rows, so work pulled from the server
+  // appears without leaving the screen.
+  const synced = useSyncGeneration();
   const load = useCallback(async () => {
     if (userId === null) return;
     await useNotesStore.getState().load(userId, getRepositories());
     // Re-reads when the courses finish loading and whenever the student switches
     // between them: a read taken before the active course was known would sit on
     // an empty result forever.
-  }, [userId, activeTracker]);
+  }, [userId, activeTracker, synced]);
 
   useFocusEffect(
     useCallback(() => {
