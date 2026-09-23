@@ -1,10 +1,10 @@
 import type { Session, User } from '@supabase/supabase-js';
-import * as Linking from 'expo-linking';
 import { create } from 'zustand';
 import { DEMO_USER_ID, isDemoMode } from '../../config/env';
 import { getSupabase } from '../../lib/supabase';
 import { secureStorage } from '../../lib/secure-storage';
 import { toStudentFacingMessage } from './auth-errors';
+import { AUTH_CALLBACK_URL } from './auth-callback';
 import { completeAuthLink, parseAuthLink } from './auth-link';
 import { signInWithGoogle } from './google';
 
@@ -205,7 +205,7 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
           // address that does not exist on a phone, which is what made every
           // confirmation link dead-end. Supabase refuses any address not on the
           // project's Redirect URLs list, so this one is registered there.
-          emailRedirectTo: Linking.createURL('/auth/callback'),
+          emailRedirectTo: AUTH_CALLBACK_URL,
         },
       });
       if (error !== null) {

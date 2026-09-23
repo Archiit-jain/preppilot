@@ -144,15 +144,16 @@ describe('when it genuinely fails', () => {
 });
 
 describe('the defaults it uses in the app', () => {
-  it('redirects to the path Supabase must have on its allow list', async () => {
-    // Supabase rejects a redirect that is not registered, and the failure looks
-    // like the browser simply closing — so the value is worth pinning here.
+  it('sends Supabase the exact address on its allow list', async () => {
+    // Supabase rejects an address that is not registered character for
+    // character and falls back to its Site URL — localhost, by default. This
+    // test used to mock Linking.createURL to return the right answer, which is
+    // how it missed that the real call adds a third slash in a release build.
     const Linking = jest.requireMock('expo-linking') as { createURL: jest.Mock };
     const WebBrowser = jest.requireMock('expo-web-browser') as {
       openAuthSessionAsync: jest.Mock;
     };
 
-    Linking.createURL.mockReturnValue('preppilot://auth/callback');
     WebBrowser.openAuthSessionAsync.mockResolvedValue({
       type: 'success',
       url: 'preppilot://auth/callback?code=auth-code',
@@ -168,10 +169,15 @@ describe('the defaults it uses in the app', () => {
       }),
     ).resolves.toBe('signedIn');
 
-    expect(Linking.createURL).toHaveBeenCalledWith('/auth/callback');
+    expect(signInWithOAuth).toHaveBeenCalledWith(
+      expect.objectContaining({
+        options: expect.objectContaining({ redirectTo: 'preppilot://auth/callback' }),
+      }),
+    );
     expect(WebBrowser.openAuthSessionAsync).toHaveBeenCalledWith(
       AUTH_URL,
       'preppilot://auth/callback',
     );
+    expect(Linking.createURL).not.toHaveBeenCalled();
   });
 });

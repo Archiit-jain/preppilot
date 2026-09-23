@@ -139,8 +139,14 @@ async function seed({ withTopics = true } = {}) {
 }
 
 const renderTracker = async () => {
+  // As the app layout does before any screen: load the courses, which picks the
+  // one to show and claims any subjects written without one. The screen will
+  // not offer a template until it knows which course it is showing.
+  await act(async () => {
+    await useTrackersStore.getState().load(USER, repositories);
+  });
   const view = renderWithTheme(<TrackerScreen />);
-  await waitFor(() => expect(tracker().loading).toBe(false));
+  await waitFor(() => expect(tracker().loaded && !tracker().loading).toBe(true));
   return view;
 };
 

@@ -1,7 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import * as Linking from 'expo-linking';
 import * as WebBrowser from 'expo-web-browser';
 import { getSupabase } from '../../lib/supabase';
+import { AUTH_CALLBACK_URL } from './auth-callback';
 
 /**
  * Backing out of the Google sheet is not a failure, and must not be reported as
@@ -21,8 +21,9 @@ export interface GoogleSignInDependencies {
 const defaults: GoogleSignInDependencies = {
   client: getSupabase,
   // A path rather than the bare scheme, so the redirect is distinguishable from
-  // any other link that opens the app.
-  redirectUri: () => Linking.createURL('/auth/callback'),
+  // any other link that opens the app. See AUTH_CALLBACK_URL for why this is not
+  // built with Linking.createURL.
+  redirectUri: () => AUTH_CALLBACK_URL,
   openAuthSession: (url, redirectUri) => WebBrowser.openAuthSessionAsync(url, redirectUri),
 };
 

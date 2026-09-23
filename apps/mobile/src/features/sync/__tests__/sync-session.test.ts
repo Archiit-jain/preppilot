@@ -196,36 +196,40 @@ describe('the connection coming back', () => {
     const { useNetworkStore } = jest.requireActual<typeof import('../../network/network-store')>(
       '../../network/network-store',
     );
+    const original = useNetworkStore.getState().start;
     let reconnect: (() => void) | undefined;
     const stopWatching = jest.fn();
-    const start = jest
-      .spyOn(useNetworkStore.getState(), 'start')
-      .mockImplementation(async (onReconnect) => {
+    useNetworkStore.setState({
+      start: async (onReconnect?: () => void) => {
         reconnect = onReconnect;
         return stopWatching;
-      });
-
-    const stopSession = startSyncSession({
-      userId: USER,
-      repositories,
-      remote: fake.remote,
-      appState: backgrounded,
+      },
     });
-    await waitFor(() => expect(reconnect).toBeDefined());
 
-    const before = useSyncStore.getState().lastResult;
-    reconnect!();
-    await waitFor(() => expect(useSyncStore.getState().lastResult).not.toBe(before));
+    try {
+      const stopSession = startSyncSession({
+        userId: USER,
+        repositories,
+        remote: fake.remote,
+        appState: backgrounded,
+      });
+      await waitFor(() => expect(reconnect).toBeDefined());
 
-    stopSession();
-    expect(stopWatching).toHaveBeenCalled();
-    start.mockRestore();
+      const before = useSyncStore.getState().lastResult;
+      reconnect!();
+      await waitFor(() => expect(useSyncStore.getState().lastResult).not.toBe(before));
+
+      stopSession();
+      expect(stopWatching).toHaveBeenCalled();
+    } finally {
+      useNetworkStore.setState({ start: original });
+    }
   });
 });
 
 describe('signing out part-way through start-up', () => {
   it('does not start anything once stopped', async () => {
-    const sync = jest.spyOn(useSyncStore.getState(), 'syncNow');
+    seedServerCourse();
     const stopSession = startSyncSession({
       userId: USER,
       repositories,
@@ -237,8 +241,71 @@ describe('signing out part-way through start-up', () => {
     stopSession();
     await new Promise((resolve) => setTimeout(resolve, 50));
 
-    expect(sync).not.toHaveBeenCalled();
+    // Nothing pulled and no course loaded. Observed through the results rather
+    // than a spy on the store: Zustand copies its methods onto every new state,
+    // so a spy leaks into later tests and silently disables their syncs.
+    expect(useSyncStore.getState().lastResult).toBeNull();
     expect(useTrackersStore.getState().trackers).toEqual([]);
-    sync.mockRestore();
+  });
+});
+
+describe('reopening the app', () => {
+  it('shows the courses already on the phone before the server answers', async () => {
+    await repositories.trackers.create({ userId: USER, name: 'JEE Main 2026' });
+
+    // A server that has not answered yet.
+    let answer: () => void = () => {};
+    const slow = new Promise<void>((resolve) => {
+      answer = resolve;
+    });
+    const pull = fake.remote.pull.bind(fake.remote);
+    const slowRemote = {
+      ...fake.remote,
+      pull: async (...args: Parameters<typeof fake.remote.pull>) => {
+        await slow;
+        return pull(...args);
+      },
+    };
+
+    stop = startSyncSession({
+      userId: USER,
+      repositories,
+      remote: slowRemote,
+      appState: backgrounded,
+      watchNetwork: false,
+    });
+
+    await waitFor(() =>
+      expect(useTrackersStore.getState().trackers.map((t) => t.name)).toEqual(['JEE Main 2026']),
+    );
+    expect(useSyncStore.getState().lastResult).toBeNull();
+
+    answer();
+    await waitFor(() => expect(useSyncStore.getState().lastResult).not.toBeNull());
+  });
+
+  it('still adds a course that arrives with that sync', async () => {
+    await repositories.trackers.create({ userId: USER, name: 'JEE Main 2026' });
+    fake.seed('trackers', {
+      id: 'neet',
+      user_id: USER,
+      name: 'NEET 2027',
+      template_id: null,
+      position: 1,
+      created_at: iso,
+      updated_at: iso,
+      deleted_at: null,
+    } as never);
+
+    begin();
+
+    await waitFor(() =>
+      expect(
+        useTrackersStore
+          .getState()
+          .trackers.map((t) => t.name)
+          .sort(),
+      ).toEqual(['JEE Main 2026', 'NEET 2027']),
+    );
   });
 });

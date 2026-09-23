@@ -11,6 +11,7 @@ import { getInModal, renderWithTheme } from '../../../test-utils/render';
 import { useAuthStore } from '../../auth/auth-store';
 import { TrackerScreen } from '../tracker-screen';
 import { resetTrackerStore, useTrackerStore } from '../tracker-store';
+import { resetTrackersStore, useTrackersStore } from '../../trackers/trackers-store';
 
 /**
  * "Add subject" opens the four ways to add one; typing a name by hand is the
@@ -42,6 +43,7 @@ beforeEach(() => {
   (getRepositories as jest.MockedFunction<typeof getRepositories>).mockReturnValue(repositories);
 
   resetTrackerStore();
+  resetTrackersStore();
   jest.mocked(router.push).mockClear();
   useAuthStore.setState({ user: { id: USER } as never, status: 'signedIn' });
 });
@@ -51,8 +53,14 @@ afterEach(() => {
 });
 
 const renderTracker = async () => {
+  // As the app layout does before any screen: load the courses, which picks the
+  // one to show and claims any subjects written without one. The screen will
+  // not offer a template until it knows which course it is showing.
+  await act(async () => {
+    await useTrackersStore.getState().load(USER, repositories);
+  });
   const view = renderWithTheme(<TrackerScreen />);
-  await waitFor(() => expect(tracker().loading).toBe(false));
+  await waitFor(() => expect(tracker().loaded && !tracker().loading).toBe(true));
   return view;
 };
 
@@ -380,5 +388,35 @@ describe('failures', () => {
     ).toBeOnTheScreen();
     // The raw driver error must never reach the screen.
     expect(screen.queryByText(/SQLITE_CORRUPT/)).toBeNull();
+  });
+});
+
+/**
+ * Reopening the app showed "Which exam are you preparing for?" for a moment to
+ * a student with a full syllabus: the screen treated "not read yet" as "empty".
+ */
+describe('before it knows what to show', () => {
+  it('does not offer a template while no course has been chosen', async () => {
+    await repositories.subjects.create({ userId: USER, name: 'Mathematics' });
+
+    renderWithTheme(<TrackerScreen />);
+    await act(async () => {});
+
+    expect(screen.queryByText('Which exam are you preparing for?')).toBeNull();
+    expect(screen.getByLabelText('Loading your syllabus')).toBeOnTheScreen();
+  });
+
+  it('shows the syllabus once the course is known, never the picker in between', async () => {
+    await repositories.subjects.create({ userId: USER, name: 'Mathematics' });
+    renderWithTheme(<TrackerScreen />);
+    await act(async () => {});
+    expect(screen.queryByText('Which exam are you preparing for?')).toBeNull();
+
+    await act(async () => {
+      await useTrackersStore.getState().load(USER, repositories);
+    });
+
+    await waitFor(() => expect(screen.getByText('Mathematics')).toBeOnTheScreen());
+    expect(screen.queryByText('Which exam are you preparing for?')).toBeNull();
   });
 });

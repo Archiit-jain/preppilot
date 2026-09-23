@@ -33,6 +33,14 @@ export interface TrackerState {
   readonly subjects: readonly SubjectNode[];
   readonly progress: SyllabusProgress;
   readonly loading: boolean;
+  /**
+   * Whether a read has finished at least once.
+   *
+   * An empty syllabus means "this course has no subjects" only after the
+   * database has been asked. Before that it means nothing, and treating it as
+   * empty is what put the exam picker on screen for a moment on every launch.
+   */
+  readonly loaded: boolean;
   /** A student-facing message, never a raw database error. */
   readonly error: string | null;
   /** Ids of expanded subjects and chapters. Collapsed by default (UI spec). */
@@ -72,6 +80,7 @@ const initialState: TrackerState = {
   subjects: [],
   progress: EMPTY_PROGRESS,
   loading: false,
+  loaded: false,
   error: null,
   expanded: new Set<string>(),
 };
@@ -184,7 +193,7 @@ export const useTrackerStore = create<TrackerState & TrackerActions>((set, get) 
       } catch {
         set({ error: 'We could not open your syllabus. Try restarting PrepPilot.' });
       } finally {
-        set({ loading: false });
+        set({ loading: false, loaded: true });
       }
     },
 

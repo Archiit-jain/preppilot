@@ -17,11 +17,10 @@ export interface SyncSessionOptions {
 /**
  * Everything sync does for as long as a student is signed in.
  *
- * **Pull before the courses are loaded.** Loading courses on a device with none
- * creates a first one to put work in. On a fresh install that meant an empty
- * "My studies" was created before the student's real courses arrived — and was
- * then pushed, leaving a spare empty course on the account after every
- * reinstall. Pulling first means the real ones are already there to load.
+ * **Local first, then the server.** A phone that already holds courses shows
+ * them straight away and syncs behind them. A phone holding none pulls first:
+ * loading courses there creates an empty one to put work in, which on a fresh
+ * install was then pushed — a spare empty course after every reinstall.
  *
  * After that: sync again whenever the connection returns, every five minutes
  * while the app is open, and when the student leaves it (see `startAutoSync`).
@@ -48,21 +47,43 @@ export function startSyncSession({
     await useSyncStore.getState().hydrate(userId, repositories);
     if (stopped) return;
 
-    // Sign-in sync. A failure is not fatal: everything is already on the
-    // device, the courses still load below, and the next trigger retries.
+    const reloadOnPull = () =>
+      cleanups.push(
+        useSyncStore.subscribe((state, previous) => {
+          if (state.generation !== previous.generation) void loadCourses();
+        }),
+      );
+
+    // What is already on the phone is shown first, and the server is asked
+    // after. The server can take seconds; the local database takes none, and a
+    // student reopening the app should see their syllabus, not wait on a
+    // network round-trip for work that never left the device.
+    //
+    // A phone with nothing on it yet is the exception. Loading courses there
+    // creates a first one to put work in, so doing it before the pull would
+    // invent an empty course and push it — pulling first means the real ones
+    // are there to load.
+    const hasLocalCourses = (await repositories.trackers.listByUser(userId)).length > 0;
+    if (stopped) return;
+
+    if (hasLocalCourses) {
+      await loadCourses();
+      if (stopped) return;
+      // Subscribed before the sync, so courses it brings in appear too.
+      reloadOnPull();
+    }
+
+    // Sign-in sync. A failure is not fatal: whatever is on the device is
+    // already showing, and the next trigger retries.
     await sync();
     if (stopped) return;
 
-    await loadCourses();
-    if (stopped) return;
-
-    // Only after the first load: that load already reflects the first sync, and
-    // reloading again straight away would redraw every screen for nothing.
-    cleanups.push(
-      useSyncStore.subscribe((state, previous) => {
-        if (state.generation !== previous.generation) void loadCourses();
-      }),
-    );
+    if (!hasLocalCourses) {
+      await loadCourses();
+      if (stopped) return;
+      // Only after this first load: it already reflects the first sync.
+      reloadOnPull();
+    }
 
     // PRD §22 asks for a retry after a network failure, and waiting for the
     // student to notice and press something is not that.

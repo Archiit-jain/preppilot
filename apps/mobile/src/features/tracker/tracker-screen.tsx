@@ -347,7 +347,12 @@ export function TrackerScreen() {
     }
   };
 
-  if (state.loading && state.subjects.length === 0) {
+  // The exam picker means "this course is empty", so it waits until that is
+  // known: the course has been chosen and its syllabus read. Offering a template
+  // any earlier flashed "choose an exam" at a student with a full syllabus,
+  // every time the app was reopened.
+  const syllabusUnknown = activeTracker === null || !state.loaded;
+  if (syllabusUnknown || (state.loading && state.subjects.length === 0)) {
     return (
       <Screen>
         <View
