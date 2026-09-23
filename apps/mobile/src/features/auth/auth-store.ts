@@ -6,7 +6,7 @@ import { secureStorage } from '../../lib/secure-storage';
 import { toStudentFacingMessage } from './auth-errors';
 import { AUTH_CALLBACK_URL } from './auth-callback';
 import { completeAuthLink, parseAuthLink } from './auth-link';
-import { signInWithGoogle } from './google';
+import { forgetGoogleAccount, signInWithGoogle } from './google';
 
 /**
  * `initialising` is distinct from `signedOut`: on launch we do not yet know
@@ -278,7 +278,7 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
   async signOut() {
     set({ busy: true, error: null });
     try {
-      await getSupabase().auth.signOut();
+      await Promise.all([getSupabase().auth.signOut(), forgetGoogleAccount()]);
     } catch {
       // Sign-out is best-effort. If the network call fails the local session is
       // still cleared below, because a student asking to sign out on a shared

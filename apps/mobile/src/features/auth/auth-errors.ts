@@ -14,6 +14,12 @@ const MESSAGES: Record<string, string> = {
   over_email_send_rate_limit: 'Too many attempts. Wait a few minutes and try again.',
   over_request_rate_limit: 'Too many attempts. Wait a few minutes and try again.',
   otp_expired: 'That code has expired. Ask for a new one.',
+  // Native Google sign-in. Raised by features/auth/google.ts, not by Supabase.
+  google_play_services:
+    'Google sign-in needs Google Play services, which is missing or out of date on this phone.',
+  google_not_configured:
+    'Google sign-in is not set up for this version of the app yet. Sign in with email instead.',
+  google_no_token: 'Google did not confirm your account. Try again.',
   otp_disabled: 'Phone sign-in is not available yet.',
   validation_failed: 'Check the details you entered and try again.',
   same_password: 'That is already your password. Choose a different one.',

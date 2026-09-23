@@ -1,7 +1,12 @@
+import {
+  GoogleSignin,
+  isCancelledResponse,
+  isErrorWithCode,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import * as WebBrowser from 'expo-web-browser';
+import { getEnv } from '../../config/env';
 import { getSupabase } from '../../lib/supabase';
-import { AUTH_CALLBACK_URL } from './auth-callback';
 
 /**
  * Backing out of the Google sheet is not a failure, and must not be reported as
@@ -9,100 +14,140 @@ import { AUTH_CALLBACK_URL } from './auth-callback';
  */
 export type GoogleSignInOutcome = 'signedIn' | 'cancelled';
 
+/** The part of the native module this file uses, so tests can stand in for it. */
+export type GoogleAccountPicker = Pick<
+  typeof GoogleSignin,
+  'configure' | 'hasPlayServices' | 'signIn'
+>;
+
 export interface GoogleSignInDependencies {
   readonly client: () => SupabaseClient;
-  readonly redirectUri: () => string;
-  readonly openAuthSession: (
-    url: string,
-    redirectUri: string,
-  ) => Promise<{ readonly type: string; readonly url?: string }>;
+  readonly webClientId: () => string | null;
+  readonly google: GoogleAccountPicker;
 }
 
 const defaults: GoogleSignInDependencies = {
   client: getSupabase,
-  // A path rather than the bare scheme, so the redirect is distinguishable from
-  // any other link that opens the app. See AUTH_CALLBACK_URL for why this is not
-  // built with Linking.createURL.
-  redirectUri: () => AUTH_CALLBACK_URL,
-  openAuthSession: (url, redirectUri) => WebBrowser.openAuthSessionAsync(url, redirectUri),
+  webClientId: () => getEnv().googleWebClientId,
+  google: GoogleSignin,
 };
 
 /**
- * Signs in with Google through the system browser.
+ * A failure a student can do something about, carried with a code the auth
+ * error table knows, so the message on screen is written for them.
+ */
+export class GoogleSignInError extends Error {
+  constructor(
+    readonly code: 'google_play_services' | 'google_not_configured' | 'google_no_token',
+    message: string,
+  ) {
+    super(message);
+    this.name = 'GoogleSignInError';
+  }
+}
+
+/**
+ * Signs in with Google using Android's own account picker.
  *
- * The system browser rather than a WebView: Google refuses to authenticate in an
- * embedded WebView, and it is also the only surface that can reuse an existing
- * Google session, so most students never type a password at all.
+ * The browser flow this replaces sent the student to a Google page that said
+ * "continue to lqgekguhqggiagrzwfvk.supabase.co" — the address of the server
+ * handling the redirect — and then depended on a redirect back into the app.
+ * The native picker names the app instead, and hands back a Google ID token
+ * directly, so there is no redirect to lose: the token is given to Supabase,
+ * which checks it was issued for this project's Google client.
  *
- * Supabase's PKCE flow returns an authorisation code on the redirect, which is
- * exchanged for a session here. The code verifier never leaves the device, so an
- * intercepted redirect on its own grants nothing.
+ * Google only issues that token to an app it recognises, by package name and
+ * signing certificate, so an Android OAuth client must exist for them in the
+ * same Google Cloud project as the web client. Without it the picker fails with
+ * DEVELOPER_ERROR (see docs/developer/GOOGLE_SIGN_IN.md).
  */
 export async function signInWithGoogle(
   dependencies: Partial<GoogleSignInDependencies> = {},
 ): Promise<GoogleSignInOutcome> {
-  const { client, redirectUri, openAuthSession } = { ...defaults, ...dependencies };
-  const redirect = redirectUri();
+  const { client, webClientId, google } = { ...defaults, ...dependencies };
 
-  const { data, error } = await client().auth.signInWithOAuth({
-    provider: 'google',
-    // Supabase would otherwise navigate the page itself, which is meaningless
-    // outside a browser and would strand the native app on a blank screen.
-    options: { redirectTo: redirect, skipBrowserRedirect: true },
-  });
-
-  if (error !== null) throw error;
-  if (data === null || typeof data.url !== 'string' || data.url === '') {
-    throw new Error('Google sign-in could not be started.');
+  const clientId = webClientId();
+  if (clientId === null) {
+    throw new GoogleSignInError(
+      'google_not_configured',
+      'Google sign-in is not set up for this build.',
+    );
   }
 
-  const result = await openAuthSession(data.url, redirect);
-  if (result.type !== 'success' || typeof result.url !== 'string') return 'cancelled';
+  // The web client's ID, not the Android one: it is the audience Supabase
+  // checks the returned token against. Safe to call on every sign-in.
+  google.configure({ webClientId: clientId });
 
-  const returned = readRedirect(result.url);
-  if (returned.kind === 'cancelled') return 'cancelled';
-  if (returned.kind === 'error') throw new Error(returned.message);
+  let response: Awaited<ReturnType<GoogleAccountPicker['signIn']>>;
+  try {
+    await google.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    response = await google.signIn();
+  } catch (error) {
+    // A second tap while the sheet is still open, or the student closing it on
+    // an older Play Services, arrives as an error rather than a cancelled
+    // response. Either way they stopped; nothing failed.
+    if (
+      isErrorWithCode(error) &&
+      (error.code === statusCodes.SIGN_IN_CANCELLED || error.code === statusCodes.IN_PROGRESS)
+    ) {
+      return 'cancelled';
+    }
+    throw translate(error);
+  }
 
-  const { error: exchangeError } = await client().auth.exchangeCodeForSession(returned.code);
-  if (exchangeError !== null) throw exchangeError;
+  if (isCancelledResponse(response)) return 'cancelled';
+
+  const idToken = response.data.idToken;
+  if (idToken === null || idToken === '') {
+    throw new GoogleSignInError(
+      'google_no_token',
+      'Google did not confirm your account. Try again.',
+    );
+  }
+
+  const { error } = await client().auth.signInWithIdToken({ provider: 'google', token: idToken });
+  if (error !== null) throw error;
 
   return 'signedIn';
 }
 
-type Redirect =
-  | { readonly kind: 'code'; readonly code: string }
-  | { readonly kind: 'cancelled' }
-  | { readonly kind: 'error'; readonly message: string };
+/** Turns the native module's failures into ones the sign-in screen can explain. */
+function translate(error: unknown): unknown {
+  if (!isErrorWithCode(error)) return error;
+
+  if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+    return new GoogleSignInError(
+      'google_play_services',
+      'Google Play services is missing or out of date on this phone.',
+    );
+  }
+
+  // Google's own name for "this app is not registered with this Google Cloud
+  // project": no Android OAuth client matches the package and signing key.
+  if (String(error.code) === '10' || /DEVELOPER_ERROR/i.test(error.message)) {
+    return new GoogleSignInError(
+      'google_not_configured',
+      'Google sign-in is not set up for this build.',
+    );
+  }
+
+  return error;
+}
 
 /**
- * Reads the authorisation code out of the redirect.
+ * Forgets the Google account chosen on this device.
  *
- * Parameters can arrive in the query string or the fragment depending on the
- * provider and platform, so both are searched.
+ * Google remembers the last account, so without this the next "Continue with
+ * Google" would sign straight back into it with no picker — the wrong account on
+ * a shared phone, and no way to choose another. Best effort: a student who
+ * never used Google has nothing to forget, and sign-out must not fail on it.
  */
-function readRedirect(url: string): Redirect {
-  let parsed: URL;
+export async function forgetGoogleAccount(
+  google: Pick<typeof GoogleSignin, 'signOut'> = GoogleSignin,
+): Promise<void> {
   try {
-    parsed = new URL(url);
+    await google.signOut();
   } catch {
-    return { kind: 'error', message: 'Google sign-in returned an address we could not read.' };
+    // Nothing remembered, or no Play Services: either way there is nothing to do.
   }
-
-  const fragment = new URLSearchParams(parsed.hash.replace(/^#/, ''));
-  const value = (name: string) => parsed.searchParams.get(name) ?? fragment.get(name);
-
-  const failure = value('error');
-  if (failure !== null) {
-    // Declining consent is a decision, not a fault, and reads to the student as
-    // simply having stopped.
-    if (failure === 'access_denied') return { kind: 'cancelled' };
-    return { kind: 'error', message: value('error_description') ?? 'Google sign-in was refused.' };
-  }
-
-  const code = value('code');
-  if (code === null || code === '') {
-    return { kind: 'error', message: 'Google sign-in did not return an authorisation code.' };
-  }
-
-  return { kind: 'code', code };
 }

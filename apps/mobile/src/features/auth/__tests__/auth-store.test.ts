@@ -2,10 +2,13 @@ import { getSupabase } from '../../../lib/supabase';
 import { secureStorage } from '../../../lib/secure-storage';
 import { authErrorMessages } from '../auth-errors';
 import { GUEST_USER_ID, resetAuthStore, useAuthStore } from '../auth-store';
-import { signInWithGoogle } from '../google';
+import { forgetGoogleAccount, signInWithGoogle } from '../google';
 
 jest.mock('../../../lib/supabase');
-jest.mock('../google', () => ({ signInWithGoogle: jest.fn() }));
+jest.mock('../google', () => ({
+  signInWithGoogle: jest.fn(),
+  forgetGoogleAccount: jest.fn().mockResolvedValue(undefined),
+}));
 jest.mock('expo-linking', () => ({
   createURL: (path: string) => `preppilot://${path.replace(/^\//, '')}`,
 }));
@@ -507,5 +510,20 @@ describe('completeAuthLink', () => {
     await state().completeAuthLink('preppilot://auth/callback?code=abc123');
 
     expect(state().busy).toBe(false);
+  });
+});
+
+/**
+ * Google remembers the last account on the device. Without forgetting it, the
+ * next "Continue with Google" signs straight back into it with no picker.
+ */
+describe('signing out after Google sign-in', () => {
+  it('forgets the Google account too', async () => {
+    auth.signOut.mockResolvedValue({ error: null });
+
+    await state().signOut();
+
+    expect(forgetGoogleAccount).toHaveBeenCalled();
+    expect(state().status).toBe('signedOut');
   });
 });

@@ -43,3 +43,24 @@ jest.mock('expo-router', () => {
     Link: ({ children }) => children,
   };
 });
+
+// The Google sign-in native module has no implementation under Jest, and the
+// package does not export its own mock. This mirrors the few helpers the app
+// uses; tests that exercise sign-in pass their own account picker instead.
+jest.mock('@react-native-google-signin/google-signin', () => ({
+  GoogleSignin: {
+    configure: jest.fn(),
+    hasPlayServices: jest.fn(async () => true),
+    signIn: jest.fn(),
+    signOut: jest.fn(async () => null),
+  },
+  statusCodes: {
+    SIGN_IN_CANCELLED: 'SIGN_IN_CANCELLED',
+    IN_PROGRESS: 'IN_PROGRESS',
+    PLAY_SERVICES_NOT_AVAILABLE: 'PLAY_SERVICES_NOT_AVAILABLE',
+    SIGN_IN_REQUIRED: 'SIGN_IN_REQUIRED',
+  },
+  isErrorWithCode: (error) => error !== null && typeof error === 'object' && 'code' in error,
+  isCancelledResponse: (response) => response?.type === 'cancelled',
+  isSuccessResponse: (response) => response?.type === 'success',
+}));

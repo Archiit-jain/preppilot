@@ -1,7 +1,13 @@
 # Turning on "Continue with Google"
 
-The button and its sign-in flow are already written and tested
+The button and its sign-in flow are written and tested
 (`features/auth/components/auth-alternatives.tsx`, `features/auth/google.ts`).
+
+It uses Android's **native account picker** (`@react-native-google-signin/google-signin`),
+not a browser page. The browser flow showed "continue to <project>.supabase.co" —
+the address of the server handling the redirect — and depended on a redirect
+back into the app. The native picker names the app, and returns a Google ID
+token that is handed to Supabase with `signInWithIdToken`; there is no redirect.
 They are hidden, not missing: `features.googleSignIn` is true only when
 `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` was set **at build time** (D26 — a flow that
 cannot work must not reach a student as a broken button).
@@ -40,6 +46,30 @@ your behalf, so steps 1 and 2 are yours; step 3 is the build.
 
    - **Create**. Copy the **Client ID** and **Client secret**.
 
+## 1b. Google Cloud — the Android client
+
+The native picker only issues a token to an app Google recognises, by package
+name and signing certificate. Create a second OAuth client in the **same**
+project:
+
+- **Credentials → Create credentials → OAuth client ID → Android**
+- Package name: `com.preppilot.app`
+- SHA-1 of the signing certificate. EAS signs every build with the same
+  keystore; for this project it is
+
+  ```
+  EF:E1:5E:B3:8A:DE:61:CB:C6:1D:53:E1:C5:7D:F6:9E:D8:8B:BF:E1
+  ```
+
+  To read it again from any built APK: the certificate is in the APK Signing
+  Block (the build is v2-signed, so there is no `META-INF/*.RSA`).
+
+Nothing from this client is copied anywhere. The app still configures the
+**Web** client's ID — that is the audience Supabase checks the token against —
+and Google uses the Android client only to confirm the app is genuine. Without
+it the picker fails with `DEVELOPER_ERROR`, which the app reports as "Google
+sign-in is not set up for this version of the app yet".
+
 ## 2. Supabase — switch the provider on
 
 1. Dashboard → your project → **Authentication → Sign In / Providers → Google**.
@@ -52,9 +82,15 @@ your behalf, so steps 1 and 2 are yours; step 3 is the build.
    preppilot://auth/callback
    ```
 
-   This is where the app is sent back to after Google approves. It is the same
-   URL `Linking.createURL('/auth/callback')` produces in a standalone build, and
-   Supabase refuses to redirect anywhere not on this list.
+   Google sign-in no longer uses it — the native picker has no redirect — but
+   email confirmation does. It must match `AUTH_CALLBACK_URL` exactly: two
+   slashes. `Linking.createURL('/auth/callback')` produces three in a release
+   build, which is why the app no longer uses it; Supabase rejected that address
+   and fell back to its Site URL, `localhost:3000`.
+
+4. **Site URL** on the same page: set it to the web demo,
+   `https://preppilottdemo.netlify.app`, so any address Supabase does refuse
+   lands somewhere real rather than on localhost.
 
 ## 3. The build — make the button appear
 
@@ -73,7 +109,9 @@ tab with profile `preview-live`.
 ## Checking it worked
 
 - The sign-in screen shows **Continue with Google** above the phone option.
-- Tapping it opens a Google account chooser, and returns to PrepPilot signed in.
+- Tapping it opens Android's account picker (a sheet over the app, titled with
+  the app's name — no browser), and PrepPilot is signed in once an account is
+  chosen.
 - `https://<project>.supabase.co/auth/v1/settings` reports `"google": true`.
 
 ## When it fails
