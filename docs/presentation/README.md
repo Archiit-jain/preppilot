@@ -18,9 +18,13 @@ pip install python-pptx python-docx pillow numpy
 ## Regenerate
 
 ```bash
-python3 docs/presentation/build_deck.py
-python3 docs/presentation/build_synopsis.py
+python docs/presentation/build_deck.py
+python docs/presentation/build_synopsis.py
 ```
+
+The scripts locate `docs/` from their own path, so they run from any directory
+on Windows, macOS or Linux. Run `npx prettier --write docs/SYNOPSIS.md`
+afterwards, since CI checks the Markdown's formatting.
 
 ## Editing the presentation
 

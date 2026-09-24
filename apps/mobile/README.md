@@ -45,7 +45,7 @@ provisioned (`DECISIONS.md`, D26):
 | Flag                               | Enables        | Needs                                                        |
 | ---------------------------------- | -------------- | ------------------------------------------------------------ |
 | `EXPO_PUBLIC_ENABLE_PHONE_OTP`     | Phone sign-in  | A Supabase SMS provider; DLT registration for Indian numbers |
-| `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | Google sign-in | A Google OAuth client and a development build                |
+| `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | Google sign-in | Web and Android OAuth clients, and a development build       |
 
 Both stay hidden rather than failing when tapped.
 
@@ -66,6 +66,12 @@ rejects values over 2048 bytes and a Supabase session routinely exceeds that, so
 the storage adapter chunks values on code-point boundaries and reassembles them,
 discarding a partially written entry rather than returning a corrupt session.
 
+Google sign-in is native: `@react-native-google-signin` shows Android's account
+picker and the ID token it returns is exchanged with Supabase through
+`signInWithIdToken`. Email confirmation links return to
+`preppilot://auth/callback` and are completed in the app (`use-auth-links.ts`).
+See `docs/developer/GOOGLE_SIGN_IN.md`.
+
 Supabase's own error strings never reach a student. `auth-errors.ts` maps known
 codes to plain messages and falls back for anything unrecognised, so a database
 error can't surface as UI text.
@@ -73,8 +79,9 @@ error can't surface as UI text.
 ## Design system
 
 Components live in `src/components/ui` and read every value — colour, spacing,
-radius, type scale — from `@preppilot/shared`. Nothing hardcodes a colour or a
-pixel value, so the web demo and the app cannot drift apart.
+radius, type scale — from `@preppilot/shared`, applied through plain
+`StyleSheet` (NativeWind was removed, D79). Nothing hardcodes a colour, so the
+web demo and the app cannot drift apart.
 
 | Component                                       | Role in the product                                   |
 | ----------------------------------------------- | ----------------------------------------------------- |

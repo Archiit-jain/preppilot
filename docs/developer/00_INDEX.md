@@ -19,6 +19,9 @@ rather than quietly resolved in favour of the code.
 | [TESTING.md](TESTING.md)               | What is tested, how, and what tests cannot reach                       |
 | [DEPLOYMENT.md](DEPLOYMENT.md)         | Running, building, and what must be configured first                   |
 | [GOOGLE_SIGN_IN.md](GOOGLE_SIGN_IN.md) | Switching on "Continue with Google": Google Cloud, Supabase, the build |
+| [ANDROID_APK.md](ANDROID_APK.md)       | Building and installing the APK; why it is the size it is              |
+| [AI_LOCALLY.md](AI_LOCALLY.md)         | Running the Gemini proxy on your own machine                           |
+| [LOGO.md](LOGO.md)                     | The logo and the generated app icons                                   |
 | [LIMITATIONS.md](LIMITATIONS.md)       | Everything not built, not verified, or knowingly compromised           |
 
 ## Reading order

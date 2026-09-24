@@ -31,6 +31,13 @@
 - DEVELOPMENT_PLAN.md
 - TESTING.md
 
+## Submissions
+
+- SYNOPSIS.md and PrepPilot_Synopsis.docx — the project synopsis (generated; see presentation/README.md)
+- PrepPilot_First_Project_Presentation.pptx — the first project presentation (generated)
+- AUDIT.md — evidence-based audit of the repository, with a September 2026 addendum
+- [patent/](patent/) — **confidential** draft proposal for patent filing (PATENT_DRAFT.md and PrepPilot_Patent_Draft.docx)
+
 ## Developer documentation
 
 Documentation of the system **as built** lives in [`developer/`](developer/).

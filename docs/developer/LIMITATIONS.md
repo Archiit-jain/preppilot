@@ -35,22 +35,23 @@ OEM power management diverges most from stock Android.
 
 ## Implemented but configuration-gated
 
-| Item           | Appears when                                                                                                                                                              |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Google sign-in | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` is set. The flow itself is complete: Supabase PKCE through the system browser, unit-tested in `features/auth/__tests__/google.test.ts` |
-| Phone OTP      | `EXPO_PUBLIC_ENABLE_PHONE_OTP` is exactly `"true"` **and** an SMS provider is configured in Supabase                                                                      |
-| Anonymous AI   | `EXPO_PUBLIC_ALLOW_ANONYMOUS_AI` is `"true"` **and** the function carries the matching secret                                                                             |
+| Item           | Appears when                                                                                                                                                                                                                                    |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Google sign-in | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` is set **and** an Android OAuth client exists for the build's signing key. Native: Android's account picker, ID token passed to Supabase. Configured and working on the live project since 23 September 2026 |
+| Phone OTP      | `EXPO_PUBLIC_ENABLE_PHONE_OTP` is exactly `"true"` **and** an SMS provider is configured in Supabase                                                                                                                                            |
+| Anonymous AI   | `EXPO_PUBLIC_ALLOW_ANONYMOUS_AI` is `"true"` **and** the function carries the matching secret                                                                                                                                                   |
 
 ## Flashcard scheduling is not SM-2
 
 A full SM-2 implementation exists in `packages/shared/src/flashcards/scheduling.ts`
 and is exhaustively tested — but **the review screen does not call it.** The UI
-offers four fixed delays (5m, 1d, 2d, 4d) through `scheduleWithDelay()`, chosen so
-the buttons say exactly what they do.
+offers three fixed delays (1d, 2d, 4d) through `scheduleWithDelay()`, chosen so
+the buttons say exactly what they do. A fourth, five-minute option was removed in
+September 2026: a card due again before the session ended kept reappearing, and
+students read that as the screen being broken.
 
-SM-2's bookkeeping is still maintained underneath: choosing `5m` counts as a
-lapse, drops the ease factor and resets repetitions. Only `dueAt` comes from the
-student's choice. So the record needed to switch to SM-2 scheduling later is
+SM-2's bookkeeping is still maintained underneath: every rating updates the ease
+factor and repetitions, and only `dueAt` comes from the student's choice. So the record needed to switch to SM-2 scheduling later is
 being kept — but **PrepPilot today does fixed-interval spaced repetition, not
 SM-2 spaced repetition**, and should not be described as the latter.
 
@@ -69,24 +70,39 @@ weekday-only trigger. If the app is never opened, they stop firing.
 
 **The local database is not encrypted.**
 
-**Demo mode bypasses authentication entirely.** Gated behind an explicit flag,
-labelled on every screen, never on by default.
+**Demo mode bypasses authentication entirely.** Gated behind an explicit flag
+and never on by default. The banner that labelled every demo screen was removed
+at the project owner's request (September 2026), so the browser demo no longer
+says on-screen that it is local and unauthenticated.
+
+**The assistant's conversation is not saved.** It lives in memory and is gone
+when the app restarts, pictures included. One picture per question.
+
+**Signing in with Google requires Google Play services** and an Android OAuth
+client registered for the exact signing key of the build. A build signed with a
+different key shows "Google sign-in is not set up for this version of the app".
+
+**The APK is about 41 MB**, not the 20–30 MB once hoped for. That floor is React
+Native, Hermes and the native modules the features need; a Play Store app bundle
+would bring the download down, a single APK cannot.
 
 ## Not fully validated
 
-**Sync has not run against the hosted project.** The engine is tested against a
-real local database and an in-memory server, and the payload shape was verified
-against real Postgres under RLS — but a genuine two-device conflict has not been
-observed end to end.
+**Sync has run against the hosted project, but a two-device conflict has not
+been observed.** Since 21 September 2026 the live project has every table, and a
+full reinstall has been seen to restore courses, topic ticks, flashcards and
+sessions from the server. What has not been observed end to end is two devices
+editing the same row while apart — that is covered only by the engine tests.
 
 **The RLS claims are verified by the tests described in SECURITY.md**, which is
 not the same as a security audit.
 
-**The `subtopics` and `flashcards` migration has not been run against Postgres.**
-The earlier tables were checked against a real database — which is how the
-missing `GRANT` was found — but Docker was unavailable when these were written,
-so their policies are written by analogy rather than verified. Run
-`supabase db push` against a branch before trusting them.
+**The `subtopics` and `flashcards` policies were never tested in isolation.**
+They were written by analogy while Docker was unavailable. All four migrations
+have since been applied to the live project (through
+`supabase/apply-all-migrations.sql`) and sync reads and writes both tables
+there, which shows the grants and policies admit the owner — but no test
+asserts that they refuse another user.
 
 **Sub-topics change what a percentage counts.** A topic broken into parts
 contributes those parts, so the same syllabus reports a different figure after

@@ -177,6 +177,33 @@ architecture every Android phone sold since roughly 2019 uses.
 
 That lands around 60–70 MB instead of 35–45 MB.
 
+### Shrinking
+
+Release builds also run R8 over the Java code and strip unused resources, set
+through `expo-build-properties` in `app.json`
+(`enableProguardInReleaseBuilds`, `enableShrinkResourcesInReleaseBuilds`).
+Measured on the arm64 build:
+
+| Build                                        | APK size |
+| -------------------------------------------- | -------: |
+| arm64, no shrinking                          |  48.3 MB |
+| arm64, R8 + resource shrinking               |  39.2 MB |
+| + native Google sign-in                      |  39.3 MB |
+| + picture attach (image picker, manipulator) |  41.5 MB |
+
+20–30 MB is not reachable in a single APK: that is roughly the size of React
+Native, Hermes and the native modules before any app code. A Play Store app
+bundle would shrink the _download_ further, because the store delivers only what
+a given phone needs.
+
+### Installing from the EAS link
+
+The artifact link redirects to a signed URL that **expires after 15 minutes**. A
+slow phone download that outlives it is cut short, and Android then reports
+"There was a problem parsing the package" or "package appears to be invalid".
+Download it again from the start (do not resume), or download on a computer and
+copy the file to the phone.
+
 The remaining size is React Native, Hermes, the New Architecture and the native
 modules the app genuinely uses — SQLite, notifications, secure storage, SVG,
 Reanimated, screens and gesture handling. None of it can be removed without

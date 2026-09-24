@@ -3,19 +3,21 @@
 Zustand, one store per feature. Stores orchestrate; they do not hold anything
 that can be computed.
 
-| Store             | Owns                                 | Notes                                         |
-| ----------------- | ------------------------------------ | --------------------------------------------- |
-| `auth-store`      | Session, user, auth errors           | `initialising` is distinct from `signedOut`   |
-| `tracker-store`   | The syllabus tree and its progress   | Progress is recomputed, never patched         |
-| `timer-store`     | Current timer, the recording session | Elapsed time is derived from timestamps       |
-| `focus-store`     | Focus session, distraction count     |                                               |
-| `dashboard-store` | Dashboard figures                    | Derived from one read                         |
-| `history-store`   | Session list                         |                                               |
-| `reminders-store` | Reminders and permission state       | Owns notification scheduling                  |
-| `templates`       | —                                    | Stateless; the screen holds its own selection |
-| `ai-store`        | Conversation, pending proposal       | A proposal is inert until confirmed           |
-| `sync-store`      | Sync status, watermark               |                                               |
-| `network-store`   | Connectivity                         | Triggers sync on reconnect                    |
+| Store              | Owns                                 | Notes                                                              |
+| ------------------ | ------------------------------------ | ------------------------------------------------------------------ |
+| `auth-store`       | Session, user, auth errors           | `initialising` is distinct from `signedOut`                        |
+| `trackers-store`   | Courses and which one is active      | Every other store reads through the active one                     |
+| `tracker-store`    | The syllabus tree and its progress   | Four queries per read; `loaded` gates the UI                       |
+| `timer-store`      | Current timer, the recording session | Elapsed time is derived from timestamps                            |
+| `focus-store`      | Focus session, distraction count     |                                                                    |
+| `dashboard-store`  | Dashboard figures                    | Derived from one read                                              |
+| `history-store`    | Session list                         |                                                                    |
+| `reminders-store`  | Reminders and permission state       | Owns notification scheduling                                       |
+| `templates`        | —                                    | Stateless; the screen holds its own selection                      |
+| `flashcards-store` | Cards, review queue, study session   | Three fixed intervals (D80)                                        |
+| `ai-store`         | Conversation, pending proposal       | A proposal is inert until confirmed; a message may carry a picture |
+| `sync-store`       | Sync status, `generation`            | `generation` rises when a pass pulls rows                          |
+| `network-store`    | Connectivity                         | Triggers sync on reconnect                                         |
 
 ## Three patterns worth knowing
 
@@ -42,6 +44,17 @@ and would silently under-report every session where a student locked their scree
 No store lets a driver or transport error reach a screen. `SQLITE_BUSY`,
 `AuthApiError`, a PostgREST constraint name — each is mapped to something a
 student can act on, and there are tests asserting the raw text never appears.
+
+### Screens reload when a sync brings something in
+
+A screen loads its data when it comes into focus. Work pulled by a background
+sync would otherwise stay invisible until the student navigated away and back.
+Every screen that shows synced data puts `useSyncGeneration()` in its load
+dependencies, so a pass that pulls rows re-reads what is on screen.
+
+The tracker also waits for its own first read (`loaded`) before deciding a
+course is empty, so a relaunch never flashes "choose a template" at a student
+with a syllabus.
 
 ## Context injection
 

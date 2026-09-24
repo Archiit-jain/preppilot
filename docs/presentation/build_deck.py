@@ -13,11 +13,14 @@ from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.dml import MSO_LINE_DASH_STYLE
 import os
 
+# Resolved from this file, so the scripts run from any directory on any OS.
+DOCS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # ---------------------------------------------------------------- design system
 
-BRANDING = "/home/user/preppilot/docs/assets/branding"
-SHOTS = "/home/user/preppilot/docs/assets/screenshots"
-OUT = "/home/user/preppilot/docs/PrepPilot_First_Project_Presentation.pptx"
+BRANDING = f"{DOCS}/assets/branding"
+SHOTS = f"{DOCS}/assets/screenshots"
+OUT = f"{DOCS}/PrepPilot_First_Project_Presentation.pptx"
 
 VIDYA_LOGO = f"{BRANDING}/vidya-university-logo.png"
 # The bare mark has a white tick, which disappears on a light slide. The app
@@ -456,7 +459,7 @@ text(s, M + 0.3, y3 + 0.50, 7.0, 0.6,
 
 y4 = y3 + 1.36
 stats = [("22", "syllabus templates"), ("9", "database tables"),
-         ("1,799", "tests passing")]
+         ("1,934", "tests passing")]
 for i, (n, l) in enumerate(stats):
     x = M + i * 2.55
     text(s, x, y4, 2.4, 0.36, n, size=20, bold=True, color=VU_TEAL, font=F_HEAD)
@@ -829,9 +832,9 @@ cw = (CONTENT_W - 2 * 0.26) / 3
 
 card(s, M, y, cw, 1.52, "Flashcards",
      ["Cards are written against a topic. After seeing the answer the student "
-      "picks one of four fixed intervals."],
+      "picks one of three fixed intervals."],
      accent=AMBER, title_size=14, body_size=11)
-for i, (lab, col) in enumerate([("5m", RED), ("1d", AMBER), ("2d", ACCENT), ("4d", GREEN)]):
+for i, (lab, col) in enumerate([("1d", AMBER), ("2d", ACCENT), ("4d", GREEN)]):
     block(s, M + 0.22 + i * 0.95, y + 1.64, 0.82, 0.44, lab, fill=col, size=11.5)
 
 card(s, M + cw + 0.26, y, cw, 1.52, "Notes",
@@ -869,7 +872,7 @@ text(s, M, y3, CONTENT_W, 0.44,
 notes(s, "Three revision features, and the amber panel is the one we most expect "
          "to be questioned on. Many apps say 'spaced repetition' and mean SM-2, "
          "the Anki algorithm. We implemented SM-2 fully and tested it, but our "
-         "review screen uses four fixed intervals instead, because fixed labels "
+         "review screen uses three fixed intervals instead, because fixed labels "
          "tell the student exactly what will happen. We maintain the SM-2 "
          "statistics underneath, so switching is a one-line change. On the right, "
          "the reminder limitation is platform-specific and stated in the app.")
@@ -1272,7 +1275,7 @@ cols = [
         ("Expo SDK 57", "runtime & build"),
         ("Expo Router", "file-based routing"),
         ("Zustand 5", "state management"),
-        ("NativeWind", "styling"),
+        ("StyleSheet + tokens", "styling"),
     ], ACCENT),
     ("Data Layer", [
         ("SQLite", "expo-sqlite on device"),
@@ -1327,7 +1330,7 @@ notes(s, "The stack as actually built, with versions from our package manifests.
 s = new_slide("Testing and Validation", "Evidence that it works")
 y = body_top()
 
-stats = [("1,799", "tests passing", ACCENT), ("80", "test suites", PURPLE),
+stats = [("1,934", "tests passing", ACCENT), ("91", "test suites", PURPLE),
          ("6", "CI stages per change", GREEN), ("2", "bundle builds verified", AMBER)]
 cw = (CONTENT_W - 3 * 0.24) / 4
 for i, (n, l, c) in enumerate(stats):
@@ -1341,9 +1344,9 @@ y2 = y + 1.4
 rect(s, M, y2, 6.1, 2.4, fill=SURFACE, line=BORDER)
 text(s, M + 0.28, y2 + 0.18, 5.6, 0.26, "TEST BREAKDOWN", size=9.5, bold=True,
      color=VU_CORAL, caps=True)
-for i, (a, b, c) in enumerate([("packages/shared", "15 suites", "512 tests"),
-                               ("apps/mobile", "65 suites", "1,287 tests"),
-                               ("Total", "80 suites", "1,799 tests")]):
+for i, (a, b, c) in enumerate([("packages/shared", "15 suites", "508 tests"),
+                               ("apps/mobile", "74 suites", "1,386 tests"),
+                               ("Total, incl. Deno", "91 suites", "1,934 tests")]):
     yy = y2 + 0.58 + i * 0.52
     bold = i == 2
     if bold:

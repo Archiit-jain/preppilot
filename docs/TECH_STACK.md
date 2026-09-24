@@ -23,13 +23,23 @@ the root `package.json`.
 | **Expo**                    | SDK 57  | Native runtime, build pipeline and device APIs       |
 | **React**                   | 19.2.3  | UI library                                           |
 | **Expo Router**             | 57      | File-based routing and navigation                    |
-| **NativeWind**              | 4.2     | Tailwind-style styling for React Native              |
 | **React Native Reanimated** | 4.5     | Animation                                            |
 | **React Native SVG**        | 15.15   | Vector rendering, including the logo                 |
 
+Styling is plain React Native `StyleSheet` driven by the shared design tokens.
+NativeWind was used early on and removed in September 2026: the app had no
+`className` anywhere, yet NativeWind's JSX runtime still wrapped every element,
+and on Android that broke the rendering of several components (DECISIONS.md,
+D79).
+
 Expo modules in use: `expo-sqlite`, `expo-secure-store`, `expo-notifications`,
 `expo-crypto`, `expo-keep-awake`, `expo-network`, `expo-haptics`,
-`expo-web-browser`, `expo-linking`, `expo-font`, `expo-splash-screen`.
+`expo-linking`, `expo-font`, `expo-splash-screen`, `expo-image-picker` and
+`expo-image-manipulator` (pictures for the assistant), and
+`expo-build-properties` (release shrinking). `expo-web-browser` remains a
+dependency of the router but no sign-in path opens a browser any more.
+
+Native Google sign-in uses `@react-native-google-signin/google-signin` 16.1.
 
 ## Web
 
@@ -65,7 +75,7 @@ Nine tables: `trackers`, `subjects`, `chapters`, `topics`, `subtopics`,
 | --------------------------- | ------------------------------------------------------ |
 | **Supabase**                | The backend platform — this is the project's backend   |
 | **PostgreSQL**              | Cloud database, with Row Level Security on every table |
-| **Supabase Auth**           | Email/password, Google OAuth (PKCE), phone OTP         |
+| **Supabase Auth**           | Email/password, Google (ID token), phone OTP; PKCE     |
 | **Supabase Edge Functions** | Deno runtime — `ask-gemini`, `delete-account`          |
 | **Supabase CLI**            | 2.116 — migrations and deployment                      |
 
@@ -84,20 +94,26 @@ inside the Edge Function and never returned to a client. No key appears anywhere
 under `apps/`. The function additionally enforces per-account rate limiting and
 caps the model's thinking budget.
 
+The assistant is **multimodal**: a question can carry one picture (a textbook
+page, handwritten notes, a diagram), which the device shrinks to 1600 px and
+sends as JPEG; Gemini reads it through the same function. Replies are rendered
+from Markdown by an in-house parser rather than a Markdown library.
+
 ## Authentication
 
-| Method            | Status                                                                            |
-| ----------------- | --------------------------------------------------------------------------------- |
-| Email + password  | Implemented                                                                       |
-| Google OAuth      | Implemented (PKCE via the system browser); appears once a client id is configured |
-| Phone OTP         | Implemented behind `EXPO_PUBLIC_ENABLE_PHONE_OTP`; needs an SMS provider          |
-| Guest / demo mode | Implemented; local-only, labelled on every screen, off unless explicitly enabled  |
+| Method            | Status                                                                           |
+| ----------------- | -------------------------------------------------------------------------------- |
+| Email + password  | Implemented                                                                      |
+| Google sign-in    | Implemented natively: Android's account picker, ID token to Supabase             |
+| Phone OTP         | Implemented behind `EXPO_PUBLIC_ENABLE_PHONE_OTP`; needs an SMS provider         |
+| Guest / demo mode | Implemented; local-only, labelled on every screen, off unless explicitly enabled |
 
 ## Build and deployment
 
 | Technology         | Role                                                               |
 | ------------------ | ------------------------------------------------------------------ |
-| **EAS Build**      | Android APK builds — `preview` and `preview-live` profiles         |
+| **EAS Build**      | Android APK builds — `preview` and `preview-live` profiles, arm64  |
+| **R8**             | Code and resource shrinking in release builds (about 41 MB APK)    |
 | **Metro**          | Bundler, including platform-specific module resolution (`.web.ts`) |
 | **GitHub Actions** | CI on every push to `main` and every pull request                  |
 

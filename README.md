@@ -20,20 +20,46 @@ for what remains unbuilt or unverified.
 | Foundation (monorepo, tooling, CI)           | ✅ Implemented              |
 | Progress engine + design tokens              | ✅ Implemented              |
 | Expo app + design system components          | ✅ Implemented              |
-| Authentication (email, Google, guest)        | ✅ Implemented              |
+| Authentication (email, native Google, guest) | ✅ Implemented              |
 | Phone OTP                                    | ⚙️ Behind a flag            |
 | Offline tracker: SQLite + Drizzle data layer | ✅ Implemented              |
 | Offline tracker: UI                          | ✅ Implemented              |
 | Timers and study sessions                    | ✅ Implemented              |
 | Dashboard, history and statistics            | ✅ Implemented              |
 | Syllabus templates (22 bundled)              | ✅ Implemented              |
+| Build a course from scratch                  | ✅ Implemented              |
+| Multiple courses                             | ✅ Implemented              |
 | Notes, flashcards, reminders                 | ✅ Implemented              |
-| Synchronisation and conflict resolution      | ✅ Implemented              |
+| Synchronisation and conflict resolution      | ✅ Implemented, auto-sync   |
 | AI assistant (Gemini via Edge Function)      | ✅ Implemented              |
+| AI: questions about a photo or screenshot    | ✅ Implemented              |
 | Focus Mode                                   | ✅ Implemented, see caveats |
 | Web demo build                               | ✅ Implemented              |
 
-Test suite: **1,799 tests across 80 suites**, all passing.
+Test suite: **1,934 tests across 91 suites**, all passing — 1,386 in the app,
+508 in the shared package, 40 for the Edge Functions.
+
+The Android APK (EAS `preview-live` profile, arm64) is about 41 MB and has been
+run on a physical phone against the live Supabase project: sign-in by email and
+Google, sync across a reinstall, and the assistant including picture questions.
+
+## What changed in September 2026
+
+Device testing drove a round of fixes, each recorded in
+[`DECISIONS.md`](DECISIONS.md) (D79–D92):
+
+- **Faster and closer to the web build on Android** — the tracker reads a course
+  in four queries instead of hundreds, and NativeWind, which was distorting
+  several components on Android, is gone.
+- **Sync you do not have to think about** — on sign-in, every five minutes, on
+  leaving the app and on reconnecting; large syllabi are pulled in pages; local
+  data shows first on launch.
+- **Sign-in that returns to the app** — native Google sign-in, and email
+  confirmation links that open PrepPilot rather than `localhost`.
+- **A better assistant** — attach a photo or screenshot, replies formatted
+  instead of raw Markdown and LaTeX, and a text box the keyboard no longer covers.
+- **Build from scratch** creates a new course from one form; flashcards offer
+  three review intervals (1d, 2d, 4d).
 
 ## Repository layout
 
@@ -69,16 +95,19 @@ pnpm --filter @preppilot/mobile web:demo
 ```
 
 Then open <http://localhost:8081>. This runs in **demo mode** (`DECISIONS.md`,
-D40): a fixed local account, no Supabase, a small seeded syllabus, and a banner
-on every screen saying the session is local and unauthenticated. The tracker,
-timers and history are all real — they run against SQLite compiled to
-WebAssembly — but nothing syncs.
+D40): a fixed local account, no Supabase and a small seeded syllabus. The
+tracker, timers and history are all real — they run against SQLite compiled to
+WebAssembly — but nothing syncs. A hosted copy of the demo runs at
+<https://preppilottdemo.netlify.app>.
 
 For the Android app:
 
 ```bash
 pnpm --filter @preppilot/mobile start
 ```
+
+To build an installable APK against the live project, see
+[`docs/developer/ANDROID_APK.md`](docs/developer/ANDROID_APK.md).
 
 | Command              | What it does                                |
 | -------------------- | ------------------------------------------- |
@@ -115,7 +144,9 @@ topics displays as `99%`, never a falsely triumphant `100%`.
 ## Security
 
 The Gemini API key and the Supabase service-role key are **server-side only**,
-never bundled into the app or the web build. All user data is isolated with
+never bundled into the app or the web build. Pictures sent to the assistant go
+through the same server-side function, which checks their type and size before
+any quota is spent. All user data is isolated with
 Supabase Row Level Security. See [`docs/SECURITY.md`](docs/SECURITY.md).
 
 ## Documentation
@@ -131,6 +162,11 @@ works, why it was built that way, and where it falls short. Start at
 [`docs/developer/00_INDEX.md`](docs/developer/00_INDEX.md), or go straight to
 [`docs/developer/LIMITATIONS.md`](docs/developer/LIMITATIONS.md) for the honest
 list of what is unbuilt and unverified.
+The project synopsis and presentation are generated from
+[`docs/presentation/`](docs/presentation/), and a **confidential** draft
+proposal for patent filing lives in [`docs/patent/`](docs/patent/) — read its
+README before sharing anything from it.
+
 The [PRD](docs/PRD.md) is the authoritative product specification; where this
 implementation departs from or extends it, [`DECISIONS.md`](DECISIONS.md) says so
 and explains why.

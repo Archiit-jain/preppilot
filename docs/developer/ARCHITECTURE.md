@@ -9,7 +9,7 @@ packages/
   shared/          Pure TypeScript. No React, no React Native, no I/O.
 supabase/
   migrations/      The server schema.
-  functions/       Edge Functions. Currently only the Gemini proxy.
+  functions/       Edge Functions: ask-gemini (the Gemini proxy) and delete-account.
 ```
 
 ## The dependency rule
@@ -37,6 +37,7 @@ number. They run the same functions.
 | `stats/`                     | Dashboard aggregations, streaks, day bucketing  |
 | `templates/`                 | Template shape, validation, the bundled library |
 | `ai/`                        | Parsing a model reply into an inert proposal    |
+| `flashcards/`                | SM-2 and the fixed review intervals             |
 | `auth/`                      | Input validation                                |
 | `id/`                        | UUIDv7 generation                               |
 | `time/`, `theme/`, `domain/` | Formatting, design tokens, structural types     |
@@ -66,6 +67,20 @@ the main thread with none of those requirements.
 Only `db/client.web.ts` differs. The schema, migrations and every repository are
 shared, so the browser runs the same SQL the Android app runs.
 
+### Feature folders in the app
+
+`apps/mobile/src/features/` holds one folder per feature — `auth`, `tracker`,
+`trackers` (courses), `course-builder`, `templates`, `timer`, `focus`,
+`sessions`, `dashboard`, `history`, `flashcards`, `notes`, `reminders`, `ai`,
+`sync`, `network`, `settings`, `splash`. Each has its screen, its store and its tests
+side by side. Routes in `src/app/` are thin wrappers that render a feature's
+screen.
+
+A few pieces are app-wide rather than per feature: `components/ui` (the design
+system), `theme/` (tokens applied through `StyleSheet`, D79), `db/` (schema,
+migrations, repositories) and `lib/` (the Supabase client and
+`use-keyboard-overlap`).
+
 ## Progress is derived, never stored
 
 There is no `progress` column anywhere. Every percentage is computed from topic
@@ -84,4 +99,4 @@ disagree.
 
 - [DATABASE.md](DATABASE.md) — what the rows look like
 - [STATE.md](STATE.md) — what each store owns
-- [`../../DECISIONS.md`](../../DECISIONS.md) — D7, D8, D30, D59 cover these choices
+- [`../../DECISIONS.md`](../../DECISIONS.md) — D7, D8, D30 and D79 cover these choices

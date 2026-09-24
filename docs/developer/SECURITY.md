@@ -58,6 +58,18 @@ that fails to parse and wedges start-up.
 Token refresh pauses while the app is backgrounded, where the OS can suspend the
 process mid-request and leave the stored session half-written.
 
+## Sign-in flows
+
+- **PKCE** is the Supabase auth flow, so an email confirmation link carries a
+  one-time code rather than tokens in the URL. The link returns to
+  `preppilot://auth/callback`, and the app exchanges the code itself.
+- **Google** sign-in is native: the Google ID token from Android's account
+  picker is verified by Supabase (`signInWithIdToken`). The Web client's secret
+  lives only in Supabase's provider settings, never in the app. Google issues a
+  token only to an app signed with a key registered in the Android OAuth client.
+- **Signing out** also clears the Google account choice on the device, so the
+  next Google sign-in shows the picker rather than silently reusing an account.
+
 ## Input validation
 
 Validated in `packages/shared/src/auth/validation.ts` before any request. Passwords
@@ -76,8 +88,13 @@ all fail to appear in rendered output.
 - **The local database is not encrypted.** Someone with a rooted device and
   physical access can read a student's syllabus. The session token is in the
   keystore; the syllabus is not.
-- **Demo mode has no authentication at all.** It is gated behind an explicit flag
-  and labelled on every screen, but anything stored in it is unprotected.
+- **Demo mode has no authentication at all.** It is gated behind an explicit flag,
+  but anything stored in it is unprotected, and since the demo banner was removed
+  (D92) nothing on screen says so.
+- **Pictures sent to the assistant leave the device.** They go to the Edge
+  Function and on to Google's Gemini API, and are not stored by PrepPilot. The
+  function refuses any file that is not a JPEG, PNG, WebP or HEIC image, or that
+  exceeds its size limit, before calling Gemini.
 - **The Edge Function's rate limit is in-memory**, so it resets when the function
   cold-starts. A durable limit belongs in the database once usage justifies it.
 - **No penetration testing has been done.** The RLS claims above are verified by

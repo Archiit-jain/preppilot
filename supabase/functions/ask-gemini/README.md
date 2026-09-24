@@ -19,6 +19,29 @@ The app checks for a configured Supabase project and a signed-in account, and
 disables the assistant when either is missing, so nothing breaks before this is
 deployed.
 
+## Pictures
+
+A request in `ask` mode may carry one picture:
+
+```json
+{ "question": "Solve Q3", "mode": "ask", "image": { "mimeType": "image/jpeg", "data": "<base64>" } }
+```
+
+Accepted types are JPEG, PNG, WebP and HEIC/HEIF. Anything else, or data that
+is not plain base64, is refused with 400; more than 5,000,000 base64 characters
+with 413 — both before Gemini is called, so a bad upload costs nothing. The
+picture is sent to the model ahead of the question. `summarize` and `quiz` never
+take one.
+
+The app shrinks pictures to 1600 px JPEG before sending, so a normal request is
+a few hundred kilobytes.
+
+## Formatting
+
+The system instruction tells the model to write maths as plain text with Unicode
+symbols rather than LaTeX, which a phone shows as raw backslashes. The app still
+renders Markdown and rewrites any LaTeX that slips through.
+
 ## The model
 
 Pinned to `gemini-3.6-flash` rather than the `gemini-flash-latest` alias. An

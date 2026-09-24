@@ -82,6 +82,11 @@ supabase db push          # against a linked project
 supabase db reset         # against the local stack, for testing
 ```
 
+`supabase/apply-all-migrations.sql` holds all four migrations in order, written
+to be safe to run more than once, for pasting into the Supabase SQL Editor where
+the CLI is not available. The live project was set up that way (21 September
+2026). When a migration is added, add it to that file too.
+
 ### Grants are not optional
 
 Enabling RLS is not enough. RLS filters rows only **after** the privilege check

@@ -11,6 +11,22 @@ was treated as a claim to be checked, never as evidence.
 > won. Where neither could settle a question, it is listed under
 > [Open questions](#open-questions) rather than resolved by assumption.
 
+> **Addendum — 24 September 2026.** This audit is a dated snapshot and is kept
+> as written. Since it was made:
+>
+> - The suite is now **1,934 tests across 91 suites** (mobile 74 / 1,386,
+>   shared 15 / 508, Deno 2 / 40), all passing.
+> - **F-1 / OQ-1 answered:** the fixed intervals are deliberate, and the `5m`
+>   option has been removed. The review screen offers **1d, 2d, 4d** (D80).
+> - **F-4 superseded:** Google sign-in no longer uses the browser flow described
+>   there. It is native — Android's account picker and `signInWithIdToken` (D87).
+> - **OQ-3 partly answered:** all four migrations, subtopics and flashcards
+>   included, are applied to the live project and sync uses them; cross-user
+>   refusal for those two tables is still untested.
+> - The assistant accepts pictures and renders formatted replies (D89, D90).
+>
+> See `DECISIONS.md` §10 (D79–D92) for every change and its reason.
+
 ---
 
 ## 1. What was inspected

@@ -15,8 +15,9 @@ pnpm --filter @preppilot/mobile demo
 ```
 
 Builds the web bundle and serves it at <http://localhost:8081> in **demo mode**:
-a fixed local account, no Supabase, a small seeded syllabus, and a banner on
-every screen stating the session is local and unauthenticated.
+a fixed local account, no Supabase and a small seeded syllabus. (The banner
+that used to say so on every screen was removed at the project owner's request,
+D92.)
 
 The tracker, timers, history and reminders are all real — they run against SQLite
 compiled to WebAssembly. Nothing syncs.
@@ -42,6 +43,10 @@ supabase link --project-ref <ref>
 supabase db push
 ```
 
+Without the CLI, paste `supabase/apply-all-migrations.sql` — all four
+migrations in order, safe to run twice — into the Supabase SQL Editor. That is
+how the live project was set up.
+
 ```bash
 pnpm --filter @preppilot/mobile start   # Android, via a development build
 ```
@@ -56,7 +61,7 @@ the Android app does not.
 
 | Variable                           | Enables                | Also needs                                                   |
 | ---------------------------------- | ---------------------- | ------------------------------------------------------------ |
-| `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | Google sign-in visible | A Google OAuth client                                        |
+| `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | Google sign-in visible | A Web **and** an Android OAuth client (GOOGLE_SIGN_IN.md)    |
 | `EXPO_PUBLIC_ENABLE_PHONE_OTP`     | Phone sign-in          | A Supabase SMS provider; DLT registration for Indian numbers |
 | `EXPO_PUBLIC_DEMO_MODE`            | Demo mode              | Nothing — must be exactly `"true"`                           |
 
@@ -65,18 +70,20 @@ provisioned: a broken button is worse than an absent one.
 
 ### Enabling Google sign-in
 
-1. Create a Google OAuth client and enable the Google provider in Supabase
-   (Authentication → Providers), pasting the client ID and secret there.
-2. Add the app's redirect to Supabase's allow list under Authentication → URL
-   Configuration. The native redirect is `preppilot://auth/callback`; the web
-   build additionally needs `<origin>/auth/callback` for wherever it is served.
-   Supabase rejects a redirect that is not on this list, and the failure looks
-   like the browser closing with nothing happening.
-3. Set `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` so the button appears.
+Full steps are in [GOOGLE_SIGN_IN.md](GOOGLE_SIGN_IN.md). In short: a **Web**
+OAuth client (its id goes in `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` and, with its
+secret, in Supabase's Google provider) and an **Android** OAuth client for the
+package `com.preppilot.app` and the SHA-1 of the build's signing key. Sign-in is
+native — Android's account picker returns an ID token that the app hands to
+Supabase — so no browser opens and no redirect is involved.
 
-Sign-in runs through the system browser rather than a WebView, because Google
-refuses to authenticate inside one. That means Android needs a development
-build — the redirect back into the app cannot resolve under Expo Go.
+### Email confirmation links
+
+Sign-up sends `preppilot://auth/callback` as the redirect. Add it to Supabase's
+allow list (Authentication → URL Configuration → Redirect URLs), and set the
+**Site URL** to the public web address (for example the Netlify demo) rather than
+`localhost:3000`: Supabase falls back to the Site URL whenever it rejects a
+redirect.
 
 ## Building the web bundle
 
@@ -112,6 +119,10 @@ failure.
 
 The model is pinned in `supabase/functions/ask-gemini/index.ts` rather than
 tracking an alias, and Google retires models — see that function's README.
+
+Redeploy the function whenever `index.ts` changes; the app does not carry a copy.
+Picture questions (D89) need the version deployed on 23 September 2026 or later —
+an older function ignores the picture and answers the text alone.
 
 ## Letting the demo use the assistant
 

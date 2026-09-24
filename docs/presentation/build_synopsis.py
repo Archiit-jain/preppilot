@@ -12,6 +12,9 @@ Typography follows the university's SPECIFICATIONS FOR SYNOPSIS exactly:
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+# Resolved from this file, so the script runs from any directory on any OS.
+DOCS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 from docx import Document
 from docx.shared import Pt, Cm
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
@@ -20,10 +23,10 @@ from docx.oxml.ns import qn
 from synopsis_content import (TITLE, TEAM, GUIDE, BRANCH, BLANK,
                               DETAILS_ROWS, TOC_ROWS, BODY)
 
-DOCX_OUT = "/home/user/preppilot/docs/PrepPilot_Synopsis.docx"
-MD_OUT = "/home/user/preppilot/docs/SYNOPSIS.md"
-BRANDING = "/home/user/preppilot/docs/assets/branding"
-DIAGRAMS = "/home/user/preppilot/docs/assets/diagrams"
+DOCX_OUT = f"{DOCS}/PrepPilot_Synopsis.docx"
+MD_OUT = f"{DOCS}/SYNOPSIS.md"
+BRANDING = f"{DOCS}/assets/branding"
+DIAGRAMS = f"{DOCS}/assets/diagrams"
 
 BODY_PT, HEAD_PT, FONT = 12, 14, "Times New Roman"
 C = WD_ALIGN_PARAGRAPH.CENTER
@@ -268,6 +271,6 @@ md.append("**PrepPilot** · Department of Computer Science & Engineering\n")
 md.append("**Vidya University, Meerut** · September 2026\n")
 md.append("</div>\n")
 
-with open(MD_OUT, "w") as f:
+with open(MD_OUT, "w", encoding="utf-8", newline="\n") as f:
     f.write("\n".join(md))
 print("Saved:", MD_OUT)

@@ -1,11 +1,19 @@
 # Testing
 
-**1,020 tests** — 317 in `packages/shared`, 703 in `apps/mobile`.
+**1,934 tests across 91 suites**, all passing (24 September 2026):
 
-| Package           | Runner                              | Why                                                             |
-| ----------------- | ----------------------------------- | --------------------------------------------------------------- |
-| `packages/shared` | Vitest                              | Pure TypeScript, no React Native                                |
-| `apps/mobile`     | Jest + React Native Testing Library | The RN preset cannot run a pure package cleanly, and vice versa |
+| Package                    | Suites |     Tests |
+| -------------------------- | -----: | --------: |
+| `apps/mobile` (Jest)       |     74 |     1,386 |
+| `packages/shared` (Vitest) |     15 |       508 |
+| Edge Functions (Deno)      |      2 |        40 |
+| **Total**                  | **91** | **1,934** |
+
+| Package              | Runner                              | Why                                                             |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------- |
+| `packages/shared`    | Vitest                              | Pure TypeScript, no React Native                                |
+| `supabase/functions` | Deno test                           | The functions run on Deno; tests stub `fetch` for Gemini        |
+| `apps/mobile`        | Jest + React Native Testing Library | The RN preset cannot run a pure package cleanly, and vice versa |
 
 Coverage thresholds are enforced in CI: 95% statements, 90% branches, 95%
 functions, 95% lines.
@@ -54,6 +62,15 @@ Recorded because each cost real time.
 - **`babel-preset-expo` inlines `EXPO_PUBLIC_*` at build time**, so mutating
   `process.env` in a test does nothing. Configuration is parsed by a pure
   function instead.
+
+- **Zustand spies leak.** `jest.spyOn` on a store action survives into later
+  state copies. Tests assert on outcomes, or inject state with `setState`.
+- **`Keyboard` events differ by platform.** iOS emits `keyboardWillShow`,
+  Android `keyboardDidShow`; the Jest preset runs as iOS. Keyboard tests find the
+  handler by suffix rather than by name.
+- **Native modules need hand-written mocks.** `@react-native-google-signin`,
+  `expo-image-picker` and `expo-image-manipulator` are mocked in the tests that
+  use them, since their packages export no Jest mock.
 
 ## What tests cannot reach
 
