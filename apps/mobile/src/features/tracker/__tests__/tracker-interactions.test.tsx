@@ -64,6 +64,16 @@ const withSubtopic = async (name = 'Recurring decimals') => {
 const openMenu = (name: string) =>
   fireEvent.press(screen.getByRole('button', { name: `Options for ${name}` }));
 
+/** "Test me on this", then Start on the settings sheet with its defaults. */
+async function startQuiz() {
+  await act(async () => {
+    fireEvent.press(getInModal('Test me on this'));
+  });
+  await act(async () => {
+    fireEvent.press(screen.getByTestId('quiz-start'));
+  });
+}
+
 async function answerQuiz(picks: readonly number[]) {
   for (const [questionIndex, option] of picks.entries()) {
     await waitFor(() =>
@@ -666,7 +676,7 @@ describe('notes on a topic', () => {
     expandAll();
 
     openNote();
-    fireEvent.changeText(screen.getByLabelText('Description'), 'Recurring means repeating.');
+    fireEvent.changeText(screen.getByLabelText('Note'), 'Recurring means repeating.');
     await act(async () => {
       fireEvent.press(getInModal('Save'));
     });
@@ -674,19 +684,43 @@ describe('notes on a topic', () => {
     await waitFor(() => expect(screen.getByText('Recurring means repeating.')).toBeOnTheScreen());
   });
 
-  it('offers to edit rather than add once one exists', async () => {
+  /** A topic holds any number of notes; the menu always adds another. */
+  it('adds a second note beside the first', async () => {
     await seed();
     await renderTracker();
     expandAll();
     openNote();
-    fireEvent.changeText(screen.getByLabelText('Description'), 'A note');
+    fireEvent.changeText(screen.getByLabelText('Note'), 'First thought');
+    await act(async () => {
+      fireEvent.press(getInModal('Save'));
+    });
+    await waitFor(() => expect(screen.getByText('First thought')).toBeOnTheScreen());
+
+    openNote();
+    fireEvent.changeText(screen.getByLabelText('Note'), 'Second thought');
     await act(async () => {
       fireEvent.press(getInModal('Save'));
     });
 
-    fireEvent.press(screen.getByRole('button', { name: 'Options for Decimal' }));
+    await waitFor(() => expect(screen.getByText('Second thought')).toBeOnTheScreen());
+    expect(screen.getByText('First thought')).toBeOnTheScreen();
+  });
 
-    expect(getInModal('Edit note')).toBeTruthy();
+  it('shows two notes under the topic and points to the rest', async () => {
+    await seed();
+    await renderTracker();
+    expandAll();
+    for (const text of ['One', 'Two', 'Three']) {
+      openNote();
+      fireEvent.changeText(screen.getByLabelText('Note'), text);
+      await act(async () => {
+        fireEvent.press(getInModal('Save'));
+      });
+    }
+
+    await waitFor(() => expect(screen.getByText('+1 more note in Notes')).toBeOnTheScreen());
+    fireEvent.press(screen.getByText('+1 more note in Notes'));
+    expect(router.push).toHaveBeenCalledWith('/notes');
   });
 
   /** An emptied note is no note, not a blank card taking up space. */
@@ -695,14 +729,14 @@ describe('notes on a topic', () => {
     await renderTracker();
     expandAll();
     openNote();
-    fireEvent.changeText(screen.getByLabelText('Description'), 'Temporary');
+    fireEvent.changeText(screen.getByLabelText('Note'), 'Temporary');
     await act(async () => {
       fireEvent.press(getInModal('Save'));
     });
     await waitFor(() => expect(screen.getByText('Temporary')).toBeOnTheScreen());
 
     fireEvent.press(screen.getByRole('button', { name: 'Edit note on Decimal' }));
-    fireEvent.changeText(screen.getByLabelText('Description'), '');
+    fireEvent.changeText(screen.getByLabelText('Note'), '');
     await act(async () => {
       fireEvent.press(getInModal('Save'));
     });
@@ -881,9 +915,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await answerQuiz([0, 1, 2]);
     await act(async () => {
       fireEvent.press(screen.getByTestId('quiz-finish'));
@@ -899,9 +931,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await answerQuiz([3, 1, 2]);
 
     expect(screen.getByTestId('quiz-outcome')).toHaveTextContent(/2 of 3 right/);
@@ -917,9 +947,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('quiz-check')).toBeOnTheScreen());
 
     expect(screen.getByTestId('quiz-check').props.accessibilityState.disabled).toBe(true);
@@ -931,9 +959,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('q0-option0')).toBeOnTheScreen());
 
     expect(screen.queryByTestId('q1-option0')).toBeNull();
@@ -944,9 +970,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('q0-option0')).toBeOnTheScreen());
 
     fireEvent.press(screen.getByTestId('q0-option0'));
@@ -961,9 +985,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('q0-option0')).toBeOnTheScreen());
 
     fireEvent.press(screen.getByTestId('q0-option0'));
@@ -977,9 +999,7 @@ describe('asking the assistant about a topic', () => {
     mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
     await openTopicMenu();
 
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('q0-option0')).toBeOnTheScreen());
 
     fireEvent.press(screen.getByTestId('q0-option0'));
@@ -1041,7 +1061,7 @@ describe('sub-topics do everything topics do', () => {
 
     openMenu('Recurring decimals');
     fireEvent.press(getInModal('Add note'));
-    fireEvent.changeText(screen.getByLabelText('Description'), '0.333… repeats forever.');
+    fireEvent.changeText(screen.getByLabelText('Note'), '0.333… repeats forever.');
     await act(async () => {
       fireEvent.press(getInModal('Save'));
     });
@@ -1094,9 +1114,7 @@ describe('sub-topics do everything topics do', () => {
     await withSubtopic();
 
     openMenu('Recurring decimals');
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await answerQuiz([0, 1, 2]);
     await act(async () => {
       fireEvent.press(screen.getByTestId('quiz-finish'));
@@ -1155,9 +1173,7 @@ describe('a question with more than one correct answer', () => {
     await renderTracker();
     expandAll();
     fireEvent.press(screen.getByRole('button', { name: 'Options for Decimal' }));
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('q0-option0')).toBeOnTheScreen());
   };
 
@@ -1238,9 +1254,7 @@ describe('moving through the quiz', () => {
     await renderTracker();
     expandAll();
     fireEvent.press(screen.getByRole('button', { name: 'Options for Decimal' }));
-    await act(async () => {
-      fireEvent.press(getInModal('Test me on this'));
-    });
+    await startQuiz();
     await waitFor(() => expect(screen.getByTestId('q0-option0')).toBeOnTheScreen());
   };
 
@@ -1299,19 +1313,19 @@ describe('a sub-topic that already has a note', () => {
     await withSubtopic('Recurring decimals');
     fireEvent.press(screen.getByRole('button', { name: 'Options for Recurring decimals' }));
     fireEvent.press(getInModal('Add note'));
-    fireEvent.changeText(screen.getByLabelText('Description'), 'It repeats.');
+    fireEvent.changeText(screen.getByLabelText('Note'), 'It repeats.');
     await act(async () => {
       fireEvent.press(getInModal('Save'));
     });
     await waitFor(() => expect(screen.getByText('It repeats.')).toBeOnTheScreen());
   };
 
-  it('offers to edit rather than add', async () => {
+  it('still offers to add another', async () => {
     await withNotedSubtopic();
 
     fireEvent.press(screen.getByRole('button', { name: 'Options for Recurring decimals' }));
 
-    expect(getInModal('Edit note')).toBeTruthy();
+    expect(getInModal('Add note')).toBeTruthy();
   });
 
   it('opens the note by tapping it', async () => {
@@ -1538,31 +1552,28 @@ describe('deleting a note from the tracker', () => {
     return topic;
   };
 
-  it('offers to delete a note that exists', async () => {
-    await openTopicMenu('V equals I times R.');
-
-    expect(getInModal('Delete note')).toBeTruthy();
-  });
-
-  /** An action that would do nothing is worse absent than present. */
-  it('does not offer it on a topic with no note', async () => {
-    await openTopicMenu(null);
-
-    expect(screen.queryByText('Delete note')).toBeNull();
-  });
-
-  it('clears the note but keeps the topic', async () => {
+  /** A note is deleted by clearing it, which cannot touch the topic it was on. */
+  it('deletes a note by clearing it, and keeps the topic', async () => {
     const topic = await openTopicMenu('V equals I times R.');
+    fireEvent.press(getInModal('Rename topic'));
+    fireEvent.press(screen.getByLabelText('Dismiss Rename topic'));
 
+    fireEvent.press(screen.getByRole('button', { name: "Edit note on Ohm's law" }));
+    fireEvent.changeText(screen.getByLabelText('Note'), '');
     await act(async () => {
-      fireEvent.press(getInModal('Delete note'));
+      fireEvent.press(getInModal('Save'));
     });
 
     await waitFor(async () => {
-      const row = await repositories.topics.findById(topic.id);
-      expect(row?.note).toBeNull();
-      expect(row?.name).toBe("Ohm's law");
+      expect(await repositories.notes.listLiveByUser(USER)).toEqual([]);
+      expect((await repositories.topics.findById(topic.id))?.name).toBe("Ohm's law");
     });
+  });
+
+  it('offers no "Delete note" in the menu', async () => {
+    await openTopicMenu('V equals I times R.');
+
+    expect(screen.queryByText('Delete note')).toBeNull();
   });
 });
 
@@ -1990,5 +2001,114 @@ describe('the welcome and continue card', () => {
 
     await waitFor(() => expect(screen.getByTestId('continue-tracking')).toBeOnTheScreen());
     expect(screen.getByTestId('continue-tracking-action')).toBeOnTheScreen();
+  });
+});
+
+/** A summary worth keeping should not have to be copied out by hand. */
+describe('keeping a summary as a note', () => {
+  const summarise = async () => {
+    mockedSummarise.mockResolvedValue({ ok: true, summary: 'A decimal is a base-ten fraction.' });
+    await seed();
+    await renderTracker();
+    expandAll();
+    fireEvent.press(screen.getByRole('button', { name: 'Options for Decimal' }));
+    await act(async () => {
+      fireEvent.press(getInModal('Summarise'));
+    });
+  };
+
+  it('adds it to the topic, marked as a summary', async () => {
+    await summarise();
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('summary-add-note'));
+    });
+
+    const [note] = await repositories.notes.listLiveByUser(USER);
+    expect(note).toMatchObject({ body: 'A decimal is a base-ten fraction.', source: 'summary' });
+    expect(screen.getByTestId('summary-add-note')).toHaveTextContent('Saved to notes');
+  });
+
+  it('adds a sub-topic’s summary to the sub-topic', async () => {
+    mockedSummarise.mockResolvedValue({ ok: true, summary: 'It repeats.' });
+    await withSubtopic('Recurring decimals');
+    fireEvent.press(screen.getByRole('button', { name: 'Options for Recurring decimals' }));
+    await act(async () => {
+      fireEvent.press(getInModal('Summarise'));
+    });
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('summary-add-note'));
+    });
+
+    const topic = tracker().subjects[0]!.chapters[0]!.topics[0]!;
+    expect(topic.notes[0]).toMatchObject({
+      subtopicId: topic.subtopics[0]!.id,
+      source: 'summary',
+    });
+  });
+});
+
+describe('quiz settings and the Quiz deck', () => {
+  const openTopicMenu = async () => {
+    await seed();
+    await renderTracker();
+    expandAll();
+    fireEvent.press(screen.getByRole('button', { name: 'Options for Decimal' }));
+  };
+
+  it('asks the assistant with the settings chosen', async () => {
+    mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
+    await openTopicMenu();
+
+    await act(async () => {
+      fireEvent.press(getInModal('Test me on this'));
+    });
+    fireEvent.press(getInModal('Increase Questions'));
+    fireEvent.press(getInModal('Easy'));
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('quiz-start'));
+    });
+
+    expect(mockedQuiz).toHaveBeenCalledWith(
+      expect.objectContaining({ topicName: 'Decimal' }),
+      expect.objectContaining({ questionCount: 6, difficulty: 'easy' }),
+    );
+  });
+
+  it('asks nothing when the settings are closed', async () => {
+    await openTopicMenu();
+
+    await act(async () => {
+      fireEvent.press(getInModal('Test me on this'));
+    });
+    fireEvent.press(getInModal('Cancel'));
+
+    expect(mockedQuiz).not.toHaveBeenCalled();
+  });
+
+  it('keeps a finished quiz in the deck', async () => {
+    mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
+    await openTopicMenu();
+    await startQuiz();
+
+    await answerQuiz([0, 1, 3]);
+
+    await waitFor(async () => {
+      const [attempt] = await repositories.quizAttempts.listByUser(USER);
+      expect(attempt).toMatchObject({ topicName: 'Decimal', correct: 2, total: 3 });
+    });
+  });
+
+  it('does not keep a quiz abandoned part-way', async () => {
+    mockedQuiz.mockResolvedValue({ ok: true, quiz: sampleQuiz });
+    await openTopicMenu();
+    await startQuiz();
+
+    await act(async () => {
+      fireEvent.press(getInModal('Dismiss Questions on Decimal'));
+    });
+
+    expect(await repositories.quizAttempts.listByUser(USER)).toEqual([]);
   });
 });

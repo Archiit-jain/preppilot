@@ -1,7 +1,8 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Checkbox, Text } from '../../../components/ui';
-import type { SubtopicRow as SubtopicRecord } from '../../../db/schema';
+import type { NoteRow, SubtopicRow as SubtopicRecord } from '../../../db/schema';
 import { useTheme } from '../../../theme/theme-context';
+import { NotePreviews } from './note-previews';
 import { RowMenu, type RowMenuAction } from './row-menu';
 
 export interface SubtopicRowProps {
@@ -11,8 +12,10 @@ export interface SubtopicRowProps {
   readonly onRename: (subtopicId: string, current: string) => void;
   readonly onDelete: (subtopicId: string) => void;
   readonly onMove: (subtopicId: string, direction: 'up' | 'down') => void;
-  readonly onEditNote: (subtopicId: string, current: string | null) => void;
-  readonly onDeleteNote: (subtopicId: string) => void;
+  /** This sub-topic's notes, newest first. */
+  readonly notes: readonly NoteRow[];
+  readonly onAddNote: (subtopicId: string) => void;
+  readonly onEditNote: (noteId: string, current: string) => void;
   readonly onSummarise: (subtopicId: string) => void;
   readonly onTestMe: (subtopicId: string) => void;
   readonly busy?: boolean;
@@ -25,26 +28,20 @@ export function SubtopicRow({
   onRename,
   onDelete,
   onMove,
+  notes,
+  onAddNote,
   onEditNote,
-  onDeleteNote,
   onSummarise,
   onTestMe,
   busy = false,
 }: SubtopicRowProps) {
   const theme = useTheme();
-  const hasNote = subtopic.note !== null && subtopic.note.trim().length > 0;
 
   const actions: RowMenuAction[] = [
     { label: 'Rename sub-topic', onPress: () => onRename(subtopic.id, subtopic.name) },
     { label: 'Summarise', onPress: () => onSummarise(subtopic.id) },
     { label: 'Test me on this', onPress: () => onTestMe(subtopic.id) },
-    {
-      label: hasNote ? 'Edit note' : 'Add note',
-      onPress: () => onEditNote(subtopic.id, subtopic.note),
-    },
-    ...(hasNote
-      ? [{ label: 'Delete note', destructive: true, onPress: () => onDeleteNote(subtopic.id) }]
-      : []),
+    { label: 'Add note', onPress: () => onAddNote(subtopic.id) },
     { label: 'Move up', onPress: () => onMove(subtopic.id, 'up') },
     { label: 'Move down', onPress: () => onMove(subtopic.id, 'down') },
     { label: 'Delete sub-topic', destructive: true, onPress: () => onDelete(subtopic.id) },
@@ -82,28 +79,9 @@ export function SubtopicRow({
         </Text>
       )}
 
-      {hasNote && (
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={`Edit note on ${subtopic.name}`}
-          onPress={() => onEditNote(subtopic.id, subtopic.note)}
-          hitSlop={8}
-          style={[
-            styles.note,
-            {
-              backgroundColor: theme.colors.surfaceElevated,
-              borderRadius: theme.radius.md,
-              padding: theme.spacing.sm,
-              marginBottom: theme.spacing.xs,
-              borderLeftColor: accent,
-            },
-          ]}
-        >
-          <Text variant="caption" tone="secondary">
-            {subtopic.note}
-          </Text>
-        </Pressable>
-      )}
+      <View style={styles.notes}>
+        <NotePreviews notes={notes} name={subtopic.name} accent={accent} onEdit={onEditNote} />
+      </View>
     </View>
   );
 }
@@ -120,8 +98,7 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
 
-  note: {
-    borderLeftWidth: 3,
+  notes: {
     marginLeft: 28,
   },
 });

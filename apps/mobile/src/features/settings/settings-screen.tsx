@@ -78,6 +78,18 @@ export function SettingsScreen() {
       const reminders = await repositories.reminders.listByUser(user.id);
       for (const reminder of reminders) await repositories.reminders.softDelete(reminder.id);
 
+      const notes = await repositories.notes.listAllForSync(user.id);
+      for (const note of notes) await repositories.notes.softDelete(note.id);
+
+      const cards = await repositories.flashcards.listByUser(user.id);
+      for (const card of cards) await repositories.flashcards.softDelete(card.id);
+
+      const threads = await repositories.chats.listThreads(user.id);
+      for (const thread of threads) await repositories.chats.deleteThread(thread.id);
+
+      const quizzes = await repositories.quizAttempts.listByUser(user.id);
+      for (const quiz of quizzes) await repositories.quizAttempts.softDelete(quiz.id);
+
       const remote = await deleteRemoteAccount();
       setConfirming(false);
       setOutcome(

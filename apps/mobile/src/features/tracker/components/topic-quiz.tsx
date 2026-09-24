@@ -1,12 +1,11 @@
 import {
-  QUIZ_LENGTH,
   countCorrect,
   isAnswerCorrect,
   isMultipleAnswer,
   isQuizPassed,
   type Quiz,
 } from '@preppilot/shared';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { Button, PressableScale, Sheet, Text } from '../../../components/ui';
 import { ariaState } from '../../../components/ui/aria';
@@ -18,13 +17,23 @@ export interface TopicQuizProps {
   readonly onDismiss: () => void;
   /** Called with whether every answer was right. */
   readonly onFinish: (passed: boolean) => void;
+  /**
+   * Called once, when the results are first shown with every question checked
+   * — the moment a quiz counts as attempted and goes into the Quiz deck.
+   */
+  readonly onAttempted?: (answers: readonly (readonly number[])[]) => void;
+  /**
+   * Whether passing offers to mark the topic complete. Off for a quiz redone
+   * from the deck, which is revision rather than a check on a topic.
+   */
+  readonly offerComplete?: boolean;
 }
 
 /**
- * Three questions about one topic, one at a time.
+ * Questions about one topic, one at a time — as many as the student asked for.
  *
- * Sequential rather than all at once: three questions with four options each did
- * not fit the sheet, and a wall of twelve choices is not how anyone reads a
+ * Sequential rather than all at once: even three questions with four options
+ * each did not fit the sheet, and a wall of choices is not how anyone reads a
  * question. Each is answered, checked and explained before the next appears.
  *
  * A checked question is locked. Going back shows what was answered and why it
@@ -35,7 +44,14 @@ export interface TopicQuizProps {
  * student can still tick it themselves (D55). The check is a way to find out
  * whether you understood it, not a gate you have to beat.
  */
-export function TopicQuiz({ visible, quiz, onDismiss, onFinish }: TopicQuizProps) {
+export function TopicQuiz({
+  visible,
+  quiz,
+  onDismiss,
+  onFinish,
+  onAttempted,
+  offerComplete = true,
+}: TopicQuizProps) {
   const theme = useTheme();
   const total = quiz.questions.length;
 
@@ -45,6 +61,7 @@ export function TopicQuiz({ visible, quiz, onDismiss, onFinish }: TopicQuizProps
   );
   const [checked, setChecked] = useState<readonly boolean[]>(quiz.questions.map(() => false));
   const [showingResults, setShowingResults] = useState(false);
+  const reported = useRef(false);
 
   const question = quiz.questions[index];
   const selected = answers[index] ?? [];
@@ -143,7 +160,11 @@ export function TopicQuiz({ visible, quiz, onDismiss, onFinish }: TopicQuizProps
               ]}
             >
               <Text variant="body" weight="semibold">
-                {passed ? 'All three right.' : `${correct} of ${QUIZ_LENGTH} right.`}
+                {passed
+                  ? total === 1
+                    ? 'Right.'
+                    : `All ${total} right.`
+                  : `${correct} of ${total} right.`}
               </Text>
               <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
                 {passed
@@ -260,8 +281,8 @@ export function TopicQuiz({ visible, quiz, onDismiss, onFinish }: TopicQuizProps
               onPress={() => setShowingResults(false)}
             />
             <Button
-              label={passed ? 'Mark complete' : 'Review it'}
-              variant={passed ? 'primary' : 'secondary'}
+              label={offerComplete ? (passed ? 'Mark complete' : 'Review it') : 'Done'}
+              variant={passed || !offerComplete ? 'primary' : 'secondary'}
               testID="quiz-finish"
               onPress={() => onFinish(passed)}
             />
@@ -281,7 +302,13 @@ export function TopicQuiz({ visible, quiz, onDismiss, onFinish }: TopicQuizProps
                 <Button
                   label={allChecked ? 'See how you did' : 'Finish'}
                   testID="quiz-results"
-                  onPress={() => setShowingResults(true)}
+                  onPress={() => {
+                    if (allChecked && !reported.current) {
+                      reported.current = true;
+                      onAttempted?.(answers);
+                    }
+                    setShowingResults(true);
+                  }}
                 />
               ) : (
                 <Button

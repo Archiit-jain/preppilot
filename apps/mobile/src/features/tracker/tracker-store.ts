@@ -7,7 +7,14 @@ import {
 import { create } from 'zustand';
 import type { Repositories } from '../../db/client';
 import { activeTrackerId } from '../trackers/trackers-store';
-import type { ChapterRow, SubjectRow, SubtopicRow, TopicRow } from '../../db/schema';
+import type {
+  ChapterRow,
+  NoteRow,
+  NoteSource,
+  SubjectRow,
+  SubtopicRow,
+  TopicRow,
+} from '../../db/schema';
 
 /**
  * A topic with whatever sub-topics it has.
@@ -18,6 +25,8 @@ import type { ChapterRow, SubjectRow, SubtopicRow, TopicRow } from '../../db/sch
  */
 export interface TopicNode extends TopicRow {
   readonly subtopics: readonly SubtopicRow[];
+  /** Every live note on the topic and its sub-topics, newest first. */
+  readonly notes: readonly NoteRow[];
 }
 
 /** A subject with its chapters, topics and sub-topics, as the tracker renders it. */
@@ -58,8 +67,14 @@ export interface TrackerActions {
   renameSubtopic: (subtopicId: string, name: string) => Promise<void>;
   deleteSubtopic: (subtopicId: string) => Promise<void>;
   moveSubtopic: (topicId: string, subtopicId: string, direction: 'up' | 'down') => Promise<void>;
-  setSubtopicNote: (subtopicId: string, note: string | null) => Promise<void>;
-  setTopicNote: (topicId: string, note: string | null) => Promise<void>;
+  addNote: (
+    topicId: string,
+    subtopicId: string | null,
+    body: string,
+    source?: NoteSource,
+  ) => Promise<boolean>;
+  /** An empty body deletes the note — clearing a note and deleting it are one act. */
+  editNote: (noteId: string, body: string) => Promise<void>;
   renameSubject: (subjectId: string, name: string) => Promise<void>;
   renameChapter: (chapterId: string, name: string) => Promise<void>;
   renameTopic: (topicId: string, name: string) => Promise<void>;
@@ -135,15 +150,17 @@ async function readTree(ctx: Context): Promise<SubjectNode[]> {
   const subjects = await ctx.repositories.subjects.listByUser(ctx.userId, activeTrackerId());
   if (subjects.length === 0) return [];
 
-  const [chapters, topics, subtopics] = await Promise.all([
+  const [chapters, topics, subtopics, notes] = await Promise.all([
     ctx.repositories.chapters.listByUser(ctx.userId),
     ctx.repositories.topics.listByUser(ctx.userId),
     ctx.repositories.subtopics.listByUser(ctx.userId),
+    ctx.repositories.notes.listLiveByUser(ctx.userId),
   ]);
 
   const chaptersBySubject = groupBy(chapters, (chapter) => chapter.subjectId);
   const topicsByChapter = groupBy(topics, (topic) => topic.chapterId);
   const subtopicsByTopic = groupBy(subtopics, (subtopic) => subtopic.topicId);
+  const notesByTopic = groupBy(notes, (note) => note.topicId);
 
   return subjects.map((subject) => ({
     ...subject,
@@ -152,6 +169,7 @@ async function readTree(ctx: Context): Promise<SubjectNode[]> {
       topics: (topicsByChapter.get(chapter.id) ?? []).map((topic) => ({
         ...topic,
         subtopics: subtopicsByTopic.get(topic.id) ?? [],
+        notes: notesByTopic.get(topic.id) ?? [],
       })),
     })),
   }));
@@ -189,6 +207,9 @@ export const useTrackerStore = create<TrackerState & TrackerActions>((set, get) 
       set({ loading: true, error: null });
 
       try {
+        // Notes from the old one-per-topic column become rows the first time
+        // this version reads the syllabus (NoteRepository.adoptLegacy).
+        await repositories.notes.adoptLegacy(userId);
         await refresh();
       } catch {
         set({ error: 'We could not open your syllabus. Try restarting PrepPilot.' });
@@ -312,18 +333,33 @@ export const useTrackerStore = create<TrackerState & TrackerActions>((set, get) 
       );
     },
 
-    async setSubtopicNote(subtopicId, note) {
+    async addNote(topicId, subtopicId, body, source = 'manual') {
       const ctx = requireContext();
-      await mutate(
-        () => ctx.repositories.subtopics.setNote(subtopicId, note),
-        'We could not save that note. Try again.',
-      );
+      if (body.trim().length === 0) return false;
+      try {
+        await ctx.repositories.notes.create({
+          userId: ctx.userId,
+          trackerId: activeTrackerId(),
+          topicId,
+          subtopicId,
+          body,
+          source,
+        });
+        await refresh();
+        return true;
+      } catch {
+        set({ error: 'We could not save that note. Try again.' });
+        return false;
+      }
     },
 
-    async setTopicNote(topicId, note) {
+    async editNote(noteId, body) {
       const ctx = requireContext();
       await mutate(
-        () => ctx.repositories.topics.setNote(topicId, note),
+        () =>
+          body.trim().length === 0
+            ? ctx.repositories.notes.softDelete(noteId)
+            : ctx.repositories.notes.edit(noteId, body),
         'We could not save that note. Try again.',
       );
     },

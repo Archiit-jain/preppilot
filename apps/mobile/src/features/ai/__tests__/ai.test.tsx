@@ -468,3 +468,258 @@ describe('attaching a picture', () => {
     expect(picked).not.toHaveBeenCalled();
   });
 });
+
+describe('saved chats', () => {
+  /** Renders and lets the saved-chat connection finish opening. */
+  const renderOpened = async () => {
+    render();
+    await act(async () => {
+      await Promise.resolve();
+    });
+  };
+
+  const askAndWait = async (question: string) => {
+    await act(async () => {
+      await ai().ask(question);
+    });
+  };
+
+  it('saves a conversation, named after its first question', async () => {
+    await renderOpened();
+    await askAndWait('What is a polynomial?');
+
+    const [thread] = await repositories.chats.listThreads(USER);
+    expect(thread?.title).toBe('What is a polynomial?');
+    const messages = await repositories.chats.listMessages(thread!.id);
+    expect(messages.map((message) => message.body)).toEqual([
+      'What is a polynomial?',
+      'A polynomial is an expression.',
+    ]);
+  });
+
+  it('reopens the last conversation when the assistant is opened again', async () => {
+    await renderOpened();
+    await askAndWait('What is a polynomial?');
+    screen.unmount();
+
+    resetAiStore();
+    await renderOpened();
+
+    await waitFor(() =>
+      expect(screen.getByText('A polynomial is an expression.')).toBeOnTheScreen(),
+    );
+  });
+
+  it('starts a new chat, and lists both', async () => {
+    await renderOpened();
+    await askAndWait('First question');
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('ai-new-chat'));
+    });
+    expect(ai().messages).toHaveLength(0);
+    await askAndWait('Second question');
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('ai-open-chats'));
+    });
+    expect(screen.getByText('First question')).toBeOnTheScreen();
+    expect(screen.getAllByText('Second question').length).toBeGreaterThan(0);
+  });
+
+  it('opens a past conversation from the list', async () => {
+    await renderOpened();
+    await askAndWait('First question');
+    const [first] = await repositories.chats.listThreads(USER);
+    await act(async () => {
+      ai().newChat();
+    });
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('ai-open-chats'));
+    });
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`chat-open-${first!.id}`));
+    });
+
+    expect(ai().threadId).toBe(first!.id);
+    expect(ai().messages.map((message) => message.text)).toEqual([
+      'First question',
+      'A polynomial is an expression.',
+    ]);
+  });
+
+  it('deletes a conversation only after asking', async () => {
+    await renderOpened();
+    await askAndWait('Doomed question');
+    const [thread] = await repositories.chats.listThreads(USER);
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('ai-open-chats'));
+    });
+    fireEvent.press(screen.getByTestId(`chat-delete-${thread!.id}`));
+    expect(await repositories.chats.listThreads(USER)).toHaveLength(1);
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`chat-delete-confirm-${thread!.id}`));
+    });
+
+    expect(await repositories.chats.listThreads(USER)).toEqual([]);
+    expect(ai().messages).toEqual([]);
+  });
+
+  it('keeps a suggestion reviewable after the chat is reopened', async () => {
+    mocked.ask.mockResolvedValue({ ok: true, reply: { message: 'Here is a plan.', proposal } });
+    await renderOpened();
+    await askAndWait('Plan Mathematics');
+    const [thread] = await repositories.chats.listThreads(USER);
+
+    await act(async () => {
+      ai().newChat();
+      await ai().openThread(thread!.id);
+    });
+
+    expect(ai().messages[1]?.proposal).toEqual(proposal);
+  });
+
+  it('says when a picture was sent from another device', async () => {
+    const thread = await repositories.chats.createThread(USER, 'From the tablet');
+    await repositories.chats.upsertMessageFromSync({
+      id: '018f0000-0000-7000-8000-0000000000c1',
+      userId: USER,
+      threadId: thread.id,
+      role: 'student',
+      body: 'Solve this',
+      proposal: null,
+      hasImage: true,
+      createdAt: 1,
+      updatedAt: 1,
+      deletedAt: null,
+      syncStatus: 'synced',
+    });
+
+    await renderOpened();
+
+    await waitFor(() =>
+      expect(screen.getByText('Picture sent from another device')).toBeOnTheScreen(),
+    );
+  });
+
+  it('still answers when the conversation cannot be saved', async () => {
+    await renderOpened();
+    jest.spyOn(repositories.chats, 'createThread').mockRejectedValueOnce(new Error('disk'));
+    await askAndWait('Unsaved question');
+
+    expect(ai().messages.map((message) => message.text)).toEqual([
+      'Unsaved question',
+      'A polynomial is an expression.',
+    ]);
+  });
+});
+
+describe('keeping a reply as a note', () => {
+  const seedTopic = async () => {
+    const subject = await repositories.subjects.create({ userId: USER, name: 'Mathematics' });
+    const chapter = await repositories.chapters.create({
+      userId: USER,
+      subjectId: subject.id,
+      name: 'Algebra',
+    });
+    return repositories.topics.create({
+      userId: USER,
+      chapterId: chapter.id,
+      name: 'Polynomials',
+    });
+  };
+
+  const askOnce = async () => {
+    render();
+    await act(async () => {
+      await ai().ask('What is degree?');
+    });
+    return ai().messages[1]!;
+  };
+
+  it('saves the reply, without its markdown, under the topic chosen', async () => {
+    mocked.ask.mockResolvedValue({
+      ok: true,
+      reply: { message: '**Degree** is the highest power.\n\n* x² has degree 2', proposal: null },
+    });
+    const topic = await seedTopic();
+    const reply = await askOnce();
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`ai-keep-${reply.id}`));
+    });
+    expect(screen.getByText('Which topic is this note for?')).toBeOnTheScreen();
+    await waitFor(() => expect(screen.getByTestId(`note-target-${topic.id}`)).toBeOnTheScreen());
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`note-target-${topic.id}`));
+    });
+
+    const [note] = await repositories.notes.listLiveByUser(USER);
+    expect(note).toMatchObject({
+      topicId: topic.id,
+      source: 'assistant',
+      body: 'Degree is the highest power.\n• x² has degree 2',
+    });
+    expect(screen.getByText('Saved to notes')).toBeOnTheScreen();
+  });
+
+  it('can be backed out of without saving anything', async () => {
+    await seedTopic();
+    const reply = await askOnce();
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`ai-keep-${reply.id}`));
+    });
+    fireEvent.press(screen.getByLabelText('Dismiss Choose a topic'));
+
+    expect(await repositories.notes.listLiveByUser(USER)).toEqual([]);
+  });
+
+  it('says so when the note cannot be saved', async () => {
+    const topic = await seedTopic();
+    const reply = await askOnce();
+    jest.spyOn(repositories.notes, 'create').mockRejectedValueOnce(new Error('disk'));
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`ai-keep-${reply.id}`));
+    });
+    await waitFor(() => expect(screen.getByTestId(`note-target-${topic.id}`)).toBeOnTheScreen());
+    await act(async () => {
+      fireEvent.press(screen.getByTestId(`note-target-${topic.id}`));
+    });
+
+    expect(screen.getByText('We could not save that as a note. Try again.')).toBeOnTheScreen();
+  });
+});
+
+describe('describing a suggestion', () => {
+  /** "1 chapters" read as a bug; one of anything is singular. */
+  it('uses the singular for one chapter and one topic', async () => {
+    mocked.ask.mockResolvedValue({
+      ok: true,
+      reply: {
+        message: 'Add this.',
+        proposal: {
+          kind: 'addChapters',
+          subjectName: 'Science',
+          chapters: [{ name: 'Electricity', topics: ["Ohm's law"] }],
+        },
+      },
+    });
+    render();
+    await act(async () => {
+      await ai().ask('Suggest a chapter');
+    });
+
+    expect(screen.getByText(/This would add 1 chapter and 1 topic to/)).toBeOnTheScreen();
+
+    await act(async () => {
+      fireEvent.press(screen.getByRole('button', { name: 'Review suggestion' }));
+    });
+    expect(screen.getByText(/1 chapter and 1 topic would be/)).toBeOnTheScreen();
+  });
+});

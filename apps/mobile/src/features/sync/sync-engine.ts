@@ -200,5 +200,29 @@ function accessorFor(table: SyncedTable, repositories: Repositories): Accessor {
         upsert: (row) => repositories.reminders.upsertFromSync(row),
         markSynced: (ids) => repositories.reminders.markSynced(ids),
       };
+    case 'notes':
+      return {
+        all: (userId) => repositories.notes.listAllForSync(userId) as Promise<LocalRow[]>,
+        upsert: (row) => repositories.notes.upsertFromSync(row),
+        markSynced: (ids) => repositories.notes.markSynced(ids),
+      };
+    case 'quiz_attempts':
+      return {
+        all: (userId) => repositories.quizAttempts.listAllForSync(userId) as Promise<LocalRow[]>,
+        upsert: (row) => repositories.quizAttempts.upsertFromSync(row),
+        markSynced: (ids) => repositories.quizAttempts.markSynced(ids),
+      };
+    case 'chat_threads':
+      return {
+        all: (userId) => repositories.chats.listAllThreadsForSync(userId) as Promise<LocalRow[]>,
+        upsert: (row) => repositories.chats.upsertThreadFromSync(row),
+        markSynced: (ids) => repositories.chats.markThreadsSynced(ids),
+      };
+    case 'chat_messages':
+      return {
+        all: (userId) => repositories.chats.listAllMessagesForSync(userId) as Promise<LocalRow[]>,
+        upsert: (row) => repositories.chats.upsertMessageFromSync(row),
+        markSynced: (ids) => repositories.chats.markMessagesSynced(ids),
+      };
   }
 }

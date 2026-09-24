@@ -3,6 +3,7 @@ import { MAX_NAME_LENGTH } from '../domain/types';
 import {
   MAX_REVIEWABLE_TOPICS,
   isReviewable,
+  parseProposalJson,
   parseReply,
   summariseProposal,
   type AiProposal,
@@ -277,5 +278,27 @@ describe('names in a proposal', () => {
     })}\n\`\`\``;
 
     expect(parseReply(raw).proposal).toBeNull();
+  });
+});
+
+describe('a proposal stored as JSON', () => {
+  it('reads back what was stored', () => {
+    const stored = JSON.stringify({
+      kind: 'addChapters',
+      subjectName: 'Physics',
+      chapters: [{ name: 'Light', topics: ['Reflection'] }],
+    });
+    expect(parseProposalJson(stored)?.chapters[0]?.topics).toEqual(['Reflection']);
+  });
+
+  it('refuses nothing, junk and a verb the grammar does not have', () => {
+    expect(parseProposalJson(null)).toBeNull();
+    expect(parseProposalJson('')).toBeNull();
+    expect(parseProposalJson('{nope')).toBeNull();
+    expect(
+      parseProposalJson(
+        JSON.stringify({ kind: 'deleteTopics', subjectName: 'Physics', chapters: [] }),
+      ),
+    ).toBeNull();
   });
 });

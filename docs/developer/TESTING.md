@@ -1,13 +1,13 @@
 # Testing
 
-**1,934 tests across 91 suites**, all passing (24 September 2026):
+**2,049 tests across 98 suites**, all passing (24 September 2026):
 
 | Package                    | Suites |     Tests |
 | -------------------------- | -----: | --------: |
-| `apps/mobile` (Jest)       |     74 |     1,386 |
-| `packages/shared` (Vitest) |     15 |       508 |
-| Edge Functions (Deno)      |      2 |        40 |
-| **Total**                  | **91** | **1,934** |
+| `apps/mobile` (Jest)       |     81 |     1,481 |
+| `packages/shared` (Vitest) |     15 |       521 |
+| Edge Functions (Deno)      |      2 |        47 |
+| **Total**                  | **98** | **2,049** |
 
 | Package              | Runner                              | Why                                                             |
 | -------------------- | ----------------------------------- | --------------------------------------------------------------- |

@@ -3,21 +3,23 @@
 Zustand, one store per feature. Stores orchestrate; they do not hold anything
 that can be computed.
 
-| Store              | Owns                                 | Notes                                                              |
-| ------------------ | ------------------------------------ | ------------------------------------------------------------------ |
-| `auth-store`       | Session, user, auth errors           | `initialising` is distinct from `signedOut`                        |
-| `trackers-store`   | Courses and which one is active      | Every other store reads through the active one                     |
-| `tracker-store`    | The syllabus tree and its progress   | Four queries per read; `loaded` gates the UI                       |
-| `timer-store`      | Current timer, the recording session | Elapsed time is derived from timestamps                            |
-| `focus-store`      | Focus session, distraction count     |                                                                    |
-| `dashboard-store`  | Dashboard figures                    | Derived from one read                                              |
-| `history-store`    | Session list                         |                                                                    |
-| `reminders-store`  | Reminders and permission state       | Owns notification scheduling                                       |
-| `templates`        | —                                    | Stateless; the screen holds its own selection                      |
-| `flashcards-store` | Cards, review queue, study session   | Three fixed intervals (D80)                                        |
-| `ai-store`         | Conversation, pending proposal       | A proposal is inert until confirmed; a message may carry a picture |
-| `sync-store`       | Sync status, `generation`            | `generation` rises when a pass pulls rows                          |
-| `network-store`    | Connectivity                         | Triggers sync on reconnect                                         |
+| Store              | Owns                                             | Notes                                                                    |
+| ------------------ | ------------------------------------------------ | ------------------------------------------------------------------------ |
+| `auth-store`       | Session, user, auth errors                       | `initialising` is distinct from `signedOut`                              |
+| `trackers-store`   | Courses and which one is active                  | Every other store reads through the active one                           |
+| `tracker-store`    | The syllabus tree and its progress               | Four queries per read; `loaded` gates the UI                             |
+| `timer-store`      | Current timer, the recording session             | Elapsed time is derived from timestamps                                  |
+| `focus-store`      | Focus session, distraction count                 |                                                                          |
+| `dashboard-store`  | Dashboard figures                                | Derived from one read                                                    |
+| `history-store`    | Session list                                     |                                                                          |
+| `reminders-store`  | Reminders and permission state                   | Owns notification scheduling                                             |
+| `templates`        | —                                                | Stateless; the screen holds its own selection                            |
+| `flashcards-store` | Cards, review queue, study session               | Three fixed intervals (D80)                                              |
+| `notes-store`      | Notes list, topics to file one under             | `addNote()` works from anywhere                                          |
+| `quiz-deck-store`  | Finished quizzes                                 | `recordQuizAttempt()` saves one                                          |
+| `ai-store`         | Saved chats, open conversation, pending proposal | A proposal is inert until confirmed; chats save once `openChats` has run |
+| `sync-store`       | Sync status, `generation`                        | `generation` rises when a pass pulls rows                                |
+| `network-store`    | Connectivity                                     | Triggers sync on reconnect                                               |
 
 ## Three patterns worth knowing
 

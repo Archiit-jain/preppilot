@@ -1,5 +1,8 @@
 import { assertEquals, assertStringIncludes } from 'jsr:@std/assert@1';
-import { extractReply, handler } from './index.ts';
+import { extractReply, handler, readQuizSettings } from './index.ts';
+
+// Retrying a busy model waits in production; the tests have nowhere to be.
+Deno.env.set('AI_RETRY_DELAY_MS', '0');
 
 /** A token shaped like Supabase's: only the payload's `sub` is read. */
 function bearer(sub: string): string {
@@ -282,16 +285,143 @@ Deno.test('chat still carries the proposal grammar', async () => {
   });
 });
 
-Deno.test('quiz asks for exactly three questions in a fixed shape', async () => {
+Deno.test('quiz asks for five medium questions in a fixed shape by default', async () => {
   await withKey('test-key', async () => {
     await withGemini(
       () => geminiReply('{"questions":[]}'),
       async (calls) => {
-        await ask({ mode: 'quiz', topicName: "Ohm's law" });
+        await ask(
+          { mode: 'quiz', topicName: "Ohm's law" },
+          { authorization: bearer('quiz-default') },
+        );
 
         const prompt = JSON.parse(await calls[0].text()).contents[0].parts[0].text;
-        assertStringIncludes(prompt, 'exactly 3 multiple-choice questions');
+        assertStringIncludes(prompt, 'exactly 5 multiple-choice questions');
+        assertStringIncludes(prompt, 'Medium:');
         assertStringIncludes(prompt, 'answerIndex');
+        assertStringIncludes(prompt, 'Select all that apply.');
+      },
+    );
+  });
+});
+
+Deno.test('quiz follows the count, difficulty and single-answer setting it is given', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('{"questions":[]}'),
+      async (calls) => {
+        await ask(
+          {
+            mode: 'quiz',
+            topicName: 'Kinematics',
+            questionCount: 12,
+            difficulty: 'competitive',
+            allowMultiple: false,
+          },
+          { authorization: bearer('quiz-custom') },
+        );
+
+        const prompt = JSON.parse(await calls[0].text()).contents[0].parts[0].text;
+        assertStringIncludes(prompt, 'exactly 12 multiple-choice questions');
+        assertStringIncludes(prompt, 'JEE, NEET or GATE');
+        assertStringIncludes(prompt, 'exactly ONE correct option');
+        assertEquals(prompt.includes('Select all that apply.'), false);
+      },
+    );
+  });
+});
+
+Deno.test('quiz settings are brought into range', () => {
+  assertEquals(readQuizSettings({}), {
+    questionCount: 5,
+    difficulty: 'medium',
+    allowMultiple: true,
+  });
+  assertEquals(readQuizSettings({ questionCount: 99 }).questionCount, 15);
+  assertEquals(readQuizSettings({ questionCount: 0 }).questionCount, 1);
+  assertEquals(readQuizSettings({ questionCount: 'lots' }).questionCount, 5);
+  assertEquals(readQuizSettings({ difficulty: 'impossible' }).difficulty, 'medium');
+  assertEquals(readQuizSettings({ allowMultiple: 'no' }).allowMultiple, true);
+  assertEquals(readQuizSettings({ questionCount: 1, difficulty: 'hard' }).questionCount, 1);
+});
+
+function status(code: number): Response {
+  return new Response(JSON.stringify({ error: { code } }), { status: code });
+}
+
+Deno.test('a busy main model is retried once before anything else', async () => {
+  await withKey('test-key', async () => {
+    let n = 0;
+    await withGemini(
+      () => (n++ === 0 ? status(503) : geminiReply('Second time lucky.')),
+      async (calls) => {
+        const response = await ask({ question: 'Hi' }, { authorization: bearer('retry-1') });
+
+        assertEquals(response.status, 200);
+        assertEquals((await response.json()).reply, 'Second time lucky.');
+        assertEquals(calls.length, 2);
+        assertStringIncludes(calls[1]!.url, 'gemini-3.6-flash');
+      },
+    );
+  });
+});
+
+Deno.test('falls back to Flash-Lite when the main model stays busy', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      (request) =>
+        request.url.includes('flash-lite') ? geminiReply('From the lighter model.') : status(429),
+      async (calls) => {
+        const response = await ask({ question: 'Hi' }, { authorization: bearer('fallback-1') });
+
+        assertEquals(response.status, 200);
+        assertEquals((await response.json()).reply, 'From the lighter model.');
+        assertEquals(calls.length, 3);
+        assertStringIncludes(calls[2]!.url, 'gemini-3.5-flash-lite');
+        // Flash-Lite is sent no thinking budget.
+        const sent = await calls[2]!.json();
+        assertEquals(sent.generationConfig, undefined);
+      },
+    );
+  });
+});
+
+Deno.test('says busy, with 429, when every model is busy', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => status(503),
+      async (calls) => {
+        const response = await ask({ question: 'Hi' }, { authorization: bearer('busy-1') });
+
+        assertEquals(response.status, 429);
+        assertEquals(await response.json(), { error: 'The assistant is busy right now.' });
+        assertEquals(calls.length, 3);
+      },
+    );
+  });
+});
+
+Deno.test('does not retry a request the model refused for another reason', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => status(400),
+      async (calls) => {
+        const response = await ask({ question: 'Hi' }, { authorization: bearer('bad-1') });
+
+        assertEquals(response.status, 502);
+        assertEquals(calls.length, 1);
+      },
+    );
+  });
+});
+
+Deno.test('reports a failing fallback as a failure, not as busy', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      (request) => (request.url.includes('flash-lite') ? status(500) : status(429)),
+      async () => {
+        const response = await ask({ question: 'Hi' }, { authorization: bearer('fallback-bad') });
+        assertEquals(response.status, 502);
       },
     );
   });

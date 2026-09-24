@@ -5,15 +5,60 @@ import { isValidName } from '../domain/types';
  * read, and questions to answer.
  *
  * Both are parsed here, away from the network and the UI, because both arrive as
- * free text from a model and neither can be trusted to be well formed. A quiz
- * that parses half-way is worse than one that fails: a student would answer
- * questions whose "correct" answer was never established.
+ * free text from a model and neither can be trusted to be well formed. A
+ * question whose "correct" answer was never established cannot be marked, so
+ * each question is checked on its own and a malformed one is left out.
  */
 
-/** How many questions a check is made of. Three is enough to catch a guess. */
-export const QUIZ_LENGTH = 3;
 /** Four options: enough that guessing is unlikely, few enough to read at a glance. */
 export const QUIZ_OPTIONS = 4;
+
+/** The most questions a student may ask for in one quiz. */
+export const MAX_QUIZ_QUESTIONS = 15;
+
+export const QUIZ_DIFFICULTIES = ['easy', 'medium', 'hard', 'competitive'] as const;
+export type QuizDifficulty = (typeof QUIZ_DIFFICULTIES)[number];
+
+/** What a student chooses before a quiz is written. */
+export interface QuizSettings {
+  /** 1 to {@link MAX_QUIZ_QUESTIONS}. */
+  readonly questionCount: number;
+  readonly difficulty: QuizDifficulty;
+  /**
+   * Whether a question may have more than one correct option. Off means every
+   * question has exactly one; on means some may be "select all that apply".
+   */
+  readonly allowMultiple: boolean;
+}
+
+export const DEFAULT_QUIZ_SETTINGS: QuizSettings = {
+  questionCount: 5,
+  difficulty: 'medium',
+  allowMultiple: true,
+};
+
+/**
+ * Settings brought into range.
+ *
+ * They arrive from a stepper, from a saved quiz and from the network, and a
+ * count of 0 or 40 or a difficulty nobody offered must not reach the model.
+ */
+export function normaliseQuizSettings(
+  settings: Partial<QuizSettings> | null | undefined,
+): QuizSettings {
+  const count = Math.round(Number(settings?.questionCount ?? DEFAULT_QUIZ_SETTINGS.questionCount));
+  const questionCount = Number.isFinite(count)
+    ? Math.min(MAX_QUIZ_QUESTIONS, Math.max(1, count))
+    : DEFAULT_QUIZ_SETTINGS.questionCount;
+  const difficulty = QUIZ_DIFFICULTIES.includes(settings?.difficulty as QuizDifficulty)
+    ? (settings?.difficulty as QuizDifficulty)
+    : DEFAULT_QUIZ_SETTINGS.difficulty;
+  const allowMultiple =
+    typeof settings?.allowMultiple === 'boolean'
+      ? settings.allowMultiple
+      : DEFAULT_QUIZ_SETTINGS.allowMultiple;
+  return { questionCount, difficulty, allowMultiple };
+}
 
 export interface QuizQuestion {
   readonly question: string;
@@ -68,14 +113,28 @@ export function parseSummary(raw: string): string | null {
     : text;
 }
 
+export interface ParseQuizOptions {
+  /** How many questions were asked for; extra ones are dropped. */
+  readonly expected?: number;
+  /** When false, a question with more than one correct option is left out. */
+  readonly allowMultiple?: boolean;
+}
+
 /**
  * Reads a quiz out of a reply.
  *
- * Returns null rather than a partial quiz on anything unexpected. A question
- * whose answer index points outside its options, or which offers two identical
- * choices, is not a question a student can be marked against.
+ * A question whose answer index points outside its options, or which offers two
+ * identical choices, is not a question a student can be marked against, so it is
+ * left out. Every question that remains is complete in itself. Asked for fifteen,
+ * a model that gets one wrong should not cost the student the other fourteen — but
+ * a reply where fewer than half the questions survive is refused, since by then
+ * the reply as a whole is not to be trusted.
  */
-export function parseQuiz(raw: string, topicName: string): Quiz | null {
+export function parseQuiz(
+  raw: string,
+  topicName: string,
+  { expected = DEFAULT_QUIZ_SETTINGS.questionCount, allowMultiple = true }: ParseQuizOptions = {},
+): Quiz | null {
   const json = extractJson(raw);
   if (json === null) return null;
 
@@ -92,14 +151,22 @@ export function parseQuiz(raw: string, topicName: string): Quiz | null {
 
   if (!Array.isArray(questions) || questions.length === 0) return null;
 
+  const wanted = Math.min(MAX_QUIZ_QUESTIONS, Math.max(1, Math.round(expected)));
   const cleaned: QuizQuestion[] = [];
-  for (const entry of questions.slice(0, QUIZ_LENGTH)) {
+  const seen = new Set<string>();
+  for (const entry of questions) {
+    if (cleaned.length === wanted) break;
     const question = readQuestion(entry);
-    if (question === null) return null;
+    if (question === null) continue;
+    if (!allowMultiple && isMultipleAnswer(question)) continue;
+    // The same question twice is one question, whatever the model thinks.
+    const key = question.question.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
     cleaned.push(question);
   }
 
-  if (cleaned.length !== QUIZ_LENGTH) return null;
+  if (cleaned.length === 0 || cleaned.length < Math.ceil(wanted / 2)) return null;
   if (!isValidName(topicName)) return null;
 
   return { topicName: topicName.trim(), questions: cleaned };
@@ -238,4 +305,28 @@ export function countCorrect(quiz: Quiz, answers: readonly (readonly number[])[]
     if (isAnswerCorrect(question, answers[index] ?? [])) correct += 1;
   });
   return correct;
+}
+
+/**
+ * The same question with its options in a new order.
+ *
+ * A redone quiz keeps its questions — that is the point of redoing it — but a
+ * student who remembers "the answer was the third one" has remembered a position,
+ * not the physics. `random` is injectable so tests are deterministic.
+ */
+export function shuffleOptions(
+  question: QuizQuestion,
+  random: () => number = Math.random,
+): QuizQuestion {
+  const order = question.options.map((_, index) => index);
+  for (let index = order.length - 1; index > 0; index -= 1) {
+    const swap = Math.floor(random() * (index + 1));
+    [order[index], order[swap]] = [order[swap] as number, order[index] as number];
+  }
+  const correct = new Set(question.answerIndexes);
+  return {
+    ...question,
+    options: order.map((from) => question.options[from] as string),
+    answerIndexes: order.map((from, to) => (correct.has(from) ? to : -1)).filter((to) => to !== -1),
+  };
 }

@@ -35,7 +35,28 @@ declare const Deno: {
  * outright — so this needs revisiting, but as an edit someone reviews.
  */
 const MODEL = 'gemini-3.6-flash';
-const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+
+/**
+ * Answers when the main model cannot.
+ *
+ * On Google's free tier the main model allows only a few dozen requests a day
+ * for the whole project, and even a paid project sees it refuse with 503 when
+ * Google is overloaded. Flash-Lite has a far larger free allowance and costs a
+ * fraction as much, so a student gets a slightly plainer answer instead of none.
+ */
+const FALLBACK_MODEL = 'gemini-3.5-flash-lite';
+
+const endpoint = (model: string) =>
+  `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+
+/** Upstream statuses that mean "not now" rather than "not this request". */
+const BUSY_STATUSES = new Set([429, 503]);
+
+/** Pause before retrying the main model. Read per call so tests can set it to 0. */
+function retryDelayMs(): number {
+  const configured = Number(Deno.env.get('AI_RETRY_DELAY_MS'));
+  return Number.isFinite(configured) && configured >= 0 ? configured : 1200;
+}
 
 /**
  * A cap on reasoning, not a ban.
@@ -208,6 +229,41 @@ Rules:
 - Be accurate. Where a topic name is ambiguous, say so rather than inventing detail.
 - Never claim to have changed anything in the student's tracker. You cannot.`;
 
+/** Quiz settings, mirrored from @preppilot/shared (the function cannot import it). */
+const MAX_QUIZ_QUESTIONS = 15;
+const DIFFICULTIES = ['easy', 'medium', 'hard', 'competitive'] as const;
+type Difficulty = (typeof DIFFICULTIES)[number];
+
+interface QuizSettings {
+  readonly questionCount: number;
+  readonly difficulty: Difficulty;
+  readonly allowMultiple: boolean;
+}
+
+/** Whatever arrives, a count between 1 and 15, a known difficulty and a boolean. */
+export function readQuizSettings(body: {
+  questionCount?: unknown;
+  difficulty?: unknown;
+  allowMultiple?: unknown;
+}): QuizSettings {
+  const count = Math.round(Number(body.questionCount ?? 5));
+  return {
+    questionCount: Number.isFinite(count) ? Math.min(MAX_QUIZ_QUESTIONS, Math.max(1, count)) : 5,
+    difficulty: DIFFICULTIES.includes(body.difficulty as Difficulty)
+      ? (body.difficulty as Difficulty)
+      : 'medium',
+    allowMultiple: typeof body.allowMultiple === 'boolean' ? body.allowMultiple : true,
+  };
+}
+
+const DIFFICULTY_GUIDE: Record<Difficulty, string> = {
+  easy: 'Easy: check recall of definitions, facts and basic ideas.',
+  medium: 'Medium: ask the student to apply the idea to a straightforward case.',
+  hard: 'Hard: need several steps of reasoning, with distractors built from common misconceptions.',
+  competitive:
+    'Competitive: the standard of Indian competitive entrance exams such as JEE, NEET or GATE — tricky distractors, numerical reasoning where the topic allows it.',
+};
+
 interface RequestBody {
   readonly question?: unknown;
   readonly subjectNames?: unknown;
@@ -216,6 +272,10 @@ interface RequestBody {
   readonly topicName?: unknown;
   readonly chapterName?: unknown;
   readonly subjectName?: unknown;
+  /** For quiz: how many questions, how hard, and whether several may be correct. */
+  readonly questionCount?: unknown;
+  readonly difficulty?: unknown;
+  readonly allowMultiple?: unknown;
   /** For ask: a picture to answer from, as base64. */
   readonly image?: unknown;
 }
@@ -245,20 +305,30 @@ Rules:
 - If the name is too vague to summarise honestly, say so in one sentence instead of guessing.`;
   }
 
-  return `Write exactly 3 multiple-choice questions checking whether a student understands "${topic}". ${context}
+  const quiz = readQuizSettings(body);
+  const n = quiz.questionCount;
+  const answerRule = quiz.allowMultiple
+    ? `- Most questions have one correct answer. Where more than one is correct, list
+  them all and begin the question text with "Select all that apply." — a student
+  must never have to guess that several answers are wanted.
+- Never mark all four options correct; at least one must be wrong.`
+    : `- Every question has exactly ONE correct option. answerIndexes always holds a
+  single index. Never write "select all that apply".`;
+
+  return `Write exactly ${n} multiple-choice question${n === 1 ? '' : 's'} checking whether a student understands "${topic}". ${context}
+
+Difficulty — ${DIFFICULTY_GUIDE[quiz.difficulty]}
 
 Reply with JSON and nothing else, in this shape:
 {"questions":[{"question":"...","options":["...","...","...","..."],"answerIndexes":[0],"explanation":"..."}]}
 
 Rules:
-- Exactly 3 questions, each with exactly 4 options. Never 3, never 5.
+- Exactly ${n} question${n === 1 ? '' : 's'}, each with exactly 4 options. Never 3, never 5.
 - answerIndexes lists every correct option by position, counting from 0.
-- Most questions have one correct answer. Where more than one is correct, list
-  them all and begin the question text with "Select all that apply." — a student
-  must never have to guess that several answers are wanted.
-- Never mark all four options correct; at least one must be wrong.
-- No two options within a question may be the same.
+${answerRule}
+- No two options within a question may be the same, and no two questions may be the same.
 - Test understanding, not recall of wording.
+- Write maths as plain text with Unicode symbols, never LaTeX.
 - explanation says why those options are correct, in one sentence.`;
 }
 
@@ -299,6 +369,41 @@ export function extractReply(payload: unknown): string {
     .map((part) => part.text)
     .join('')
     .trim();
+}
+
+/**
+ * Calls the main model, retrying once if it is busy, then the fallback.
+ *
+ * Returns null when every attempt was refused as busy. Any other
+ * failure is returned as it came, since retrying a bad request only spends
+ * quota on the same refusal.
+ */
+async function generate(
+  apiKey: string,
+  request: Record<string, unknown>,
+): Promise<Response | null> {
+  const call = (model: string, body: Record<string, unknown>) =>
+    fetch(`${endpoint(model)}?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+  const withThinking = {
+    ...request,
+    generationConfig: { thinkingConfig: { thinkingBudget: THINKING_BUDGET } },
+  };
+
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    if (attempt > 0) await new Promise((resolve) => setTimeout(resolve, retryDelayMs()));
+    const response = await call(MODEL, withThinking);
+    if (!BUSY_STATUSES.has(response.status)) return response;
+  }
+
+  // Flash-Lite is sent no thinking budget: it thinks little by default, and a
+  // setting a model does not support is rejected rather than ignored.
+  const fallback = await call(FALLBACK_MODEL, request);
+  return BUSY_STATUSES.has(fallback.status) ? null : fallback;
 }
 
 export async function handler(request: Request): Promise<Response> {
@@ -367,34 +472,37 @@ export async function handler(request: Request): Promise<Response> {
       ? `The student is studying: ${subjectNames.join(', ')}.`
       : 'The student has not added any subjects yet.';
 
-  try {
-    const response = await fetch(`${ENDPOINT}?key=${apiKey}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        // Chat is told about the proposal grammar because it may offer to add
-        // to the tracker. A summary or a quiz never does, and giving those the
-        // same instruction invites a stray proposal block in the middle of them.
-        systemInstruction: {
-          parts: [
-            {
-              text:
-                mode === 'ask'
-                  ? `${SYSTEM_INSTRUCTION}\n\n${context}`
-                  : `${STUDY_AID_INSTRUCTION}\n\n${context}`,
-            },
-          ],
+  // Chat is told about the proposal grammar because it may offer to add to the
+  // tracker. A summary or a quiz never does, and giving those the same
+  // instruction invites a stray proposal block in the middle of them.
+  const modelRequest = {
+    systemInstruction: {
+      parts: [
+        {
+          text:
+            mode === 'ask'
+              ? `${SYSTEM_INSTRUCTION}\n\n${context}`
+              : `${STUDY_AID_INSTRUCTION}\n\n${context}`,
         },
-        contents: [
-          {
-            role: 'user',
-            // The picture goes first: the model reads what follows in its light.
-            parts: [...(image !== null ? [{ inlineData: image }] : []), { text: question }],
-          },
-        ],
-        generationConfig: { thinkingConfig: { thinkingBudget: THINKING_BUDGET } },
-      }),
-    });
+      ],
+    },
+    contents: [
+      {
+        role: 'user',
+        // The picture goes first: the model reads what follows in its light.
+        parts: [...(image !== null ? [{ inlineData: image }] : []), { text: question }],
+      },
+    ],
+  };
+
+  try {
+    const response = await generate(apiKey, modelRequest);
+
+    if (response === null) {
+      // Both models declined for now. Said as "busy" so the app can tell the
+      // student to try again shortly rather than that something is broken.
+      return jsonResponse({ error: 'The assistant is busy right now.' }, 429);
+    }
 
     if (!response.ok) {
       // The upstream body can contain key or quota detail; do not forward it.

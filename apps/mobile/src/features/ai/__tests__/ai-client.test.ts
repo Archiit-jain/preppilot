@@ -1,6 +1,7 @@
 import { getEnv, isDemoMode } from '../../../config/env';
 import { getSupabase } from '../../../lib/supabase';
 import {
+  BUSY_MESSAGE,
   EDGE_FUNCTION,
   UNAVAILABLE_COPY,
   ask,
@@ -123,8 +124,31 @@ describe('ask', () => {
       invoke.mockResolvedValue({ data: null, error: new Error('429 quota exceeded') });
 
       expect(await ask(question)).toMatchObject({
-        message: 'The assistant is busy right now. Try again in a moment.',
+        message: 'The assistant is busy right now. Try again in a minute.',
       });
+    });
+
+    /**
+     * A signed-in call fails with FunctionsHttpError, whose message never
+     * carries the status — it is on the Response in `context`.
+     */
+    it('reads a busy status from the response, not the message', async () => {
+      const httpError = (status: number) =>
+        Object.assign(new Error('Edge Function returned a non-2xx status code'), {
+          context: { status },
+        });
+
+      invoke.mockResolvedValue({ data: null, error: httpError(429) });
+      expect(await ask(question)).toMatchObject({ message: BUSY_MESSAGE });
+
+      invoke.mockResolvedValue({ data: null, error: httpError(503) });
+      expect(await ask(question)).toMatchObject({ message: BUSY_MESSAGE });
+
+      invoke.mockResolvedValue({ data: null, error: httpError(413) });
+      expect(await ask(question)).toMatchObject({ message: /too large/ });
+
+      invoke.mockResolvedValue({ data: null, error: httpError(401) });
+      expect(await ask(question)).toMatchObject({ message: /Sign in again/ });
     });
 
     /** An upstream body can carry key or quota detail; it must not be forwarded. */
@@ -257,6 +281,22 @@ describe('summarising a topic', () => {
 
 describe('quizzing a topic', () => {
   const topic = { topicName: "Ohm's law" };
+
+  it('asks with the settings chosen, brought into range', async () => {
+    invoke.mockResolvedValue({ data: { reply: '{"questions":[]}' }, error: null });
+
+    await quizTopic(topic, { questionCount: 40, difficulty: 'competitive', allowMultiple: false });
+
+    expect(invoke).toHaveBeenCalledWith(EDGE_FUNCTION, {
+      body: {
+        topicName: "Ohm's law",
+        questionCount: 15,
+        difficulty: 'competitive',
+        allowMultiple: false,
+        mode: 'quiz',
+      },
+    });
+  });
   const quizJson = JSON.stringify({
     questions: [0, 1, 2].map((answerIndex, n) => ({
       question: `Q${n}?`,

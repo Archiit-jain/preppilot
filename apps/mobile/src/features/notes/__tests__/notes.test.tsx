@@ -37,7 +37,12 @@ afterEach(() => {
   db.$close();
 });
 
-/** Creates a topic and optionally writes a note on it. */
+/**
+ * Creates a topic and optionally writes a note on it.
+ *
+ * The note goes in the old one-per-topic column, as older versions wrote it: the
+ * tab adopts it under the topic's own id, so these tests also cover that path.
+ */
 async function seedTopic(name: string, note?: string, subjectName = 'Physics') {
   const subject = await repositories.subjects.create({ userId: USER, name: subjectName });
   const chapter = await repositories.chapters.create({
@@ -235,7 +240,7 @@ describe('managing notes from the Notes tab', () => {
   });
 
   /** The same row the tracker reads, so the two can never disagree. */
-  it('writes the correction back to the topic itself', async () => {
+  it('writes the correction to the note itself', async () => {
     const topic = await openFirstNote();
 
     fireEvent.changeText(screen.getByTestId('note-input'), 'Corrected.');
@@ -243,9 +248,10 @@ describe('managing notes from the Notes tab', () => {
       fireEvent.press(screen.getByTestId('note-save'));
     });
 
-    await waitFor(async () =>
-      expect((await repositories.topics.findById(topic.id))?.note).toBe('Corrected.'),
-    );
+    await waitFor(async () => {
+      const [note] = await repositories.notes.listLiveByUser(USER);
+      expect(note).toMatchObject({ id: topic.id, body: 'Corrected.' });
+    });
   });
 
   it('refuses to save an empty note rather than silently deleting it', async () => {
@@ -261,7 +267,7 @@ describe('managing notes from the Notes tab', () => {
 
   it('keeps what was typed when the write fails', async () => {
     await openFirstNote();
-    jest.spyOn(repositories.topics, 'setNote').mockRejectedValueOnce(new Error('disk'));
+    jest.spyOn(repositories.notes, 'edit').mockRejectedValueOnce(new Error('disk'));
 
     fireEvent.changeText(screen.getByTestId('note-input'), 'Worth keeping.');
     await act(async () => {
@@ -347,9 +353,8 @@ describe('deleting a note', () => {
     });
 
     await waitFor(async () => {
-      const row = await repositories.topics.findById(topic.id);
-      expect(row?.note).toBeNull();
-      expect(row?.name).toBe("Ohm's law");
+      expect(await repositories.notes.listLiveByUser(USER)).toEqual([]);
+      expect((await repositories.topics.findById(topic.id))?.name).toBe("Ohm's law");
     });
   });
 });
@@ -392,19 +397,53 @@ describe('writing a new note from the Notes tab', () => {
     );
   });
 
-  /**
-   * A topic holds one note. Starting a "new" one on a topic that already has
-   * one would either overwrite it silently or leave two — both worse than
-   * simply opening the note that is there.
-   */
-  it('opens the existing note when the topic already has one', async () => {
+  /** A topic holds any number of notes, so choosing one starts another. */
+  it('adds another note to a topic that already has one', async () => {
     const topic = await seedTopic("Ohm's law", 'Already written.');
     await render();
     fireEvent.press(screen.getByTestId('add-note'));
 
+    expect(screen.getByText('1 note — this adds another')).toBeOnTheScreen();
+    fireEvent.press(screen.getByTestId(`note-target-${topic.id}`));
+    expect(screen.getByTestId('note-input').props.value).toBe('');
+
+    fireEvent.changeText(screen.getByTestId('note-input'), 'A second thought.');
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('note-save'));
+    });
+
+    await waitFor(() => expect(screen.getByText('A second thought.')).toBeOnTheScreen());
+    expect(screen.getByText('Already written.')).toBeOnTheScreen();
+  });
+
+  it('refuses an empty new note', async () => {
+    const topic = await seedTopic("Ohm's law");
+    await render();
+    fireEvent.press(screen.getByTestId('add-note'));
     fireEvent.press(screen.getByTestId(`note-target-${topic.id}`));
 
-    expect(screen.getByTestId('note-input').props.value).toBe('Already written.');
+    fireEvent.changeText(screen.getByTestId('note-input'), '  ');
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('note-save'));
+    });
+
+    expect(screen.getByText('A note needs something in it.')).toBeOnTheScreen();
+  });
+
+  it('says so when a new note cannot be saved', async () => {
+    const topic = await seedTopic("Ohm's law");
+    await render();
+    jest.spyOn(repositories.notes, 'create').mockRejectedValueOnce(new Error('disk'));
+    fireEvent.press(screen.getByTestId('add-note'));
+    fireEvent.press(screen.getByTestId(`note-target-${topic.id}`));
+
+    fireEvent.changeText(screen.getByTestId('note-input'), 'Lost?');
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('note-save'));
+    });
+
+    expect(screen.getByText('We could not save that note. Try again.')).toBeOnTheScreen();
+    expect(screen.getByTestId('note-input').props.value).toBe('Lost?');
   });
 
   it('says so when the course has no topics to write about', async () => {
@@ -461,8 +500,35 @@ describe('notes written on a sub-topic', () => {
       fireEvent.press(screen.getByTestId('note-save'));
     });
 
-    await waitFor(async () =>
-      expect((await repositories.subtopics.findById(subtopic.id))?.note).toBe('Snell’s law.'),
-    );
+    await waitFor(async () => {
+      const [note] = await repositories.notes.listLiveByUser(USER);
+      expect(note).toMatchObject({ subtopicId: subtopic.id, body: 'Snell’s law.' });
+    });
+  });
+});
+
+/** Notes the assistant wrote are labelled, so the student knows which are theirs. */
+describe('where a note came from', () => {
+  it('labels a summary and an assistant reply, but not the student’s own', async () => {
+    const topic = await seedTopic("Ohm's law");
+    const own = await repositories.notes.create({ userId: USER, topicId: topic.id, body: 'Mine' });
+    const summary = await repositories.notes.create({
+      userId: USER,
+      topicId: topic.id,
+      body: 'A summary',
+      source: 'summary',
+    });
+    const reply = await repositories.notes.create({
+      userId: USER,
+      topicId: topic.id,
+      body: 'A reply',
+      source: 'assistant',
+    });
+
+    await render();
+
+    expect(screen.queryByTestId(`note-source-${own.id}`)).toBeNull();
+    expect(screen.getByTestId(`note-source-${summary.id}`)).toHaveTextContent('AI summary');
+    expect(screen.getByTestId(`note-source-${reply.id}`)).toHaveTextContent('From the assistant');
   });
 });

@@ -1,9 +1,11 @@
 import {
+  normaliseQuizSettings,
   parseQuiz,
   parseReply,
   parseSummary,
   type ParsedReply,
   type Quiz,
+  type QuizSettings,
 } from '@preppilot/shared';
 import { getEnv, isDemoMode } from '../../config/env';
 import { getSupabase } from '../../lib/supabase';
@@ -216,14 +218,21 @@ export async function summariseTopic(topic: TopicContext): Promise<SummaryResult
 export type QuizResult =
   { readonly ok: true; readonly quiz: Quiz } | { readonly ok: false; readonly message: string };
 
-/** Three questions checking whether a topic is actually understood. */
-export async function quizTopic(topic: TopicContext): Promise<QuizResult> {
+/** Questions checking whether a topic is actually understood, as the student asked. */
+export async function quizTopic(
+  topic: TopicContext,
+  settings?: Partial<QuizSettings>,
+): Promise<QuizResult> {
   const unavailable = unavailableReason();
   if (unavailable !== null) return { ok: false, message: UNAVAILABLE_COPY[unavailable] };
 
+  const chosen = normaliseQuizSettings(settings);
   try {
-    const data = await invoke({ ...topic, mode: 'quiz' });
-    const quiz = parseQuiz(data.reply ?? '', topic.topicName);
+    const data = await invoke({ ...topic, ...chosen, mode: 'quiz' });
+    const quiz = parseQuiz(data.reply ?? '', topic.topicName, {
+      expected: chosen.questionCount,
+      allowMultiple: chosen.allowMultiple,
+    });
 
     // A quiz that parsed half-way would mark a student against answers that were
     // never established, so a malformed one is refused outright.
@@ -239,17 +248,35 @@ export async function quizTopic(topic: TopicContext): Promise<QuizResult> {
   }
 }
 
+export const BUSY_MESSAGE = 'The assistant is busy right now. Try again in a minute.';
+
+/**
+ * The HTTP status behind a failed call, where there is one.
+ *
+ * A signed-in call fails with Supabase's FunctionsHttpError, whose message is
+ * always "Edge Function returned a non-2xx status code" — the status is on the
+ * Response it carries as `context`. Reading only the message had turned every
+ * "busy" into "could not answer that".
+ */
+function statusOf(error: unknown): number | null {
+  const context = (error as { context?: { status?: unknown } } | null)?.context;
+  return typeof context?.status === 'number' ? context.status : null;
+}
+
 /** Maps a transport failure to something a student can act on. */
 function describeFailure(error: unknown): string {
+  const status = statusOf(error);
+  if (status === 429 || status === 503) return BUSY_MESSAGE;
+  if (status === 413) return 'That picture is too large to send. Try a smaller one.';
+  if (status === 401 || status === 403) return 'Sign in again to ask the assistant a question.';
+
   const message = error instanceof Error ? error.message : String(error);
 
   if (/network|fetch|offline/i.test(message)) {
     // PRD §14 makes AI online-only, so this is the expected offline case.
     return 'PrepPilot needs an internet connection to answer this.';
   }
-  if (/rate|429|quota/i.test(message)) {
-    return 'The assistant is busy right now. Try again in a moment.';
-  }
+  if (/rate|429|503|quota/i.test(message)) return BUSY_MESSAGE;
   if (/413|too large/i.test(message)) {
     return 'That picture is too large to send. Try a smaller one.';
   }

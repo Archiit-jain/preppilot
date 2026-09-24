@@ -9,6 +9,8 @@ export interface NoteTargetPickerProps {
   readonly targets: readonly NoteTarget[];
   readonly onPick: (target: NoteTarget) => void;
   readonly onDismiss: () => void;
+  /** The question at the top; what the note is being saved from changes it. */
+  readonly title?: string;
 }
 
 /**
@@ -19,7 +21,13 @@ export interface NoteTargetPickerProps {
  * hundreds of them, and scrolling to "Thermodynamics" past the whole of
  * mechanics is not choosing, it is hunting.
  */
-export function NoteTargetPicker({ visible, targets, onPick, onDismiss }: NoteTargetPickerProps) {
+export function NoteTargetPicker({
+  visible,
+  targets,
+  onPick,
+  onDismiss,
+  title = 'What is the note about?',
+}: NoteTargetPickerProps) {
   const theme = useTheme();
   const [query, setQuery] = useState('');
 
@@ -37,7 +45,7 @@ export function NoteTargetPicker({ visible, targets, onPick, onDismiss }: NoteTa
 
   return (
     <Sheet visible={visible} onDismiss={onDismiss} label="Choose a topic">
-      <Text variant="title">What is the note about?</Text>
+      <Text variant="title">{title}</Text>
 
       <TextField
         label="Search topics"
@@ -77,9 +85,10 @@ export function NoteTargetPicker({ visible, targets, onPick, onDismiss }: NoteTa
                   <Text variant="body" weight="semibold">
                     {target.topicName}
                   </Text>
-                  {target.hasNote && (
+                  {target.noteCount > 0 && (
                     <Text variant="caption" tone="accent">
-                      Already has a note — this will open it
+                      {target.noteCount === 1 ? '1 note' : `${target.noteCount} notes`} — this adds
+                      another
                     </Text>
                   )}
                 </Card>

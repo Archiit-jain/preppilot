@@ -43,9 +43,11 @@ supabase link --project-ref <ref>
 supabase db push
 ```
 
-Without the CLI, paste `supabase/apply-all-migrations.sql` — all four
-migrations in order, safe to run twice — into the Supabase SQL Editor. That is
-how the live project was set up.
+Without the CLI, paste `supabase/apply-all-migrations.sql` — all migrations in
+order — into the Supabase SQL Editor. That is how the live project was first set
+up, which left its migration history empty; before using `supabase db push` on
+such a project, mark the already-applied migrations with `supabase migration
+repair --status applied <versions>` (DATABASE.md).
 
 ```bash
 pnpm --filter @preppilot/mobile start   # Android, via a development build

@@ -5,8 +5,9 @@ Implements PRD §22. The device is authoritative; the server is a copy.
 ## One pass
 
 For each table, in dependency order — trackers, subjects, chapters, topics,
-subtopics, flashcards, study sessions, reminders — so a chapter never arrives
-before its subject:
+subtopics, notes, flashcards, study sessions, reminders, quiz attempts, chat
+threads, chat messages — so a chapter never arrives before its subject, nor a
+message before its thread:
 
 1. **Pull** rows changed since the watermark
 2. **Reconcile** them against local rows by id
@@ -105,6 +106,9 @@ screen.
 
 - `sync_status` — this device's own bookkeeping
 - `notification_id` — identifies a scheduled notification on one device only
+- `image_uri` on a chat message — the path to a picture that exists only on the
+  device that took it. The server copy of a message never has it, so a pulled
+  message keeps this device's path (`ChatRepository.upsertMessageFromSync`)
 - `preferences` — device-local settings, including the watermark itself
 
 ## Testing

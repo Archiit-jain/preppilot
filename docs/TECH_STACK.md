@@ -66,8 +66,9 @@ application and the same code, not a separate implementation.
 | **Drizzle ORM** | 0.45.2               | Typed schema, queries and migrations                          |
 | **Drizzle Kit** | 0.31.10              | Migration generation                                          |
 
-Nine tables: `trackers`, `subjects`, `chapters`, `topics`, `subtopics`,
-`flashcards`, `study_sessions`, `reminders`, `preferences`.
+Thirteen tables: `trackers`, `subjects`, `chapters`, `topics`, `subtopics`,
+`notes`, `flashcards`, `study_sessions`, `reminders`, `quiz_attempts`,
+`chat_threads`, `chat_messages`, `preferences`.
 
 ## Backend / cloud
 
@@ -79,15 +80,15 @@ Nine tables: `trackers`, `subjects`, `chapters`, `topics`, `subtopics`,
 | **Supabase Edge Functions** | Deno runtime — `ask-gemini`, `delete-account`          |
 | **Supabase CLI**            | 2.116 — migrations and deployment                      |
 
-Four migrations under `supabase/migrations/`. Eight of the nine local tables
-synchronise; `preferences` is device-local.
+Five migrations under `supabase/migrations/`. Twelve of the thirteen local
+tables synchronise; `preferences` is device-local.
 
 ## AI
 
-|                   |                                                                             |
-| ----------------- | --------------------------------------------------------------------------- |
-| **Google Gemini** | Model `gemini-3.6-flash`, pinned deliberately rather than tracking an alias |
-| **Access path**   | `Client → Supabase Edge Function (ask-gemini) → Gemini API`                 |
+|                   |                                                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Google Gemini** | Model `gemini-3.6-flash`, pinned deliberately rather than tracking an alias; `gemini-3.5-flash-lite` answers when it is busy |
+| **Access path**   | `Client → Supabase Edge Function (ask-gemini) → Gemini API`                                                                  |
 
 **The Gemini API key is server-side only.** It is read from a Supabase secret
 inside the Edge Function and never returned to a client. No key appears anywhere

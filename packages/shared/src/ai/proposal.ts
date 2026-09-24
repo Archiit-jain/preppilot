@@ -55,6 +55,16 @@ export function parseReply(raw: string): ParsedReply {
   return { message: message.length > 0 ? message : raw.trim(), proposal };
 }
 
+/**
+ * Reads a proposal stored as JSON — one saved with a chat message, and perhaps
+ * synchronised from another device. Validated exactly as a fresh reply is:
+ * storing a proposal must not become a way round the grammar.
+ */
+export function parseProposalJson(json: string | null | undefined): AiProposal | null {
+  if (typeof json !== 'string' || json.length === 0) return null;
+  return safeParseProposal(json);
+}
+
 function safeParseProposal(json: string): AiProposal | null {
   try {
     const parsed: unknown = JSON.parse(json);

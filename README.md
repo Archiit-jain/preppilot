@@ -15,29 +15,32 @@ All planned feature areas are implemented and covered by tests. See
 actually does, and [`docs/developer/LIMITATIONS.md`](docs/developer/LIMITATIONS.md)
 for what remains unbuilt or unverified.
 
-| Area                                         | Status                      |
-| -------------------------------------------- | --------------------------- |
-| Foundation (monorepo, tooling, CI)           | ✅ Implemented              |
-| Progress engine + design tokens              | ✅ Implemented              |
-| Expo app + design system components          | ✅ Implemented              |
-| Authentication (email, native Google, guest) | ✅ Implemented              |
-| Phone OTP                                    | ⚙️ Behind a flag            |
-| Offline tracker: SQLite + Drizzle data layer | ✅ Implemented              |
-| Offline tracker: UI                          | ✅ Implemented              |
-| Timers and study sessions                    | ✅ Implemented              |
-| Dashboard, history and statistics            | ✅ Implemented              |
-| Syllabus templates (22 bundled)              | ✅ Implemented              |
-| Build a course from scratch                  | ✅ Implemented              |
-| Multiple courses                             | ✅ Implemented              |
-| Notes, flashcards, reminders                 | ✅ Implemented              |
-| Synchronisation and conflict resolution      | ✅ Implemented, auto-sync   |
-| AI assistant (Gemini via Edge Function)      | ✅ Implemented              |
-| AI: questions about a photo or screenshot    | ✅ Implemented              |
-| Focus Mode                                   | ✅ Implemented, see caveats |
-| Web demo build                               | ✅ Implemented              |
+| Area                                          | Status                      |
+| --------------------------------------------- | --------------------------- |
+| Foundation (monorepo, tooling, CI)            | ✅ Implemented              |
+| Progress engine + design tokens               | ✅ Implemented              |
+| Expo app + design system components           | ✅ Implemented              |
+| Authentication (email, native Google, guest)  | ✅ Implemented              |
+| Phone OTP                                     | ⚙️ Behind a flag            |
+| Offline tracker: SQLite + Drizzle data layer  | ✅ Implemented              |
+| Offline tracker: UI                           | ✅ Implemented              |
+| Timers and study sessions                     | ✅ Implemented              |
+| Dashboard, history and statistics             | ✅ Implemented              |
+| Syllabus templates (22 bundled)               | ✅ Implemented              |
+| Build a course from scratch                   | ✅ Implemented              |
+| Multiple courses                              | ✅ Implemented              |
+| Notes, flashcards, reminders                  | ✅ Implemented              |
+| Synchronisation and conflict resolution       | ✅ Implemented, auto-sync   |
+| AI assistant (Gemini via Edge Function)       | ✅ Implemented              |
+| AI: questions about a photo or screenshot     | ✅ Implemented              |
+| AI: saved chats, "Add as note" on replies     | ✅ Implemented              |
+| Quizzes: 1–15 questions, 4 difficulties, deck | ✅ Implemented              |
+| Several notes per topic                       | ✅ Implemented              |
+| Focus Mode                                    | ✅ Implemented, see caveats |
+| Web demo build                                | ✅ Implemented              |
 
-Test suite: **1,934 tests across 91 suites**, all passing — 1,386 in the app,
-508 in the shared package, 40 for the Edge Functions.
+Test suite: **2,049 tests across 98 suites**, all passing — 1,481 in the app,
+521 in the shared package, 47 for the Edge Functions.
 
 The Android APK (EAS `preview-live` profile, arm64) is about 41 MB and has been
 run on a physical phone against the live Supabase project: sign-in by email and

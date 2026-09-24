@@ -75,8 +75,20 @@ and never on by default. The banner that labelled every demo screen was removed
 at the project owner's request (September 2026), so the browser demo no longer
 says on-screen that it is local and unauthenticated.
 
-**The assistant's conversation is not saved.** It lives in memory and is gone
-when the app restarts, pictures included. One picture per question.
+**Conversations are saved, but the model does not see earlier messages.**
+Each question is sent on its own, so "and what about the second one?" means
+nothing to it. Sending recent messages as context would cost more tokens per
+question. Pictures in saved conversations stay on the device that sent them. One
+picture per question.
+
+**The Gemini API key is on the free tier.** About 20 requests a day for the main
+model and about 500 for the Flash-Lite fallback, shared by every student, and
+students' content may be used by Google to improve its products. Fine for a
+demonstration; not for real users. See
+[AI_COSTS_AND_PROVIDERS.md](AI_COSTS_AND_PROVIDERS.md).
+
+**A long competitive quiz is slow to write.** Fifteen competitive questions can
+take 30–60 seconds; the tracker shows "Asking the assistant…" meanwhile.
 
 **Signing in with Google requires Google Play services** and an Android OAuth
 client registered for the exact signing key of the build. A build signed with a

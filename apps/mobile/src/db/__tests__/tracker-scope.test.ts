@@ -134,12 +134,12 @@ describe('keeping two courses apart', () => {
         chapterId: chapter.id,
         name: 'Topic',
       });
-      await repositories.topics.setNote(topic.id, note);
+      await repositories.notes.create({ userId: USER, topicId: topic.id, body: note });
     };
     await write(neet, 'Anatomy', 'Brachial plexus');
     await write(upsc, 'Polity', 'Article 32');
 
-    expect((await repositories.notes.listByUser(USER, upsc)).map((n) => n.note)).toEqual([
+    expect((await repositories.notes.listByUser(USER, upsc)).map((n) => n.body)).toEqual([
       'Article 32',
     ]);
   });

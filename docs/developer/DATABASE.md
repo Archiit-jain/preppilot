@@ -82,7 +82,31 @@ supabase db push          # against a linked project
 supabase db reset         # against the local stack, for testing
 ```
 
-`supabase/apply-all-migrations.sql` holds all four migrations in order, written
+### Notes, conversations and the Quiz deck (September 2026)
+
+Migration `20260924000001_notes_chats_quizzes.sql` adds four synchronised tables,
+with the same conventions as the rest (client UUIDv7 ids, tombstones, server-set
+`updated_at`, forced RLS, no delete policy):
+
+| Table           | Holds                                                                                            |
+| --------------- | ------------------------------------------------------------------------------------------------ |
+| `notes`         | Any number of notes per topic or sub-topic, with their source (`manual`, `summary`, `assistant`) |
+| `chat_threads`  | Saved conversations with the assistant                                                           |
+| `chat_messages` | Their messages; `proposal` as JSON; `has_image` (the picture itself stays on the device)         |
+| `quiz_attempts` | Finished quizzes: settings, questions and answers as JSON, score                                 |
+
+`topics.note` and `subtopics.note` remain for older app versions but are no
+longer written. `NoteRepository.adoptLegacy` copies any note found there into
+`notes` under the topic's own id, so two devices adopting the same note write
+one row, and a deleted adopted note is not brought back.
+
+The live project's migration history was empty (it was set up by pasting SQL),
+so the four earlier migrations were marked applied with
+`supabase migration repair --status applied <versions>` before `supabase db
+push` applied the new one. A plain `db push` would have re-run them and stopped
+on existing policies.
+
+`supabase/apply-all-migrations.sql` holds all five migrations in order, written
 to be safe to run more than once, for pasting into the Supabase SQL Editor where
 the CLI is not available. The live project was set up that way (21 September
 2026). When a migration is added, add it to that file too.

@@ -27,7 +27,12 @@ import {
   type ImageSource,
 } from './attach-image';
 import { RichReply } from './components/rich-reply';
-import { setSubjectContext, useAiStore } from './ai-store';
+import { ChatList } from './components/chat-list';
+import { setSubjectContext, useAiStore, type AiMessage } from './ai-store';
+import { toPlainText } from './markdown';
+import { countOf } from '../../lib/plural';
+import { NoteTargetPicker } from '../notes/components/note-target-picker';
+import { addNote, useNotesStore, type NoteTarget } from '../notes/notes-store';
 
 const QUICK_PROMPTS = [
   'Explain this topic simply',
@@ -45,6 +50,13 @@ export function AiScreen() {
   const [attachment, setAttachment] = useState<ImageAttachment | null>(null);
   const [choosingSource, setChoosingSource] = useState(false);
   const [attachError, setAttachError] = useState<string | null>(null);
+  const [browsingChats, setBrowsingChats] = useState(false);
+  /** The reply being kept as a note, while its topic is chosen. */
+  const [keeping, setKeeping] = useState<AiMessage | null>(null);
+  /** Replies already kept, so their button can say so. */
+  const [kept, setKept] = useState<ReadonlySet<string>>(new Set());
+  const [keepError, setKeepError] = useState<string | null>(null);
+  const noteTargets = useNotesStore((store) => store.targets);
   const scrollRef = useRef<ScrollView>(null);
   const bodyRef = useRef<View>(null);
   const keyboardOverlap = useKeyboardOverlap(bodyRef);
@@ -68,6 +80,35 @@ export function AiScreen() {
   useEffect(() => {
     setSubjectContext(subjects.map((subject) => subject.name));
   }, [subjects]);
+
+  // Saved conversations: reopens the last one, and lists the rest.
+  useEffect(() => {
+    if (userId !== null) void useAiStore.getState().openChats(userId, getRepositories());
+  }, [userId]);
+
+  /** "Page +" on a reply: first choose which topic the note belongs to. */
+  const startKeeping = (message: AiMessage) => {
+    setKeepError(null);
+    setKeeping(message);
+    // Always re-read: the course, or its topics, may have changed since.
+    if (userId !== null) void useNotesStore.getState().load(userId, getRepositories());
+  };
+
+  const keepAsNote = async (target: NoteTarget) => {
+    const message = keeping;
+    setKeeping(null);
+    if (message === null || userId === null) return;
+    try {
+      const saved = await addNote(userId, getRepositories(), {
+        topicId: target.topicId,
+        body: toPlainText(message.text),
+        source: 'assistant',
+      });
+      if (saved) setKept((current) => new Set(current).add(message.id));
+    } catch {
+      setKeepError('We could not save that as a note. Try again.');
+    }
+  };
 
   const send = async (text: string) => {
     const trimmed = text.trim();
@@ -118,7 +159,28 @@ export function AiScreen() {
             }
           }}
         >
-          <Text variant="heading">Assistant</Text>
+          <View style={[styles.header, { gap: theme.spacing.sm }]}>
+            <Text variant="heading" style={styles.headerTitle}>
+              Assistant
+            </Text>
+            <Button
+              label="Chats"
+              size="small"
+              variant="secondary"
+              icon={<Icon name="chats" size={18} color={theme.colors.textPrimary} />}
+              testID="ai-open-chats"
+              onPress={() => setBrowsingChats(true)}
+            />
+            <Button
+              label="New chat"
+              size="small"
+              variant="secondary"
+              icon={<Icon name="plus" size={18} color={theme.colors.textPrimary} />}
+              disabled={state.messages.length === 0 || state.asking}
+              testID="ai-new-chat"
+              onPress={() => state.newChat()}
+            />
+          </View>
 
           {!configured && (
             <Card testID="ai-unavailable">
@@ -178,6 +240,16 @@ export function AiScreen() {
                 />
               )}
 
+              {message.imageElsewhere === true && (
+                <Text
+                  variant="caption"
+                  color={theme.colors.textOnAccent}
+                  style={{ marginBottom: theme.spacing.xs }}
+                >
+                  Picture sent from another device
+                </Text>
+              )}
+
               {message.role === 'assistant' ? (
                 <RichReply source={message.text} />
               ) : (
@@ -188,11 +260,34 @@ export function AiScreen() {
                 )
               )}
 
+              {message.role === 'assistant' && (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={kept.has(message.id) ? 'Saved as a note' : 'Add as note'}
+                  accessibilityState={{ disabled: kept.has(message.id) }}
+                  disabled={kept.has(message.id)}
+                  hitSlop={8}
+                  testID={`ai-keep-${message.id}`}
+                  onPress={() => startKeeping(message)}
+                  style={[styles.keep, { marginTop: theme.spacing.sm, gap: theme.spacing.xxs }]}
+                >
+                  <Icon
+                    name="notePlus"
+                    size={18}
+                    color={kept.has(message.id) ? theme.colors.success : theme.colors.accent}
+                  />
+                  <Text variant="caption" tone={kept.has(message.id) ? 'success' : 'accent'}>
+                    {kept.has(message.id) ? 'Saved to notes' : 'Add as note'}
+                  </Text>
+                </Pressable>
+              )}
+
               {message.proposal !== null && (
                 <View style={{ marginTop: theme.spacing.md }}>
                   <Text variant="caption" tone="muted">
-                    This would add {summariseProposal(message.proposal).chapters} chapters and{' '}
-                    {summariseProposal(message.proposal).topics} topics to{' '}
+                    This would add{' '}
+                    {countOf(summariseProposal(message.proposal).chapters, 'chapter')} and{' '}
+                    {countOf(summariseProposal(message.proposal).topics, 'topic')} to{' '}
                     {message.proposal.subjectName}.
                   </Text>
 
@@ -211,6 +306,12 @@ export function AiScreen() {
           {state.asking && (
             <Text variant="small" tone="muted" testID="ai-thinking">
               Thinking…
+            </Text>
+          )}
+
+          {keepError !== null && (
+            <Text variant="small" tone="danger" accessibilityRole="alert">
+              {keepError}
             </Text>
           )}
 
@@ -388,6 +489,30 @@ export function AiScreen() {
         </View>
       </Sheet>
 
+      <ChatList
+        visible={browsingChats}
+        threads={state.threads}
+        currentId={state.threadId}
+        onOpen={(threadId) => {
+          setBrowsingChats(false);
+          void state.openThread(threadId);
+        }}
+        onDelete={(threadId) => void state.deleteThread(threadId)}
+        onNew={() => {
+          setBrowsingChats(false);
+          state.newChat();
+        }}
+        onDismiss={() => setBrowsingChats(false)}
+      />
+
+      <NoteTargetPicker
+        visible={keeping !== null}
+        title="Which topic is this note for?"
+        targets={noteTargets}
+        onPick={(target) => void keepAsNote(target)}
+        onDismiss={() => setKeeping(null)}
+      />
+
       <ProposalReview userId={userId} />
     </Screen>
   );
@@ -412,9 +537,9 @@ function ProposalReview({ userId }: { readonly userId: string | null }) {
       <Text variant="title">Add this to your tracker?</Text>
 
       <Text variant="small" tone="secondary">
-        {summary.chapters} chapters and {summary.topics} topics would be added to{' '}
-        {proposal.subjectName}. Nothing is changed until you confirm, and you can edit or delete any
-        of it afterwards.
+        {countOf(summary.chapters, 'chapter')} and {countOf(summary.topics, 'topic')} would be added
+        to {proposal.subjectName}. Nothing is changed until you confirm, and you can edit or delete
+        any of it afterwards.
       </Text>
 
       <ScrollView style={styles.preview} showsVerticalScrollIndicator={false}>
@@ -471,6 +596,21 @@ const styles = StyleSheet.create({
 
   bubble: {
     maxWidth: '85%',
+  },
+
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  headerTitle: {
+    flex: 1,
+  },
+
+  keep: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
   },
 
   sentImage: {

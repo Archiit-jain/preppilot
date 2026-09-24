@@ -16,9 +16,15 @@ export const SYNCED_TABLES = [
   'chapters',
   'topics',
   'subtopics',
+  'notes',
   'flashcards',
   'study_sessions',
   'reminders',
+  'quiz_attempts',
+  // A thread before its messages, for the same reason a subject precedes its
+  // chapters.
+  'chat_threads',
+  'chat_messages',
 ] as const;
 
 export type SyncedTable = (typeof SYNCED_TABLES)[number];

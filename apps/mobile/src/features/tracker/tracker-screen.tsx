@@ -18,7 +18,7 @@ import { getRepositories } from '../../db/client';
 import { emptyStateCopy } from '../../constants/copy';
 import type { SyllabusTemplate, TemplateSubject } from '@preppilot/shared';
 import { importTemplate } from '../templates/import-template';
-import type { Quiz } from '@preppilot/shared';
+import type { Quiz, QuizSettings } from '@preppilot/shared';
 import { quizTopic, summariseTopic, type TopicContext } from '../ai/ai-client';
 import { AddSubjectSheet } from './components/add-subject-sheet';
 import { WelcomeCard } from './components/welcome-card';
@@ -32,6 +32,8 @@ import { useAiStore } from '../ai/ai-store';
 import { UNAVAILABLE_COPY } from '../ai/ai-client';
 import { ExamPicker } from './components/exam-picker';
 import { TopicQuiz } from './components/topic-quiz';
+import { QuizSettingsSheet } from '../quiz/quiz-settings-sheet';
+import { recordQuizAttempt } from '../quiz/quiz-deck-store';
 import { useAuthStore } from '../auth/auth-store';
 import { useActiveTrackerId, useTrackersStore } from '../trackers/trackers-store';
 import { useTheme } from '../../theme/theme-context';
@@ -51,8 +53,8 @@ type Prompt =
   | { readonly kind: 'renameTopic'; readonly topicId: string; readonly current: string }
   | { readonly kind: 'addSubtopic'; readonly topicId: string }
   | { readonly kind: 'renameSubtopic'; readonly subtopicId: string; readonly current: string }
-  | { readonly kind: 'editNote'; readonly topicId: string; readonly current: string }
-  | { readonly kind: 'editSubtopicNote'; readonly subtopicId: string; readonly current: string }
+  | { readonly kind: 'addNote'; readonly topicId: string; readonly subtopicId: string | null }
+  | { readonly kind: 'editNote'; readonly noteId: string; readonly current: string }
   | { readonly kind: 'editDescription'; readonly subjectId: string; readonly current: string }
   | null;
 
@@ -82,8 +84,26 @@ export function TrackerScreen() {
   const [askingAbout, setAskingAbout] = useState<string | null>(null);
   /** Whether the thing being asked about is a topic or one of its sub-topics. */
   const [askingLevel, setAskingLevel] = useState<'topic' | 'subtopic'>('topic');
-  const [summary, setSummary] = useState<{ topicName: string; text: string } | null>(null);
+  const [summary, setSummary] = useState<{
+    topicName: string;
+    text: string;
+    /** Which topic (and sub-topic) the summary is about, for saving it as a note. */
+    topicId: string;
+    subtopicId: string | null;
+  } | null>(null);
+  const [summarySaved, setSummarySaved] = useState(false);
   const [quiz, setQuiz] = useState<Quiz | null>(null);
+  /** The topic whose quiz settings are being chosen, before anything is asked. */
+  const [quizSetup, setQuizSetup] = useState<{
+    id: string;
+    level: 'topic' | 'subtopic';
+    context: TopicContext;
+  } | null>(null);
+  /** What the quiz on screen was asked with, and about, for the Quiz deck. */
+  const [quizMeta, setQuizMeta] = useState<{
+    settings: QuizSettings;
+    context: TopicContext;
+  } | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const isGuest = useAuthStore((store) => store.isGuest);
 
@@ -265,6 +285,24 @@ export function TrackerScreen() {
     return null;
   };
 
+  /** The topic a topic-or-sub-topic id belongs to, for filing a note under it. */
+  const noteTargetFor = (
+    id: string,
+    level: 'topic' | 'subtopic',
+  ): { topicId: string; subtopicId: string | null } | null => {
+    if (level === 'topic') return { topicId: id, subtopicId: null };
+    for (const subject of state.subjects) {
+      for (const chapter of subject.chapters) {
+        for (const topic of chapter.topics) {
+          if (topic.subtopics.some((subtopic) => subtopic.id === id)) {
+            return { topicId: topic.id, subtopicId: id };
+          }
+        }
+      }
+    }
+    return null;
+  };
+
   const summariseTopicById = async (topicId: string, level: 'topic' | 'subtopic' = 'topic') => {
     const context = contextFor(topicId);
     if (context === null || askingAbout !== null || refuseAiForGuest()) return;
@@ -274,33 +312,53 @@ export function TrackerScreen() {
     setAiError(null);
     try {
       const result = await summariseTopic(context);
-      if (result.ok) setSummary({ topicName: context.topicName, text: result.summary });
-      else setAiError(result.message);
+      const target = noteTargetFor(topicId, level);
+      if (result.ok && target !== null) {
+        setSummarySaved(false);
+        setSummary({ topicName: context.topicName, text: result.summary, ...target });
+      } else if (!result.ok) {
+        setAiError(result.message);
+      }
     } finally {
       setAskingAbout(null);
     }
   };
 
-  const testMeOn = async (topicId: string, level: 'topic' | 'subtopic' = 'topic') => {
+  /** "Test me on this" asks how first: how many questions, how hard, how many answers. */
+  const testMeOn = (topicId: string, level: 'topic' | 'subtopic' = 'topic') => {
     if (refuseAiForGuest()) return;
     const context = contextFor(topicId);
     if (context === null || askingAbout !== null) return;
+    setQuizSetup({ id: topicId, level, context });
+  };
 
-    setAskingLevel(level);
-    setAskingAbout(topicId);
+  const startQuiz = async (settings: QuizSettings) => {
+    const setup = quizSetup;
+    setQuizSetup(null);
+    if (setup === null) return;
+
+    setAskingLevel(setup.level);
+    setAskingAbout(setup.id);
     setAiError(null);
     try {
-      const result = await quizTopic(context);
+      const result = await quizTopic(setup.context, settings);
       if (result.ok) {
         setQuiz(result.quiz);
-        setQuizTopicId(topicId);
-        setQuizLevel(level);
+        setQuizMeta({ settings, context: setup.context });
+        setQuizTopicId(setup.id);
+        setQuizLevel(setup.level);
       } else {
         setAiError(result.message);
       }
     } finally {
       setAskingAbout(null);
     }
+  };
+
+  const saveSummaryAsNote = async () => {
+    if (summary === null) return;
+    const saved = await state.addNote(summary.topicId, summary.subtopicId, summary.text, 'summary');
+    if (saved) setSummarySaved(true);
   };
 
   const confirmPrompt = async (name: string) => {
@@ -335,11 +393,11 @@ export function TrackerScreen() {
       case 'renameSubtopic':
         await state.renameSubtopic(pending.subtopicId, name);
         break;
-      case 'editNote':
-        await state.setTopicNote(pending.topicId, name);
+      case 'addNote':
+        await state.addNote(pending.topicId, pending.subtopicId, name);
         break;
-      case 'editSubtopicNote':
-        await state.setSubtopicNote(pending.subtopicId, name);
+      case 'editNote':
+        await state.editNote(pending.noteId, name);
         break;
       case 'editDescription':
         await state.setSubjectDescription(pending.subjectId, name);
@@ -477,19 +535,15 @@ export function TrackerScreen() {
                 onMoveSubtopic={(topicId, subtopicId, direction) =>
                   void state.moveSubtopic(topicId, subtopicId, direction)
                 }
-                onEditSubtopicNote={(subtopicId, current) =>
-                  setPrompt({ kind: 'editSubtopicNote', subtopicId, current: current ?? '' })
-                }
                 onSummariseSubtopic={(subtopicId) =>
                   void summariseTopicById(subtopicId, 'subtopic')
                 }
                 onTestMeSubtopic={(subtopicId) => void testMeOn(subtopicId, 'subtopic')}
                 busySubtopicId={askingLevel === 'subtopic' ? askingAbout : null}
-                onEditNote={(topicId, current) =>
-                  setPrompt({ kind: 'editNote', topicId, current: current ?? '' })
+                onAddNote={(topicId, subtopicId) =>
+                  setPrompt({ kind: 'addNote', topicId, subtopicId })
                 }
-                onDeleteNote={(topicId) => void state.setTopicNote(topicId, null)}
-                onDeleteSubtopicNote={(subtopicId) => void state.setSubtopicNote(subtopicId, null)}
+                onEditNote={(noteId, current) => setPrompt({ kind: 'editNote', noteId, current })}
                 onMoveTopic={(chapterId, topicId, direction) =>
                   void state.moveTopic(chapterId, topicId, direction)
                 }
@@ -516,11 +570,25 @@ export function TrackerScreen() {
               {summary.text}
             </Text>
             <View style={styles.sheetActions}>
+              <Button
+                label={summarySaved ? 'Saved to notes' : 'Add as note'}
+                variant="secondary"
+                disabled={summarySaved}
+                testID="summary-add-note"
+                onPress={() => void saveSummaryAsNote()}
+              />
               <Button label="Close" onPress={() => setSummary(null)} />
             </View>
           </>
         )}
       </Sheet>
+
+      <QuizSettingsSheet
+        visible={quizSetup !== null}
+        topicName={quizSetup?.context.topicName ?? ''}
+        onStart={(settings) => void startQuiz(settings)}
+        onDismiss={() => setQuizSetup(null)}
+      />
 
       {quiz !== null && (
         <TopicQuiz
@@ -529,6 +597,14 @@ export function TrackerScreen() {
           onDismiss={() => {
             setQuiz(null);
             setQuizTopicId(null);
+          }}
+          onAttempted={(answers) => {
+            if (user === null || quizMeta === null) return;
+            void recordQuizAttempt(user.id, getRepositories(), quiz, answers, quizMeta.settings, {
+              topicId: quizTopicId,
+              chapterName: quizMeta.context.chapterName ?? null,
+              subjectName: quizMeta.context.subjectName ?? null,
+            });
           }}
           onFinish={(passed) => {
             const topicId = quizTopicId;
@@ -601,11 +677,10 @@ export function TrackerScreen() {
         placeholder={promptPlaceholder(prompt)}
         confirmLabel={confirmLabel(prompt)}
         initialValue={prompt !== null && 'current' in prompt ? prompt.current : ''}
-        allowEmpty={
-          prompt?.kind === 'editDescription' ||
-          prompt?.kind === 'editNote' ||
-          prompt?.kind === 'editSubtopicNote'
-        }
+        allowEmpty={prompt?.kind === 'editDescription' || prompt?.kind === 'editNote'}
+        {...(prompt?.kind === 'addNote' || prompt?.kind === 'editNote'
+          ? { fieldLabel: 'Note' }
+          : {})}
         onCancel={() => setPrompt(null)}
         onConfirm={(name) => void confirmPrompt(name)}
       />
@@ -631,9 +706,10 @@ function promptTitle(prompt: Prompt): string {
       return 'New sub-topic';
     case 'renameSubtopic':
       return 'Rename sub-topic';
+    case 'addNote':
+      return 'New note';
     case 'editNote':
-    case 'editSubtopicNote':
-      return 'Note';
+      return 'Note — clear it to delete';
     case 'editDescription':
       return 'Subject description';
     default:
@@ -648,8 +724,8 @@ function confirmLabel(prompt: Prompt): string {
     case 'renameTopic':
     case 'renameSubtopic':
       return 'Rename';
+    case 'addNote':
     case 'editNote':
-    case 'editSubtopicNote':
     case 'editDescription':
       return 'Save';
     default:
@@ -667,8 +743,8 @@ function promptPlaceholder(prompt: Prompt): string {
       return 'e.g. Decimal';
     case 'addSubtopic':
       return 'e.g. Recurring decimals';
+    case 'addNote':
     case 'editNote':
-    case 'editSubtopicNote':
       return 'Anything worth remembering about this';
     case 'editDescription':
       return 'e.g. NCERT Class 10';

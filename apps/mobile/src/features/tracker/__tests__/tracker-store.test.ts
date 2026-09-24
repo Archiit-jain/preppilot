@@ -18,12 +18,13 @@ const USER = 'user-1';
 
 let db: ReturnType<typeof createTestDatabase>;
 let repositories: Repositories;
+let clock: ReturnType<typeof createTestClock>;
 
 const state = () => useTrackerStore.getState();
 
 beforeEach(async () => {
   db = createTestDatabase();
-  const clock = createTestClock();
+  clock = createTestClock();
   repositories = createTestRepositories(db, clock);
   resetTrackerStore();
   await state().load(USER, repositories);
@@ -526,35 +527,76 @@ describe('topic notes', () => {
 
   const topicNow = () => state().subjects[0]!.chapters[0]!.topics[0]!;
 
-  it('starts with no note', async () => {
+  const notesNow = () => topicNow().notes.map((note) => note.body);
+
+  it('starts with no notes', async () => {
     const topic = await seedTopic();
 
-    expect(topic.note).toBeNull();
+    expect(topic.notes).toEqual([]);
   });
 
-  it('saves one', async () => {
+  it('keeps several, newest first', async () => {
     const topic = await seedTopic();
 
-    await state().setTopicNote(topic.id, 'V = IR. Remember the triangle.');
+    expect(await state().addNote(topic.id, null, 'V = IR.')).toBe(true);
+    clock.advance(1000);
+    await state().addNote(topic.id, null, 'Remember the triangle.', 'summary');
 
-    expect(topicNow().note).toBe('V = IR. Remember the triangle.');
+    expect(notesNow()).toEqual(['Remember the triangle.', 'V = IR.']);
+    expect(topicNow().notes[0]!.source).toBe('summary');
   });
 
-  /** "No note" must have one representation, not two. */
-  it('stores an emptied note as absent rather than blank', async () => {
+  it('will not add an empty note', async () => {
     const topic = await seedTopic();
-    await state().setTopicNote(topic.id, 'Something');
 
-    await state().setTopicNote(topic.id, '   ');
+    expect(await state().addNote(topic.id, null, '   ')).toBe(false);
+    expect(notesNow()).toEqual([]);
+  });
 
-    expect(topicNow().note).toBeNull();
+  it('corrects a note, and deletes it when it is cleared', async () => {
+    const topic = await seedTopic();
+    await state().addNote(topic.id, null, 'Somthing');
+    const id = topicNow().notes[0]!.id;
+
+    await state().editNote(id, 'Something');
+    expect(notesNow()).toEqual(['Something']);
+
+    await state().editNote(id, '   ');
+    expect(notesNow()).toEqual([]);
+  });
+
+  it('keeps a sub-topic note with its topic, marked as the sub-topic’s', async () => {
+    const topic = await seedTopic();
+    await state().addSubtopic(topic.id, 'Series circuits');
+    const subtopic = topicNow().subtopics[0]!;
+
+    await state().addNote(topic.id, subtopic.id, 'Same current everywhere');
+
+    expect(topicNow().notes[0]).toMatchObject({ subtopicId: subtopic.id });
+  });
+
+  it('brings in a note written in the old one-per-topic column on load', async () => {
+    const topic = await seedTopic();
+    await repositories.topics.setNote(topic.id, 'From before');
+
+    await state().load(USER, repositories);
+
+    expect(notesNow()).toEqual(['From before']);
+  });
+
+  it('says so when a note cannot be saved', async () => {
+    const topic = await seedTopic();
+    jest.spyOn(repositories.notes, 'create').mockRejectedValueOnce(new Error('SQLITE_FULL'));
+
+    expect(await state().addNote(topic.id, null, 'Lost')).toBe(false);
+    expect(state().error).toBe('We could not save that note. Try again.');
   });
 
   it('does not disturb completion or progress', async () => {
     const topic = await seedTopic();
     await state().toggleTopic(topic.id);
 
-    await state().setTopicNote(topic.id, 'A note');
+    await state().addNote(topic.id, null, 'A note');
 
     expect(topicNow().completed).toBe(true);
     expect(state().progress.overall.percent).toBe(100);
@@ -578,6 +620,7 @@ describe('how much it asks the database for', () => {
       jest.spyOn(repositories.topics, 'listByChapter'),
       jest.spyOn(repositories.subtopics, 'listByUser'),
       jest.spyOn(repositories.subtopics, 'listByTopic'),
+      jest.spyOn(repositories.notes, 'listLiveByUser'),
     ];
 
     await run();
@@ -608,15 +651,15 @@ describe('how much it asks the database for', () => {
   it('reads the whole syllabus in a fixed number of queries', async () => {
     await seedLargeSyllabus();
 
-    // One for the subjects and one each for chapters, topics and sub-topics —
-    // the same four however large the syllabus is.
-    expect(await countReads(() => state().load(USER, repositories))).toBe(4);
+    // One for the subjects and one each for chapters, topics, sub-topics and
+    // notes — the same five however large the syllabus is.
+    expect(await countReads(() => state().load(USER, repositories))).toBe(5);
   });
 
   it('costs the same after a tick as it does on opening', async () => {
     const { firstTopicId } = await seedLargeSyllabus();
 
-    expect(await countReads(() => state().toggleTopic(firstTopicId))).toBe(4);
+    expect(await countReads(() => state().toggleTopic(firstTopicId))).toBe(5);
   });
 
   it('does not go looking for children when there are no subjects', async () => {

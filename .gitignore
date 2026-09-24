@@ -49,3 +49,6 @@ apps/mobile/dis/
 # Python bytecode from the docs generators
 __pycache__/
 *.pyc
+
+# Office lock files, left while a document is open
+~$*

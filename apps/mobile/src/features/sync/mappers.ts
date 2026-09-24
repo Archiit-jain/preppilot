@@ -8,12 +8,13 @@ import { fromIso, toIso, type RemoteRow, type SyncedTable } from './remote';
  * `boolean`. Keeping the conversion in one place means a column added to one
  * side fails loudly here rather than silently arriving as the wrong type.
  *
- * `notification_id` and `sync_status` are deliberately local-only: the first
- * identifies a scheduled notification on one device (D45), the second is this
- * device's bookkeeping about what it has sent.
+ * `notification_id`, `image_uri` and `sync_status` are deliberately local-only:
+ * the first identifies a scheduled notification on one device (D45), the second
+ * is the path to a picture that exists only on the device that took it, and the
+ * third is this device's bookkeeping about what it has sent.
  */
 
-const LOCAL_ONLY = new Set(['syncStatus', 'notificationId']);
+const LOCAL_ONLY = new Set(['syncStatus', 'notificationId', 'imageUri']);
 
 /** camelCase to snake_case, matching the column names on both sides. */
 function toSnake(key: string): string {

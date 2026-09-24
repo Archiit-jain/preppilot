@@ -27,6 +27,8 @@ export type IconName =
   | 'plus'
   | 'image'
   | 'close'
+  | 'notePlus'
+  | 'chats'
   | 'settings';
 
 export interface IconProps {
@@ -178,6 +180,29 @@ export function Icon({ name, size = 22, color, label, testID }: IconProps) {
       {name === 'close' && (
         <>
           <Path d="M6.5 6.5l11 11M17.5 6.5l-11 11" {...common} />
+        </>
+      )}
+      {name === 'notePlus' && (
+        <>
+          {/* A page with a plus: "keep this as a note". */}
+          <Path
+            d="M6.5 3.5h8L19 8v12.5a1 1 0 0 1-1 1H6.5a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1Z"
+            {...common}
+          />
+          <Path d="M14 3.5V8h4.5M12.25 11v7M8.75 14.5h7" {...common} />
+        </>
+      )}
+      {name === 'chats' && (
+        <>
+          {/* Two speech bubbles: past conversations. */}
+          <Path
+            d="M4 5.5h10a1.5 1.5 0 0 1 1.5 1.5v5A1.5 1.5 0 0 1 14 13.5H8l-4 3v-3.2A1.5 1.5 0 0 1 2.5 12V7A1.5 1.5 0 0 1 4 5.5Z"
+            {...common}
+          />
+          <Path
+            d="M18 9h1.5A1.5 1.5 0 0 1 21 10.5v5a1.5 1.5 0 0 1-1.5 1.5V20l-3.5-3h-5"
+            {...common}
+          />
         </>
       )}
       {name === 'settings' && (

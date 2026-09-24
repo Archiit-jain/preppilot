@@ -30,13 +30,12 @@ export interface ChapterSectionProps {
   readonly onRenameSubtopic: (subtopicId: string, current: string) => void;
   readonly onDeleteSubtopic: (subtopicId: string) => void;
   readonly onMoveSubtopic: (topicId: string, subtopicId: string, direction: 'up' | 'down') => void;
-  readonly onEditSubtopicNote: (subtopicId: string, current: string | null) => void;
-  readonly onDeleteNote: (topicId: string) => void;
-  readonly onDeleteSubtopicNote: (subtopicId: string) => void;
   readonly onSummariseSubtopic: (subtopicId: string) => void;
   readonly onTestMeSubtopic: (subtopicId: string) => void;
   readonly busySubtopicId?: string | null;
-  readonly onEditNote: (topicId: string, current: string | null) => void;
+  /** Adds a note to a topic, or to one of its sub-topics. */
+  readonly onAddNote: (topicId: string, subtopicId: string | null) => void;
+  readonly onEditNote: (noteId: string, current: string) => void;
   readonly onSummarise: (topicId: string) => void;
   readonly onTestMe: (topicId: string) => void;
   readonly busyTopicId?: string | null;
@@ -62,12 +61,10 @@ export function ChapterSection({
   onRenameSubtopic,
   onDeleteSubtopic,
   onMoveSubtopic,
-  onEditSubtopicNote,
-  onDeleteNote,
-  onDeleteSubtopicNote,
   onSummariseSubtopic,
   onTestMeSubtopic,
   busySubtopicId,
+  onAddNote,
   onEditNote,
   onSummarise,
   onTestMe,
@@ -170,12 +167,10 @@ export function ChapterSection({
                 onRenameSubtopic={onRenameSubtopic}
                 onDeleteSubtopic={onDeleteSubtopic}
                 onMoveSubtopic={onMoveSubtopic}
-                onEditSubtopicNote={onEditSubtopicNote}
-                onDeleteNote={onDeleteNote}
-                onDeleteSubtopicNote={onDeleteSubtopicNote}
                 onSummariseSubtopic={onSummariseSubtopic}
                 onTestMeSubtopic={onTestMeSubtopic}
                 busySubtopicId={busySubtopicId}
+                onAddNote={onAddNote}
                 onEditNote={onEditNote}
                 onSummarise={onSummarise}
                 onTestMe={onTestMe}

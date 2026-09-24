@@ -378,3 +378,37 @@ export function parseMarkdown(source: string): Block[] {
 
   return blocks;
 }
+
+/**
+ * A reply as plain text, for keeping as a note.
+ *
+ * Notes are plain text, so the formatting becomes what it would be in a
+ * hand-written note — bullets as "•", steps keep their numbers — and no markup
+ * symbol survives.
+ */
+export function toPlainText(source: string): string {
+  const text = (spans: readonly Span[]) => spans.map((span) => span.text).join('');
+  const lines: string[] = [];
+  for (const block of parseMarkdown(source)) {
+    switch (block.kind) {
+      case 'heading':
+      case 'paragraph':
+      case 'quote':
+        lines.push(text(block.spans));
+        break;
+      case 'bullet':
+        lines.push(`${'  '.repeat(block.depth)}• ${text(block.spans)}`);
+        break;
+      case 'numbered':
+        lines.push(`${'  '.repeat(block.depth)}${block.marker} ${text(block.spans)}`);
+        break;
+      case 'code':
+        lines.push(block.text);
+        break;
+      case 'rule':
+        lines.push('—');
+        break;
+    }
+  }
+  return lines.join('\n').trim();
+}

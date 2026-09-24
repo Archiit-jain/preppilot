@@ -331,6 +331,139 @@ export const reminders = sqliteTable(
 );
 
 /**
+ * Notes, several per topic.
+ *
+ * A topic's single `note` column could hold one note, and students write more
+ * than one: their own, a summary the assistant wrote, an answer worth keeping.
+ * Each is a row here. The old column is no longer written; whatever it held is
+ * adopted into this table under the topic's own id (see NoteRepository), so a
+ * note migrated on two devices is still one note.
+ *
+ * `topicId` carries no foreign key, as with flashcards; a note on a deleted
+ * topic disappears from the lists with it, because those join through the
+ * syllabus. `subtopicId` is set when the note belongs to a sub-topic.
+ */
+export const NOTE_SOURCES = ['manual', 'summary', 'assistant'] as const;
+export type NoteSource = (typeof NOTE_SOURCES)[number];
+
+export const notes = sqliteTable(
+  'notes',
+  {
+    id: text('id').primaryKey(),
+    userId: text('user_id').notNull(),
+    trackerId: text('tracker_id'),
+    topicId: text('topic_id').notNull(),
+    subtopicId: text('subtopic_id'),
+    body: text('body').notNull(),
+    /** Where the text came from, so a list can say "from a summary". */
+    source: text('source').$type<NoteSource>().notNull().default('manual'),
+    createdAt: integer('created_at').notNull(),
+    updatedAt: integer('updated_at').notNull(),
+    deletedAt: integer('deleted_at'),
+    syncStatus: text('sync_status').$type<SyncStatus>().notNull().default('pending'),
+  },
+  (table) => [
+    index('notes_topic_idx').on(table.topicId, table.deletedAt),
+    index('notes_user_idx').on(table.userId, table.deletedAt, table.updatedAt),
+    index('notes_sync_idx').on(table.syncStatus),
+  ],
+);
+
+/**
+ * A conversation with the assistant.
+ *
+ * Not scoped to a course: a question about organic chemistry asked while the
+ * JEE course is open is still the student's question when they switch courses.
+ */
+export const chatThreads = sqliteTable(
+  'chat_threads',
+  {
+    id: text('id').primaryKey(),
+    userId: text('user_id').notNull(),
+    /** The first question, shortened; how the thread is recognised in a list. */
+    title: text('title').notNull(),
+    createdAt: integer('created_at').notNull(),
+    updatedAt: integer('updated_at').notNull(),
+    deletedAt: integer('deleted_at'),
+    syncStatus: text('sync_status').$type<SyncStatus>().notNull().default('pending'),
+  },
+  (table) => [
+    index('chat_threads_user_idx').on(table.userId, table.deletedAt, table.updatedAt),
+    index('chat_threads_sync_idx').on(table.syncStatus),
+  ],
+);
+
+export const CHAT_ROLES = ['student', 'assistant'] as const;
+export type ChatRole = (typeof CHAT_ROLES)[number];
+
+/**
+ * One message in a conversation.
+ *
+ * `proposal` is the assistant's suggested syllabus addition as JSON, so it can
+ * still be reviewed after the app restarts. A picture is not synchronised —
+ * `imageUri` points at a file on this device and means nothing on another — so
+ * `hasImage` is what other devices see.
+ */
+export const chatMessages = sqliteTable(
+  'chat_messages',
+  {
+    id: text('id').primaryKey(),
+    userId: text('user_id').notNull(),
+    threadId: text('thread_id').notNull(),
+    role: text('role').$type<ChatRole>().notNull(),
+    body: text('body').notNull(),
+    proposal: text('proposal'),
+    hasImage: integer('has_image', { mode: 'boolean' }).notNull().default(false),
+    imageUri: text('image_uri'),
+    createdAt: integer('created_at').notNull(),
+    updatedAt: integer('updated_at').notNull(),
+    deletedAt: integer('deleted_at'),
+    syncStatus: text('sync_status').$type<SyncStatus>().notNull().default('pending'),
+  },
+  (table) => [
+    index('chat_messages_thread_idx').on(table.threadId, table.deletedAt, table.createdAt),
+    index('chat_messages_sync_idx').on(table.syncStatus),
+  ],
+);
+
+/**
+ * A quiz the student finished, kept for the Quiz deck.
+ *
+ * The questions are stored whole (JSON) so the quiz can be redone exactly, with
+ * no AI request, and `answers` records what was chosen for each. Names are
+ * snapshotted, as for sessions, so the deck stays readable after the syllabus
+ * changes.
+ */
+export const quizAttempts = sqliteTable(
+  'quiz_attempts',
+  {
+    id: text('id').primaryKey(),
+    userId: text('user_id').notNull(),
+    trackerId: text('tracker_id'),
+    topicId: text('topic_id'),
+    topicName: text('topic_name').notNull(),
+    chapterName: text('chapter_name'),
+    subjectName: text('subject_name'),
+    difficulty: text('difficulty').notNull(),
+    allowMultiple: integer('allow_multiple', { mode: 'boolean' }).notNull().default(true),
+    /** QuizQuestion[] as JSON. */
+    questions: text('questions').notNull(),
+    /** number[][] as JSON — the options chosen for each question. */
+    answers: text('answers').notNull(),
+    correct: integer('correct').notNull(),
+    total: integer('total').notNull(),
+    createdAt: integer('created_at').notNull(),
+    updatedAt: integer('updated_at').notNull(),
+    deletedAt: integer('deleted_at'),
+    syncStatus: text('sync_status').$type<SyncStatus>().notNull().default('pending'),
+  },
+  (table) => [
+    index('quiz_attempts_user_idx').on(table.userId, table.deletedAt, table.createdAt),
+    index('quiz_attempts_sync_idx').on(table.syncStatus),
+  ],
+);
+
+/**
  * Key/value settings scoped to a user, such as the chosen theme.
  * Kept generic so a new preference needs no migration.
  */
@@ -356,6 +489,10 @@ export type FlashcardRow = typeof flashcards.$inferSelect;
 export type PreferenceRow = typeof preferences.$inferSelect;
 export type StudySessionRow = typeof studySessions.$inferSelect;
 export type ReminderRow = typeof reminders.$inferSelect;
+export type NoteRow = typeof notes.$inferSelect;
+export type ChatThreadRow = typeof chatThreads.$inferSelect;
+export type ChatMessageRow = typeof chatMessages.$inferSelect;
+export type QuizAttemptRow = typeof quizAttempts.$inferSelect;
 
 export type NewSubjectRow = typeof subjects.$inferInsert;
 export type NewChapterRow = typeof chapters.$inferInsert;

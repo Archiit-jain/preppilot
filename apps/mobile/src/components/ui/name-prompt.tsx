@@ -20,6 +20,8 @@ export interface NamePromptProps {
    * must be able to clear — a name, by contrast, is always required.
    */
   readonly allowEmpty?: boolean;
+  /** What the field is called; defaults to Name, or Description when it may be empty. */
+  readonly fieldLabel?: string;
   /**
    * A failure that happened after confirming, such as the write not landing.
    * Shown in place of the sheet closing, so the student keeps what they typed
@@ -44,6 +46,7 @@ export function NamePrompt({
   onCancel,
   onConfirm,
   allowEmpty = false,
+  fieldLabel,
   error: externalError = null,
 }: NamePromptProps) {
   const theme = useTheme();
@@ -79,7 +82,7 @@ export function NamePrompt({
       <Text variant="title">{title}</Text>
 
       <TextField
-        label={allowEmpty ? 'Description' : 'Name'}
+        label={fieldLabel ?? (allowEmpty ? 'Description' : 'Name')}
         value={value}
         onChangeText={(next) => {
           setValue(next);

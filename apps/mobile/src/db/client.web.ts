@@ -6,6 +6,8 @@ import { PreferenceRepository } from './repositories/preferences';
 import { ReminderRepository } from './repositories/reminders';
 import { FlashcardRepository } from './repositories/flashcards';
 import { NoteRepository } from './repositories/notes';
+import { ChatRepository } from './repositories/chats';
+import { QuizAttemptRepository } from './repositories/quiz-attempts';
 import { StudySessionRepository } from './repositories/study-sessions';
 import { SubjectRepository } from './repositories/subjects';
 import { TrackerRepository } from './repositories/trackers';
@@ -44,6 +46,8 @@ export interface Repositories {
   readonly subtopics: SubtopicRepository;
   readonly flashcards: FlashcardRepository;
   readonly notes: NoteRepository;
+  readonly chats: ChatRepository;
+  readonly quizAttempts: QuizAttemptRepository;
   readonly sessions: StudySessionRepository;
   readonly reminders: ReminderRepository;
   readonly preferences: PreferenceRepository;
@@ -232,6 +236,8 @@ export function getRepositories(): Repositories {
     subtopics: new SubtopicRepository(db),
     flashcards: new FlashcardRepository(db),
     notes: new NoteRepository(db),
+    chats: new ChatRepository(db),
+    quizAttempts: new QuizAttemptRepository(db),
     sessions: new StudySessionRepository(db),
     reminders: new ReminderRepository(db),
     preferences: new PreferenceRepository(db),
@@ -267,6 +273,8 @@ function wrapWithPersistence(source: Repositories): Repositories {
     subtopics: wrap(source.subtopics),
     flashcards: wrap(source.flashcards),
     notes: wrap(source.notes),
+    chats: wrap(source.chats),
+    quizAttempts: wrap(source.quizAttempts),
     sessions: wrap(source.sessions),
     reminders: wrap(source.reminders),
     preferences: wrap(source.preferences),

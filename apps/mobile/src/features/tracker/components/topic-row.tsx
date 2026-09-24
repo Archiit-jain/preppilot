@@ -11,6 +11,7 @@ import type { TopicNode } from '../tracker-store';
 import type { TimerTarget } from '../../timer/timer-store';
 import { useTheme } from '../../../theme/theme-context';
 import { RowMenu, type RowMenuAction } from './row-menu';
+import { NotePreviews } from './note-previews';
 import { SubtopicRow } from './subtopic-row';
 
 export interface TopicRowProps {
@@ -31,13 +32,12 @@ export interface TopicRowProps {
   readonly onRenameSubtopic: (subtopicId: string, current: string) => void;
   readonly onDeleteSubtopic: (subtopicId: string) => void;
   readonly onMoveSubtopic: (topicId: string, subtopicId: string, direction: 'up' | 'down') => void;
-  readonly onEditSubtopicNote: (subtopicId: string, current: string | null) => void;
   readonly onSummariseSubtopic: (subtopicId: string) => void;
   readonly onTestMeSubtopic: (subtopicId: string) => void;
   readonly busySubtopicId?: string | null;
-  readonly onEditNote: (topicId: string, current: string | null) => void;
-  readonly onDeleteNote: (topicId: string) => void;
-  readonly onDeleteSubtopicNote: (subtopicId: string) => void;
+  /** Adds a note to the topic, or to one of its sub-topics. */
+  readonly onAddNote: (topicId: string, subtopicId: string | null) => void;
+  readonly onEditNote: (noteId: string, current: string) => void;
   readonly onSummarise: (topicId: string) => void;
   readonly onTestMe: (topicId: string) => void;
   readonly busyTopicId?: string | null;
@@ -61,13 +61,11 @@ export function TopicRow({
   onRenameSubtopic,
   onDeleteSubtopic,
   onMoveSubtopic,
-  onEditSubtopicNote,
   onSummariseSubtopic,
   onTestMeSubtopic,
   busySubtopicId,
+  onAddNote,
   onEditNote,
-  onDeleteNote,
-  onDeleteSubtopicNote,
   onSummarise,
   onTestMe,
   busyTopicId,
@@ -80,17 +78,15 @@ export function TopicRow({
     ? calculateSubtopicsProgress(topic)
     : makeProgress(complete ? 1 : 0, 1);
 
-  const hasNote = topic.note !== null && topic.note.trim().length > 0;
+  // The topic's own notes; a sub-topic's are shown under the sub-topic.
+  const topicNotes = topic.notes.filter((note) => note.subtopicId === null);
 
   const actions: RowMenuAction[] = [
     { label: 'Rename topic', onPress: () => onRename(topic.id, topic.name) },
     { label: 'Summarise', onPress: () => onSummarise(topic.id) },
     { label: 'Test me on this', onPress: () => onTestMe(topic.id) },
     { label: 'Add sub-topic', onPress: () => onAddSubtopic(topic.id) },
-    { label: hasNote ? 'Edit note' : 'Add note', onPress: () => onEditNote(topic.id, topic.note) },
-    ...(hasNote
-      ? [{ label: 'Delete note', destructive: true, onPress: () => onDeleteNote(topic.id) }]
-      : []),
+    { label: 'Add note', onPress: () => onAddNote(topic.id, null) },
     { label: 'Move up', onPress: () => onMove(topic.id, 'up') },
     { label: 'Move down', onPress: () => onMove(topic.id, 'down') },
     { label: 'Delete topic', destructive: true, onPress: () => onDelete(topic.id) },
@@ -150,27 +146,7 @@ export function TopicRow({
         </Text>
       )}
 
-      {hasNote && (
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={`Edit note on ${topic.name}`}
-          onPress={() => onEditNote(topic.id, topic.note)}
-          style={[
-            styles.note,
-            {
-              backgroundColor: theme.colors.surfaceElevated,
-              borderRadius: theme.radius.md,
-              padding: theme.spacing.sm,
-              marginBottom: theme.spacing.xs,
-              borderLeftColor: accent,
-            },
-          ]}
-        >
-          <Text variant="caption" tone="secondary">
-            {topic.note}
-          </Text>
-        </Pressable>
-      )}
+      <NotePreviews notes={topicNotes} name={topic.name} accent={accent} onEdit={onEditNote} />
 
       {hasSubtopics && (
         <Pressable
@@ -211,8 +187,9 @@ export function TopicRow({
               onRename={onRenameSubtopic}
               onDelete={onDeleteSubtopic}
               onMove={(subtopicId, direction) => onMoveSubtopic(topic.id, subtopicId, direction)}
-              onEditNote={onEditSubtopicNote}
-              onDeleteNote={onDeleteSubtopicNote}
+              notes={topic.notes.filter((note) => note.subtopicId === subtopic.id)}
+              onAddNote={(subtopicId) => onAddNote(topic.id, subtopicId)}
+              onEditNote={onEditNote}
               onSummarise={onSummariseSubtopic}
               onTestMe={onTestMeSubtopic}
               busy={busySubtopicId === subtopic.id}
@@ -262,10 +239,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 12,
     flexShrink: 0,
-  },
-
-  note: {
-    borderLeftWidth: 3,
   },
 
   disclosure: {

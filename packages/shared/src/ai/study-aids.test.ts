@@ -1,13 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import {
+  DEFAULT_QUIZ_SETTINGS,
+  MAX_QUIZ_QUESTIONS,
   MAX_SUMMARY_LENGTH,
-  QUIZ_LENGTH,
   countCorrect,
   isAnswerCorrect,
   isMultipleAnswer,
   isQuizPassed,
-  parseQuiz,
+  normaliseQuizSettings,
+  parseQuiz as parseQuizWith,
   parseSummary,
+  shuffleOptions,
   type Quiz,
   type QuizQuestion,
 } from './study-aids';
@@ -18,6 +21,11 @@ const question = (n: number, answerIndex = 0) => ({
   answerIndex,
   explanation: `Because ${n}.`,
 });
+
+/** The fixtures below are three-question quizzes, so that is what they ask for. */
+const QUIZ_LENGTH = 3;
+const parseQuiz = (raw: string, topicName: string) =>
+  parseQuizWith(raw, topicName, { expected: QUIZ_LENGTH });
 
 const wellFormed = (over: Partial<Record<string, unknown>> = {}) =>
   JSON.stringify({ questions: [question(1), question(2), question(3)], ...over });
@@ -88,23 +96,26 @@ describe('parseQuiz', () => {
  * answering questions whose correct answer was never established.
  */
 describe('a quiz that cannot be trusted', () => {
-  it('is refused when an answer points outside its options', () => {
+  it('leaves out a question whose answer points outside its options', () => {
     const raw = JSON.stringify({
       questions: [{ ...question(1), answerIndex: 9 }, question(2), question(3)],
     });
 
-    expect(parseQuiz(raw, 'Topic')).toBeNull();
+    expect(parseQuiz(raw, 'Topic')?.questions.map((q) => q.question)).toEqual([
+      'Question 2?',
+      'Question 3?',
+    ]);
   });
 
-  it('is refused when a question has the wrong number of options', () => {
+  it('leaves out a question with the wrong number of options', () => {
     const raw = JSON.stringify({
       questions: [{ ...question(1), options: ['Only', 'Two'] }, question(2), question(3)],
     });
 
-    expect(parseQuiz(raw, 'Topic')).toBeNull();
+    expect(parseQuiz(raw, 'Topic')?.questions).toHaveLength(2);
   });
 
-  it('is refused when two options are the same', () => {
+  it('leaves out a question with two identical options', () => {
     // One of them would be wrong for no reason the student can see.
     const raw = JSON.stringify({
       questions: [
@@ -114,19 +125,31 @@ describe('a quiz that cannot be trusted', () => {
       ],
     });
 
+    expect(parseQuiz(raw, 'Topic')?.questions).toHaveLength(2);
+  });
+
+  it('leaves out a question whose answer index is not a whole number', () => {
+    const raw = JSON.stringify({
+      questions: [{ ...question(1), answerIndex: 1.5 }, question(2), question(3)],
+    });
+
+    expect(parseQuiz(raw, 'Topic')?.questions).toHaveLength(2);
+  });
+
+  it('is refused when fewer than half the questions asked for survive', () => {
+    const raw = JSON.stringify({
+      questions: [
+        { ...question(1), answerIndex: 9 },
+        { ...question(2), answerIndex: 9 },
+        question(3),
+      ],
+    });
+
     expect(parseQuiz(raw, 'Topic')).toBeNull();
   });
 
   it('is refused when there are too few questions', () => {
     expect(parseQuiz(JSON.stringify({ questions: [question(1)] }), 'Topic')).toBeNull();
-  });
-
-  it('is refused when the answer index is not a whole number', () => {
-    const raw = JSON.stringify({
-      questions: [{ ...question(1), answerIndex: 1.5 }, question(2), question(3)],
-    });
-
-    expect(parseQuiz(raw, 'Topic')).toBeNull();
   });
 
   it('is refused when the reply is not JSON at all', () => {
@@ -257,8 +280,8 @@ describe('a quiz as the model actually sends it', () => {
 describe('always exactly four options', () => {
   const withOptions = (options: string[], answerIndex: number | number[]) =>
     JSON.stringify({
-      questions: [1, 2, 3].map(() => ({
-        question: 'Which one?',
+      questions: [1, 2, 3].map((n) => ({
+        question: `Which one, ${n}?`,
         options,
         ...(Array.isArray(answerIndex) ? { answerIndexes: answerIndex } : { answerIndex }),
         explanation: 'Because.',
@@ -402,5 +425,97 @@ describe('questions with more than one correct answer', () => {
     });
 
     expect(parseQuiz(raw, 'Topic')).toBeNull();
+  });
+});
+
+describe('quiz settings', () => {
+  it('defaults to five medium questions that may have several answers', () => {
+    expect(DEFAULT_QUIZ_SETTINGS).toEqual({
+      questionCount: 5,
+      difficulty: 'medium',
+      allowMultiple: true,
+    });
+    expect(normaliseQuizSettings(undefined)).toEqual(DEFAULT_QUIZ_SETTINGS);
+  });
+
+  it('keeps the count between one and the maximum', () => {
+    expect(normaliseQuizSettings({ questionCount: 0 }).questionCount).toBe(1);
+    expect(normaliseQuizSettings({ questionCount: 40 }).questionCount).toBe(MAX_QUIZ_QUESTIONS);
+    expect(normaliseQuizSettings({ questionCount: 7.4 }).questionCount).toBe(7);
+    expect(normaliseQuizSettings({ questionCount: Number.NaN }).questionCount).toBe(5);
+  });
+
+  it('refuses a difficulty nobody offered, and a non-boolean toggle', () => {
+    const settings = normaliseQuizSettings({
+      difficulty: 'impossible' as never,
+      allowMultiple: 'yes' as never,
+    });
+    expect(settings.difficulty).toBe('medium');
+    expect(settings.allowMultiple).toBe(true);
+    expect(normaliseQuizSettings({ difficulty: 'competitive', allowMultiple: false })).toEqual({
+      questionCount: 5,
+      difficulty: 'competitive',
+      allowMultiple: false,
+    });
+  });
+});
+
+describe('asking for a number of questions', () => {
+  const many = (n: number) =>
+    JSON.stringify({ questions: Array.from({ length: n }, (_, i) => question(i + 1)) });
+
+  it('takes up to the number asked for', () => {
+    expect(parseQuizWith(many(20), 'Topic', { expected: 15 })?.questions).toHaveLength(15);
+    expect(parseQuizWith(many(12), 'Topic', { expected: 12 })?.questions).toHaveLength(12);
+  });
+
+  it('accepts a model that fell a little short, but not far short', () => {
+    expect(parseQuizWith(many(8), 'Topic', { expected: 10 })?.questions).toHaveLength(8);
+    expect(parseQuizWith(many(4), 'Topic', { expected: 10 })).toBeNull();
+  });
+
+  it('asks for five when told nothing', () => {
+    expect(parseQuizWith(many(9), 'Topic')?.questions).toHaveLength(5);
+  });
+
+  it('counts a repeated question once', () => {
+    const raw = JSON.stringify({ questions: [question(1), question(1), question(2)] });
+    expect(parseQuizWith(raw, 'Topic', { expected: 3 })?.questions).toHaveLength(2);
+  });
+
+  it('leaves out multi-answer questions when only single answers were asked for', () => {
+    const raw = JSON.stringify({
+      questions: [{ ...question(1), answerIndexes: [0, 2] }, question(2), question(3), question(4)],
+    });
+    const quiz = parseQuizWith(raw, 'Topic', { expected: 3, allowMultiple: false });
+    expect(quiz?.questions.map((q) => q.question)).toEqual([
+      'Question 2?',
+      'Question 3?',
+      'Question 4?',
+    ]);
+  });
+});
+
+describe('shuffling a redone question', () => {
+  const q: QuizQuestion = {
+    question: 'Which are prime?',
+    options: ['2', '4', '5', '9'],
+    answerIndexes: [0, 2],
+    explanation: '',
+  };
+
+  it('moves the options but keeps the same ones correct', () => {
+    // Always swap with the first remaining slot: a fixed, known permutation.
+    const shuffled = shuffleOptions(q, () => 0);
+    expect([...shuffled.options].sort()).toEqual([...q.options].sort());
+    const correct = shuffled.answerIndexes.map((index) => shuffled.options[index]);
+    expect(correct.sort()).toEqual(['2', '5']);
+    expect(shuffled.options).not.toEqual(q.options);
+  });
+
+  it('leaves the question and explanation alone', () => {
+    const shuffled = shuffleOptions(q);
+    expect(shuffled.question).toBe(q.question);
+    expect(shuffled.explanation).toBe(q.explanation);
   });
 });

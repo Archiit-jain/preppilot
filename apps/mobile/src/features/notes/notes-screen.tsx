@@ -35,8 +35,8 @@ type Editing =
  * them: having to find the right topic in a collapsed syllabus to fix a typo is
  * how notes stop being worth writing.
  *
- * This is still a read model over the same rows. Editing writes back to the
- * topic, so the tracker and this tab can never disagree about what a note says.
+ * A topic can carry any number of notes — the student's own, a summary the
+ * assistant wrote, a reply worth keeping — and each is listed on its own card.
  */
 export function NotesScreen() {
   const theme = useTheme();
@@ -72,7 +72,7 @@ export function NotesScreen() {
     needle.length === 0
       ? notes
       : notes.filter((entry) =>
-          [entry.note, entry.topicName, entry.chapterName, entry.subjectName]
+          [entry.body, entry.topicName, entry.chapterName, entry.subjectName]
             .join(' ')
             .toLowerCase()
             .includes(needle),
@@ -87,10 +87,13 @@ export function NotesScreen() {
     if (editing === null) return;
     setSaving(true);
     try {
-      const id = editing.kind === 'existing' ? editing.entry.id : editing.target.topicId;
-      const level = editing.kind === 'existing' ? editing.entry.level : 'topic';
+      const store = useNotesStore.getState();
+      const saved =
+        editing.kind === 'existing'
+          ? await store.edit(editing.entry.id, text)
+          : await store.add({ topicId: editing.target.topicId, body: text });
       // Kept open on failure so the student does not lose what they typed.
-      if (await useNotesStore.getState().save(id, level, text)) setEditing(null);
+      if (saved) setEditing(null);
     } finally {
       setSaving(false);
     }
@@ -98,21 +101,14 @@ export function NotesScreen() {
 
   const deleteNote = async () => {
     if (editing?.kind !== 'existing') return;
-    await useNotesStore.getState().remove(editing.entry.id, editing.entry.level);
+    await useNotesStore.getState().remove(editing.entry.id);
     setEditing(null);
   };
 
-  /**
-   * A topic that already has a note opens that note rather than starting a
-   * second one — a topic holds one note, and silently overwriting the first
-   * would be the worst of both.
-   */
+  /** A topic can hold any number of notes, so choosing one always starts a new note. */
   const startNote = (target: NoteTarget) => {
     setChoosing(false);
-    const existing = notes.find((entry) => entry.level === 'topic' && entry.id === target.topicId);
-    setEditing(
-      existing === undefined ? { kind: 'new', target } : { kind: 'existing', entry: existing },
-    );
+    setEditing({ kind: 'new', target });
   };
 
   return (
@@ -177,7 +173,7 @@ export function NotesScreen() {
         ) : (
           visible.map((entry) => (
             <PressableScale
-              key={`${entry.level}-${entry.id}`}
+              key={entry.id}
               accessibilityRole="button"
               accessibilityLabel={`Note on ${entry.topicName}`}
               accessibilityHint="Opens the note to edit or delete"
@@ -194,6 +190,11 @@ export function NotesScreen() {
                       Sub-topic
                     </Text>
                   )}
+                  {entry.source !== 'manual' && (
+                    <Text variant="caption" tone="accent" testID={`note-source-${entry.id}`}>
+                      {entry.source === 'summary' ? 'AI summary' : 'From the assistant'}
+                    </Text>
+                  )}
                 </View>
                 <Text
                   variant="bodyLarge"
@@ -202,8 +203,13 @@ export function NotesScreen() {
                 >
                   {entry.topicName}
                 </Text>
-                <Text variant="body" tone="secondary" style={{ marginTop: theme.spacing.sm }}>
-                  {entry.note}
+                <Text
+                  variant="body"
+                  tone="secondary"
+                  numberOfLines={6}
+                  style={{ marginTop: theme.spacing.sm }}
+                >
+                  {entry.body}
                 </Text>
               </Card>
             </PressableScale>
@@ -227,7 +233,7 @@ export function NotesScreen() {
               ? `${editing.entry.subjectName} · ${editing.entry.chapterName} · ${editing.entry.topicName}`
               : `${editing.target.subjectName} · ${editing.target.chapterName} · ${editing.target.topicName}`
         }
-        initialValue={editing?.kind === 'existing' ? editing.entry.note : ''}
+        initialValue={editing?.kind === 'existing' ? editing.entry.body : ''}
         onDelete={editing?.kind === 'existing' ? () => void deleteNote() : undefined}
         onSave={(text) => void saveNote(text)}
         onCancel={closeEditor}

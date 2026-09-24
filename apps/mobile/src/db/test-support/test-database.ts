@@ -11,6 +11,8 @@ import { SubjectRepository } from '../repositories/subjects';
 import { TrackerRepository } from '../repositories/trackers';
 import { FlashcardRepository } from '../repositories/flashcards';
 import { NoteRepository } from '../repositories/notes';
+import { ChatRepository } from '../repositories/chats';
+import { QuizAttemptRepository } from '../repositories/quiz-attempts';
 import { SubtopicRepository } from '../repositories/subtopics';
 import { TopicRepository } from '../repositories/topics';
 import * as schema from '../schema';
@@ -122,7 +124,9 @@ export function createTestRepositories(
     topics: new TopicRepository(db, clock),
     subtopics: new SubtopicRepository(db, clock),
     flashcards: new FlashcardRepository(db, clock),
-    notes: new NoteRepository(db),
+    notes: new NoteRepository(db, clock),
+    chats: new ChatRepository(db, clock),
+    quizAttempts: new QuizAttemptRepository(db, clock),
     sessions: new StudySessionRepository(db, clock),
     reminders: new ReminderRepository(db, clock),
     preferences: new PreferenceRepository(db, clock),

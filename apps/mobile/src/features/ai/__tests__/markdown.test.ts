@@ -1,4 +1,4 @@
-import { inlineSpans, parseMarkdown, plainMath } from '../markdown';
+import { inlineSpans, parseMarkdown, plainMath, toPlainText } from '../markdown';
 
 const text = (spans: readonly { text: string }[]) => spans.map((span) => span.text).join('');
 
@@ -190,5 +190,40 @@ describe('blocks', () => {
 
     expect(all).not.toMatch(/[*#$\\]/);
     expect(all).toContain('Ohm’s law says that V = IR.');
+  });
+});
+
+describe('as plain text, for a note', () => {
+  it('keeps the shape of the reply and drops every symbol', () => {
+    const reply = [
+      '## Ohm’s law',
+      '**V = IR**, where $R$ is resistance.',
+      '',
+      '* current',
+      '  - in amperes',
+      '1. Measure',
+      '> Check units',
+      '```',
+      'V = 12',
+      '```',
+      '---',
+    ].join('\n');
+
+    expect(toPlainText(reply)).toBe(
+      [
+        'Ohm’s law',
+        'V = IR, where R is resistance.',
+        '• current',
+        '  • in amperes',
+        '1. Measure',
+        'Check units',
+        'V = 12',
+        '—',
+      ].join('\n'),
+    );
+  });
+
+  it('gives nothing for nothing', () => {
+    expect(toPlainText('')).toBe('');
   });
 });

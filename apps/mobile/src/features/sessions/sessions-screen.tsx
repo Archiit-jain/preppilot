@@ -24,6 +24,9 @@ import { useDashboardStore } from '../dashboard/dashboard-store';
 import { SessionRow } from '../history/components/session-row';
 import { useHistoryStore } from '../history/history-store';
 import { useSyncGeneration } from '../sync/sync-store';
+import { QuizDeck } from '../quiz/quiz-deck';
+import { useQuizDeckStore } from '../quiz/quiz-deck-store';
+import { useActiveTrackerId } from '../trackers/trackers-store';
 
 /**
  * Study sessions, and what they add up to.
@@ -44,14 +47,17 @@ export function SessionsScreen() {
   // Re-reads after a sync brings in new rows, so work pulled from the server
   // appears without leaving the screen.
   const synced = useSyncGeneration();
+  const activeTracker = useActiveTrackerId();
   const load = useCallback(async () => {
     if (userId === null) return;
     const repositories = getRepositories();
     await Promise.all([
       useDashboardStore.getState().load(userId, repositories),
       useHistoryStore.getState().load(userId, repositories),
+      useQuizDeckStore.getState().load(userId, repositories),
     ]);
-  }, [userId, synced]);
+    // The deck is per course, so switching course re-reads it.
+  }, [userId, synced, activeTracker]);
 
   /**
    * Re-reads whenever this screen comes back into view.
@@ -143,6 +149,8 @@ export function SessionsScreen() {
 
             <WeekChart days={dashboard.lastSevenDays} />
             <SubjectProgressList subjects={dashboard.subjectProgress} />
+
+            <QuizDeck />
 
             {/*
               Focus Mode had a route and a screen but nothing anywhere linked to
