@@ -23,6 +23,12 @@ minimum_password_length = 8
 enable_signup = true
 enable_confirmations = true
 
+# The sign-up email. The hosted project does not read this file: paste the same
+# subject and HTML into Dashboard -> Authentication -> Emails -> Confirm signup.
+[auth.email.template.confirmation]
+subject = "Verify your email for PrepPilot"
+content_path = "./supabase/templates/confirmation.html"
+
 [auth.sms]
 # Phone sign-in stays disabled until an SMS provider is provisioned
 # (DECISIONS.md, D26). The client gates the same flow behind EXPO_PUBLIC_ENABLE_PHONE_OTP.
