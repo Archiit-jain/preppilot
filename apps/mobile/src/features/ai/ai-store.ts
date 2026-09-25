@@ -7,6 +7,7 @@ import {
 import { create } from 'zustand';
 import type { Repositories } from '../../db/client';
 import type { ChatMessageRow, ChatThreadRow } from '../../db/schema';
+import { readFollowUp, type FollowUp } from '../../db/repositories/chats';
 import type { ImageAttachment } from './attach-image';
 import * as client from './ai-client';
 import { activeTrackerId } from '../trackers/trackers-store';
@@ -31,6 +32,11 @@ export interface AiState {
   readonly threads: readonly ChatThreadRow[];
   /** The conversation on screen; null for a new one not yet saved. */
   readonly threadId: string | null;
+  /**
+   * What the conversation on screen follows up on, if it is a follow-up chat.
+   * Sent to the assistant with every question in it, never shown as a message.
+   */
+  readonly followUp: FollowUp | null;
   readonly messages: readonly AiMessage[];
   readonly asking: boolean;
   readonly error: string | null;
@@ -48,6 +54,11 @@ export interface AiActions {
   openThread: (threadId: string) => Promise<void>;
   /** Starts a fresh conversation; it is saved when the first question is asked. */
   newChat: () => void;
+  /**
+   * Starts a follow-up chat about a summary the student was reading. The chat
+   * is named after the topic and saved, with its summary, on the first question.
+   */
+  startFollowUp: (title: string, summary: string) => void;
   deleteThread: (threadId: string) => Promise<void>;
   /** Asks a question, optionally about a picture. A picture alone is enough. */
   ask: (question: string, image?: ImageAttachment) => Promise<void>;
@@ -62,6 +73,7 @@ export interface AiActions {
 const initialState: AiState = {
   threads: [],
   threadId: null,
+  followUp: null,
   messages: [],
   asking: false,
   error: null,
@@ -135,9 +147,11 @@ export const useAiStore = create<AiState & AiActions>((set, get) => ({
       const threads = await repositories.chats.listThreads(userId);
       set({ threads });
       // Coming back to the assistant continues the last conversation; "New
-      // chat" is one tap away.
+      // chat" is one tap away. A follow-up just started is left alone.
       const latest = threads[0];
-      if (get().threadId === null && get().messages.length === 0 && latest !== undefined) {
+      const idle =
+        get().threadId === null && get().messages.length === 0 && get().followUp === null;
+      if (idle && latest !== undefined) {
         await get().openThread(latest.id);
       }
     } catch {
@@ -149,8 +163,10 @@ export const useAiStore = create<AiState & AiActions>((set, get) => ({
     if (chats === null) return;
     try {
       const rows = await chats.repositories.chats.listMessages(threadId);
+      const thread = get().threads.find((entry) => entry.id === threadId);
       set({
         threadId,
+        followUp: readFollowUp(thread?.followUp ?? null),
         messages: rows.map(messageFromRow),
         pendingProposal: null,
         error: null,
@@ -161,7 +177,17 @@ export const useAiStore = create<AiState & AiActions>((set, get) => ({
   },
 
   newChat() {
-    set({ threadId: null, messages: [], pendingProposal: null, error: null });
+    set({ threadId: null, followUp: null, messages: [], pendingProposal: null, error: null });
+  },
+
+  startFollowUp(title, summary) {
+    set({
+      threadId: null,
+      followUp: { title, text: summary },
+      messages: [],
+      pendingProposal: null,
+      error: null,
+    });
   },
 
   async deleteThread(threadId) {
@@ -181,11 +207,24 @@ export const useAiStore = create<AiState & AiActions>((set, get) => ({
 
     set({ asking: true, error: null });
 
-    // The first question of a new conversation is what names it.
+    // A follow-up remembers what it follows up on, and the turns so far, so
+    // "and what about the second one?" has something to refer to.
+    const followUp = get().followUp;
+    const history = get()
+      .messages.filter((message) => message.text.length > 0)
+      .slice(-6)
+      .map((message) => ({ role: message.role, text: message.text }));
+
+    // The first question of a new conversation names it — or, for a follow-up,
+    // the topic it follows up on.
     let threadId = get().threadId;
     if (threadId === null && chats !== null) {
       try {
-        const thread = await chats.repositories.chats.createThread(chats.userId, trimmed);
+        const thread = await chats.repositories.chats.createThread(
+          chats.userId,
+          followUp?.title ?? trimmed,
+          followUp,
+        );
         threadId = thread.id;
         set({ threadId, threads: [thread, ...get().threads] });
       } catch {
@@ -214,6 +253,7 @@ export const useAiStore = create<AiState & AiActions>((set, get) => ({
       question: trimmed.length > 0 ? trimmed : IMAGE_ONLY_QUESTION,
       subjectNames,
       ...(image !== undefined ? { image } : {}),
+      ...(followUp !== null ? { followUp, history } : {}),
     });
 
     if (!result.ok) {

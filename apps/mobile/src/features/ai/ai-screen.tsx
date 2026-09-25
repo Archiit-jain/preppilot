@@ -51,6 +51,7 @@ export function AiScreen() {
   const [choosingSource, setChoosingSource] = useState(false);
   const [attachError, setAttachError] = useState<string | null>(null);
   const [browsingChats, setBrowsingChats] = useState(false);
+  const [readingSummary, setReadingSummary] = useState(false);
   /** The reply being kept as a note, while its topic is chosen. */
   const [keeping, setKeeping] = useState<AiMessage | null>(null);
   /** Replies already kept, so their button can say so. */
@@ -181,6 +182,37 @@ export function AiScreen() {
               onPress={() => state.newChat()}
             />
           </View>
+
+          {state.followUp !== null && (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={`Following up on the summary of ${state.followUp.title}. Show it`}
+              testID="ai-follow-up-banner"
+              onPress={() => setReadingSummary(true)}
+              style={[
+                styles.followUp,
+                {
+                  backgroundColor: theme.colors.surfaceElevated,
+                  borderLeftColor: theme.colors.accent,
+                  borderRadius: theme.radius.md,
+                  padding: theme.spacing.sm,
+                  gap: theme.spacing.xs,
+                },
+              ]}
+            >
+              <Icon name="notes" size={16} color={theme.colors.accent} />
+              <Text variant="caption" tone="secondary" numberOfLines={1} style={styles.headerTitle}>
+                Following up on:{' '}
+                <Text variant="caption" weight="semibold">
+                  {state.followUp.title}
+                </Text>{' '}
+                (summary)
+              </Text>
+              <Text variant="caption" tone="accent">
+                View
+              </Text>
+            </Pressable>
+          )}
 
           {!configured && (
             <Card testID="ai-unavailable">
@@ -489,6 +521,26 @@ export function AiScreen() {
         </View>
       </Sheet>
 
+      <Sheet
+        visible={readingSummary && state.followUp !== null}
+        onDismiss={() => setReadingSummary(false)}
+        label="Summary"
+        testID="ai-follow-up-summary"
+      >
+        <Text variant="caption" tone="muted" overline>
+          Following up on
+        </Text>
+        <Text variant="title">{state.followUp?.title}</Text>
+        <ScrollView style={styles.summary} showsVerticalScrollIndicator={false}>
+          <Text variant="body" tone="secondary">
+            {state.followUp?.text}
+          </Text>
+        </ScrollView>
+        <View style={styles.actions}>
+          <Button label="Close" onPress={() => setReadingSummary(false)} />
+        </View>
+      </Sheet>
+
       <ChatList
         visible={browsingChats}
         threads={state.threads}
@@ -605,6 +657,16 @@ const styles = StyleSheet.create({
 
   headerTitle: {
     flex: 1,
+  },
+
+  followUp: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderLeftWidth: 3,
+  },
+
+  summary: {
+    maxHeight: 320,
   },
 
   keep: {

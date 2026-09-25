@@ -99,6 +99,10 @@ export interface AskOptions {
   readonly subjectNames: readonly string[];
   /** A picture to answer from, as base64 without a data-URI prefix. */
   readonly image?: { readonly base64: string; readonly mimeType: string };
+  /** What a follow-up chat follows up on; sent with every question in it. */
+  readonly followUp?: { readonly title: string; readonly text: string };
+  /** The follow-up chat's earlier turns, oldest first. */
+  readonly history?: readonly { readonly role: 'student' | 'assistant'; readonly text: string }[];
 }
 
 /**
@@ -152,6 +156,8 @@ export async function ask({
   question,
   subjectNames,
   image,
+  followUp,
+  history,
 }: AskOptions): Promise<AskResult | AskFailure> {
   const unavailable = unavailableReason();
   if (unavailable !== null) {
@@ -164,6 +170,7 @@ export async function ask({
       subjectNames,
       mode: 'ask',
       ...(image !== undefined ? { image: { mimeType: image.mimeType, data: image.base64 } } : {}),
+      ...(followUp !== undefined ? { followUp, history: history ?? [] } : {}),
     });
 
     const reply = data.reply;

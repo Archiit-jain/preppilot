@@ -106,7 +106,11 @@ so the four earlier migrations were marked applied with
 push` applied the new one. A plain `db push` would have re-run them and stopped
 on existing policies.
 
-`supabase/apply-all-migrations.sql` holds all five migrations in order, written
+`20260925000001_chat_follow_up.sql` adds `chat_threads.follow_up`, the summary a
+follow-up chat carries. Older app versions ignore the extra column when they
+sync: Drizzle drops keys that are not in the local schema.
+
+`supabase/apply-all-migrations.sql` holds all six migrations in order, written
 to be safe to run more than once, for pasting into the Supabase SQL Editor where
 the CLI is not available. The live project was set up that way (21 September
 2026). When a migration is added, add it to that file too.

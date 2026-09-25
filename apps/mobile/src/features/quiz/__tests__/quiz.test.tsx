@@ -335,3 +335,76 @@ describe('the quiz sheet with any number of questions', () => {
     expect(screen.getByTestId('quiz-finish')).toHaveTextContent('Mark complete');
   });
 });
+
+describe('closing things in the deck', () => {
+  const recordOne = () =>
+    recordQuizAttempt(
+      USER,
+      repositories,
+      quiz,
+      [[0], [0]],
+      { difficulty: 'easy', allowMultiple: true },
+      { topicId: null, chapterName: null, subjectName: null },
+    );
+
+  const openDeck = async () => {
+    renderWithTheme(<QuizDeck />);
+    await act(async () => {
+      await useQuizDeckStore.getState().load(USER, repositories);
+    });
+    return useQuizDeckStore.getState().attempts[0]!;
+  };
+
+  it('closes the actions, a redo, and a problem', async () => {
+    await recordOne();
+    const attempt = await openDeck();
+
+    fireEvent.press(screen.getByTestId(`quiz-attempt-${attempt.id}`));
+    fireEvent.press(screen.getByLabelText('Dismiss Quiz'));
+    expect(screen.queryByText('Redo these questions')).toBeNull();
+
+    fireEvent.press(screen.getByTestId(`quiz-attempt-${attempt.id}`));
+    fireEvent.press(getInModal('Redo these questions'));
+    fireEvent.press(screen.getByLabelText("Dismiss Questions on Ohm's law"));
+    expect(screen.queryByText('Question 1?')).toBeNull();
+
+    mockedQuiz.mockResolvedValue({ ok: false, message: 'Busy.' });
+    fireEvent.press(screen.getByTestId(`quiz-attempt-${attempt.id}`));
+    await act(async () => {
+      fireEvent.press(getInModal('New quiz, same settings'));
+    });
+    fireEvent.press(getInModal('Close'));
+    expect(screen.queryByTestId('quiz-deck-problem')).toBeNull();
+  });
+
+  it('finishes a redo', async () => {
+    await recordOne();
+    const attempt = await openDeck();
+    fireEvent.press(screen.getByTestId(`quiz-attempt-${attempt.id}`));
+    fireEvent.press(getInModal('Redo these questions'));
+
+    for (let index = 0; index < 2; index += 1) {
+      fireEvent.press(screen.getByRole('radio', { name: attempt.questions[index]!.options[0]! }));
+      fireEvent.press(screen.getByTestId('quiz-check'));
+      fireEvent.press(screen.getByTestId(index === 1 ? 'quiz-results' : 'quiz-next'));
+    }
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('quiz-finish'));
+    });
+
+    expect(screen.queryByTestId('quiz-finish')).toBeNull();
+  });
+});
+
+describe('the settings sheet', () => {
+  it('can be cancelled', () => {
+    const onDismiss = jest.fn();
+    renderWithTheme(
+      <QuizSettingsSheet visible topicName="T" onStart={jest.fn()} onDismiss={onDismiss} />,
+    );
+
+    fireEvent.press(getInModal('Cancel'));
+
+    expect(onDismiss).toHaveBeenCalled();
+  });
+});

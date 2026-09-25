@@ -75,9 +75,10 @@ and never on by default. The banner that labelled every demo screen was removed
 at the project owner's request (September 2026), so the browser demo no longer
 says on-screen that it is local and unauthenticated.
 
-**Conversations are saved, but the model does not see earlier messages.**
-Each question is sent on its own, so "and what about the second one?" means
-nothing to it. Sending recent messages as context would cost more tokens per
+**Only follow-up chats remember earlier messages.** A chat opened with "Ask a
+follow-up" sends its summary and last six messages with each question. An
+ordinary chat sends each question on its own, so "and what about the second
+one?" means nothing there; sending history everywhere would cost more tokens per
 question. Pictures in saved conversations stay on the device that sent them. One
 picture per question.
 

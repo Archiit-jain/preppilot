@@ -723,3 +723,182 @@ describe('describing a suggestion', () => {
     expect(screen.getByText(/1 chapter and 1 topic would be/)).toBeOnTheScreen();
   });
 });
+
+describe('following up on a summary', () => {
+  const SUMMARY = 'The degree is the highest power of the variable.';
+
+  const startFollowUp = async () => {
+    render();
+    await act(async () => {
+      await Promise.resolve();
+    });
+    await act(async () => {
+      ai().startFollowUp('Degree', SUMMARY);
+    });
+  };
+
+  it('sends the summary with the question, but never shows it as a message', async () => {
+    await startFollowUp();
+
+    await act(async () => {
+      await ai().ask('Give me an example.');
+    });
+
+    expect(mocked.ask).toHaveBeenCalledWith(
+      expect.objectContaining({
+        question: 'Give me an example.',
+        followUp: { title: 'Degree', text: SUMMARY },
+        history: [],
+      }),
+    );
+    expect(screen.queryByText(SUMMARY)).toBeNull();
+  });
+
+  it('remembers the conversation so far for the next follow-up', async () => {
+    await startFollowUp();
+    await act(async () => {
+      await ai().ask('Give me an example.');
+    });
+
+    await act(async () => {
+      await ai().ask('And a harder one?');
+    });
+
+    expect(mocked.ask).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        followUp: { title: 'Degree', text: SUMMARY },
+        history: [
+          { role: 'student', text: 'Give me an example.' },
+          { role: 'assistant', text: 'A polynomial is an expression.' },
+        ],
+      }),
+    );
+  });
+
+  it('shows a banner that opens the summary', async () => {
+    await startFollowUp();
+
+    expect(screen.getByTestId('ai-follow-up-banner')).toHaveTextContent(/Following up on: Degree/);
+    fireEvent.press(screen.getByTestId('ai-follow-up-banner'));
+
+    expect(screen.getByText(SUMMARY)).toBeOnTheScreen();
+  });
+
+  it('saves the chat under the topic’s name, with its summary', async () => {
+    await startFollowUp();
+    await act(async () => {
+      await ai().ask('Give me an example.');
+    });
+
+    const [thread] = await repositories.chats.listThreads(USER);
+    expect(thread?.title).toBe('Degree');
+    expect(JSON.parse(thread!.followUp!)).toEqual({ title: 'Degree', text: SUMMARY });
+  });
+
+  it('keeps the summary when the chat is reopened later', async () => {
+    await startFollowUp();
+    await act(async () => {
+      await ai().ask('Give me an example.');
+    });
+    const [thread] = await repositories.chats.listThreads(USER);
+
+    await act(async () => {
+      ai().newChat();
+    });
+    expect(ai().followUp).toBeNull();
+    expect(screen.queryByTestId('ai-follow-up-banner')).toBeNull();
+
+    await act(async () => {
+      await ai().openThread(thread!.id);
+    });
+    expect(ai().followUp).toEqual({ title: 'Degree', text: SUMMARY });
+  });
+
+  it('is not replaced by the last conversation when the assistant opens', async () => {
+    const older = await repositories.chats.createThread(USER, 'Older question');
+    ai().startFollowUp('Degree', SUMMARY);
+
+    await act(async () => {
+      await ai().openChats(USER, repositories);
+    });
+
+    expect(ai().threadId).toBeNull();
+    expect(ai().followUp?.title).toBe('Degree');
+    expect(ai().threads.map((entry) => entry.id)).toEqual([older.id]);
+  });
+
+  it('sends no history in an ordinary chat', async () => {
+    render();
+    await act(async () => {
+      await ai().ask('First');
+    });
+    await act(async () => {
+      await ai().ask('Second');
+    });
+
+    expect(mocked.ask).toHaveBeenLastCalledWith(
+      expect.not.objectContaining({ history: expect.anything() }),
+    );
+  });
+});
+
+describe('closing things', () => {
+  it('closes the follow-up summary', async () => {
+    render();
+    await act(async () => {
+      ai().startFollowUp('Degree', 'The highest power.');
+    });
+    fireEvent.press(screen.getByTestId('ai-follow-up-banner'));
+    expect(screen.getByText('The highest power.')).toBeOnTheScreen();
+
+    fireEvent.press(getInModal('Close'));
+
+    expect(screen.queryByText('The highest power.')).toBeNull();
+  });
+
+  it('closes the chat list, and starts a new chat from it', async () => {
+    render();
+    await act(async () => {
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await ai().ask('Something');
+    });
+
+    fireEvent.press(screen.getByTestId('ai-open-chats'));
+    fireEvent.press(screen.getByLabelText('Dismiss Your chats'));
+    expect(screen.queryByTestId('chat-list-new')).toBeNull();
+
+    fireEvent.press(screen.getByTestId('ai-open-chats'));
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('chat-list-new'));
+    });
+    expect(ai().messages).toEqual([]);
+  });
+
+  it('can back out of deleting a chat', async () => {
+    render();
+    await act(async () => {
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await ai().ask('Keep me');
+    });
+    const [thread] = await repositories.chats.listThreads(USER);
+
+    fireEvent.press(screen.getByTestId('ai-open-chats'));
+    fireEvent.press(screen.getByTestId(`chat-delete-${thread!.id}`));
+    fireEvent.press(getInModal('Keep'));
+
+    expect(screen.getByTestId(`chat-delete-${thread!.id}`)).toBeOnTheScreen();
+  });
+
+  it('closes the picture chooser without picking', () => {
+    render();
+
+    fireEvent.press(screen.getByRole('button', { name: 'Attach a picture' }));
+    fireEvent.press(screen.getByLabelText('Dismiss Attach a picture'));
+
+    expect(screen.queryByText('Take photo')).toBeNull();
+  });
+});

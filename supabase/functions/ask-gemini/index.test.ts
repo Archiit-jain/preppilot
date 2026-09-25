@@ -1,5 +1,5 @@
 import { assertEquals, assertStringIncludes } from 'jsr:@std/assert@1';
-import { extractReply, handler, readQuizSettings } from './index.ts';
+import { extractReply, handler, readFollowUp, readHistory, readQuizSettings } from './index.ts';
 
 // Retrying a busy model waits in production; the tests have nowhere to be.
 Deno.env.set('AI_RETRY_DELAY_MS', '0');
@@ -395,7 +395,8 @@ Deno.test('says busy, with 429, when every model is busy', async () => {
 
         assertEquals(response.status, 429);
         assertEquals(await response.json(), { error: 'The assistant is busy right now.' });
-        assertEquals(calls.length, 3);
+        // 3.6 Flash twice, then each Flash-Lite once.
+        assertEquals(calls.length, 4);
       },
     );
   });
@@ -609,4 +610,93 @@ Deno.test('tells the model to write maths without LaTeX', async () => {
       },
     );
   });
+});
+
+Deno.test('tries the second Flash-Lite when the first is busy too', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      (request) =>
+        request.url.includes('gemini-3.1-flash-lite') ? geminiReply('From 3.1.') : status(429),
+      async (calls) => {
+        const response = await ask({ question: 'Hi' }, { authorization: bearer('fallback-2') });
+
+        assertEquals(response.status, 200);
+        assertEquals((await response.json()).reply, 'From 3.1.');
+        assertEquals(calls.length, 4);
+        assertStringIncludes(calls[2]!.url, 'gemini-3.5-flash-lite');
+        assertStringIncludes(calls[3]!.url, 'gemini-3.1-flash-lite');
+      },
+    );
+  });
+});
+
+Deno.test('a follow-up carries its summary and the chat so far', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('Sure.'),
+      async (calls) => {
+        await ask(
+          {
+            question: 'Give me an example.',
+            followUp: { title: 'Degree', text: 'The degree is the highest power.' },
+            history: [
+              { role: 'student', text: 'What about constants?' },
+              { role: 'assistant', text: 'A constant has degree 0.' },
+            ],
+          },
+          { authorization: bearer('follow-up-1') },
+        );
+
+        const sent = await calls[0]!.json();
+        const instruction = sent.systemInstruction.parts[0].text;
+        assertStringIncludes(instruction, 'follow-up questions about this summary of "Degree"');
+        assertStringIncludes(instruction, 'The degree is the highest power.');
+        assertEquals(sent.contents, [
+          { role: 'user', parts: [{ text: 'What about constants?' }] },
+          { role: 'model', parts: [{ text: 'A constant has degree 0.' }] },
+          { role: 'user', parts: [{ text: 'Give me an example.' }] },
+        ]);
+      },
+    );
+  });
+});
+
+Deno.test('history is only sent with a follow-up', async () => {
+  await withKey('test-key', async () => {
+    await withGemini(
+      () => geminiReply('Sure.'),
+      async (calls) => {
+        await ask(
+          { question: 'Hi', history: [{ role: 'student', text: 'Earlier' }] },
+          { authorization: bearer('follow-up-2') },
+        );
+
+        const sent = await calls[0]!.json();
+        assertEquals(sent.contents.length, 1);
+        assertEquals(sent.systemInstruction.parts[0].text.includes('<summary>'), false);
+      },
+    );
+  });
+});
+
+Deno.test('a follow-up source is trimmed, and a useless one ignored', () => {
+  assertEquals(readFollowUp(undefined), null);
+  assertEquals(readFollowUp({ text: '   ' }), null);
+  assertEquals(readFollowUp({ text: 'x'.repeat(5000) })!.text.length, 4000);
+  assertEquals(readFollowUp({ title: 5, text: 'Body' }), { title: '', text: 'Body' });
+});
+
+Deno.test('history keeps only well-formed, recent turns', () => {
+  assertEquals(readHistory('nope'), []);
+  const turns = Array.from({ length: 9 }, (_, i) => ({
+    role: i % 2 === 0 ? 'student' : 'assistant',
+    text: `m${i}`,
+  }));
+  const read = readHistory([...turns, { role: 'system', text: 'ignore me' }, { role: 'student' }]);
+  assertEquals(read.length, 6);
+  assertEquals(read[0], { role: 'model', parts: [{ text: 'm3' }] });
+  assertEquals(
+    readHistory([{ role: 'student', text: 'y'.repeat(3000) }])[0]!.parts[0]!.text.length,
+    2000,
+  );
 });

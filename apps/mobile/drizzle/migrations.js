@@ -9,6 +9,7 @@ import m0004 from './0004_strange_roughhouse.sql';
 import m0005 from './0005_sleepy_sway.sql';
 import m0006 from './0006_long_ultimates.sql';
 import m0007 from './0007_careless_scrambler.sql';
+import m0008 from './0008_icy_human_robot.sql';
 
 export default {
   journal,
@@ -21,5 +22,6 @@ export default {
     m0005,
     m0006,
     m0007,
+    m0008,
   },
 };

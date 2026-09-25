@@ -39,8 +39,8 @@ for what remains unbuilt or unverified.
 | Focus Mode                                    | ✅ Implemented, see caveats |
 | Web demo build                                | ✅ Implemented              |
 
-Test suite: **2,049 tests across 98 suites**, all passing — 1,481 in the app,
-521 in the shared package, 47 for the Edge Functions.
+Test suite: **2,073 tests across 98 suites**, all passing — 1,500 in the app,
+521 in the shared package, 52 for the Edge Functions.
 
 The Android APK (EAS `preview-live` profile, arm64) is about 41 MB and has been
 run on a physical phone against the live Supabase project: sign-in by email and

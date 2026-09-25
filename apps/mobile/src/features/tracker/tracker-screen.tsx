@@ -569,6 +569,17 @@ export function TrackerScreen() {
             <Text variant="body" tone="secondary" testID="topic-summary">
               {summary.text}
             </Text>
+            <Button
+              label="Ask a follow-up"
+              fullWidth
+              testID="summary-follow-up"
+              onPress={() => {
+                // The summary goes to the assistant with the chat, not into it.
+                useAiStore.getState().startFollowUp(summary.topicName, summary.text);
+                setSummary(null);
+                router.push('/assistant');
+              }}
+            />
             <View style={styles.sheetActions}>
               <Button
                 label={summarySaved ? 'Saved to notes' : 'Add as note'}

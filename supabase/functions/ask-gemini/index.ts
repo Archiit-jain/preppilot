@@ -37,14 +37,15 @@ declare const Deno: {
 const MODEL = 'gemini-3.6-flash';
 
 /**
- * Answers when the main model cannot.
+ * Answer, in order, when the main model cannot.
  *
  * On Google's free tier the main model allows only a few dozen requests a day
  * for the whole project, and even a paid project sees it refuse with 503 when
- * Google is overloaded. Flash-Lite has a far larger free allowance and costs a
- * fraction as much, so a student gets a slightly plainer answer instead of none.
+ * Google is overloaded. Each Flash-Lite has its own, far larger, free allowance
+ * and costs a fraction as much, so a student gets a slightly plainer answer
+ * instead of none. Two of them means one running out does not end the day.
  */
-const FALLBACK_MODEL = 'gemini-3.5-flash-lite';
+const FALLBACK_MODELS = ['gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'] as const;
 
 const endpoint = (model: string) =>
   `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
@@ -264,6 +265,54 @@ const DIFFICULTY_GUIDE: Record<Difficulty, string> = {
     'Competitive: the standard of Indian competitive entrance exams such as JEE, NEET or GATE — tricky distractors, numerical reasoning where the topic allows it.',
 };
 
+/** The most of a follow-up's source text the model is given. */
+const MAX_FOLLOW_UP_LENGTH = 4000;
+/** How many earlier messages of a follow-up chat are sent, newest last. */
+const MAX_HISTORY = 6;
+const MAX_HISTORY_MESSAGE = 2000;
+
+interface FollowUp {
+  readonly title: string;
+  readonly text: string;
+}
+
+/** A follow-up's source, trimmed to size, or null if there is none or it is not usable. */
+export function readFollowUp(value: unknown): FollowUp | null {
+  const followUp = value as { title?: unknown; text?: unknown } | null | undefined;
+  if (typeof followUp?.text !== 'string' || followUp.text.trim().length === 0) return null;
+  const title = typeof followUp.title === 'string' ? followUp.title.trim().slice(0, 200) : '';
+  return { title, text: followUp.text.trim().slice(0, MAX_FOLLOW_UP_LENGTH) };
+}
+
+/**
+ * The earlier turns of a follow-up chat, as Gemini contents.
+ *
+ * Anything that is not a well-formed message is dropped rather than refused: a
+ * follow-up still makes sense with less history. Only the most recent turns are
+ * kept, and each is capped, so history cannot become a way round the question
+ * length limit or run up the cost of every question.
+ */
+export function readHistory(
+  value: unknown,
+): { role: 'user' | 'model'; parts: { text: string }[] }[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter(
+      (entry): entry is { role: string; text: string } =>
+        typeof entry === 'object' &&
+        entry !== null &&
+        ((entry as { role?: unknown }).role === 'student' ||
+          (entry as { role?: unknown }).role === 'assistant') &&
+        typeof (entry as { text?: unknown }).text === 'string' &&
+        (entry as { text: string }).text.trim().length > 0,
+    )
+    .slice(-MAX_HISTORY)
+    .map((entry) => ({
+      role: entry.role === 'student' ? ('user' as const) : ('model' as const),
+      parts: [{ text: entry.text.trim().slice(0, MAX_HISTORY_MESSAGE) }],
+    }));
+}
+
 interface RequestBody {
   readonly question?: unknown;
   readonly subjectNames?: unknown;
@@ -278,6 +327,12 @@ interface RequestBody {
   readonly allowMultiple?: unknown;
   /** For ask: a picture to answer from, as base64. */
   readonly image?: unknown;
+  /**
+   * For ask: what the question follows up on — a topic summary the student
+   * was reading — and the conversation so far in that chat.
+   */
+  readonly followUp?: unknown;
+  readonly history?: unknown;
 }
 
 /**
@@ -402,8 +457,11 @@ async function generate(
 
   // Flash-Lite is sent no thinking budget: it thinks little by default, and a
   // setting a model does not support is rejected rather than ignored.
-  const fallback = await call(FALLBACK_MODEL, request);
-  return BUSY_STATUSES.has(fallback.status) ? null : fallback;
+  for (const model of FALLBACK_MODELS) {
+    const fallback = await call(model, request);
+    if (!BUSY_STATUSES.has(fallback.status)) return fallback;
+  }
+  return null;
 }
 
 export async function handler(request: Request): Promise<Response> {
@@ -467,10 +525,27 @@ export async function handler(request: Request): Promise<Response> {
     ? body.subjectNames.filter((name): name is string => typeof name === 'string').slice(0, 50)
     : [];
 
-  const context =
+  const studying =
     subjectNames.length > 0
       ? `The student is studying: ${subjectNames.join(', ')}.`
       : 'The student has not added any subjects yet.';
+
+  // A follow-up chat carries what it follows up on, and its recent turns, so
+  // "give me an example of that" has something to refer to.
+  const followUp = mode === 'ask' ? readFollowUp(body.followUp) : null;
+  const history = followUp !== null ? readHistory(body.history) : [];
+  const context =
+    followUp === null
+      ? studying
+      : `${studying}
+
+The student is asking follow-up questions about this summary${
+          followUp.title.length > 0 ? ` of "${followUp.title}"` : ''
+        }, which they have just read. Answer in its light; do not repeat it back.
+
+<summary>
+${followUp.text}
+</summary>`;
 
   // Chat is told about the proposal grammar because it may offer to add to the
   // tracker. A summary or a quiz never does, and giving those the same
@@ -487,6 +562,7 @@ export async function handler(request: Request): Promise<Response> {
       ],
     },
     contents: [
+      ...history,
       {
         role: 'user',
         // The picture goes first: the model reads what follows in its light.
@@ -499,7 +575,7 @@ export async function handler(request: Request): Promise<Response> {
     const response = await generate(apiKey, modelRequest);
 
     if (response === null) {
-      // Both models declined for now. Said as "busy" so the app can tell the
+      // Every model declined for now. Said as "busy" so the app can tell the
       // student to try again shortly rather than that something is broken.
       return jsonResponse({ error: 'The assistant is busy right now.' }, 429);
     }

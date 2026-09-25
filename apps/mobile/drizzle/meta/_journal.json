@@ -57,6 +57,13 @@
       "when": 1790268228209,
       "tag": "0007_careless_scrambler",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1790320052673,
+      "tag": "0008_icy_human_robot",
+      "breakpoints": true
     }
   ]
 }

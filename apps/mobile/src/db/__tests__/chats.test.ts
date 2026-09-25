@@ -1,4 +1,4 @@
-import { THREAD_TITLE_LENGTH, titleFrom } from '../repositories/chats';
+import { THREAD_TITLE_LENGTH, readFollowUp, titleFrom } from '../repositories/chats';
 import {
   createTestClock,
   createTestDatabase,
@@ -190,5 +190,24 @@ describe('synchronisation', () => {
 
     const [row] = await chats().listMessages(thread.id);
     expect(row).toMatchObject({ hasImage: true, imageUri: null });
+  });
+});
+
+describe('follow-up chats', () => {
+  it('stores what the chat follows up on', async () => {
+    const thread = await chats().createThread(USER, 'Degree', {
+      title: 'Degree',
+      text: 'The highest power.',
+    });
+
+    expect(readFollowUp(thread.followUp)).toEqual({ title: 'Degree', text: 'The highest power.' });
+    expect((await chats().createThread(USER, 'Plain')).followUp).toBeNull();
+  });
+
+  it('reads nothing from a missing, empty or broken source', () => {
+    expect(readFollowUp(null)).toBeNull();
+    expect(readFollowUp('{broken')).toBeNull();
+    expect(readFollowUp(JSON.stringify({ title: 'T', text: '  ' }))).toBeNull();
+    expect(readFollowUp(JSON.stringify({ text: 'Body' }))).toEqual({ title: '', text: 'Body' });
   });
 });

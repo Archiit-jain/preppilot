@@ -10,6 +10,7 @@ import {
 } from '../../../db/test-support/test-database';
 import { router } from 'expo-router';
 import { getInModal, renderWithTheme } from '../../../test-utils/render';
+import { useAiStore } from '../../ai/ai-store';
 import { useAuthStore } from '../../auth/auth-store';
 import { ask, quizTopic, summariseTopic } from '../../ai/ai-client';
 import { TrackerScreen } from '../tracker-screen';
@@ -2027,6 +2028,21 @@ describe('keeping a summary as a note', () => {
     const [note] = await repositories.notes.listLiveByUser(USER);
     expect(note).toMatchObject({ body: 'A decimal is a base-ten fraction.', source: 'summary' });
     expect(screen.getByTestId('summary-add-note')).toHaveTextContent('Saved to notes');
+  });
+
+  it('opens a follow-up chat carrying the summary', async () => {
+    await summarise();
+
+    await act(async () => {
+      fireEvent.press(screen.getByTestId('summary-follow-up'));
+    });
+
+    expect(router.push).toHaveBeenCalledWith('/assistant');
+    expect(useAiStore.getState().followUp).toEqual({
+      title: 'Decimal',
+      text: 'A decimal is a base-ten fraction.',
+    });
+    expect(screen.queryByTestId('topic-summary')).toBeNull();
   });
 
   it('adds a sub-topic’s summary to the sub-topic', async () => {

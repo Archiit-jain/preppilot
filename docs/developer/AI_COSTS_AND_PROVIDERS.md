@@ -55,12 +55,13 @@ Tier upgrades, from Google's [rate-limit page](https://ai.google.dev/gemini-api/
 Estimates, from what the app sends. The function does not yet log real token
 counts (step 2 below adds that):
 
-| Request                           | Input tokens | Output tokens (incl. ≤512 thinking) | Cost on 3.6 Flash | Cost on 3.5 Flash-Lite |
-| --------------------------------- | -----------: | ----------------------------------: | ----------------: | ---------------------: |
-| A chat question                   |         ~400 |                                ~700 |           ~$0.003 |                ~$0.002 |
-| A question with a photo (1600 px) |      ~1,500+ |                                ~800 |           ~$0.004 |                ~$0.003 |
-| A topic summary                   |         ~300 |                                ~500 |           ~$0.002 |               ~$0.0014 |
-| A 15-question competitive quiz    |         ~350 |                              ~3,000 |            ~$0.01 |                ~$0.008 |
+| Request                                     | Input tokens | Output tokens (incl. ≤512 thinking) | Cost on 3.6 Flash | Cost on 3.5 Flash-Lite |
+| ------------------------------------------- | -----------: | ----------------------------------: | ----------------: | ---------------------: |
+| A follow-up question (summary + 6 messages) |       ~2,500 |                                ~700 |           ~$0.005 |                ~$0.003 |
+| A chat question                             |         ~400 |                                ~700 |           ~$0.003 |                ~$0.002 |
+| A question with a photo (1600 px)           |      ~1,500+ |                                ~800 |           ~$0.004 |                ~$0.003 |
+| A topic summary                             |         ~300 |                                ~500 |           ~$0.002 |               ~$0.0014 |
+| A 15-question competitive quiz              |         ~350 |                              ~3,000 |            ~$0.01 |                ~$0.008 |
 
 A busy student asking 20 questions and taking 2 quizzes a day costs roughly
 **$0.08 a day, about $2.40 a month** on 3.6 Flash at 2026 prices, about half that
@@ -75,7 +76,9 @@ Since 24 September 2026 (`supabase/functions/ask-gemini/index.ts`):
 1. Ask **Gemini 3.6 Flash**.
 2. If it answers **429 or 503**, wait about a second and ask it **once more**.
 3. If it is still busy, ask **Gemini 3.5 Flash-Lite** (no thinking budget).
-4. If that is busy too, return **429 "busy"**; the app says _"The assistant is
+4. If that is busy, ask **Gemini 3.1 Flash-Lite**, which has its own free
+   allowance.
+5. If that is busy too, return **429 "busy"**; the app says _"The assistant is
    busy right now. Try again in a minute."_ Any other failure is a 502 and the
    generic message. Upstream error bodies are never forwarded.
 

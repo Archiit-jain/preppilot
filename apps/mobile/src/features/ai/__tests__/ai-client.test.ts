@@ -517,6 +517,37 @@ describe('the assistant and a guest', () => {
   });
 });
 
+describe('following up on a summary', () => {
+  it('sends the summary and the chat so far', async () => {
+    invoke.mockResolvedValue({ data: { reply: 'Sure.' }, error: null });
+
+    await ask({
+      question: 'Why?',
+      subjectNames: [],
+      followUp: { title: 'Degree', text: 'The highest power.' },
+      history: [{ role: 'student', text: 'Earlier' }],
+    });
+
+    expect(invoke).toHaveBeenCalledWith(EDGE_FUNCTION, {
+      body: {
+        question: 'Why?',
+        subjectNames: [],
+        mode: 'ask',
+        followUp: { title: 'Degree', text: 'The highest power.' },
+        history: [{ role: 'student', text: 'Earlier' }],
+      },
+    });
+  });
+
+  it('sends empty history when none is given', async () => {
+    invoke.mockResolvedValue({ data: { reply: 'Sure.' }, error: null });
+
+    await ask({ question: 'Why?', subjectNames: [], followUp: { title: 'T', text: 'S' } });
+
+    expect(invoke.mock.calls[0][1].body.history).toEqual([]);
+  });
+});
+
 describe('asking about a picture', () => {
   it('sends the picture with the question', async () => {
     invoke.mockResolvedValue({ data: { reply: 'It shows a circuit.' }, error: null });

@@ -382,6 +382,12 @@ export const chatThreads = sqliteTable(
     userId: text('user_id').notNull(),
     /** The first question, shortened; how the thread is recognised in a list. */
     title: text('title').notNull(),
+    /**
+     * What a follow-up chat follows up on — `{ title, text }` of a topic summary
+     * as JSON — sent to the assistant with every question in it. Null for an
+     * ordinary chat.
+     */
+    followUp: text('follow_up'),
     createdAt: integer('created_at').notNull(),
     updatedAt: integer('updated_at').notNull(),
     deletedAt: integer('deleted_at'),

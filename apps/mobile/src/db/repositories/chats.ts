@@ -20,6 +20,24 @@ export interface AddMessageInput {
   readonly imageUri?: string | null;
 }
 
+/** What a follow-up chat follows up on: a topic summary the student was reading. */
+export interface FollowUp {
+  readonly title: string;
+  readonly text: string;
+}
+
+/** A stored follow-up source, or null for an ordinary chat or one that cannot be read. */
+export function readFollowUp(json: string | null): FollowUp | null {
+  if (json === null) return null;
+  try {
+    const value = JSON.parse(json) as Partial<FollowUp> | null;
+    if (typeof value?.text !== 'string' || value.text.trim().length === 0) return null;
+    return { title: typeof value.title === 'string' ? value.title : '', text: value.text };
+  } catch {
+    return null;
+  }
+}
+
 /** The longest a thread's title is kept; it is a label, not the question. */
 export const THREAD_TITLE_LENGTH = 60;
 
@@ -53,12 +71,17 @@ export class ChatRepository {
       .orderBy(desc(chatThreads.updatedAt));
   }
 
-  async createThread(userId: string, title: string): Promise<ChatThreadRow> {
+  async createThread(
+    userId: string,
+    title: string,
+    followUp: FollowUp | null = null,
+  ): Promise<ChatThreadRow> {
     const now = this.clock.now();
     const row: ChatThreadRow = {
       id: uuidV7(),
       userId,
       title: titleFrom(title),
+      followUp: followUp === null ? null : JSON.stringify(followUp),
       createdAt: now,
       updatedAt: now,
       deletedAt: null,

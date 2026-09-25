@@ -23,7 +23,8 @@ The function also:
 ## When the model is busy
 
 The function tries Gemini 3.6 Flash, retries it once after about a second if it
-answers 429 or 503, then falls back to Gemini 3.5 Flash-Lite. Only when both are
+answers 429 or 503, then falls back to Gemini 3.5 Flash-Lite and, if that is busy
+too, Gemini 3.1 Flash-Lite. Only when all three are
 busy does the student see "The assistant is busy right now. Try again in a
 minute." The app reads the HTTP status from Supabase's `FunctionsHttpError`
 (`context.status`); the error's message never carries it. Costs, free-tier
@@ -80,6 +81,26 @@ never sort above its question.
 
 Each question is still sent to the model on its own; earlier messages in the
 conversation are not sent as context (LIMITATIONS.md).
+
+## Following up on a summary
+
+A topic summary has **Ask a follow-up**. It opens the assistant on a new chat,
+named after the topic, and every question asked in it is sent with:
+
+- the summary, placed in the system instruction as what the student has just
+  read — it is never shown as a chat message; and
+- the chat's last six messages, so "give me an example of that" and "and a
+  harder one?" have something to refer to.
+
+A slim banner at the top of the chat reads _Following up on: {topic} (summary)_;
+tapping it shows the summary. The source is saved on the thread
+(`chat_threads.follow_up`, JSON `{ title, text }`), so reopening the chat from
+**Chats**, or on another device, keeps it. **New chat** leaves it.
+
+The function accepts `followUp` (trimmed to 4,000 characters) and `history`
+(the last six well-formed turns, each trimmed to 2,000 characters) only in
+`ask` mode, and ignores history unless a follow-up source is present. Ordinary
+chats still send each question on its own.
 
 ## Keeping an answer as a note
 

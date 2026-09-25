@@ -1,0 +1,1 @@
+ALTER TABLE `chat_threads` ADD `follow_up` text;
