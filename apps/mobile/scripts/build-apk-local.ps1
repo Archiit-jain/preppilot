@@ -47,6 +47,9 @@ if ($null -eq $cmake -or [version]$cmake.Name -lt [version]'3.30') {
 $properties = @("sdk.dir=$($sdk -replace '\\', '/')", "cmake.dir=$($cmake.FullName -replace '\\', '/')")
 Set-Content 'android\local.properties' $properties -Encoding ascii
 Write-Host "Using CMake $($cmake.Name)"
+# CMake 4 refuses projects declaring a minimum below 3.5, and expo-sqlite
+# declares 3.4.1. This lets it configure them as 3.5, which they build under.
+if ([version]$cmake.Name -ge [version]'4.0') { $env:CMAKE_POLICY_VERSION_MINIMUM = '3.5' }
 
 # Native build folders from an earlier CMake would be reused and fail the same way.
 $modules = Get-ChildItem (Join-Path $app '..\..\node_modules') -Directory -ErrorAction SilentlyContinue
