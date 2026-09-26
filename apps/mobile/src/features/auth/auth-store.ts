@@ -31,6 +31,14 @@ export interface AuthState {
   readonly error: string | null;
   /** True while a sign-in, sign-up or sign-out request is in flight. */
   readonly busy: boolean;
+  /**
+   * Signed in through a password-reset link, and not yet given a new password.
+   *
+   * The link is a full sign-in, so without this the student would land in the
+   * tracker still not knowing their password — and be locked out again the next
+   * time they sign out. While it is set the app shows "Set a new password".
+   */
+  readonly recoveringPassword: boolean;
 }
 
 export interface AuthActions {
@@ -39,6 +47,12 @@ export interface AuthActions {
   signInWithPassword: (email: string, password: string) => Promise<boolean>;
   signUpWithPassword: (email: string, password: string, displayName: string) => Promise<boolean>;
   signInWithGoogle: () => Promise<boolean>;
+  /** Emails a link that signs the student in to choose a new password. */
+  sendPasswordReset: (email: string) => Promise<boolean>;
+  /** Replaces the signed-in student's password. Ends a password reset. */
+  setNewPassword: (password: string) => Promise<boolean>;
+  /** Leaves a password reset without changing anything; they stay signed in. */
+  skipNewPassword: () => void;
   /** Finishes a confirmation link the student tapped in their email. */
   completeAuthLink: (url: string) => Promise<'signedIn' | 'ignored' | 'failed'>;
   /** Starts using the app with no account. Everything stays on this device. */
@@ -56,6 +70,7 @@ const initialState: AuthState = {
   isGuest: false,
   error: null,
   busy: false,
+  recoveringPassword: false,
 };
 
 /**
@@ -148,14 +163,22 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
       set({ session: null, user: null, status: 'signedOut', isGuest: false });
     }
 
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
       // A real session always wins over guest. Losing one drops back to guest
       // only if this device had been one, so signing out of an account does not
       // silently hand the next person that account's local rows.
       if (session !== null) {
         const wasGuestBefore = get().isGuest;
         void rememberGuest(false);
-        set({ session, user: session.user, status: 'signedIn', isGuest: false });
+        set({
+          session,
+          user: session.user,
+          status: 'signedIn',
+          isGuest: false,
+          // Only the reset link starts this, and only a new password or the
+          // student's say-so ends it: a token refresh in between must not.
+          ...(event === 'PASSWORD_RECOVERY' ? { recoveringPassword: true } : {}),
+        });
 
         // A guest's syllabus is real work, so signing in adopts it rather than
         // starting them over. Fire-and-forget: sign-in must not fail because a
@@ -164,7 +187,13 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
         return;
       }
 
-      set({ session: null, user: null, status: 'signedOut', isGuest: false });
+      set({
+        session: null,
+        user: null,
+        status: 'signedOut',
+        isGuest: false,
+        recoveringPassword: false,
+      });
     });
 
     return () => data.subscription.unsubscribe();
@@ -219,6 +248,57 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
     } finally {
       set({ busy: false });
     }
+  },
+
+  async sendPasswordReset(email) {
+    if (get().busy) return false;
+    set({ busy: true, error: null });
+
+    try {
+      // The link comes back to the app like a confirmation link does, and the
+      // exchange that finishes it announces PASSWORD_RECOVERY rather than an
+      // ordinary sign-in — which is what opens "Set a new password".
+      //
+      // Supabase answers the same whether or not an account exists for the
+      // address, so this cannot be used to find out who has one.
+      const { error } = await getSupabase().auth.resetPasswordForEmail(email, {
+        redirectTo: AUTH_CALLBACK_URL,
+      });
+      if (error !== null) {
+        set({ error: toStudentFacingMessage(error) });
+        return false;
+      }
+      return true;
+    } catch (error) {
+      set({ error: toStudentFacingMessage(error) });
+      return false;
+    } finally {
+      set({ busy: false });
+    }
+  },
+
+  async setNewPassword(password) {
+    if (get().busy) return false;
+    set({ busy: true, error: null });
+
+    try {
+      const { error } = await getSupabase().auth.updateUser({ password });
+      if (error !== null) {
+        set({ error: toStudentFacingMessage(error) });
+        return false;
+      }
+      set({ recoveringPassword: false });
+      return true;
+    } catch (error) {
+      set({ error: toStudentFacingMessage(error) });
+      return false;
+    } finally {
+      set({ busy: false });
+    }
+  },
+
+  skipNewPassword() {
+    set({ recoveringPassword: false, error: null });
   },
 
   async signInWithGoogle() {
@@ -304,13 +384,13 @@ export const useAuthStore = create<AuthState & AuthActions>((set, get) => ({
     set({ busy: true });
     try {
       const { outcome, message } = await completeAuthLink(link);
-      if (outcome === 'failed') set({ error: message ?? 'That confirmation link did not work.' });
+      if (outcome === 'failed') set({ error: message ?? 'That email link did not work.' });
       // A success needs no message: onAuthStateChange puts the student inside
       // the app, which says it better than a banner would.
       else if (outcome === 'signedIn') set({ error: null });
       return outcome;
     } catch {
-      set({ error: 'That confirmation link did not work. Try signing in.' });
+      set({ error: 'That email link did not work. Try signing in.' });
       return 'failed';
     } finally {
       set({ busy: false });

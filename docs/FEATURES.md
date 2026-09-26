@@ -77,6 +77,6 @@ with departures recorded in `DECISIONS.md` and `docs/developer/LIMITATIONS.md`:
 | Revision     | Flashcards with three fixed review intervals (1d, 2d, 4d); SM-2 kept underneath but not driving the schedule; quizzes of 1–15 questions at four difficulties, saved to a Quiz deck to redo   |
 | AI           | Ask, summarise a topic, quiz a topic; **attach a photo or screenshot**; formatted replies; saved conversations; any reply or summary kept as a note; propose-then-confirm syllabus additions |
 | Productivity | Reminders (weekday and one-off), Focus Mode within Android's limits                                                                                                                          |
-| Account      | Email/password with in-app confirmation link, **native Google sign-in**, phone OTP behind a flag, guest, account deletion                                                                    |
+| Account      | Email/password with in-app confirmation link and **Forgot password?** reset link, **native Google sign-in**, phone OTP behind a flag, guest, account deletion                                |
 | Data         | SQLite on the device, Supabase sync on sign-in / every 5 min / on leaving / on reconnect, RLS isolation                                                                                      |
 | Web          | The same app in a browser (demo mode), hosted at preppilottdemo.netlify.app                                                                                                                  |

@@ -48,14 +48,15 @@ describe('reading a link', () => {
 
     expect(link).toEqual({
       kind: 'failed',
-      message: 'That confirmation link has expired. Sign up again to get a new one.',
+      message:
+        'That email link has expired. Sign up or reset your password again to get a new one.',
     });
   });
 
   it('explains a link that was already used', () => {
     expect(parseAuthLink('preppilot://auth/callback?error=access_denied')).toEqual({
       kind: 'failed',
-      message: 'That confirmation link has already been used. Try signing in.',
+      message: 'That email link has already been used. Try signing in.',
     });
   });
 
@@ -114,7 +115,8 @@ describe('finishing a link', () => {
 
     expect(result).toEqual({
       outcome: 'failed',
-      message: 'That confirmation link did not work. Try signing in.',
+      message:
+        'That email link did not work. Open it on the phone you asked from, or try signing in.',
     });
   });
 

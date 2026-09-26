@@ -63,6 +63,11 @@ process mid-request and leave the stored session half-written.
 - **PKCE** is the Supabase auth flow, so an email confirmation link carries a
   one-time code rather than tokens in the URL. The link returns to
   `preppilot://auth/callback`, and the app exchanges the code itself.
+- **Password reset** works the same way. The exchange is announced as
+  `PASSWORD_RECOVERY`, and the app asks for a new password before anything else.
+  A reset link only works on the phone that asked for it: the verifier never
+  leaves that phone. Supabase answers a reset request the same whether or not
+  the address has an account, so the form cannot be used to discover accounts.
 - **Google** sign-in is native: the Google ID token from Android's account
   picker is verified by Supabase (`signInWithIdToken`). The Web client's secret
   lives only in Supabase's provider settings, never in the app. Google issues a

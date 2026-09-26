@@ -78,6 +78,7 @@ export default function AppLayout() {
   const showLabels = width >= LABELLED_TABS_MIN_WIDTH;
   const status = useAuthStore((state) => state.status);
   const userId = useAuthStore((state) => state.user?.id ?? null);
+  const recoveringPassword = useAuthStore((state) => state.recoveringPassword);
 
   useEffect(() => {
     if (userId === null) return;
@@ -98,6 +99,8 @@ export default function AppLayout() {
   }, [userId]);
 
   if (status === 'signedOut') return <Redirect href="/login" />;
+  // A password-reset link signs the student in; the new password comes first.
+  if (recoveringPassword) return <Redirect href="/auth/new-password" />;
 
   return (
     <Tabs

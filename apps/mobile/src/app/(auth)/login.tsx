@@ -1,6 +1,7 @@
 import { firstFailure, normalizeEmail, validateEmail, validatePassword } from '@preppilot/shared';
 import { Link } from 'expo-router';
 import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { Button, Text, TextField } from '../../components/ui';
 import { AuthAlternatives } from '../../features/auth/components/auth-alternatives';
 import { AuthError } from '../../features/auth/components/auth-error';
@@ -66,9 +67,22 @@ export default function LoginScreen() {
         onSubmitEditing={() => void onSubmit()}
       />
 
+      <View style={styles.forgot}>
+        {/* The email typed so far goes along, so it need not be typed twice. */}
+        <Link href={{ pathname: '/forgot-password', params: { email: email.trim() } }} asChild>
+          <Text variant="small" tone="accent" accessibilityRole="link">
+            Forgot password?
+          </Text>
+        </Link>
+      </View>
+
       <Button label="Sign in" onPress={() => void onSubmit()} loading={busy} fullWidth />
 
       <AuthAlternatives />
     </AuthLayout>
   );
 }
+
+const styles = StyleSheet.create({
+  forgot: { alignItems: 'flex-end', marginTop: -4 },
+});

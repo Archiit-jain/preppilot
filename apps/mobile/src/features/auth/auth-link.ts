@@ -42,12 +42,12 @@ const EMAIL_OTP_TYPES: readonly string[] = [
  */
 function describeFailure(code: string | null, description: string | null): string {
   if (code === 'otp_expired') {
-    return 'That confirmation link has expired. Sign up again to get a new one.';
+    return 'That email link has expired. Sign up or reset your password again to get a new one.';
   }
   if (code === 'access_denied') {
-    return 'That confirmation link has already been used. Try signing in.';
+    return 'That email link has already been used. Try signing in.';
   }
-  return description?.replace(/\+/g, ' ') ?? 'That confirmation link did not work.';
+  return description?.replace(/\+/g, ' ') ?? 'That email link did not work.';
 }
 
 /** Reads what a link carries, without touching the network. */
@@ -96,6 +96,14 @@ export function parseAuthLink(url: string): AuthLink {
   return { kind: 'none' };
 }
 
+/**
+ * The same links confirm a sign-up and reset a password, so the words fit both.
+ * A reset link opened on a different phone lands here too: the code can only be
+ * exchanged on the device that asked for it.
+ */
+const LINK_FAILED =
+  'That email link did not work. Open it on the phone you asked from, or try signing in.';
+
 export type AuthLinkOutcome = 'signedIn' | 'ignored' | 'failed';
 
 /**
@@ -117,9 +125,7 @@ export async function completeAuthLink(
 
     case 'code': {
       const { error } = await client.auth.exchangeCodeForSession(link.code);
-      return error === null
-        ? { outcome: 'signedIn' }
-        : { outcome: 'failed', message: 'That confirmation link did not work. Try signing in.' };
+      return error === null ? { outcome: 'signedIn' } : { outcome: 'failed', message: LINK_FAILED };
     }
 
     case 'session': {
@@ -127,9 +133,7 @@ export async function completeAuthLink(
         access_token: link.accessToken,
         refresh_token: link.refreshToken,
       });
-      return error === null
-        ? { outcome: 'signedIn' }
-        : { outcome: 'failed', message: 'That confirmation link did not work. Try signing in.' };
+      return error === null ? { outcome: 'signedIn' } : { outcome: 'failed', message: LINK_FAILED };
     }
 
     case 'otp': {
@@ -137,9 +141,7 @@ export async function completeAuthLink(
         token_hash: link.tokenHash,
         type: link.type,
       });
-      return error === null
-        ? { outcome: 'signedIn' }
-        : { outcome: 'failed', message: 'That confirmation link did not work. Try signing in.' };
+      return error === null ? { outcome: 'signedIn' } : { outcome: 'failed', message: LINK_FAILED };
     }
   }
 }

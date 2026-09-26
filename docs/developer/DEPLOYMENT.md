@@ -87,6 +87,20 @@ allow list (Authentication → URL Configuration → Redirect URLs), and set the
 `localhost:3000`: Supabase falls back to the Site URL whenever it rejects a
 redirect.
 
+"Forgot password?" uses the same redirect, so nothing more needs allowing.
+
+### Auth email: sender and templates
+
+Supabase's built-in mailer sends as "Supabase Auth", cannot be renamed, and
+allows only a few emails an hour for the whole project. Under Authentication →
+Emails → SMTP Settings, configure custom SMTP (a Gmail account with an app
+password, or a sending service on your own domain) with the sender name
+`PrepPilot`. Only then can the templates be edited: paste
+`supabase/templates/confirmation.html` into **Confirm signup** (subject "Verify
+your email for PrepPilot") and `supabase/templates/recovery.html` into **Reset
+Password** (subject "Reset your PrepPilot password"). Both keep
+`{{ .ConfirmationURL }}`, which is what brings the phone back to the app.
+
 ## Building the web bundle
 
 ```bash

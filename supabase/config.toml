@@ -29,6 +29,11 @@ enable_confirmations = true
 subject = "Verify your email for PrepPilot"
 content_path = "./supabase/templates/confirmation.html"
 
+# The "Forgot password?" email; paste it under Reset Password in the same place.
+[auth.email.template.recovery]
+subject = "Reset your PrepPilot password"
+content_path = "./supabase/templates/recovery.html"
+
 [auth.sms]
 # Phone sign-in stays disabled until an SMS provider is provisioned
 # (DECISIONS.md, D26). The client gates the same flow behind EXPO_PUBLIC_ENABLE_PHONE_OTP.

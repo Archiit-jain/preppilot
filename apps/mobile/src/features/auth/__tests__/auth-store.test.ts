@@ -36,6 +36,8 @@ const auth = {
   signOut: jest.fn(),
   exchangeCodeForSession: jest.fn(),
   setSession: jest.fn(),
+  resetPasswordForEmail: jest.fn(),
+  updateUser: jest.fn(),
 };
 
 const unsubscribe = jest.fn();
@@ -491,7 +493,7 @@ describe('completeAuthLink', () => {
 
     expect(outcome).toBe('failed');
     expect(state().error).toBe(
-      'That confirmation link has expired. Sign up again to get a new one.',
+      'That email link has expired. Sign up or reset your password again to get a new one.',
     );
   });
 
@@ -501,7 +503,9 @@ describe('completeAuthLink', () => {
     const outcome = await state().completeAuthLink('preppilot://auth/callback?code=stale');
 
     expect(outcome).toBe('failed');
-    expect(state().error).toBe('That confirmation link did not work. Try signing in.');
+    expect(state().error).toBe(
+      'That email link did not work. Open it on the phone you asked from, or try signing in.',
+    );
   });
 
   it('is not busy once it has finished', async () => {
@@ -525,5 +529,124 @@ describe('signing out after Google sign-in', () => {
 
     expect(forgetGoogleAccount).toHaveBeenCalled();
     expect(state().status).toBe('signedOut');
+  });
+});
+
+/**
+ * The reset link is an ordinary sign-in that Supabase labels PASSWORD_RECOVERY.
+ * The label is all that tells the app to ask for a new password before anything
+ * else, so it is followed closely here.
+ */
+describe('resetting a forgotten password', () => {
+  const listen = async () => {
+    await state().initialise();
+    const [[listener]] = auth.onAuthStateChange.mock.calls;
+    return listener as (event: string, session: unknown) => void;
+  };
+
+  it('sends the reset link back into the app', async () => {
+    auth.resetPasswordForEmail.mockResolvedValue({ data: {}, error: null });
+
+    const ok = await state().sendPasswordReset('ada@example.com');
+
+    expect(ok).toBe(true);
+    expect(auth.resetPasswordForEmail).toHaveBeenCalledWith('ada@example.com', {
+      redirectTo: 'preppilot://auth/callback',
+    });
+    expect(state().busy).toBe(false);
+  });
+
+  it('explains a refused request', async () => {
+    auth.resetPasswordForEmail.mockResolvedValue({
+      data: null,
+      error: { code: 'over_email_send_rate_limit' },
+    });
+
+    expect(await state().sendPasswordReset('ada@example.com')).toBe(false);
+    expect(state().error).toBe('Too many attempts. Wait a few minutes and try again.');
+  });
+
+  it('explains a request that never reached the server', async () => {
+    auth.resetPasswordForEmail.mockRejectedValue(new Error('Network request failed'));
+
+    expect(await state().sendPasswordReset('ada@example.com')).toBe(false);
+    expect(state().error).toBe(authErrorMessages.network);
+  });
+
+  it('ignores a second request while the first is in flight', async () => {
+    useAuthStore.setState({ busy: true });
+
+    expect(await state().sendPasswordReset('ada@example.com')).toBe(false);
+    expect(await state().setNewPassword('newpass123')).toBe(false);
+    expect(auth.resetPasswordForEmail).not.toHaveBeenCalled();
+    expect(auth.updateUser).not.toHaveBeenCalled();
+  });
+
+  it('asks for a new password after a reset link signs the student in', async () => {
+    const listener = await listen();
+
+    listener('PASSWORD_RECOVERY', session);
+
+    expect(state().status).toBe('signedIn');
+    expect(state().recoveringPassword).toBe(true);
+  });
+
+  it('does not ask after an ordinary sign-in', async () => {
+    const listener = await listen();
+
+    listener('SIGNED_IN', session);
+
+    expect(state().recoveringPassword).toBe(false);
+  });
+
+  it('keeps asking through a token refresh, and stops on sign-out', async () => {
+    const listener = await listen();
+    listener('PASSWORD_RECOVERY', session);
+
+    listener('TOKEN_REFRESHED', session);
+    expect(state().recoveringPassword).toBe(true);
+
+    listener('SIGNED_OUT', null);
+    expect(state().recoveringPassword).toBe(false);
+  });
+
+  it('saves the new password and stops asking', async () => {
+    auth.updateUser.mockResolvedValue({ data: {}, error: null });
+    useAuthStore.setState({ recoveringPassword: true });
+
+    const ok = await state().setNewPassword('newpass123');
+
+    expect(ok).toBe(true);
+    expect(auth.updateUser).toHaveBeenCalledWith({ password: 'newpass123' });
+    expect(state().recoveringPassword).toBe(false);
+    expect(state().busy).toBe(false);
+  });
+
+  it('keeps asking when the new password is refused', async () => {
+    auth.updateUser.mockResolvedValue({ data: null, error: { code: 'same_password' } });
+    useAuthStore.setState({ recoveringPassword: true });
+
+    expect(await state().setNewPassword('oldpass123')).toBe(false);
+    expect(state().recoveringPassword).toBe(true);
+    expect(state().error).toBe('That is already your password. Choose a different one.');
+  });
+
+  it('keeps asking when saving fails outright', async () => {
+    auth.updateUser.mockRejectedValue(new Error('Network request failed'));
+    useAuthStore.setState({ recoveringPassword: true });
+
+    expect(await state().setNewPassword('newpass123')).toBe(false);
+    expect(state().recoveringPassword).toBe(true);
+    expect(state().error).toBe(authErrorMessages.network);
+  });
+
+  it('can be put off, leaving the student signed in', () => {
+    useAuthStore.setState({ recoveringPassword: true, status: 'signedIn', error: 'x' });
+
+    state().skipNewPassword();
+
+    expect(state().recoveringPassword).toBe(false);
+    expect(state().status).toBe('signedIn');
+    expect(state().error).toBeNull();
   });
 });
