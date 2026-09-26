@@ -44,3 +44,10 @@ example
 
 # Exported web build (regenerate with pnpm build:web)
 dist/
+
+# Signing key downloaded from EAS for local builds (`eas credentials`). The
+# keystore and its passwords must never reach the repository.
+credentials.json
+/credentials/
+*.jks
+*.keystore
