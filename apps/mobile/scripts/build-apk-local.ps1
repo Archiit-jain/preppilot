@@ -65,10 +65,22 @@ $credentials = Get-Content 'credentials.json' -Raw | ConvertFrom-Json
 $keystore = $credentials.android.keystore
 $storeFile = (Resolve-Path $keystore.keystorePath).Path
 
+# Opening android/ in Android Studio writes Gradle daemon criteria pinning its
+# own JDK (25), which overrides JAVA_HOME. Under 25 the native configure steps
+# fail on "A restricted method in java.lang.System has been called"; the
+# libraries target 17. Without the file, the daemon runs on JAVA_HOME.
+$criteria = 'android\gradle\gradle-daemon-jvm.properties'
+if (Test-Path $criteria) {
+  Remove-Item $criteria -Force
+  Write-Host 'Removed the Gradle daemon JDK pin written by Android Studio.'
+}
+
 # The same properties Android Studio passes for "Generate Signed APK"; they
 # override whatever signing the generated build.gradle names.
 Push-Location 'android'
 try {
+  # A daemon left running on another JDK would otherwise be reused.
+  & .\gradlew.bat --stop | Out-Null
   & .\gradlew.bat ':app:assembleRelease' '-PreactNativeArchitectures=arm64-v8a' `
     "-Pandroid.injected.signing.store.file=$storeFile" `
     "-Pandroid.injected.signing.store.password=$($keystore.keystorePassword)" `
