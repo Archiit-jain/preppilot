@@ -34,10 +34,29 @@ if (-not (Test-Path 'android')) {
   # Prebuild rewrites the android/ios scripts in package.json; keep ours.
   git checkout -- package.json
 }
-if (-not (Test-Path 'android\local.properties')) {
-  $sdk = (Join-Path $env:LOCALAPPDATA 'Android\Sdk') -replace '\\', '/'
-  Set-Content 'android\local.properties' "sdk.dir=$sdk" -Encoding ascii
+# The newest CMake installed, not the 3.22.1 Gradle picks by default: its
+# ninja (1.10) loops on Windows with "build.ninja still dirty after 100 tries"
+# over Reanimated's CONFIGURE_DEPENDS globs. Install a newer one from Android
+# Studio -> SDK Manager -> SDK Tools -> CMake (tick "Show Package Details").
+$sdk = Join-Path $env:LOCALAPPDATA 'Android\Sdk'
+$cmake = Get-ChildItem (Join-Path $sdk 'cmake') -Directory -ErrorAction SilentlyContinue |
+  Sort-Object { [version]$_.Name } -Descending | Select-Object -First 1
+if ($null -eq $cmake -or [version]$cmake.Name -lt [version]'3.30') {
+  throw 'Install CMake 3.30 or newer: Android Studio -> SDK Manager -> SDK Tools -> CMake (tick "Show Package Details").'
 }
+$properties = @("sdk.dir=$($sdk -replace '\\', '/')", "cmake.dir=$($cmake.FullName -replace '\\', '/')")
+Set-Content 'android\local.properties' $properties -Encoding ascii
+Write-Host "Using CMake $($cmake.Name)"
+
+# Native build folders from an earlier CMake would be reused and fail the same way.
+$modules = Get-ChildItem (Join-Path $app '..\..\node_modules') -Directory -ErrorAction SilentlyContinue
+$packages = $modules | Where-Object { -not $_.Name.StartsWith('@') }
+$scoped = $modules | Where-Object { $_.Name.StartsWith('@') } | Get-ChildItem -Directory
+@($packages) + @($scoped) |
+  ForEach-Object { Join-Path $_.FullName 'android\.cxx' } |
+  Where-Object { Test-Path $_ } |
+  ForEach-Object { Remove-Item $_ -Recurse -Force }
+if (Test-Path 'android\app\.cxx') { Remove-Item 'android\app\.cxx' -Recurse -Force }
 
 $credentials = Get-Content 'credentials.json' -Raw | ConvertFrom-Json
 $keystore = $credentials.android.keystore
