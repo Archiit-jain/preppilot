@@ -14,6 +14,11 @@ import { useAuthStore } from '../../auth/auth-store';
 import { configureTimerContext, resetTimerStore, useTimerStore } from '../timer-store';
 
 jest.mock('../../../db/client', () => ({ getRepositories: jest.fn() }));
+jest.mock('expo-screen-orientation', () => ({
+  lockAsync: jest.fn().mockResolvedValue(undefined),
+  OrientationLock: { LANDSCAPE: 5, PORTRAIT_UP: 3 },
+}));
+jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('../../../lib/supabase', () => ({
   getSupabase: jest.fn(),
   startAutoRefresh: jest.fn(() => jest.fn()),
@@ -435,5 +440,56 @@ describe('errors', () => {
     });
 
     expect(screen.queryByRole('alert')).toBeNull();
+  });
+});
+
+describe('full screen', () => {
+  it('starts, pauses and resumes with a tap anywhere, and closes again', async () => {
+    await renderTimer();
+
+    fireEvent.press(screen.getByTestId('timer-fullscreen'));
+    await act(async () => {
+      fireEvent.press(screen.getByRole('button', { name: 'Start timer' }));
+    });
+    expect(store().timer?.status).toBe('running');
+
+    await act(async () => {
+      fireEvent.press(screen.getByRole('button', { name: 'Pause timer' }));
+    });
+    expect(store().timer?.status).toBe('paused');
+
+    await act(async () => {
+      fireEvent.press(screen.getByRole('button', { name: 'Resume timer' }));
+    });
+    expect(store().timer?.status).toBe('running');
+
+    fireEvent.press(screen.getByRole('button', { name: 'Leave full screen' }));
+    expect(screen.queryByTestId('fullscreen-timer')).toBeNull();
+  });
+
+  it('names the Pomodoro phase', async () => {
+    await renderTimer();
+    fireEvent.press(screen.getByRole('button', { name: 'Pomodoro' }));
+
+    fireEvent.press(screen.getByTestId('timer-fullscreen'));
+    expect(screen.getByText('Focus · interval 1')).toBeOnTheScreen();
+
+    act(() => {
+      useTimerStore.setState({ timer: { ...store().timer!, phase: 'shortBreak' } });
+    });
+    expect(screen.getByText('Short break')).toBeOnTheScreen();
+    act(() => {
+      useTimerStore.setState({ timer: { ...store().timer!, phase: 'longBreak' } });
+    });
+    expect(screen.getByText('Long break')).toBeOnTheScreen();
+  });
+
+  it('is not offered once the timer has finished', async () => {
+    await renderTimer();
+    act(() => {
+      useTimerStore.setState({ timer: { ...store().timer!, status: 'finished' } });
+    });
+
+    expect(screen.queryByTestId('timer-fullscreen')).toBeNull();
   });
 });

@@ -83,6 +83,9 @@ importers:
       expo-router:
         specifier: ~57.0.15
         version: 57.0.15(0f1c6ad93123213f8e41e3b3724f8388)
+      expo-screen-orientation:
+        specifier: ~57.0.2
+        version: 57.0.2(expo@57.0.15)(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/jest-preset@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.3)(supports-color@8.1.1))
       expo-secure-store:
         specifier: ~57.0.1
         version: 57.0.1(expo@57.0.15)
@@ -3740,6 +3743,12 @@ packages:
         optional: true
       react-server-dom-webpack:
         optional: true
+
+  expo-screen-orientation@57.0.2:
+    resolution: {integrity: sha512-9wIa/dU561fidHYChkg6LIDAcYr8uMBa8fOws1Km9/slaF3N/a2kgcy0TUZWvNIe7at3r4g2kVva9vRBJBkaEQ==}
+    peerDependencies:
+      expo: '*'
+      react-native: '*'
 
   expo-secure-store@57.0.1:
     resolution: {integrity: sha512-tLa1VmSadOq19mA/dwkl99RbHyjLE0T1qqBYMY3/OsguZTI+rlrDy/DDJjupqlVtmr95hD7o1pYqx5aL+B4YMA==}
@@ -10364,6 +10373,11 @@ snapshots:
       - expo-font
       - react-native-worklets
       - supports-color
+
+  expo-screen-orientation@57.0.2(expo@57.0.15)(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/jest-preset@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.3)(supports-color@8.1.1)):
+    dependencies:
+      expo: 57.0.15(00aa82779a9a99f609b4d7d61473602a)
+      react-native: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/jest-preset@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.3)(supports-color@8.1.1)
 
   expo-secure-store@57.0.1(expo@57.0.15):
     dependencies:

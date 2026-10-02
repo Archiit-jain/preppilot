@@ -12,6 +12,7 @@ export * from './templates/bundled';
 export * from './theme/tokens';
 export * from './time/duration';
 export * from './timer/timer';
+export * from './timer/focus-settings';
 export * from './flashcards/scheduling';
 export * from './ai/study-aids';
 export * from './theme/theme-pack';

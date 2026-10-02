@@ -13,13 +13,15 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Button, Card, Screen, StatChip, Text } from '../../components/ui';
+import { Button, Card, Icon, Screen, StatChip, Text } from '../../components/ui';
 import { useTheme } from '../../theme/theme-context';
 import { getRepositories } from '../../db/client';
 import { useAuthStore } from '../auth/auth-store';
 import { PomodoroSettings } from './components/pomodoro-settings';
 import { Stepper } from './components/stepper';
 import { TimerDial } from './components/timer-dial';
+import { FullScreenTimer } from './fullscreen/fullscreen-timer';
+import { useTimerFaceStore } from './fullscreen/timer-face-store';
 import { HEARTBEAT_INTERVAL_MS, timerNow, useTimerStore } from './timer-store';
 
 /** How often the readout refreshes. Display only — elapsed time is derived. */
@@ -58,6 +60,12 @@ export function TimerScreen() {
   const [editingPomodoro, setEditingPomodoro] = useState(false);
   const userId = useAuthStore((state) => state.user?.id ?? null);
   const [now, setNow] = useState(() => timerNow());
+  const [fullScreen, setFullScreen] = useState(false);
+  const loadFace = useTimerFaceStore((state) => state.load);
+
+  useEffect(() => {
+    void loadFace(userId);
+  }, [loadFace, userId]);
 
   const accent = params.accent ?? theme.colors.accent;
   const label = params.topicName ?? params.chapterName ?? params.subjectName ?? 'General study';
@@ -166,6 +174,23 @@ export function TimerScreen() {
   const finished = timer.status === 'finished';
   const idle = timer.status === 'idle';
 
+  /** The full-screen tap: whichever of start, pause or resume fits now. */
+  const toggle = () => {
+    setNow(timerNow());
+    if (timer.status === 'idle') void store.startTimer();
+    else if (timer.status === 'running') void store.pauseTimer();
+    else if (timer.status === 'paused') void store.resumeTimer();
+  };
+
+  const phase =
+    timer.mode !== 'pomodoro'
+      ? null
+      : timer.phase === 'work'
+        ? `Focus · interval ${timer.completedWorkIntervals + 1}`
+        : timer.phase === 'shortBreak'
+          ? 'Short break'
+          : 'Long break';
+
   return (
     <Screen padded={false}>
       <ScrollView
@@ -207,6 +232,15 @@ export function TimerScreen() {
               <Button label="Resume" onPress={() => void store.resumeTimer()} />
               <Button label="Stop" variant="danger" onPress={() => void store.stopTimer()} />
             </>
+          )}
+          {!finished && (
+            <Button
+              label="Full screen"
+              variant="ghost"
+              icon={<Icon name="expand" size={18} color={theme.colors.accent} />}
+              testID="timer-fullscreen"
+              onPress={() => setFullScreen(true)}
+            />
           )}
           {finished && (
             <>
@@ -315,6 +349,17 @@ export function TimerScreen() {
           </View>
         )}
       </ScrollView>
+
+      <FullScreenTimer
+        visible={fullScreen}
+        timer={timer}
+        now={now}
+        title={label}
+        detail={phase}
+        accent={accent}
+        onToggle={toggle}
+        onClose={() => setFullScreen(false)}
+      />
 
       <PomodoroSettings
         visible={editingPomodoro}

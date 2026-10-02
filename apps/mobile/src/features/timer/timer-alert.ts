@@ -1,5 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import * as Notifications from 'expo-notifications';
+import { Vibration } from 'react-native';
 import { remainingSeconds, type TimerState } from '@preppilot/shared';
 
 /**
@@ -26,7 +27,20 @@ function wording(timer: TimerState): { title: string; body: string } {
     : { title: 'Break over', body: 'Ready for the next interval?' };
 }
 
-let scheduledId: string | null = null;
+/**
+ * Which timer an alert belongs to. The topic timer and Focus Mode each keep
+ * their own, so pausing one never cancels the other's chime.
+ */
+export type AlertSlot = 'timer' | 'focus';
+
+export interface AlertOptions {
+  readonly slot?: AlertSlot;
+  /** Replaces the default wording, e.g. for a focus session. */
+  readonly title?: string;
+  readonly body?: string;
+}
+
+const scheduled = new Map<AlertSlot, string>();
 
 /**
  * Schedules the chime for the moment this countdown ends.
@@ -35,33 +49,43 @@ let scheduledId: string | null = null;
  * previous alert, which is what makes pausing and resuming land on the new end
  * time rather than the original one.
  */
-export async function armTimerAlert(timer: TimerState, now: number): Promise<void> {
-  await disarmTimerAlert();
+export async function armTimerAlert(
+  timer: TimerState,
+  now: number,
+  options: AlertOptions = {},
+): Promise<void> {
+  const slot = options.slot ?? 'timer';
+  await disarmTimerAlert(slot);
 
   const remaining = remainingSeconds(timer, now);
   if (remaining === null || remaining <= 0) return;
 
   try {
-    const { title, body } = wording(timer);
-    scheduledId = await Notifications.scheduleNotificationAsync({
-      content: { title, body, data: { kind: 'timer' } },
+    const fallback = wording(timer);
+    const id = await Notifications.scheduleNotificationAsync({
+      content: {
+        title: options.title ?? fallback.title,
+        body: options.body ?? fallback.body,
+        data: { kind: slot },
+      },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
         seconds: remaining,
         repeats: false,
       },
     });
+    scheduled.set(slot, id);
   } catch {
-    scheduledId = null;
+    scheduled.delete(slot);
   }
 }
 
 /** Cancels a pending chime — the timer was paused, stopped or reset. */
-export async function disarmTimerAlert(): Promise<void> {
-  if (scheduledId === null) return;
+export async function disarmTimerAlert(slot: AlertSlot = 'timer'): Promise<void> {
+  const id = scheduled.get(slot);
+  if (id === undefined) return;
 
-  const id = scheduledId;
-  scheduledId = null;
+  scheduled.delete(slot);
   try {
     await Notifications.cancelScheduledNotificationAsync(id);
   } catch {
@@ -83,7 +107,19 @@ export async function announceTimerFinished(): Promise<void> {
   }
 }
 
+/** A pattern long enough to notice on a desk: three pulses. */
+export const FINISHED_VIBRATION = [0, 500, 250, 500, 250, 500];
+
+/** Buzzes the phone for a finished session, for a student who chose vibration. */
+export function vibrateFinished(): void {
+  try {
+    Vibration.vibrate(FINISHED_VIBRATION);
+  } catch {
+    // No vibrator (web, some tablets): nothing else to do.
+  }
+}
+
 /** Test seam: forgets any armed alert without touching the platform. */
 export function resetTimerAlert(): void {
-  scheduledId = null;
+  scheduled.clear();
 }

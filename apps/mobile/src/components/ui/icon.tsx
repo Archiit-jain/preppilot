@@ -27,6 +27,7 @@ export type IconName =
   | 'plus'
   | 'image'
   | 'close'
+  | 'expand'
   | 'notePlus'
   | 'chats'
   | 'settings';
@@ -180,6 +181,12 @@ export function Icon({ name, size = 22, color, label, testID }: IconProps) {
       {name === 'close' && (
         <>
           <Path d="M6.5 6.5l11 11M17.5 6.5l-11 11" {...common} />
+        </>
+      )}
+      {name === 'expand' && (
+        <>
+          {/* Four corners pulled outward: "fill the screen". */}
+          <Path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" {...common} />
         </>
       )}
       {name === 'notePlus' && (

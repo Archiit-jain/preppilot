@@ -3,6 +3,7 @@ export { AppHeader, type AppHeaderProps } from './app-header';
 export { BrandMark, type BrandMarkProps } from './brand-mark';
 export { Card, type CardProps } from './card';
 export { FadeIn, type FadeInProps } from './fade-in';
+export { KeepScreenAwake } from './keep-screen-awake';
 export { Icon, type IconName, type IconProps } from './icon';
 export { Logo, type LogoProps } from './logo';
 export { NamePrompt, type NamePromptProps } from './name-prompt';
