@@ -19,6 +19,7 @@ import { TIDE_PALETTE, TideFace } from './faces/tide-face';
 import type { FacePalette, FaceProps } from './faces/types';
 import { WEDGE_PALETTE, WedgeFace } from './faces/wedge-face';
 import { enterLandscape, leaveLandscape } from './orientation';
+import { useSmoothProgress } from './smooth-progress';
 import { useTimerFaceStore } from './timer-face-store';
 
 export const FACES: Readonly<
@@ -114,6 +115,7 @@ function FullScreenBody({
   const choose = useTimerFaceStore((state) => state.choose);
   const userId = useAuthStore((state) => state.user?.id ?? null);
   const { Component, palette } = FACES[face];
+  const progress = useSmoothProgress(timer, now);
 
   useEffect(() => {
     void enterLandscape();
@@ -166,6 +168,7 @@ function FullScreenBody({
           <View style={styles.centre}>
             <Component
               readout={faceReadout(timer, now)}
+              progress={progress}
               accent={accent}
               width={width}
               height={height}

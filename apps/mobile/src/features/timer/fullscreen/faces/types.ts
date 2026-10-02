@@ -1,7 +1,13 @@
 import type { FaceReadout } from '@preppilot/shared';
+import type { SharedValue } from 'react-native-reanimated';
 
 export interface FaceProps {
   readonly readout: FaceReadout;
+  /**
+   * How far through, 0..1, moving continuously rather than once a second.
+   * Anything that drains or fills is drawn from this; only digits use `readout`.
+   */
+  readonly progress: SharedValue<number>;
   /** The subject's colour, or the theme accent for unattached sessions. */
   readonly accent: string;
   readonly width: number;
@@ -21,7 +27,9 @@ export interface FacePalette {
   readonly muted: string;
 }
 
-/** The fraction of the session still to go — what a draining face shows. */
-export function remainingFraction(readout: FaceReadout): number {
-  return readout.countsDown ? 1 - readout.fraction : readout.fraction;
+/** The share still to go for a countdown, the share done for a stopwatch. */
+export function shownFraction(progress: number, countsDown: boolean): number {
+  'worklet';
+  const clamped = Math.min(1, Math.max(0, progress));
+  return countsDown ? 1 - clamped : clamped;
 }

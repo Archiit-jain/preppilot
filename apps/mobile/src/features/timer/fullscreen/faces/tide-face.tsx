@@ -69,29 +69,32 @@ function Wave({
   );
 }
 
-/** Water rises as you study; the waves go still when the timer is paused. */
-export function TideFace({ readout, width, height, running }: FaceProps) {
-  const level = Math.max(0, Math.min(1, readout.fraction)) * height;
-  const size = Math.min(height * 0.32, (width * 0.8) / (readout.groups.join(':').length * 0.6));
+/** Water rises steadily as you study; the waves go still when the timer is paused. */
+export function TideFace({ readout, progress, width, height, running }: FaceProps) {
+  const text = readout.groups.join(':');
+  const size = Math.min(height * 0.32, (width * 0.8) / (text.length * 0.6));
+  const water = useAnimatedStyle(() => ({
+    height: Math.min(1, Math.max(0, progress.value)) * height + WAVE_HEIGHT,
+  }));
 
   return (
     <View style={styles.fill} testID="face-tide">
-      <View style={[styles.water, { height: level + WAVE_HEIGHT }]}>
+      <Animated.View testID="tide-water" style={[styles.water, water]}>
         <View style={styles.waves}>
           <View style={styles.layer}>
             <Wave width={width} colour={BACK} seconds={7} running={running} testID="tide-back" />
           </View>
           <Wave width={width} colour={FRONT} seconds={4} running={running} testID="tide-front" />
         </View>
-        <View testID="tide-water" style={{ height: level, backgroundColor: FRONT }} />
-      </View>
+        <View style={[styles.body, { backgroundColor: FRONT }]} />
+      </Animated.View>
       <View style={styles.centre} pointerEvents="none">
         <Text
           numeric
           weight="semibold"
-          style={{ fontSize: size, lineHeight: size * 1.15, color: TIDE_PALETTE.ink }}
+          style={{ fontSize: size, lineHeight: size * 1.2, color: TIDE_PALETTE.ink }}
         >
-          {readout.groups.join(':')}
+          {text}
         </Text>
       </View>
     </View>
@@ -103,6 +106,7 @@ const styles = StyleSheet.create({
   water: { position: 'absolute', left: 0, right: 0, bottom: 0 },
   waves: { height: WAVE_HEIGHT },
   layer: { position: 'absolute', top: -6, left: 0, opacity: 0.9 },
+  body: { flex: 1 },
   centre: {
     position: 'absolute',
     top: 0,

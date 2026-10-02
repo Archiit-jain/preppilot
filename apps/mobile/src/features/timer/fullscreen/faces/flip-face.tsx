@@ -16,74 +16,121 @@ export const FLIP_PALETTE: FacePalette = {
 };
 
 const CARD = '#1D1D22';
-const FLAP = '#26262D';
+const FLAP_TOP = '#23232A';
+const FLAP_BOTTOM = '#19191E';
 
-/** How long a falling card takes. Short enough to finish well inside a second. */
-export const FLIP_MS = 380;
+/** How long one flip takes. Well inside a second, so seconds never queue up. */
+export const FLIP_MS = 520;
+
+interface HalfProps {
+  readonly digit: string;
+  readonly half: 'top' | 'bottom';
+  readonly width: number;
+  readonly height: number;
+  readonly colour: string;
+}
+
+/** One half of a card: the full digit drawn and clipped to the top or bottom. */
+function Half({ digit, half, width, height, colour }: HalfProps) {
+  const radius = width * 0.14;
+  return (
+    <View
+      style={[
+        styles.half,
+        {
+          height: height / 2,
+          backgroundColor: colour,
+          ...(half === 'top'
+            ? { borderTopLeftRadius: radius, borderTopRightRadius: radius }
+            : { borderBottomLeftRadius: radius, borderBottomRightRadius: radius }),
+        },
+      ]}
+    >
+      <Text
+        numeric
+        weight="bold"
+        style={[
+          styles.glyph,
+          {
+            top: half === 'top' ? 0 : -height / 2,
+            height,
+            fontSize: height * 0.72,
+            lineHeight: height,
+            color: FLIP_PALETTE.ink,
+          },
+        ]}
+      >
+        {digit}
+      </Text>
+    </View>
+  );
+}
 
 /**
- * One digit card. When the digit changes, the old digit's top half falls
- * forward over the new one — the "falling cards" of a split-flap clock.
+ * One split-flap card, as the real thing works: the new digit's top half is
+ * revealed at once; the old top half falls forward over the old bottom half;
+ * at the halfway point it becomes the flap carrying the new bottom half, which
+ * swings down and lands. Only then does the bottom show the new digit.
  */
 function FlipCard({ digit, width, height }: { digit: string; width: number; height: number }) {
-  const [falling, setFalling] = useState<string | null>(null);
+  const [old, setOld] = useState<string | null>(null);
+  const [bottom, setBottom] = useState(digit);
   const previous = useRef(digit);
   const turn = useSharedValue(1);
 
   useEffect(() => {
     if (previous.current === digit) return;
-    setFalling(previous.current);
+    setOld(previous.current);
     previous.current = digit;
     turn.value = 0;
-    turn.value = withTiming(1, { duration: FLIP_MS, easing: Easing.in(Easing.quad) });
-    const done = setTimeout(() => setFalling(null), FLIP_MS + 20);
-    return () => clearTimeout(done);
+    turn.value = withTiming(1, { duration: FLIP_MS, easing: Easing.inOut(Easing.quad) });
+    const landed = setTimeout(() => {
+      setBottom(digit);
+      setOld(null);
+    }, FLIP_MS);
+    return () => clearTimeout(landed);
   }, [digit, turn]);
 
-  const flap = useAnimatedStyle(() => ({
-    transform: [{ perspective: height * 4 }, { rotateX: `${-90 * turn.value}deg` }],
+  const perspective = height * 3;
+  const falling = useAnimatedStyle(() => ({
+    opacity: turn.value < 0.5 ? 1 : 0,
+    transform: [{ perspective }, { rotateX: `${-180 * Math.min(turn.value, 0.5)}deg` }],
+  }));
+  const landing = useAnimatedStyle(() => ({
+    opacity: turn.value >= 0.5 ? 1 : 0,
+    transform: [{ perspective }, { rotateX: `${180 * (1 - Math.max(turn.value, 0.5))}deg` }],
   }));
 
-  const glyph = (value: string, testID?: string) => (
-    <Text
-      numeric
-      weight="bold"
-      testID={testID}
-      style={[
-        styles.glyph,
-        { fontSize: height * 0.72, lineHeight: height, height, color: FLIP_PALETTE.ink },
-      ]}
-    >
-      {value}
-    </Text>
-  );
-
   return (
-    <View
-      style={[styles.card, { width, height, borderRadius: width * 0.14, backgroundColor: CARD }]}
-    >
-      {glyph(digit, 'flip-digit')}
+    <View style={{ width, height }}>
+      <View style={styles.stack}>
+        <Half digit={digit} half="top" width={width} height={height} colour={CARD} />
+        <Half digit={bottom} half="bottom" width={width} height={height} colour={CARD} />
+      </View>
+      {old !== null && (
+        <>
+          <Animated.View
+            testID="flip-flap"
+            style={[styles.flapTop, { height: height / 2 }, falling]}
+          >
+            <Half digit={old} half="top" width={width} height={height} colour={FLAP_TOP} />
+          </Animated.View>
+          <Animated.View
+            testID="flip-flap"
+            style={[styles.flapBottom, { top: height / 2, height: height / 2 }, landing]}
+          >
+            <Half digit={digit} half="bottom" width={width} height={height} colour={FLAP_BOTTOM} />
+          </Animated.View>
+        </>
+      )}
       {/* The hinge across the middle. */}
       <View
+        pointerEvents="none"
         style={[styles.hinge, { top: height / 2 - 1, backgroundColor: FLIP_PALETTE.background }]}
       />
-      {falling !== null && (
-        <Animated.View
-          testID="flip-falling"
-          style={[
-            styles.flap,
-            flap,
-            {
-              height: height / 2,
-              borderTopLeftRadius: width * 0.14,
-              borderTopRightRadius: width * 0.14,
-              backgroundColor: FLAP,
-            },
-          ]}
-        >
-          {glyph(falling)}
-        </Animated.View>
-      )}
+      <Text testID="flip-digit" style={styles.hidden}>
+        {digit}
+      </Text>
     </View>
   );
 }
@@ -125,15 +172,12 @@ export function FlipFace({ readout, width, height }: FaceProps) {
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center' },
-  card: { overflow: 'hidden', alignItems: 'center' },
-  glyph: { textAlign: 'center', alignSelf: 'stretch' },
+  stack: { flex: 1 },
+  half: { overflow: 'hidden', alignSelf: 'stretch' },
+  glyph: { position: 'absolute', left: 0, right: 0, textAlign: 'center' },
+  flapTop: { position: 'absolute', top: 0, left: 0, right: 0, transformOrigin: 'bottom' },
+  flapBottom: { position: 'absolute', left: 0, right: 0, transformOrigin: 'top' },
   hinge: { position: 'absolute', left: 0, right: 0, height: 2 },
-  flap: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    overflow: 'hidden',
-    transformOrigin: 'bottom',
-  },
+  // The digit as text for tests and screen readers; the halves draw it.
+  hidden: { position: 'absolute', width: 1, height: 1, opacity: 0 },
 });

@@ -1,9 +1,11 @@
 import { createTimer, pause, start, TIMER_FACES, type TimerState } from '@preppilot/shared';
 import * as ScreenOrientation from 'expo-screen-orientation';
-import { act, fireEvent, renderWithTheme, screen } from '../../../../test-utils/render';
+import { act, fireEvent, renderHook, renderWithTheme, screen } from '../../../../test-utils/render';
 import { getRepositories } from '../../../../db/client';
 import { useAuthStore } from '../../../auth/auth-store';
-import { wedgePath } from '../faces/wedge-face';
+import { minutesLabel, wedgePath } from '../faces/wedge-face';
+import { shownFraction } from '../faces/types';
+import { useSmoothProgress } from '../smooth-progress';
 import { CONTROLS_VISIBLE_MS, FullScreenTimer } from '../fullscreen-timer';
 import { enterLandscape, leaveLandscape } from '../orientation';
 import { resetTimerFaceStore, TIMER_FACE_PREFERENCE, useTimerFaceStore } from '../timer-face-store';
@@ -203,10 +205,10 @@ describe.each(TIMER_FACES)('the %s face', (face) => {
 });
 
 describe('the flip cards', () => {
-  it('drops the old digit when one changes, then clears it', () => {
+  it('flips the old digit over when one changes, then settles', () => {
     const timer = countdown();
     const { rerender } = show(timer, T0 + 1000);
-    expect(screen.queryAllByTestId('flip-falling')).toHaveLength(0);
+    expect(screen.queryAllByTestId('flip-flap')).toHaveLength(0);
 
     rerender(
       <FullScreenTimer
@@ -219,12 +221,12 @@ describe('the flip cards', () => {
         onClose={jest.fn()}
       />,
     );
-    expect(screen.getAllByTestId('flip-falling').length).toBeGreaterThan(0);
+    expect(screen.getAllByTestId('flip-flap').length).toBeGreaterThan(0);
 
     act(() => {
-      jest.advanceTimersByTime(500);
+      jest.advanceTimersByTime(600);
     });
-    expect(screen.queryAllByTestId('flip-falling')).toHaveLength(0);
+    expect(screen.queryAllByTestId('flip-flap')).toHaveLength(0);
   });
 
   it('adds an hour card past sixty minutes', () => {
@@ -240,26 +242,15 @@ describe('the time wedge', () => {
     expect(wedgePath(50, 40, 0.75)).toContain(' 0 1 1 ');
   });
 
-  it('shows a full disc at the start and none at the end', () => {
-    useTimerFaceStore.setState({ face: 'wedge' });
-    const timer = countdown();
-    const { rerender } = show(timer, T0);
-    expect(screen.getByTestId('wedge-full')).toBeOnTheScreen();
+  it('draws a whole disc, and nothing at all, at the two ends', () => {
+    expect(wedgePath(50, 40, 1)).toBe('M 50 10 A 40 40 0 1 1 50 90 A 40 40 0 1 1 50 10 Z');
+    expect(wedgePath(50, 40, 0)).toBe('M 50 50 Z');
+  });
 
-    rerender(
-      <FullScreenTimer
-        visible
-        timer={timer}
-        now={T0 + 25 * 60_000}
-        title="Optics"
-        accent="#3B82F6"
-        onToggle={jest.fn()}
-        onClose={jest.fn()}
-      />,
-    );
-    expect(screen.queryByTestId('wedge-full')).toBeNull();
-    expect(screen.queryByTestId('wedge-slice')).toBeNull();
-    expect(screen.getByText('0 min left')).toBeOnTheScreen();
+  it('counts whole minutes left, and minutes in for a stopwatch', () => {
+    expect(minutesLabel(61, true)).toBe('2 min left');
+    expect(minutesLabel(0, true)).toBe('0 min left');
+    expect(minutesLabel(119, false)).toBe('1 min in');
   });
 });
 
@@ -295,5 +286,45 @@ describe('turning the screen', () => {
 
     await expect(enterLandscape()).resolves.toBeUndefined();
     await expect(leaveLandscape()).resolves.toBeUndefined();
+  });
+});
+
+describe('smooth progress', () => {
+  it('holds the exact value while paused', () => {
+    const paused = countdown('paused');
+    const { result } = renderHook(() => useSmoothProgress(paused, T0 + 500_000));
+
+    expect(result.current.value).toBeCloseTo(60 / 1500);
+  });
+
+  it('glides towards the end while running', () => {
+    const { result } = renderHook(() => useSmoothProgress(countdown(), T0 + 1000));
+    const before = result.current.value;
+
+    act(() => {
+      jest.advanceTimersByTime(60_000);
+    });
+
+    // Moving between readings, not waiting for the next one.
+    expect(result.current.value).toBeGreaterThan(before);
+    expect(result.current.value).toBeLessThanOrEqual(1);
+  });
+
+  it('jumps rather than glides when it is far from the truth', () => {
+    const stopwatch = start(createTimer({ mode: 'stopwatch' }), T0);
+    const { result, rerender } = renderHook(
+      ({ now }: { now: number }) => useSmoothProgress(stopwatch, now),
+      { initialProps: { now: T0 } },
+    );
+    rerender({ now: T0 + 3600_000 + 900_000 });
+
+    expect(result.current.value).toBeCloseTo(0.25, 2);
+  });
+
+  it('shows the share left for a countdown and the share done for a stopwatch', () => {
+    expect(shownFraction(0.25, true)).toBe(0.75);
+    expect(shownFraction(0.25, false)).toBe(0.25);
+    expect(shownFraction(1.5, false)).toBe(1);
+    expect(shownFraction(-1, true)).toBe(1);
   });
 });

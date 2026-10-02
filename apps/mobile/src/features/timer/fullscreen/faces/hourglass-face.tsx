@@ -10,7 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { ClipPath, Defs, Line, Path, Rect } from 'react-native-svg';
 import { Text } from '../../../../components/ui';
-import { remainingFraction, type FacePalette, type FaceProps } from './types';
+import { shownFraction, type FacePalette, type FaceProps } from './types';
 
 export const HOURGLASS_PALETTE: FacePalette = {
   background: '#1B1A2E',
@@ -21,6 +21,7 @@ export const HOURGLASS_PALETTE: FacePalette = {
 const GLASS = '#C9B37E';
 const SAND = '#E8C872';
 const AnimatedLine = Animated.createAnimatedComponent(Line);
+const AnimatedRect = Animated.createAnimatedComponent(Rect);
 
 /** Drawn in a 100 × 160 box: two bulbs meeting at a neck at y = 80. */
 const OUTLINE =
@@ -29,26 +30,42 @@ const TOP_BULB = 'M20 10 C20 50 46 66 48 80 L52 80 C54 66 80 50 80 10 Z';
 const BOTTOM_BULB = 'M48 80 C46 94 20 110 20 150 L80 150 C80 110 54 94 52 80 Z';
 const BULB = 70;
 
-/** Sand runs from the top bulb to the bottom over the session. */
-export function HourglassFace({ readout, width, height, running }: FaceProps) {
-  const glassHeight = height * 0.82;
+/** Sand runs smoothly from the top bulb to the bottom over the session. */
+export function HourglassFace({ readout, progress, width, height, running }: FaceProps) {
+  const glassHeight = height * 0.8;
   const glassWidth = (glassHeight * 100) / 160;
-  const left = remainingFraction(readout);
-  const fallen = 1 - left;
+  const countsDown = readout.countsDown;
   const ids = useId().replace(/[^A-Za-z0-9]/g, '');
+  const digits = Math.min(glassHeight * 0.2, (width - glassWidth) * 0.12);
 
-  // The trickle moves only while time does.
+  const top = useAnimatedProps(() => {
+    const left = shownFraction(progress.value, countsDown);
+    return { y: 80 - left * BULB, height: left * BULB };
+  });
+  const bottom = useAnimatedProps(() => {
+    const fallen = 1 - shownFraction(progress.value, countsDown);
+    return { y: 150 - fallen * BULB, height: fallen * BULB };
+  });
+
+  // The trickle moves only while time does, and stops when the top is empty.
   const flow = useSharedValue(0);
   useEffect(() => {
-    if (running && left > 0) {
+    if (running) {
       flow.value = 0;
       flow.value = withRepeat(withTiming(-12, { duration: 500, easing: Easing.linear }), -1);
     } else {
       cancelAnimation(flow);
     }
     return () => cancelAnimation(flow);
-  }, [running, left, flow]);
-  const trickle = useAnimatedProps(() => ({ strokeDashoffset: flow.value }));
+  }, [running, flow]);
+  const trickle = useAnimatedProps(() => {
+    const left = shownFraction(progress.value, countsDown);
+    return {
+      strokeDashoffset: flow.value,
+      y2: 150 - (1 - left) * BULB,
+      strokeOpacity: running && left > 0.002 ? 1 : 0,
+    };
+  });
 
   return (
     <View
@@ -64,37 +81,32 @@ export function HourglassFace({ readout, width, height, running }: FaceProps) {
             <Path d={BOTTOM_BULB} />
           </ClipPath>
         </Defs>
-        <Rect
+        <AnimatedRect
           testID="hourglass-top"
+          animatedProps={top}
           x={0}
-          y={80 - left * BULB}
           width={100}
-          height={left * BULB}
           fill={SAND}
           clipPath={`url(#top${ids})`}
         />
-        <Rect
+        <AnimatedRect
           testID="hourglass-bottom"
+          animatedProps={bottom}
           x={0}
-          y={150 - fallen * BULB}
           width={100}
-          height={fallen * BULB}
           fill={SAND}
           clipPath={`url(#bottom${ids})`}
         />
-        {left > 0 && (
-          <AnimatedLine
-            testID="hourglass-trickle"
-            animatedProps={trickle}
-            x1={50}
-            y1={80}
-            x2={50}
-            y2={150 - fallen * BULB}
-            stroke={SAND}
-            strokeWidth={1.6}
-            strokeDasharray="3 3"
-          />
-        )}
+        <AnimatedLine
+          testID="hourglass-trickle"
+          animatedProps={trickle}
+          x1={50}
+          y1={80}
+          x2={50}
+          stroke={SAND}
+          strokeWidth={1.6}
+          strokeDasharray="3 3"
+        />
         <Path d={OUTLINE} fill="none" stroke={GLASS} strokeWidth={2} />
         <Path d="M14 8 H86 M14 152 H86" stroke={GLASS} strokeWidth={4} strokeLinecap="round" />
       </Svg>
@@ -102,9 +114,11 @@ export function HourglassFace({ readout, width, height, running }: FaceProps) {
         numeric
         weight="semibold"
         style={{
-          fontSize: glassHeight * 0.16,
+          fontSize: digits,
+          // Set with the size: a large readout on a small line height is clipped.
+          lineHeight: digits * 1.25,
           color: HOURGLASS_PALETTE.ink,
-          marginLeft: glassWidth * 0.3,
+          marginLeft: glassWidth * 0.35,
         }}
       >
         {readout.groups.join(':')}
