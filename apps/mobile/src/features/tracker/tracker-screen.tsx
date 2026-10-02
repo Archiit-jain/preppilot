@@ -1,4 +1,3 @@
-import { accentForIndex } from '@preppilot/shared';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
@@ -182,8 +181,8 @@ export function TrackerScreen() {
 
   /** Subject colour follows creation order, so a subject keeps its colour. */
   const accents = useMemo(
-    () => new Map(state.subjects.map((subject, index) => [subject.id, accentForIndex(index)])),
-    [state.subjects],
+    () => new Map(state.subjects.map((subject, index) => [subject.id, theme.accentFor(index)])),
+    [state.subjects, theme],
   );
 
   /**

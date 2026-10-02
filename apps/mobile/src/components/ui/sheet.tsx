@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { surfaceBorder } from '../../theme/look-styles';
 import { useTheme } from '../../theme/theme-context';
 
 export interface SheetProps {
@@ -48,8 +49,16 @@ export function Sheet({ visible, onDismiss, label, children, testID }: SheetProp
                 padding: theme.spacing.lg,
                 gap: theme.spacing.base,
               },
+              theme.look === null ? null : surfaceBorder(theme, theme.look),
             ]}
           >
+            {theme.look?.components.accentCard === 'sticky' && (
+              <View
+                pointerEvents="none"
+                testID="sheet-tape"
+                style={[styles.tape, { backgroundColor: theme.look.ornament.highlight }]}
+              />
+            )}
             {children}
           </View>
         </View>
@@ -70,4 +79,14 @@ const styles = StyleSheet.create({
   },
   centre: { flex: 1, justifyContent: 'center', padding: 24 },
   sheet: { borderWidth: StyleSheet.hairlineWidth, maxHeight: '85%' },
+  tape: {
+    position: 'absolute',
+    top: -8,
+    left: '50%',
+    marginLeft: -40,
+    width: 80,
+    height: 18,
+    opacity: 0.75,
+    transform: [{ rotate: '-2deg' }],
+  },
 });

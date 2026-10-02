@@ -145,6 +145,7 @@ function RunningSession({ now }: { readonly now: number }) {
         <Text
           variant="display"
           weight="semibold"
+          numeric
           testID="focus-readout"
           style={[styles.clock, { fontSize: 64, marginVertical: theme.spacing.xl }]}
           accessibilityLabel={`${formatClock(remaining)} remaining`}

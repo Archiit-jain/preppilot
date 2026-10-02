@@ -7,6 +7,7 @@ import { getRepositories } from '../../db/client';
 import { deleteRemoteAccount } from './delete-account';
 import { useAuthStore } from '../auth/auth-store';
 import { SyncStatusCard } from '../sync/components/sync-status';
+import { ThemePicker } from './components/theme-picker';
 import { useTheme, useThemeContext } from '../../theme/theme-context';
 
 /** The word a student must type to confirm deletion. */
@@ -168,6 +169,8 @@ export function SettingsScreen() {
             })}
           </View>
         </Card>
+
+        <ThemePicker />
 
         {outcome !== null && (
           <Card testID="delete-outcome">

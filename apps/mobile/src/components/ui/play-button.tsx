@@ -1,5 +1,7 @@
 import { Pressable, StyleSheet } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import { mostReadable } from '@preppilot/shared';
+import { edgeBelow } from '../../theme/look-styles';
 import { useTheme } from '../../theme/theme-context';
 import { ariaState } from './aria';
 
@@ -36,6 +38,31 @@ export function PlayButton({
 
   const filled = variant === 'filled';
 
+  const look = theme.look;
+  const play = look?.components.playButton;
+  const iconColor =
+    look === null || !filled
+      ? filled
+        ? theme.colors.textOnAccent
+        : accent
+      : mostReadable(accent, [look.ornament.onSubjectAccent, theme.colors.textPrimary, '#FFFFFF']);
+  const lookShape =
+    play === undefined
+      ? null
+      : {
+          borderRadius: play.shape === 'square' ? theme.radius.md : diameter / 2,
+          ...(filled && play.borderWidth > 0
+            ? { borderWidth: play.borderWidth, borderColor: theme.colors.textPrimary }
+            : {}),
+          ...(filled && play.edgeBottom > play.borderWidth
+            ? {
+                borderBottomWidth: play.edgeBottom,
+                borderBottomColor:
+                  play.borderWidth > 0 && look !== null ? look.ornament.edge : edgeBelow(accent),
+              }
+            : {}),
+        };
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -56,10 +83,11 @@ export function PlayButton({
           borderWidth: filled ? 0 : 1.5,
           opacity: disabled ? 0.4 : pressed ? 0.8 : 1,
         },
+        lookShape,
       ]}
     >
       <Svg width={diameter * 0.4} height={diameter * 0.4} viewBox="0 0 24 24">
-        <Path d="M8 5v14l11-7z" fill={filled ? theme.colors.textOnAccent : accent} />
+        <Path d="M8 5v14l11-7z" fill={iconColor} />
       </Svg>
     </Pressable>
   );

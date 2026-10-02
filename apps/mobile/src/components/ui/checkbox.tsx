@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, View, type PressableProps } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import { mixHex, mostReadable } from '@preppilot/shared';
 import { useTheme } from '../../theme/theme-context';
 import { ariaState } from './aria';
 
@@ -30,6 +31,40 @@ export function Checkbox({
 
   const tickColor = theme.mode === 'light' ? theme.colors.textPrimary : theme.colors.textOnAccent;
 
+  // A downloaded theme's box: square or round, filled or ticked in pen.
+  const box = theme.look?.components.checkbox;
+  const heavy = (box?.borderWidth ?? 0) >= 2;
+  const penTick = box?.checked === 'tick';
+  const lookTickColor =
+    box === undefined
+      ? tickColor
+      : penTick
+        ? accent
+        : mostReadable(accent, [
+            theme.look?.ornament.onSubjectAccent ?? tickColor,
+            theme.colors.background,
+            theme.colors.textPrimary,
+          ]);
+  const lookBox =
+    box === undefined
+      ? null
+      : {
+          borderRadius: box.shape === 'square' ? theme.radius.sm / 1.5 : boxSize / 2,
+          borderWidth: box.borderWidth,
+          borderColor: checked
+            ? heavy
+              ? theme.colors.textPrimary
+              : accent
+            : heavy
+              ? theme.colors.textPrimary
+              : theme.colors.textMuted,
+          backgroundColor: checked
+            ? penTick
+              ? mixHex(accent, theme.colors.surface, 0.85)
+              : accent
+            : 'transparent',
+        };
+
   return (
     <Pressable
       accessibilityRole="checkbox"
@@ -49,15 +84,25 @@ export function Checkbox({
           borderColor: checked ? accent : theme.colors.border,
           opacity: disabled === true ? 0.4 : pressed ? 0.7 : 1,
         },
+        lookBox,
       ]}
       {...rest}
     >
       <View pointerEvents="none" testID={checked ? 'checkbox-tick' : 'checkbox-tick-empty'}>
-        <Svg width={boxSize * 0.6} height={boxSize * 0.6} viewBox="0 0 24 24">
+        <Svg
+          width={boxSize * (penTick && checked ? 0.85 : 0.6)}
+          height={boxSize * (penTick && checked ? 0.85 : 0.6)}
+          viewBox="0 0 24 24"
+        >
           <Path
-            d="M20 6L9 17l-5-5"
-            stroke={checked ? tickColor : theme.colors.textMuted}
-            strokeWidth={checked ? 3 : 2}
+            // A pen tick is drawn freehand, overshooting the box like a real one.
+            d={
+              penTick && checked
+                ? 'M4 13.5c2.2 1.6 3.6 3.4 5 5.5C11.8 13 15.6 8.6 20.5 5'
+                : 'M20 6L9 17l-5-5'
+            }
+            stroke={checked ? lookTickColor : theme.colors.textMuted}
+            strokeWidth={checked ? (penTick ? 3.2 : 3) : 2}
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"

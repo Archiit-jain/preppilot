@@ -2,7 +2,7 @@ import { formatPercent, motion, type Progress } from '@preppilot/shared';
 import { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { useAnimatedProps, useSharedValue, withTiming } from 'react-native-reanimated';
-import Svg, { Circle } from 'react-native-svg';
+import Svg, { Circle, Line } from 'react-native-svg';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 import { useTheme } from '../../theme/theme-context';
@@ -36,9 +36,11 @@ export function ProgressRing({
   hideValue = false,
 }: ProgressRingProps) {
   const theme = useTheme();
+  const ring = theme.look?.components.progressRing;
 
   const diameter = size ?? theme.progressMetrics.ringSize;
-  const stroke = strokeWidth ?? theme.progressMetrics.ringStroke;
+  const stroke =
+    strokeWidth ?? (ring === undefined ? theme.progressMetrics.ringStroke : ring.stroke);
   const radius = (diameter - stroke) / 2;
   const circumference = 2 * Math.PI * radius;
   const percent = progress.percent ?? 0;
@@ -80,10 +82,31 @@ export function ProgressRing({
           cx={diameter / 2}
           cy={diameter / 2}
           r={radius}
-          stroke={theme.colors.progressTrack}
-          strokeWidth={stroke}
+          stroke={ring?.track === 'dashed' ? theme.colors.textMuted : theme.colors.progressTrack}
+          strokeWidth={ring?.track === 'dashed' ? Math.max(1.5, stroke / 2.5) : stroke}
+          {...(ring?.track === 'dashed' ? { strokeDasharray: '3 4' } : {})}
           fill="none"
         />
+        {ring?.track === 'ticks' &&
+          [0, 90, 180, 270].map((angle) => {
+            // Four instrument ticks at the cardinal points, outside the arc.
+            const rad = (angle * Math.PI) / 180;
+            const c = diameter / 2;
+            const outer = diameter / 2;
+            const inner = outer - Math.max(3, stroke * 0.6);
+            return (
+              <Line
+                key={angle}
+                testID="progress-ring-tick"
+                x1={c + Math.sin(rad) * inner}
+                y1={c - Math.cos(rad) * inner}
+                x2={c + Math.sin(rad) * outer}
+                y2={c - Math.cos(rad) * outer}
+                stroke={theme.colors.textMuted}
+                strokeWidth={1.5}
+              />
+            );
+          })}
         {percent > 0 && (
           <AnimatedCircle
             testID="progress-ring-arc"
@@ -100,11 +123,24 @@ export function ProgressRing({
             transform={`rotate(-90 ${diameter / 2} ${diameter / 2})`}
           />
         )}
+        {ring?.outline === true &&
+          [radius + stroke / 2, radius - stroke / 2].map((r) => (
+            <Circle
+              key={r}
+              testID="progress-ring-outline"
+              cx={diameter / 2}
+              cy={diameter / 2}
+              r={r}
+              stroke={theme.colors.textPrimary}
+              strokeWidth={1.5}
+              fill="none"
+            />
+          ))}
       </Svg>
 
       {!hideValue && (
         <View style={styles.value} pointerEvents="none">
-          <Text variant="caption" tone="secondary" weight="semibold">
+          <Text variant="caption" tone="secondary" weight="semibold" numeric>
             {formatPercent(progress)}
           </Text>
         </View>

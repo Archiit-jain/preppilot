@@ -14,3 +14,4 @@ export * from './time/duration';
 export * from './timer/timer';
 export * from './flashcards/scheduling';
 export * from './ai/study-aids';
+export * from './theme/theme-pack';

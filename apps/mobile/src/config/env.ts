@@ -154,3 +154,16 @@ export function getEnv(): Env {
 export function resetEnvCache(): void {
   cached = null;
 }
+
+/**
+ * Where downloadable themes live: the project's public `themes` Storage bucket.
+ *
+ * Read straight from the bundled URL rather than through `getEnv()`, because a
+ * demo build blanks the Supabase URL there — and themes are public files that
+ * need no account, so a demo can offer them whenever the URL was bundled.
+ * Null when it was not, and Settings then says themes are unavailable.
+ */
+export function themesBaseUrl(raw: RawEnv = bundledEnv): string | null {
+  const url = optional(raw.supabaseUrl)?.replace(/\/+$/, '');
+  return url === undefined || url === null ? null : `${url}/storage/v1/object/public/themes/`;
+}

@@ -16,6 +16,32 @@ export function TextField({ label, error, hint, required = false, ...rest }: Tex
   const hintId = useId();
   const hasError = typeof error === 'string' && error.length > 0;
 
+  // A downloaded theme writes on a ruled line, or in a framed box.
+  const field = theme.look?.components.textField;
+  const lookInput =
+    field === undefined || theme.look === null
+      ? null
+      : {
+          fontFamily: theme.look.fonts.body.regular,
+          ...(field.style === 'underline'
+            ? {
+                borderWidth: 0,
+                borderBottomWidth: field.borderWidth,
+                borderRadius: 0,
+                paddingHorizontal: theme.spacing.xxs,
+                backgroundColor: 'transparent',
+                borderBottomColor: hasError ? theme.colors.danger : theme.colors.textMuted,
+              }
+            : {
+                borderWidth: field.borderWidth,
+                borderColor: hasError
+                  ? theme.colors.danger
+                  : field.borderWidth >= 2
+                    ? theme.colors.textPrimary
+                    : theme.colors.border,
+              }),
+        };
+
   return (
     <View style={styles.container}>
       <Text variant="small" tone="secondary" style={{ marginBottom: theme.spacing.xs }}>
@@ -41,6 +67,7 @@ export function TextField({ label, error, hint, required = false, ...rest }: Tex
             backgroundColor: theme.colors.surfaceElevated,
             borderColor: hasError ? theme.colors.danger : theme.colors.border,
           },
+          lookInput,
         ]}
         {...rest}
       />

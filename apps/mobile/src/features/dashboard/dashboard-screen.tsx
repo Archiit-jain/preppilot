@@ -1,9 +1,4 @@
-import {
-  accentForIndex,
-  formatCompactDuration,
-  formatHoursMinutes,
-  formatPercent,
-} from '@preppilot/shared';
+import { formatCompactDuration, formatHoursMinutes, formatPercent } from '@preppilot/shared';
 import { useCallback, useEffect, useState } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { Card, EmptyState, ErrorState, FadeIn, Screen, Text } from '../../components/ui';
@@ -115,7 +110,7 @@ export function DashboardScreen() {
                       width: 10,
                       height: 10,
                       borderRadius: 5,
-                      backgroundColor: accentForIndex(index),
+                      backgroundColor: theme.accentFor(index),
                     }}
                   />
                   <Text variant="body" style={styles.subjectName} numberOfLines={1}>

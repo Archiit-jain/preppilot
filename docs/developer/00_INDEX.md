@@ -23,6 +23,7 @@ rather than quietly resolved in favour of the code.
 | [ANDROID_APK.md](ANDROID_APK.md)                       | Building and installing the APK; why it is the size it is              |
 | [AI_LOCALLY.md](AI_LOCALLY.md)                         | Running the Gemini proxy on your own machine                           |
 | [LOGO.md](LOGO.md)                                     | The logo and the generated app icons                                   |
+| [THEMES.md](THEMES.md)                                 | Downloadable themes: hosting, the pack format, adding one              |
 | [LIMITATIONS.md](LIMITATIONS.md)                       | Everything not built, not verified, or knowingly compromised           |
 
 ## Reading order

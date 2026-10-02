@@ -83,7 +83,19 @@ export function AppHeader({ overline, title, action, children }: AppHeaderProps)
               {overline}
             </Text>
           )}
-          <Text variant="heading">{title}</Text>
+          {theme.look?.components.title === 'highlight' ? (
+            // A highlighter stroke across the lower half of the title.
+            <View style={styles.highlighted}>
+              <View
+                pointerEvents="none"
+                testID="title-highlight"
+                style={[styles.highlight, { backgroundColor: theme.look.ornament.highlight }]}
+              />
+              <Text variant="heading">{title}</Text>
+            </View>
+          ) : (
+            <Text variant="heading">{title}</Text>
+          )}
         </View>
         {action}
       </View>
@@ -105,4 +117,15 @@ const styles = StyleSheet.create({
   spacer: { flex: 1 },
   trailing: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   action: { alignItems: 'center', justifyContent: 'center' },
+  highlighted: { alignSelf: 'flex-start' },
+  highlight: {
+    position: 'absolute',
+    left: -6,
+    right: -6,
+    bottom: '12%',
+    height: '42%',
+    borderRadius: 4,
+    opacity: 0.7,
+    transform: [{ rotate: '-1deg' }],
+  },
 });

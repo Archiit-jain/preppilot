@@ -110,7 +110,11 @@ on existing policies.
 follow-up chat carries. Older app versions ignore the extra column when they
 sync: Drizzle drops keys that are not in the local schema.
 
-`supabase/apply-all-migrations.sql` holds all six migrations in order, written
+`20261002000001_theme_packs_bucket.sql` creates the public, read-only `themes`
+Storage bucket that holds downloadable themes (THEMES.md). It creates no table
+and no write policy.
+
+`supabase/apply-all-migrations.sql` holds all seven migrations in order, written
 to be safe to run more than once, for pasting into the Supabase SQL Editor where
 the CLI is not available. The live project was set up that way (21 September
 2026). When a migration is added, add it to that file too.

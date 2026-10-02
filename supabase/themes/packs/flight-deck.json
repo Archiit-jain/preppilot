@@ -1,0 +1,113 @@
+{
+  "format": 1,
+  "id": "flight-deck",
+  "name": "Flight deck",
+  "description": "Cockpit instruments: amber gauges on navy, tick-marked runways and monospaced readouts.",
+  "version": 1,
+  "colors": {
+    "light": {
+      "background": "#EEF2F6",
+      "surface": "#FFFFFF",
+      "surfaceElevated": "#E5EBF2",
+      "border": "#C6D1DE",
+      "progressTrack": "#D6DFE9",
+      "textPrimary": "#0E1A2B",
+      "textSecondary": "#3B4C62",
+      "textMuted": "#5A6B82",
+      "textOnAccent": "#FFFFFF",
+      "accent": "#8F5F00",
+      "success": "#13805A",
+      "warning": "#8F5F00",
+      "danger": "#C2383B",
+      "offline": "#8F5F00"
+    },
+    "dark": {
+      "background": "#0B121C",
+      "surface": "#111C2A",
+      "surfaceElevated": "#172536",
+      "border": "#22334A",
+      "progressTrack": "#1C2A3E",
+      "textPrimary": "#DCE6F2",
+      "textSecondary": "#9DB0C7",
+      "textMuted": "#7A8FA8",
+      "textOnAccent": "#0B121C",
+      "accent": "#F5B841",
+      "success": "#5ED3A0",
+      "warning": "#F5B841",
+      "danger": "#FF6B6B",
+      "offline": "#F5B841"
+    }
+  },
+  "ornament": {
+    "light": {
+      "highlight": "#F5B841",
+      "ruling": "#E2E8EF",
+      "margin": "#C6D1DE",
+      "edge": "#C6D1DE",
+      "onSubjectAccent": "#0B121C"
+    },
+    "dark": {
+      "highlight": "#F5B841",
+      "ruling": "#121E2D",
+      "margin": "#22334A",
+      "edge": "#22334A",
+      "onSubjectAccent": "#0B121C"
+    }
+  },
+  "subjectAccents": [
+    "#6EA8FF",
+    "#5ED3A0",
+    "#C79BFF",
+    "#F5B841",
+    "#FF8FB1",
+    "#4FD1E0",
+    "#FF8A70",
+    "#9D8CFF"
+  ],
+  "radius": { "sm": 6, "md": 10, "lg": 14, "xl": 18, "xxl": 24 },
+  "fonts": {
+    "files": {
+      "SpaceGrotesk_400Regular": "fonts/SpaceGrotesk_400Regular.ttf",
+      "SpaceGrotesk_500Medium": "fonts/SpaceGrotesk_500Medium.ttf",
+      "SpaceGrotesk_600SemiBold": "fonts/SpaceGrotesk_600SemiBold.ttf",
+      "SpaceGrotesk_700Bold": "fonts/SpaceGrotesk_700Bold.ttf",
+      "JetBrainsMono_500Medium": "fonts/JetBrainsMono_500Medium.ttf",
+      "JetBrainsMono_700Bold": "fonts/JetBrainsMono_700Bold.ttf"
+    },
+    "body": {
+      "regular": "SpaceGrotesk_400Regular",
+      "medium": "SpaceGrotesk_500Medium",
+      "semibold": "SpaceGrotesk_600SemiBold",
+      "bold": "SpaceGrotesk_700Bold"
+    },
+    "display": {
+      "family": "SpaceGrotesk_700Bold",
+      "scale": 1,
+      "lineHeight": 1.2,
+      "letterSpacing": -0.5,
+      "variants": ["display", "heading"]
+    },
+    "mono": "JetBrainsMono_500Medium",
+    "overline": "mono",
+    "numeric": "mono"
+  },
+  "components": {
+    "surface": { "borderWidth": 1, "edgeBottom": 1, "edgeRight": 1 },
+    "accentCard": "strip",
+    "button": {
+      "shape": "rounded",
+      "borderWidth": 1,
+      "edgeBottom": 0,
+      "uppercase": true,
+      "primary": "accent"
+    },
+    "progressBar": { "style": "ticks", "height": 6, "borderWidth": 0 },
+    "progressRing": { "track": "ticks", "stroke": 5, "outline": false },
+    "checkbox": { "shape": "square", "checked": "fill", "borderWidth": 1.5 },
+    "playButton": { "shape": "square", "borderWidth": 0, "edgeBottom": 0 },
+    "textField": { "style": "box", "borderWidth": 1 },
+    "background": "grid",
+    "title": "plain",
+    "tabBar": { "borderWidth": 1 }
+  }
+}

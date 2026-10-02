@@ -31,7 +31,7 @@ export function StatChip({ label, value, color, testID }: StatChipProps) {
           },
         ]}
       >
-        <Text variant="body" weight="semibold" color={color}>
+        <Text variant="body" weight="semibold" color={color} numeric>
           {value}
         </Text>
       </View>

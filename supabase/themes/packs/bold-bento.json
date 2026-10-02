@@ -1,0 +1,111 @@
+{
+  "format": 1,
+  "id": "bold-bento",
+  "name": "Bold bento",
+  "description": "Chunky outlines, hard shadows and loud flat colours. Neon edges after dark.",
+  "version": 1,
+  "colors": {
+    "light": {
+      "background": "#F3EFE6",
+      "surface": "#FFFFFF",
+      "surfaceElevated": "#F8F5EE",
+      "border": "#111111",
+      "progressTrack": "#EFEADF",
+      "textPrimary": "#111111",
+      "textSecondary": "#3A3A3A",
+      "textMuted": "#5F5F5F",
+      "textOnAccent": "#FFFFFF",
+      "accent": "#5A3FE0",
+      "success": "#1E7F49",
+      "warning": "#9A5700",
+      "danger": "#C81E37",
+      "offline": "#9A5700"
+    },
+    "dark": {
+      "background": "#131313",
+      "surface": "#1D1D1D",
+      "surfaceElevated": "#262626",
+      "border": "#F3EFE6",
+      "progressTrack": "#2C2C2C",
+      "textPrimary": "#F6F3EC",
+      "textSecondary": "#D0CBBF",
+      "textMuted": "#A39E93",
+      "textOnAccent": "#111111",
+      "accent": "#B9A6FF",
+      "success": "#7EE2A8",
+      "warning": "#FFB547",
+      "danger": "#FF7A7A",
+      "offline": "#FFB547"
+    }
+  },
+  "ornament": {
+    "light": {
+      "highlight": "#C6F432",
+      "ruling": "#E6E0D3",
+      "margin": "#FF7A59",
+      "edge": "#111111",
+      "onSubjectAccent": "#111111"
+    },
+    "dark": {
+      "highlight": "#C6F432",
+      "ruling": "#222222",
+      "margin": "#FF7A59",
+      "edge": "#C6F432",
+      "onSubjectAccent": "#111111"
+    }
+  },
+  "subjectAccents": [
+    "#9CC9FF",
+    "#8EE3B5",
+    "#D9C9FF",
+    "#FFD36E",
+    "#FFB3C7",
+    "#7FE0E8",
+    "#FF9A85",
+    "#C6F432"
+  ],
+  "radius": { "sm": 8, "md": 12, "lg": 16, "xl": 20, "xxl": 26 },
+  "fonts": {
+    "files": {
+      "SpaceGrotesk_400Regular": "fonts/SpaceGrotesk_400Regular.ttf",
+      "SpaceGrotesk_500Medium": "fonts/SpaceGrotesk_500Medium.ttf",
+      "SpaceGrotesk_600SemiBold": "fonts/SpaceGrotesk_600SemiBold.ttf",
+      "SpaceGrotesk_700Bold": "fonts/SpaceGrotesk_700Bold.ttf"
+    },
+    "body": {
+      "regular": "SpaceGrotesk_400Regular",
+      "medium": "SpaceGrotesk_500Medium",
+      "semibold": "SpaceGrotesk_600SemiBold",
+      "bold": "SpaceGrotesk_700Bold"
+    },
+    "display": {
+      "family": "SpaceGrotesk_700Bold",
+      "scale": 1.1,
+      "lineHeight": 1.1,
+      "letterSpacing": -1,
+      "variants": ["display", "heading", "title"]
+    },
+    "mono": null,
+    "overline": "body",
+    "numeric": "body"
+  },
+  "components": {
+    "surface": { "borderWidth": 2, "edgeBottom": 5, "edgeRight": 4 },
+    "accentCard": "tint",
+    "button": {
+      "shape": "rounded",
+      "borderWidth": 2,
+      "edgeBottom": 4,
+      "uppercase": false,
+      "primary": "ink"
+    },
+    "progressBar": { "style": "outline", "height": 12, "borderWidth": 2 },
+    "progressRing": { "track": "solid", "stroke": 6, "outline": true },
+    "checkbox": { "shape": "square", "checked": "fill", "borderWidth": 2 },
+    "playButton": { "shape": "circle", "borderWidth": 2, "edgeBottom": 3 },
+    "textField": { "style": "box", "borderWidth": 2 },
+    "background": "plain",
+    "title": "plain",
+    "tabBar": { "borderWidth": 2 }
+  }
+}

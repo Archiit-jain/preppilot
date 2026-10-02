@@ -1,0 +1,112 @@
+{
+  "format": 1,
+  "id": "notebook",
+  "name": "Notebook",
+  "description": "Ruled paper, sticky-note subjects and highlighter progress. A chalkboard after dark.",
+  "version": 1,
+  "colors": {
+    "light": {
+      "background": "#FBF6EA",
+      "surface": "#FFFDF7",
+      "surfaceElevated": "#F4EDDC",
+      "border": "#E2D8C2",
+      "progressTrack": "#ECE4D1",
+      "textPrimary": "#1F2A3C",
+      "textSecondary": "#4A5466",
+      "textMuted": "#736852",
+      "textOnAccent": "#FFFFFF",
+      "accent": "#2450B8",
+      "success": "#2A7F50",
+      "warning": "#9C6210",
+      "danger": "#C23B3B",
+      "offline": "#9C6210"
+    },
+    "dark": {
+      "background": "#1C2925",
+      "surface": "#23332D",
+      "surfaceElevated": "#2B3D36",
+      "border": "#3A4E46",
+      "progressTrack": "#34473F",
+      "textPrimary": "#F1EEE4",
+      "textSecondary": "#C4CCC5",
+      "textMuted": "#9AA79F",
+      "textOnAccent": "#1C2925",
+      "accent": "#F2D06B",
+      "success": "#8FD6A8",
+      "warning": "#F2B661",
+      "danger": "#F28B82",
+      "offline": "#F2B661"
+    }
+  },
+  "ornament": {
+    "light": {
+      "highlight": "#FFE36E",
+      "ruling": "#E9E0CC",
+      "margin": "#EDB4AA",
+      "edge": "#D9CDB3",
+      "onSubjectAccent": "#FFFFFF"
+    },
+    "dark": {
+      "highlight": "#6B5F2A",
+      "ruling": "#26372F",
+      "margin": "#5E403C",
+      "edge": "#131D1A",
+      "onSubjectAccent": "#FFFFFF"
+    }
+  },
+  "subjectAccents": [
+    "#3B6FD8",
+    "#2E9E6B",
+    "#8A5CD8",
+    "#D97A16",
+    "#D6457A",
+    "#1C8FA3",
+    "#D44B4B",
+    "#6B5BD6"
+  ],
+  "radius": { "sm": 4, "md": 8, "lg": 10, "xl": 14, "xxl": 18 },
+  "fonts": {
+    "files": {
+      "Nunito_400Regular": "fonts/Nunito_400Regular.ttf",
+      "Nunito_500Medium": "fonts/Nunito_500Medium.ttf",
+      "Nunito_600SemiBold": "fonts/Nunito_600SemiBold.ttf",
+      "Nunito_700Bold": "fonts/Nunito_700Bold.ttf",
+      "Caveat_700Bold": "fonts/Caveat_700Bold.ttf"
+    },
+    "body": {
+      "regular": "Nunito_400Regular",
+      "medium": "Nunito_500Medium",
+      "semibold": "Nunito_600SemiBold",
+      "bold": "Nunito_700Bold"
+    },
+    "display": {
+      "family": "Caveat_700Bold",
+      "scale": 1.35,
+      "lineHeight": 1.15,
+      "letterSpacing": 0,
+      "variants": ["display", "heading", "title"]
+    },
+    "mono": null,
+    "overline": "body",
+    "numeric": "body"
+  },
+  "components": {
+    "surface": { "borderWidth": 1, "edgeBottom": 3, "edgeRight": 2 },
+    "accentCard": "sticky",
+    "button": {
+      "shape": "pill",
+      "borderWidth": 1.5,
+      "edgeBottom": 3,
+      "uppercase": false,
+      "primary": "accent"
+    },
+    "progressBar": { "style": "outline", "height": 8, "borderWidth": 1.5 },
+    "progressRing": { "track": "dashed", "stroke": 4, "outline": false },
+    "checkbox": { "shape": "square", "checked": "tick", "borderWidth": 1.5 },
+    "playButton": { "shape": "circle", "borderWidth": 0, "edgeBottom": 3 },
+    "textField": { "style": "underline", "borderWidth": 1.5 },
+    "background": "ruled",
+    "title": "highlight",
+    "tabBar": { "borderWidth": 1 }
+  }
+}

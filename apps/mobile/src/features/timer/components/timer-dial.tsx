@@ -85,7 +85,13 @@ export function TimerDial({ timer, now, accent, size = 260 }: TimerDialProps) {
         <Text variant="small" tone="muted">
           {phaseLabel}
         </Text>
-        <Text variant="display" weight="semibold" style={styles.digits} testID="timer-readout">
+        <Text
+          variant="display"
+          weight="semibold"
+          numeric
+          style={styles.digits}
+          testID="timer-readout"
+        >
           {formatClock(displaySeconds)}
         </Text>
         {isCountdown && (

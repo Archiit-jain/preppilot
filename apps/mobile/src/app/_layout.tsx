@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthGate } from '../features/auth/auth-gate';
 import { interFonts } from '../theme/fonts';
 import { configureNotificationHandler } from '../features/reminders/notifications';
+import { useRestoredTheme } from '../theme/packs/use-restored-theme';
 import { ThemeProvider, useTheme } from '../theme/theme-context';
 
 function RootStack() {
@@ -34,10 +35,13 @@ configureNotificationHandler();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts(interFonts);
+  // A downloaded theme is re-applied before the first frame, so it does not
+  // open in Classic and then jump.
+  const themeRestored = useRestoredTheme();
 
   // Rendering before the faces load shows a flash of the platform default at
   // different metrics, and everything reflows once Inter arrives.
-  if (!fontsLoaded) return null;
+  if (!fontsLoaded || !themeRestored) return null;
 
   return (
     <SafeAreaProvider>

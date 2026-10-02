@@ -1,7 +1,8 @@
 import { formatPercent, motion, type Progress } from '@preppilot/shared';
-import { useEffect } from 'react';
+import { useEffect, useId } from 'react';
 import { StyleSheet, View, type ViewProps } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import Svg, { Defs, Pattern, Rect } from 'react-native-svg';
 import { useTheme } from '../../theme/theme-context';
 import { ariaValue } from './aria';
 
@@ -24,8 +25,27 @@ export interface ProgressBarProps extends Omit<ViewProps, 'accessibilityValue'> 
  */
 export function ProgressBar({ progress, color, height, label, style, ...rest }: ProgressBarProps) {
   const theme = useTheme();
-  const barHeight = height ?? theme.progressMetrics.barHeight;
+  const look = theme.look;
+  const barHeight =
+    height ??
+    (look === null ? theme.progressMetrics.barHeight : look.components.progressBar.height);
   const percent = progress.percent ?? 0;
+  const patternId = `ticks-${useId().replace(/[^A-Za-z0-9_-]/g, '')}`;
+
+  // A downloaded theme's track: a pencil outline, a chunky frame, or ticks.
+  const lookBar = look?.components.progressBar;
+  const heavy = (lookBar?.borderWidth ?? 0) >= 2;
+  const lookTrack =
+    lookBar === undefined || lookBar.style === 'solid'
+      ? null
+      : lookBar.style === 'outline'
+        ? {
+            backgroundColor: heavy ? theme.colors.surface : 'transparent',
+            borderWidth: lookBar.borderWidth,
+            borderColor: heavy ? theme.colors.textPrimary : theme.colors.textMuted,
+            borderRadius: heavy ? theme.radius.pill : theme.radius.sm / 2,
+          }
+        : { backgroundColor: 'transparent', borderRadius: 2 };
 
   /*
     The fill grows into place rather than jumping. Ticking a topic is the
@@ -62,10 +82,26 @@ export function ProgressBar({ progress, color, height, label, style, ...rest }: 
           borderRadius: theme.radius.pill,
           backgroundColor: theme.colors.progressTrack,
         },
+        lookTrack,
         style,
       ]}
       {...rest}
     >
+      {lookBar?.style === 'ticks' && (
+        <Svg
+          width="100%"
+          height={barHeight}
+          style={StyleSheet.absoluteFill}
+          testID="progress-ticks"
+        >
+          <Defs>
+            <Pattern id={patternId} width={9} height={barHeight} patternUnits="userSpaceOnUse">
+              <Rect width={6} height={barHeight} rx={1} fill={theme.colors.progressTrack} />
+            </Pattern>
+          </Defs>
+          <Rect width="100%" height={barHeight} fill={`url(#${patternId})`} />
+        </Svg>
+      )}
       {percent > 0 && (
         <Animated.View
           testID="progress-bar-fill"
@@ -76,6 +112,7 @@ export function ProgressBar({ progress, color, height, label, style, ...rest }: 
               borderRadius: theme.radius.pill,
               backgroundColor: color ?? theme.colors.accent,
             },
+            lookTrack === null ? null : { borderRadius: lookBar?.style === 'ticks' ? 2 : 0 },
           ]}
         />
       )}

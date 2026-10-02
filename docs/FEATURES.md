@@ -78,5 +78,6 @@ with departures recorded in `DECISIONS.md` and `docs/developer/LIMITATIONS.md`:
 | AI           | Ask, summarise a topic, quiz a topic; **attach a photo or screenshot**; formatted replies; saved conversations; any reply or summary kept as a note; propose-then-confirm syllabus additions |
 | Productivity | Reminders (weekday and one-off), Focus Mode within Android's limits                                                                                                                          |
 | Account      | Email/password with in-app confirmation link and **Forgot password?** reset link, **native Google sign-in**, phone OTP behind a flag, guest, account deletion                                |
+| Themes       | Settings → Themes: Classic built in; Notebook, Flight deck and Bold bento downloaded on demand (340–770 KB each), kept offline                                                               |
 | Data         | SQLite on the device, Supabase sync on sign-in / every 5 min / on leaving / on reconnect, RLS isolation                                                                                      |
 | Web          | The same app in a browser (demo mode), hosted at preppilottdemo.netlify.app                                                                                                                  |

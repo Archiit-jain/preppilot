@@ -88,7 +88,8 @@ export function SubjectCard({
   const expanded = expandedIds.has(subject.id);
 
   return (
-    <Card>
+    // Laid flat while open: a tilted card with a long chapter list reads as a mess.
+    <Card accent={accent} {...(expanded ? {} : { tilt: tiltFor(subject.id) })}>
       <View style={styles.header}>
         <ProgressRing progress={progress} color={accent} label={subject.name} />
 
@@ -108,7 +109,7 @@ export function SubjectCard({
             },
           ]}
         >
-          <Text variant="bodyLarge" weight="semibold" style={styles.subjectName}>
+          <Text variant="bodyLarge" weight="semibold" display style={styles.subjectName}>
             {subject.name}
           </Text>
 
@@ -222,6 +223,15 @@ export function SubjectCard({
       )}
     </Card>
   );
+}
+
+const TILTS = [-0.8, 0.6, -0.4, 0.9, -0.6, 0.4] as const;
+
+/** A small, fixed turn per subject, so the same note always sits the same way. */
+export function tiltFor(id: string): number {
+  let hash = 0;
+  for (const char of id) hash = (hash * 31 + char.charCodeAt(0)) | 0;
+  return TILTS[Math.abs(hash) % TILTS.length] as number;
 }
 
 const styles = StyleSheet.create({

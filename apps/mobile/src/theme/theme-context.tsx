@@ -1,5 +1,6 @@
 import {
   DEFAULT_THEME_MODE,
+  accentForIndex,
   colorsFor,
   elevation,
   fontSize,
@@ -14,16 +15,36 @@ import {
   spacing,
   subjectAccents,
   type ColorScheme,
+  type ThemeComponents,
+  type ThemeFonts,
   type ThemeMode,
+  type ThemeOrnament,
+  type ThemePack,
 } from '@preppilot/shared';
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
 import { useColorScheme } from 'react-native';
+import { useThemePackStore } from './packs/theme-pack-store';
+
+/**
+ * What a downloaded theme adds on top of colours and shapes.
+ *
+ * Null for Classic, the built-in look: every component checks for it and, when
+ * it is absent, renders exactly as it always has. That is the guarantee that
+ * downloadable themes cannot change the app for anyone who never uses them.
+ */
+export interface Look {
+  readonly id: string;
+  readonly name: string;
+  readonly ornament: ThemeOrnament;
+  readonly fonts: ThemeFonts;
+  readonly components: ThemeComponents;
+}
 
 export interface Theme {
   readonly mode: ThemeMode;
   readonly colors: ColorScheme;
   readonly spacing: typeof spacing;
-  readonly radius: typeof radius;
+  readonly radius: { readonly [K in keyof typeof radius]: number };
   readonly fontSize: typeof fontSize;
   readonly fontWeight: typeof fontWeight;
   readonly lineHeight: typeof lineHeight;
@@ -33,7 +54,11 @@ export interface Theme {
   readonly layout: typeof layout;
   readonly minTouchTarget: typeof minTouchTarget;
   readonly progressMetrics: typeof progressMetrics;
-  readonly subjectAccents: typeof subjectAccents;
+  readonly subjectAccents: readonly string[];
+  /** The downloaded theme's extras, or null for Classic. */
+  readonly look: Look | null;
+  /** A subject's colour by its position, from the active look's palette. */
+  readonly accentFor: (index: number) => string;
 }
 
 interface ThemeContextValue {
@@ -46,12 +71,34 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function buildTheme(mode: ThemeMode): Theme {
+function buildTheme(mode: ThemeMode, pack: ThemePack | null = null): Theme {
+  if (pack === null) {
+    return {
+      mode,
+      colors: colorsFor(mode),
+      spacing,
+      radius,
+      fontSize,
+      fontWeight,
+      lineHeight,
+      letterSpacing,
+      elevation,
+      motion,
+      layout,
+      minTouchTarget,
+      progressMetrics,
+      subjectAccents,
+      look: null,
+      accentFor: accentForIndex,
+    };
+  }
+
+  const accents = pack.subjectAccents;
   return {
     mode,
-    colors: colorsFor(mode),
+    colors: pack.colors[mode],
     spacing,
-    radius,
+    radius: { ...radius, ...pack.radius },
     fontSize,
     fontWeight,
     lineHeight,
@@ -61,7 +108,19 @@ function buildTheme(mode: ThemeMode): Theme {
     layout,
     minTouchTarget,
     progressMetrics,
-    subjectAccents,
+    subjectAccents: accents,
+    look: {
+      id: pack.id,
+      name: pack.name,
+      ornament: pack.ornament[mode],
+      fonts: pack.fonts,
+      components: pack.components,
+    },
+    accentFor: (index) => {
+      // Same contract as the built-in palette: a stable colour per position.
+      accentForIndex(index);
+      return accents[index % accents.length] as string;
+    },
   };
 }
 
@@ -77,6 +136,7 @@ export interface ThemeProviderProps {
 export function ThemeProvider({ children, initialMode = null }: ThemeProviderProps) {
   const deviceScheme = useColorScheme();
   const [override, setOverride] = useState<ThemeMode | null>(initialMode);
+  const pack = useThemePackStore((state) => state.active);
 
   const value = useMemo<ThemeContextValue>(() => {
     // Precedence: explicit user choice, then the device setting, then our default.
@@ -87,11 +147,11 @@ export function ThemeProvider({ children, initialMode = null }: ThemeProviderPro
       override ?? (deviceScheme === 'light' ? 'light' : DEFAULT_THEME_MODE);
 
     return {
-      theme: buildTheme(resolved),
+      theme: buildTheme(resolved, pack),
       setMode: setOverride,
       followsDevice: override === null,
     };
-  }, [override, deviceScheme]);
+  }, [override, deviceScheme, pack]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

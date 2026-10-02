@@ -1,7 +1,12 @@
 import { letterSpacing } from '@preppilot/shared';
-import { StyleSheet, Text as RNText, type TextProps as RNTextProps } from 'react-native';
+import {
+  StyleSheet,
+  Text as RNText,
+  type TextProps as RNTextProps,
+  type TextStyle,
+} from 'react-native';
 import { fontFamilyForWeight } from '../../theme/fonts';
-import { useTheme } from '../../theme/theme-context';
+import { useTheme, type Look } from '../../theme/theme-context';
 
 export type TextVariant =
   'display' | 'heading' | 'title' | 'bodyLarge' | 'body' | 'small' | 'caption';
@@ -21,6 +26,14 @@ export interface TextProps extends RNTextProps {
    * rather than being re-approximated at each call site.
    */
   readonly overline?: boolean;
+  /**
+   * Sets this text in the theme's heading face even at a body size — a
+   * subject's name on its card, say. Classic has no separate heading face, so
+   * there it changes nothing.
+   */
+  readonly display?: boolean;
+  /** Figures (times, percentages): the theme's monospaced face, if it has one. */
+  readonly numeric?: boolean;
 }
 
 /**
@@ -47,6 +60,8 @@ export function Text({
   weight,
   color,
   overline = false,
+  display = false,
+  numeric = false,
   style,
   ...rest
 }: TextProps) {
@@ -96,6 +111,29 @@ export function Text({
     caption: overline ? letterSpacing.overline : letterSpacing.body,
   };
 
+  const look = theme.look;
+  if (look !== null) {
+    return (
+      <RNText
+        maxFontSizeMultiplier={maxScale[variant]}
+        style={[
+          styles.base,
+          lookFace(look, variant, resolvedWeight, fontSize, tracking[variant], {
+            display,
+            numeric,
+            overline,
+          }),
+          {
+            textTransform: overline ? 'uppercase' : 'none',
+            color: color ?? tones[tone],
+          },
+          style,
+        ]}
+        {...rest}
+      />
+    );
+  }
+
   return (
     <RNText
       maxFontSizeMultiplier={maxScale[variant]}
@@ -120,6 +158,58 @@ export function Text({
       {...rest}
     />
   );
+}
+
+/**
+ * Face, size and spacing under a downloaded theme.
+ *
+ * A theme's fonts each carry one weight, so the family alone selects it and no
+ * `fontWeight` is set — Android would otherwise synthesise a bold on top.
+ */
+function lookFace(
+  look: Look,
+  variant: TextVariant,
+  weight: string,
+  fontSize: number,
+  tracking: number,
+  options: { display: boolean; numeric: boolean; overline: boolean },
+): TextStyle {
+  const { fonts } = look;
+  const heading = fonts.display;
+  // Figures never take the heading face: a handwritten clock would jitter as
+  // its digits changed width.
+  if (
+    heading !== null &&
+    !options.numeric &&
+    (options.display || heading.variants.includes(variant as never))
+  ) {
+    const size = Math.round(fontSize * heading.scale);
+    return {
+      fontFamily: heading.family,
+      fontSize: size,
+      lineHeight: Math.round(size * heading.lineHeight),
+      letterSpacing: heading.letterSpacing,
+    };
+  }
+
+  const mono =
+    fonts.mono !== null &&
+    ((options.overline && fonts.overline === 'mono') ||
+      (options.numeric && fonts.numeric === 'mono'));
+  const bodyFamily: Record<string, string> = {
+    '400': fonts.body.regular,
+    '500': fonts.body.medium,
+    '600': fonts.body.semibold,
+    '700': fonts.body.bold,
+  };
+
+  return {
+    fontFamily: mono ? (fonts.mono as string) : (bodyFamily[weight] ?? fonts.body.regular),
+    fontSize,
+    lineHeight: fontSize * 1.45,
+    letterSpacing: tracking,
+    fontVariant: options.numeric ? ['tabular-nums'] : undefined,
+  };
 }
 
 const styles = StyleSheet.create({

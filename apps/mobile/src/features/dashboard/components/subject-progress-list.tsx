@@ -1,4 +1,4 @@
-import { accentForIndex, formatPercent } from '@preppilot/shared';
+import { formatPercent } from '@preppilot/shared';
 import { StyleSheet, View } from 'react-native';
 import { Card, ProgressBar, Text } from '../../../components/ui';
 import { useTheme } from '../../../theme/theme-context';
@@ -52,7 +52,7 @@ export function SubjectProgressList({ subjects }: SubjectProgressListProps) {
 
             <ProgressBar
               progress={subject.progress}
-              color={accentForIndex(index)}
+              color={theme.accentFor(index)}
               label={subject.name}
             />
           </View>
