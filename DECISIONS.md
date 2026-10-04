@@ -227,6 +227,12 @@ confirmed before building.
 | D108 | The topic timer and Focus Mode open a **full-screen, landscape timer** with six faces (Flip cards, Minimal, Ring, Time wedge, Hourglass, Rising tide). A tap anywhere starts, pauses or resumes; the close button and face strip show for 3 s after a tap and while paused; Back closes; closing never stops the timer. The face is remembered per device. | Asked for by the project owner, who chose all six faces and close-button exit. Landscape is locked only while it is open (`expo-screen-orientation`); the rest of the app stays portrait. Faces keep their own palettes: a desk clock is a different object from a settings screen.                |
 | D109 | Focus Mode takes **any length from 1 to 240 minutes**, keeps up to six presets, lets the student choose the end alert (sound and vibration, sound, vibration, silent) and whether the screen stays on, and can be **paused**.                                                                                                                              | Length and alerts were the options chosen. Pause came with them because the full-screen tap must pause. Sound needs a scheduled notification, so it works with the phone locked; vibration alone is felt only with the app open, and the screen says so. Focus previously had no end alert at all. |
 
+## 16. Removed: the continue-tracking card (4 October 2026)
+
+| #    | Decision                                                                                                                               | Why                                                                                                   |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| D110 | The **Continue tracking** card under the tracker's greeting is removed, with the code that chose what to continue. The greeting stays. | The project owner found it annoying. Every subject's play button already starts its timer in one tap. |
+
 ---
 
 ## Open items

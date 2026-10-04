@@ -21,7 +21,6 @@ import type { Quiz, QuizSettings } from '@preppilot/shared';
 import { quizTopic, summariseTopic, type TopicContext } from '../ai/ai-client';
 import { AddSubjectSheet } from './components/add-subject-sheet';
 import { WelcomeCard } from './components/welcome-card';
-import { continuePoint, type ContinuePoint } from './continue-tracking';
 import { displayNameFor } from '../auth/display-name';
 import { isDemoMode } from '../../config/env';
 import { SubjectPicker } from '../templates/components/subject-picker';
@@ -127,7 +126,6 @@ export function TrackerScreen() {
   const [addError, setAddError] = useState<string | null>(null);
 
   const user = useAuthStore((store) => store.user);
-  const [continuing, setContinuing] = useState<ContinuePoint | null>(null);
   const activeTracker = useActiveTrackerId();
   const activeTrackerName =
     useTrackersStore((store) => store.trackers.find((row) => row.id === store.activeId)?.name) ??
@@ -138,16 +136,6 @@ export function TrackerScreen() {
   const load = useCallback(async () => {
     if (userId === null) return;
     await state.load(userId, getRepositories());
-
-    // Read after the syllabus, because where to continue is only meaningful
-    // against the subjects that are actually there.
-    try {
-      const sessions = await getRepositories().sessions.listByUser(userId, 25, activeTracker);
-      setContinuing(continuePoint(sessions, useTrackerStore.getState()));
-    } catch {
-      // The card is a convenience; the syllabus below it is the screen.
-      setContinuing(null);
-    }
     // Re-reads when the courses finish loading and whenever the student switches
     // between them: a read taken before the active course was known would sit on
     // an empty result forever.
@@ -453,10 +441,6 @@ export function TrackerScreen() {
           // Demo mode is signed in to a local stand-in account, not to anyone:
           // the banner says "not signed in", so the greeting must agree.
           name={displayNameFor(user, isGuest || isDemoMode())}
-          continuing={continuing}
-          onContinue={(point) =>
-            openTimer({ subjectId: point.subjectId, subjectName: point.subjectName })
-          }
         />
 
         <SyllabusSummary progress={state.progress.overall} subjectCount={state.subjects.length} />

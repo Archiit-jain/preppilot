@@ -1894,37 +1894,13 @@ describe('the assistant and a guest', () => {
   });
 });
 
-describe('the welcome and continue card', () => {
+describe('the welcome greeting', () => {
   const openTracker = async () => {
     await act(async () => {
       await useTrackersStore.getState().load(USER, repositories);
       await tracker().load(USER, repositories);
     });
     await renderTracker();
-  };
-
-  const seedStudied = async (subjectName = 'Biology', chapterName = 'Chapter 4') => {
-    const subject = await repositories.subjects.create({
-      userId: USER,
-      name: subjectName,
-      trackerId: useTrackersStore.getState().activeId,
-    });
-    const chapter = await repositories.chapters.create({
-      userId: USER,
-      subjectId: subject.id,
-      name: chapterName,
-    });
-    await repositories.topics.create({ userId: USER, chapterId: chapter.id, name: 'A topic' });
-    const session = await repositories.sessions.start({
-      userId: USER,
-      timerMode: 'stopwatch',
-      trackerId: useTrackersStore.getState().activeId,
-      subjectId: subject.id,
-      subjectName,
-      chapterName,
-    });
-    await repositories.sessions.complete(session.id, 600);
-    return subject;
   };
 
   it('greets a guest as Guest', async () => {
@@ -1947,42 +1923,7 @@ describe('the welcome and continue card', () => {
     expect(screen.getByTestId('welcome-greeting')).toHaveTextContent('Welcome, Archit');
   });
 
-  /** An empty card teaches the student to stop reading that part of the screen. */
-  it('shows no continue card on a first run', async () => {
-    await openTracker();
-
-    expect(screen.queryByTestId('continue-tracking')).toBeNull();
-  });
-
-  it('shows what was last studied once there is a session', async () => {
-    await seedStudied();
-
-    await openTracker();
-
-    await waitFor(() => expect(screen.getByTestId('continue-tracking')).toBeOnTheScreen());
-    expect(screen.getByTestId('continue-tracking')).toHaveTextContent(/Biology/);
-    expect(screen.getByTestId('continue-tracking')).toHaveTextContent(/Chapter 4/);
-  });
-
-  it('opens the timer for that subject', async () => {
-    const subject = await seedStudied();
-    await openTracker();
-    await waitFor(() => expect(screen.getByTestId('continue-tracking')).toBeOnTheScreen());
-
-    fireEvent.press(screen.getByTestId('continue-tracking-action'));
-
-    expect(router.push).toHaveBeenCalledWith(
-      expect.objectContaining({
-        pathname: '/timer',
-        params: expect.objectContaining({ subjectId: subject.id }),
-      }),
-    );
-  });
-
-  /**
-   * Part of the screen a phone has to fit. A name or a subject that runs long
-   * must wrap or truncate rather than push the Continue button off-screen.
-   */
+  /** Part of the screen a phone has to fit: a long name wraps, then truncates. */
   it('caps a very long name rather than letting it run', async () => {
     useAuthStore.setState({
       user: { id: USER, user_metadata: { display_name: 'A'.repeat(120) } } as never,
@@ -1993,15 +1934,6 @@ describe('the welcome and continue card', () => {
     await openTracker();
 
     expect(screen.getByTestId('welcome-greeting').props.numberOfLines).toBe(2);
-  });
-
-  it('keeps the card usable with a very long subject name', async () => {
-    await seedStudied('B'.repeat(120), 'C'.repeat(120));
-
-    await openTracker();
-
-    await waitFor(() => expect(screen.getByTestId('continue-tracking')).toBeOnTheScreen());
-    expect(screen.getByTestId('continue-tracking-action')).toBeOnTheScreen();
   });
 });
 
@@ -2126,5 +2058,18 @@ describe('quiz settings and the Quiz deck', () => {
     });
 
     expect(await repositories.quizAttempts.listByUser(USER)).toEqual([]);
+  });
+});
+
+describe('the continue card', () => {
+  /** Removed at the project owner's request (D110). */
+  it('is gone, even after studying', async () => {
+    await act(async () => {
+      await useTrackersStore.getState().load(USER, repositories);
+      await tracker().load(USER, repositories);
+    });
+    await renderTracker();
+
+    expect(screen.queryByText('Continue tracking')).toBeNull();
   });
 });
