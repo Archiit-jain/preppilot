@@ -115,6 +115,36 @@ production export reused a demo build's cache and came out still flagged as
 demo mode, with the real Supabase URL absent. Nothing warns you; the only symptom
 is an app behaving as though it were built with different settings.
 
+## Deploying the web build to Netlify
+
+`netlify.toml` at the repository root holds the whole configuration, so a site
+connected to the GitHub repository builds itself on every push to `main`:
+
+| Setting           | Value                                                        |
+| ----------------- | ------------------------------------------------------------ |
+| Build command     | `pnpm --filter @preppilot/mobile build:web`                  |
+| Publish directory | `apps/mobile/dist`                                           |
+| Node              | 22 (`NODE_VERSION`)                                          |
+| pnpm              | From `packageManager` in `package.json`, through Corepack    |
+| Environment       | `EXPO_PUBLIC_SUPABASE_URL` (public), for downloadable themes |
+
+To connect it: Netlify, then **Add new site**, then **Import an existing
+project**. Choose GitHub and `Archiit-jain/preppilot`, and keep the settings
+Netlify reads from the file. The existing demo at `preppilottdemo.netlify.app`
+was uploaded by hand. To move it to Git deploys, open that site's **Site
+configuration**, then **Build and deploy**, then **Link repository**.
+
+The build is always demo mode. A browser cannot keep a real Supabase session
+(`expo-secure-store` has no web implementation), so the site uses local
+storage, a fixed demo account and no sync. No secret is needed or used. Expo
+Router writes one HTML file per route, and the `/*` rewrite only catches
+addresses with no file, so refreshing any screen works.
+
+**Before publishing:** the patent draft (`docs/patent/`) treats the public
+demo as a novelty risk. Deploying a new build publishes the features added
+since the last upload, including downloadable themes and the full-screen
+timer. Confirm with whoever is filing before you connect or redeploy.
+
 ## The AI proxy
 
 ```bash

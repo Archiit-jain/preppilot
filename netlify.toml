@@ -1,0 +1,48 @@
+# Netlify: builds the browser version of PrepPilot (demo mode) from this repo.
+#
+# Connect the GitHub repository in Netlify (Add new site -> Import an existing
+# project); everything else is read from here. See docs/developer/DEPLOYMENT.md.
+#
+# Demo mode is forced by the build:web script: the browser build cannot hold a
+# real Supabase session (expo-secure-store has no web implementation), so it
+# runs on local storage with a fixed demo account and syncs nothing.
+
+[build]
+  base = "/"
+  # Netlify installs the workspace with pnpm first (it reads packageManager in
+  # package.json through Corepack), so this only builds.
+  command = "pnpm --filter @preppilot/mobile build:web"
+  publish = "apps/mobile/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  COREPACK_ENABLE_DOWNLOAD_PROMPT = "0"
+  # Public values only. The project URL lets the demo offer downloadable themes
+  # (Settings -> Themes); it is the same address the Android app ships with.
+  EXPO_PUBLIC_SUPABASE_URL = "https://lqgekguhqggiagrzwfvk.supabase.co"
+
+# Expo Router exports one HTML file per route; anything else (a deep link to a
+# route that only exists at runtime) falls back to the app shell. Existing
+# files win, because a 200 rewrite only applies when no file matches.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Hashed bundles never change, so browsers may keep them for a year.
+[[headers]]
+  for = "/_expo/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.wasm"
+  [headers.values]
+    Content-Type = "application/wasm"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
