@@ -5,7 +5,7 @@
   "main": "expo-router/entry",
   "scripts": {
     "android": "expo start --android",
-    "build:web": "EXPO_PUBLIC_DEMO_MODE=true expo export --platform web --clear --output-dir dist && cp ../../node_modules/sql.js/dist/*.wasm dist/",
+    "build:web": "EXPO_PUBLIC_DEMO_MODE=true expo export --platform web --clear --output-dir dist && cp ../../node_modules/sql.js/dist/*.wasm dist/ && node scripts/prepare-web-upload.mjs dist",
     "demo": "pnpm build:web && pnpm serve:web",
     "ios": "expo start --ios",
     "lint": "expo lint",
