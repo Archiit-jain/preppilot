@@ -42,8 +42,8 @@ MONO_FONT = "Courier New"
 ACCENT = RGBColor(0x1F, 0x4E, 0x9C)
 GREY = RGBColor(0x55, 0x55, 0x55)
 
-SHOT_W = Inches(1.95)  # three portrait phone screens per row
-LAND_W = Inches(3.05)  # two landscape timer faces per row
+SHOT_W = Inches(1.5)  # four portrait phone screens per row
+LAND_W = Inches(2.05)  # three landscape timer faces per row
 
 REPO = "captured 24 Sep 2026"
 WEB = "web demo, 6 Oct 2026"
@@ -63,7 +63,8 @@ def diagram(name):
 
 
 class Report:
-    def __init__(self, pages):
+    def __init__(self, pages, header="PrepPilot — Detailed Project Report"):
+        self.header = header
         self.pages = pages  # {"text to find": page number} from the previous pass
         self.doc = Document()
         self.chapter = 0
@@ -85,13 +86,13 @@ class Report:
 
         normal = self.doc.styles["Normal"]
         normal.font.name = BODY_FONT
-        normal.font.size = Pt(12)
+        normal.font.size = Pt(11)
         normal.element.rPr.rFonts.set(qn("w:eastAsia"), BODY_FONT)
         pf = normal.paragraph_format
-        pf.space_after = Pt(6)
-        pf.line_spacing = 1.25
+        pf.space_after = Pt(4)
+        pf.line_spacing = 1.15
 
-        for name, size in (("Heading 1", 16), ("Heading 2", 13), ("Heading 3", 12)):
+        for name, size in (("Heading 1", 15), ("Heading 2", 12.5), ("Heading 3", 11.5)):
             st = self.doc.styles[name]
             st.font.name = BODY_FONT
             st.font.size = Pt(size)
@@ -104,8 +105,8 @@ class Report:
                 rpr.append(rfonts)
             for attr in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):
                 rfonts.set(qn(attr), BODY_FONT)
-            st.paragraph_format.space_before = Pt(14 if name == "Heading 1" else 10)
-            st.paragraph_format.space_after = Pt(6)
+            st.paragraph_format.space_before = Pt(16 if name == "Heading 1" else 8)
+            st.paragraph_format.space_after = Pt(4)
             st.paragraph_format.keep_with_next = True
 
         # Footer: centred page number, not on the cover.
@@ -114,7 +115,7 @@ class Report:
         self._field(p, "PAGE")
         hp = sec.header.paragraphs[0]
         hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        r = hp.add_run("PrepPilot — Detailed Project Report")
+        r = hp.add_run(self.header)
         r.font.size = Pt(9)
         r.font.color.rgb = GREY
 
@@ -138,14 +139,14 @@ class Report:
     def page_break(self):
         self.doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
 
-    def h1(self, text, numbered=True):
+    def h1(self, text, numbered=True, new_page=False):
         if numbered:
             self.chapter += 1
             self.fig = 0
             self.tab = 0
             text = f"{self.chapter}. {text}"
         h = self.doc.add_heading(text, level=1)
-        h.paragraph_format.page_break_before = True
+        h.paragraph_format.page_break_before = new_page
         self.toc.append((1, text))
         self.sub = 0
 
@@ -289,8 +290,11 @@ class Report:
         r.italic = True
         r.font.size = Pt(10)
 
-    def grid(self, items, cols=3, width=SHOT_W):
+    def grid(self, items, cols=4, width=SHOT_W):
         """items: list of (path, caption, source). Laid out in a borderless table."""
+        cols = min(cols, len(items))
+        if self.doc.paragraphs:
+            self.doc.paragraphs[-1].paragraph_format.keep_with_next = True
         for start in range(0, len(items), cols):
             chunk = items[start : start + cols]
             t = self.doc.add_table(rows=1, cols=cols)
@@ -389,7 +393,7 @@ def build(pages, planned):
         r.bold = bold
 
     # ---------------------------------------------------------- abstract
-    R.h1("Abstract", numbered=False)
+    R.h1("Abstract", numbered=False, new_page=True)
     R.para(
         "PrepPilot is a mobile application that helps a student organise an examination "
         "syllabus, record what has genuinely been completed, time their study and revise, "
@@ -421,13 +425,13 @@ def build(pages, planned):
            "SQLite, Supabase, Row Level Security, synchronisation, Google Gemini, spaced repetition.")
 
     # ---------------------------------------------------------- contents
-    R.h1("Table of Contents", numbered=False)
+    R.h1("Table of Contents", numbered=False, new_page=True)
     for level, text in planned["toc"]:
         if text in ("Abstract", "Table of Contents", "List of Figures", "List of Tables"):
             continue
         R.contents_line(text, indent=0 if level == 1 else 0.3, bold=level == 1, size=11.5 if level == 1 else 11)
 
-    R.h1("List of Figures", numbered=False)
+    R.h1("List of Figures", numbered=False, new_page=True)
     for text in planned["figures"]:
         R.contents_line(text, size=10.5)
 
@@ -436,7 +440,7 @@ def build(pages, planned):
         R.contents_line(text, size=10.5)
 
     # ---------------------------------------------------------- 1 introduction
-    R.h1("Introduction")
+    R.h1("Introduction", new_page=True)
     R.h2("Project overview")
     R.para(
         "PrepPilot is an offline-first, AI-assisted study tracking application for students "
@@ -662,8 +666,8 @@ def build(pages, planned):
         "read-only Storage bucket for themes, and two Deno Edge Functions, `ask-gemini` and "
         "`delete-account`."
     )
-    R.figure(diagram("architecture.png"), "System architecture", width=Inches(5.0))
-    R.figure(diagram("solution.png"), "Every feature attaches to the syllabus hierarchy", width=Inches(6.2))
+    R.figure(diagram("architecture.png"), "System architecture", width=Inches(4.1))
+    R.figure(diagram("solution.png"), "Every feature attaches to the syllabus hierarchy", width=Inches(5.8))
 
     R.h2("Working flow")
     R.para(
@@ -672,7 +676,7 @@ def build(pages, planned):
         "engine later pulls remote changes, merges them and pushes the agreed result. No "
         "student action waits on the network."
     )
-    R.figure(diagram("workflow.png"), "Working flow of the system", width=Inches(4.6))
+    R.figure(diagram("workflow.png"), "Working flow of the system", width=Inches(3.4))
 
     R.h2("Data model")
     R.para(
@@ -694,7 +698,7 @@ def build(pages, planned):
         ["preferences", "Device settings, including the sync watermark", "No"],
         ["profiles", "Server only; created by a trigger on sign-up", "Server"],
     ], widths=[1.9, 3.6, 0.75], size=9.5)
-    R.figure(diagram("erd.png"), "Entity relationships of the core syllabus tables (notes, chats and quizzes, added later, are listed in Table 5.1)", width=Inches(4.8))
+    R.figure(diagram("erd.png"), "Entity relationships of the core syllabus tables (notes, chats and quizzes, added later, are listed in Table 5.1)", width=Inches(3.7))
 
     R.h2("Synchronisation design")
     R.para(
@@ -714,8 +718,8 @@ def build(pages, planned):
         ["Anything else", "Later updated_at", "Last write wins"],
         ["updated_at exactly equal", "Local", "Prevents devices rewriting rows they agree on"],
     ], widths=[1.8, 1.8, 2.65], size=9.5)
-    R.figure(diagram("offline.png"), "Offline write and later synchronisation", width=Inches(5.6))
-    R.figure(diagram("conflict.png"), "Conflict resolution decision flow", width=Inches(3.6))
+    R.figure(diagram("offline.png"), "Offline write and later synchronisation", width=Inches(4.6))
+    R.figure(diagram("conflict.png"), "Conflict resolution decision flow", width=Inches(2.9))
 
     R.h2("AI assistant design")
     R.para(
@@ -727,7 +731,7 @@ def build(pages, planned):
         "there is no way to express deleting or completing anything. The student sees exactly "
         "what would be added and must confirm, and proposals over 200 topics are refused."
     )
-    R.figure(diagram("ai-flow.png"), "AI request flow through the Supabase Edge Function", width=Inches(4.8))
+    R.figure(diagram("ai-flow.png"), "AI request flow through the Supabase Edge Function", width=Inches(3.8))
 
     R.h2("Security design")
     R.bullets([
@@ -859,8 +863,6 @@ export function calculateSubjectProgress(subject: SubjectLike): Progress {
         (shot("app/tracker.png"), "Tracker with the JEE Main 2026 template", REPO),
         (shot("app/subject-detail.png"), "A subject expanded into chapters", REPO),
         (shot("web/tracker-expanded-demo.png"), "Chapter expanded into topics", WEB),
-    ])
-    R.grid([
         (shot("web/topic-menu.png"), "Topic options menu", WEB),
         (shot("web/quiz-settings.png"), "Quiz settings: count, difficulty, multi-answer", WEB),
         (shot("web/classic-light-tracker.png"), "Tracker in light mode", WEB),
@@ -889,7 +891,7 @@ export function calculateSubjectProgress(subject: SubjectLike): Progress {
         (shot("web/fs-wedge.png"), "Time wedge face", WEB),
         (shot("web/fs-hourglass.png"), "Hourglass face", WEB),
         (shot("web/fs-tide.png"), "Rising tide face", WEB),
-    ], cols=2, width=LAND_W)
+    ], cols=3, width=LAND_W)
 
     R.h2("Focus Mode")
     R.para("Focus Mode is a countdown of 1 to 240 minutes with presets, a choice of end alert and "
@@ -923,8 +925,6 @@ export function calculateSubjectProgress(subject: SubjectLike): Progress {
         (shot("app/assistant-attach.png"), "Attach a photo or screenshot", REPO),
         (shot("app/assistant-picture-attached.png"), "Picture attached to a question", REPO),
         (shot("app/assistant-picture-reply.png"), "Answer about the picture", REPO),
-    ])
-    R.grid([
         (shot("app/assistant-formatted-reply.png"), "Formatted reply", REPO),
         (shot("app/assistant-proposal-review.png"), "Proposal review before adding", REPO),
         (shot("app/settings.png"), "Settings", REPO),
@@ -938,16 +938,12 @@ export function calculateSubjectProgress(subject: SubjectLike): Progress {
         (shot("web/settings-themes.png"), "Theme list in Settings", WEB),
         (shot("web/theme-notebook-tracker.png"), "Notebook theme, dark", WEB),
         (shot("web/theme-notebook-dashboard.png"), "Notebook dashboard, dark", WEB),
-    ])
-    R.grid([
         (shot("web/theme-flightdeck-tracker.png"), "Flight deck theme, dark", WEB),
         (shot("web/theme-bento-tracker.png"), "Bold bento theme, dark", WEB),
         (shot("web/theme-notebook-light-tracker.png"), "Notebook theme, light", WEB),
-    ])
-    R.grid([
         (shot("web/theme-flightdeck-light-tracker.png"), "Flight deck theme, light", WEB),
         (shot("web/theme-bento-light-tracker.png"), "Bold bento theme, light", WEB),
-    ], cols=3)
+    ])
 
     # ---------------------------------------------------------- 8 testing
     R.h1("Testing and Validation")

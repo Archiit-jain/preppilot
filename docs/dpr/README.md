@@ -13,7 +13,14 @@ the `PATH`. The build runs three times: each PDF is read back to find the page
 each heading, figure and table landed on, and the next pass writes those page
 numbers into the contents lists.
 
-Edit the script, never the `.docx` or `.pdf` — those are overwritten on the
+`build_quick.py` produces the 5-page summary, `docs/PrepPilot_Quick_Report.docx`
+and `.pdf`, reusing the same layout helpers:
+
+```bash
+python docs/dpr/build_quick.py
+```
+
+Edit the scripts, never the `.docx` or `.pdf` — those are overwritten on the
 next run.
 
 ## Screenshots
