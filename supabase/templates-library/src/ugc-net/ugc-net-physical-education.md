@@ -1,0 +1,317 @@
+---
+id: ugc-net-physical-education
+name: UGC NET Physical Education
+description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus for Physical Education.
+category: exam
+source: UGC NET Bureau official syllabus, Paper I and subject code 47; topics split from the official text.
+verified: false
+version: 1
+---
+# Paper I: Teaching and Research Aptitude
+## Teaching Aptitude
+- Teaching: Concept
+- Teaching: Objectives
+- Teaching: Levels of teaching (Memory, Understanding and Reflective)
+- Teaching: Characteristics and basic requirements
+- Learner’s characteristics: Characteristics of adolescent and adult learners (Academic, Social, Emotional and Cognitive)
+- Learner’s characteristics: Individual differences
+- Factors affecting teaching related to: Teacher
+- Factors affecting teaching related to: Learner
+- Factors affecting teaching related to: Support material
+- Factors affecting teaching related to: Instructional facilities
+- Factors affecting teaching related to: Learning environment and Institution
+- Methods of teaching in Institutions of higher learning: Teacher centred vs Learner centred methods
+- Methods of teaching in Institutions of higher learning: Off-line vs On-line methods (Swayam, Swayamprabha, MOOCs etc.)
+- Teaching Support System: Traditional
+- Teaching Support System: Modern and ICT based
+- Evaluation Systems: Elements and Types of evaluation
+- Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
+- Evaluation Systems: Computer based testing
+- Evaluation Systems: Innovations in evaluation systems
+## Research Aptitude
+- Research: Meaning
+- Research: Types
+- Research: Characteristics
+- Research: Positivism and Post-positivistic approach to research
+- Methods of Research: Experimental
+- Methods of Research: Descriptive
+- Methods of Research: Historical
+- Methods of Research: Qualitative and Quantitative methods
+- Steps of Research
+- Thesis and Article writing: Format and styles of referencing
+- Application of ICT in research
+- Research ethics
+## Comprehension
+- A passage of text be given
+- Questions be asked from the passage to be answered
+## Communication
+- Communication: Meaning
+- Communication: Types and characteristics of communication
+- Effective communication: Verbal and Non-verbal
+- Effective communication: Inter-Cultural and group communications
+- Effective communication: Classroom communication
+- Barriers to effective communication
+- Mass-Media and Society
+## Mathematical Reasoning and Aptitude
+- Types of reasoning
+- Number series, Letter series, Codes and Relationships
+- Mathematical Aptitude (Fraction
+- Time & Distance
+- Ratio
+- Proportion and Percentage
+- Profit and Loss
+- Interest and Discounting
+- Averages etc.)
+## Logical Reasoning
+- Understanding the structure of arguments: Argument forms
+- Understanding the structure of arguments: Structure of categorical propositions
+- Understanding the structure of arguments: Mood and Figure
+- Understanding the structure of arguments: Formal and Informal fallacies
+- Understanding the structure of arguments: Uses of language
+- Understanding the structure of arguments: Connotations and denotations of terms
+- Understanding the structure of arguments: Classical square of opposition
+- Evaluating and distinguishing deductive and inductive reasoning
+- Analogies
+- Venn diagram: Simple and multiple use for establishing validity of arguments
+- Indian Logic: Means of knowledge
+- Pramanas: Pratyaksha (Perception)
+- Pramanas: Anumana (Inference)
+- Pramanas: Upamana (Comparison)
+- Pramanas: Shabda (Verbal testimony)
+- Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
+- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+## Data Interpretation
+- Sources, acquisition and classification of Data
+- Quantitative and Qualitative Data
+- Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
+- Data Interpretation
+- Data and Governance
+## Unit VIII
+- Information and Communication Technology (ICT) ICT: General abbreviations and terminology
+- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Digital initiatives in higher education
+- ICT and Governance
+## People, Development and Environment
+- Development and environment: Millennium development and Sustainable development goals
+- Human and environment interaction: Anthropogenic activities and their impacts on environment
+- Environmental issues: Local
+- Environmental issues: Regional and Global
+- Environmental issues: Air pollution
+- Environmental issues: Water pollution
+- Environmental issues: Soil pollution
+- Environmental issues: Noise pollution
+- Environmental issues: Waste (solid, liquid, biomedical, hazardous, electronic)
+- Environmental issues: Climate change and its Socio-Economic and Political dimensions
+- Impacts of pollutants on human health
+- Natural and energy resources: Solar
+- Natural and energy resources: Wind
+- Natural and energy resources: Soil
+- Natural and energy resources: Hydro
+- Natural and energy resources: Geothermal
+- Natural and energy resources: Biomass
+- Natural and energy resources: Nuclear and Forests
+- Natural hazards and disasters: Mitigation strategies
+- Environmental Protection Act (1986)
+- National Action Plan on Climate Change
+- International agreements/efforts -Montreal Protocol
+- Rio Summit
+- Convention on Biodiversity
+- Kyoto Protocol
+- Paris Agreement
+- International Solar Alliance
+## Higher Education System
+- Institutions of higher learning and education in ancient India
+- Evolution of higher learning and research in Post Independence India
+- Oriental, Conventional and Non-conventional learning programmes in India
+- Professional, Technical and Skill Based education
+- Value education and environmental education
+- Policies, Governance, and Administration
+# Paper II: Physical Education
+## Unit I
+- Physical education and adapted physical education
+- Their objectives Philosophies of education as applied to physical education Development of Physical education in Greece
+- Rome
+- Sweden
+- Russia England
+- Denmark
+- Germany
+- USA
+- Australia and China
+- Growth and development of physical education in India
+- Recreation- its principles, characteristics and importance
+- Modern trends in recreation
+- Indoor and outdoor recreational programmes
+- Recreational programmes for various categories of people
+- Wellness- its importance, benefits and challenges
+- Development and maintenance of wellness
+- Teaching Aptitude – nature, objectives, characteristics of teaching, learner characteristics and teaching methods
+- Social aspects of sports- sports as a socializing agency
+- Social values
+- Sports leadership
+- Sports as cultural heritage and social aspects of competition
+- Ancient & Modern Olympics games, Asian and Commonwealth games
+- Structure and functions of international and national bodies controlling various games and sports
+- Prominent honours and awards in games and sports
+## Unit II
+- Exercise physiology its scope and importance in the field of physical education and sports
+- Cardio respiratory adaptations to long and short term physical activities
+- Muscle- its types , characteristics and functions
+- Microscopic structure of muscle fibre
+- Sliding filament theory of muscular contraction
+- Types of muscle fibres and sports performance
+- Muscular adaptations to exercise
+- Neuro-muscular junction and transmission of nerve impulse, kinesthetic Sense organs and neural control of motor skills
+- Bio-chemical aspects of exercise - Metabolism of food products
+- Aerobic and anaerobic systems during rest and exercise
+- Direct and indirect methods of measuring energy cost of exercise
+- Recovery process - Physiological aspects of fatigue
+- Restoration of energy stores
+- Recovery oxygen
+- Nutritional aspects of performance
+- Environmental influence on human physiology under exercise
+- Women in sports- trainability
+- Physiological gender differences and special problems of women athletes
+- Aging - Physiological consequences, life style management and healthful aging
+- Physiological responses of various therapeutic modalities and rehabilitation
+- Physiological aspects of various Ergogenic aids
+- Massage manipulations and their physiological responses
+## Kinesiology and biomechanics
+- Mechanical analyses of major sports skills
+## Sports psychology- its importance in the field of physical education and sports
+- Group dynamics, Group cohesion and leadership in sports
+- Cognitive process- memory and thinking
+- Principles of Motor skill learning
+- Transfer of training and its types with its implication in sports
+- Long and short term psychological preparation for performance/ competition
+- Psychological skill training for activation and relaxation Spectators and sports performance
+## Development of teacher education for physical education in India
+- Curriculum design and content- importance
+- Selection and classification of subject matter with reference to age
+- Sex and differently abled pupils
+- Integrated programme for boys and girls
+- Teaching aids - Time-table
+- Concepts
+- Credit system for various subject coursestheory and practical
+- Impact of technology in physical education and sports
+- Curriculum evaluation: Concepts and purpose; procedure and appraisal
+## Unit VI
+- Health- its objectives and spectrum
+- Health education, its importance and principles
+- Role of genetics and environment in achieving health
+- Health-related physical fitness
+- Community health programme- Health appraisal & health instructions
+- International and national health promoting government & private agencies
+- School Health programme and personal hygiene
+- Communicable diseases: Causes
+- Communicable diseases: Symptoms
+- Communicable diseases: Prevention through other means and Immunization
+- Psychosomatic disorders/ sedentary life style diseases: Causes
+- Psychosomatic disorders/ sedentary life style diseases: Symptoms and prevention
+- Obesity related health problems
+- Body weight control and its significance on health
+- Role of exercise, dieting and combination of exercise & dieting on weight control
+- First-aid- objectives and principles
+- First-aid for Shock, poisoning, burns, drowning, bleeding, electric shock and common sports injuries
+- Pollution- Air, water, sound and radiation
+- Effects of pollution on health, Preventive and safety measures from pollution
+- Nutrition- Balanced diet and its components
+- Nutritional Deficiencies
+- Understanding of malnutrition and nutritional supplements
+- Effects of smoking, alcohol, & drugs on health; prevention and rehabilitation
+## Unit VII
+- Sports training- its characteristics and principles
+- Training load, its features, principles and adaptation process
+- Means and methods of executing training load
+- Overload, its Causes, symptoms and remedial measures
+- Strength- its characteristics, types of strength, factors determining strength and strength development
+- Endurance- its characteristics, types of endurance, factors determining endurance and endurance development
+- Speed- its characteristics, types of Speed, factors determining Speed and speed development
+- Flexibility-its characteristics, types of flexibility, factors determining flexibility and flexibility development
+- Coordinative abilities- its characteristics
+- Types of coordinative abilities
+- Factors determining coordinative abilities and development of coordinative abilities
+- Technique and skill- its characteristics and importance
+- Different stages of technique development and technique training
+- Tactics and strategy
+- Planning- its importance and principles
+- Types of planning
+- Periodization- its importance, objectives and types of periodization
+- Concept of different periods - Preparatory, competition and transitional
+- Types of Competition
+- Talent identification- process and procedure
+## Unit VIII
+- Research in physical education- its importance and classification
+- Ethical issues in research
+- Methods of research- Descriptive, historical and experimental
+- Experimental research designs
+- Identification and formulation of research problem
+- Types of research hypotheses and their formulation
+- Hypotheses testing
+- Tools of research- Questionnaires, opinionnaires, interviews and observation
+- Sources and steps of literature search- library, research data bases, internet- search engines, online journals
+- Note taking and critical reading
+- Sampling Techniques- Probability and non probability
+- Data, its types and collecting measures
+- Normal probability curve and grading scales
+- Statistical processes, their importance and uses in research
+- Application of parametric and non parametric statistical techniques in research
+- Computer applications- statistical packages for data analyses- SPSS, e-mail, search engines and Microsoft office
+- Preparation of research proposal, report, abstract, paper for publication and paper for presentation
+## Unit IX
+- Test, measurement and evaluation -their types and importance in physical education and sports
+- Principles and processes of evaluation in physical education
+- Criteria of selecting an appropriate test and administration of testing programme
+- Types of tests and construction of standard knowledge and skill tests
+- Tests for fitness- Physical fitness, motor fitness, motor ability and motor educability
+- Health related fitness tests
+- Test for fitness components- strength, endurance, speed, flexibility and coordinative abilities
+- Sports skill tests- Badminton, Basketball, Football, Hockey, Tennis, and Volleyball
+- Anthropometric Measurements- land marks and measurement of various body segments ,height
+- Sitting-height
+- Weight
+- Diameters
+- Circumferences
+- Skinfolds
+- Body mass index
+- Ponderal index
+- Somatotype and Posture evaluating techniques
+- Testing of physiological phenomenons- Blood pressure
+- Breathing frequency vital capacity
+- Heart rate
+- Pulse rate
+- Body temperature and body composition
+- Tests for psychological variables- Anxiety
+- Aggression
+- Team cohesion
+- Achievement motivation
+- Mental-toughness
+- Self-efficacy
+## Unit X
+- Management- its principles and theories
+- Scope of management in physical education and sports
+- Guiding principles for organizing physical education & sports programmes in institutions
+- Personnel management- objectives and principles
+- Self-appraisal, communication skills and time management
+- Essential skills of administration
+- Financial management- objectives, purposes, principles and scope
+- Planning and preparation of budget
+- Mechanics of purchase and auditing
+- Supervision - objectives, principles and importance of supervision
+- Techniques of supervision
+- Duties and responsibilities of a supervisor
+- Facility management- planning, procuring and maintenance of facilities- indoor and outdoor facilities
+- Planning and management of sports infrastructure
+- Management of records
+- Role of sports manager- interpersonal, informational and decision making
+- Managerial skills – technical, human and conceptual
+- Qualities and qualification of sports manager
+- Event management- its principles
+- Planning
+- Check list
+- Rehearsal
+- Itinerary
+- Execution
+- Reporting and follow-up procedures of an event
+- Public relation- principles of public relations in physical education and sports
+- Mass Media- communication and publicity, qualifications of Public relation officer
+- ***********************************************************************

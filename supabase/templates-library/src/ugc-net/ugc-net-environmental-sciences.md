@@ -1,0 +1,561 @@
+---
+id: ugc-net-environmental-sciences
+name: UGC NET Environmental Sciences
+description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus for Environmental Sciences.
+category: exam
+source: UGC NET Bureau official syllabus, Paper I and subject code 89; topics split from the official text.
+verified: false
+version: 1
+---
+# Paper I: Teaching and Research Aptitude
+## Teaching Aptitude
+- Teaching: Concept
+- Teaching: Objectives
+- Teaching: Levels of teaching (Memory, Understanding and Reflective)
+- Teaching: Characteristics and basic requirements
+- Learner’s characteristics: Characteristics of adolescent and adult learners (Academic, Social, Emotional and Cognitive)
+- Learner’s characteristics: Individual differences
+- Factors affecting teaching related to: Teacher
+- Factors affecting teaching related to: Learner
+- Factors affecting teaching related to: Support material
+- Factors affecting teaching related to: Instructional facilities
+- Factors affecting teaching related to: Learning environment and Institution
+- Methods of teaching in Institutions of higher learning: Teacher centred vs Learner centred methods
+- Methods of teaching in Institutions of higher learning: Off-line vs On-line methods (Swayam, Swayamprabha, MOOCs etc.)
+- Teaching Support System: Traditional
+- Teaching Support System: Modern and ICT based
+- Evaluation Systems: Elements and Types of evaluation
+- Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
+- Evaluation Systems: Computer based testing
+- Evaluation Systems: Innovations in evaluation systems
+## Research Aptitude
+- Research: Meaning
+- Research: Types
+- Research: Characteristics
+- Research: Positivism and Post-positivistic approach to research
+- Methods of Research: Experimental
+- Methods of Research: Descriptive
+- Methods of Research: Historical
+- Methods of Research: Qualitative and Quantitative methods
+- Steps of Research
+- Thesis and Article writing: Format and styles of referencing
+- Application of ICT in research
+- Research ethics
+## Comprehension
+- A passage of text be given
+- Questions be asked from the passage to be answered
+## Communication
+- Communication: Meaning
+- Communication: Types and characteristics of communication
+- Effective communication: Verbal and Non-verbal
+- Effective communication: Inter-Cultural and group communications
+- Effective communication: Classroom communication
+- Barriers to effective communication
+- Mass-Media and Society
+## Mathematical Reasoning and Aptitude
+- Types of reasoning
+- Number series, Letter series, Codes and Relationships
+- Mathematical Aptitude (Fraction
+- Time & Distance
+- Ratio
+- Proportion and Percentage
+- Profit and Loss
+- Interest and Discounting
+- Averages etc.)
+## Logical Reasoning
+- Understanding the structure of arguments: Argument forms
+- Understanding the structure of arguments: Structure of categorical propositions
+- Understanding the structure of arguments: Mood and Figure
+- Understanding the structure of arguments: Formal and Informal fallacies
+- Understanding the structure of arguments: Uses of language
+- Understanding the structure of arguments: Connotations and denotations of terms
+- Understanding the structure of arguments: Classical square of opposition
+- Evaluating and distinguishing deductive and inductive reasoning
+- Analogies
+- Venn diagram: Simple and multiple use for establishing validity of arguments
+- Indian Logic: Means of knowledge
+- Pramanas: Pratyaksha (Perception)
+- Pramanas: Anumana (Inference)
+- Pramanas: Upamana (Comparison)
+- Pramanas: Shabda (Verbal testimony)
+- Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
+- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+## Data Interpretation
+- Sources, acquisition and classification of Data
+- Quantitative and Qualitative Data
+- Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
+- Data Interpretation
+- Data and Governance
+## Unit VIII
+- Information and Communication Technology (ICT) ICT: General abbreviations and terminology
+- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Digital initiatives in higher education
+- ICT and Governance
+## People, Development and Environment
+- Development and environment: Millennium development and Sustainable development goals
+- Human and environment interaction: Anthropogenic activities and their impacts on environment
+- Environmental issues: Local
+- Environmental issues: Regional and Global
+- Environmental issues: Air pollution
+- Environmental issues: Water pollution
+- Environmental issues: Soil pollution
+- Environmental issues: Noise pollution
+- Environmental issues: Waste (solid, liquid, biomedical, hazardous, electronic)
+- Environmental issues: Climate change and its Socio-Economic and Political dimensions
+- Impacts of pollutants on human health
+- Natural and energy resources: Solar
+- Natural and energy resources: Wind
+- Natural and energy resources: Soil
+- Natural and energy resources: Hydro
+- Natural and energy resources: Geothermal
+- Natural and energy resources: Biomass
+- Natural and energy resources: Nuclear and Forests
+- Natural hazards and disasters: Mitigation strategies
+- Environmental Protection Act (1986)
+- National Action Plan on Climate Change
+- International agreements/efforts -Montreal Protocol
+- Rio Summit
+- Convention on Biodiversity
+- Kyoto Protocol
+- Paris Agreement
+- International Solar Alliance
+## Higher Education System
+- Institutions of higher learning and education in ancient India
+- Evolution of higher learning and research in Post Independence India
+- Oriental, Conventional and Non-conventional learning programmes in India
+- Professional, Technical and Skill Based education
+- Value education and environmental education
+- Policies, Governance, and Administration
+# Paper II: Environmental Sciences
+## Fundamentals of Environmental Sciences
+- Definition, Principles and Scope of Environmental Science
+- Structure and composition of atmosphere, hydrosphere, lithosphere and biosphere
+- Laws of thermodynamics, heat transfer processes, mass and energy transfer across various interfaces, material balance
+- Meteorological parameters - pressure
+- Temperature
+- Precipitation
+- Humidity
+- Mixing ratio
+- Saturation mixing ratio
+- Radiation and wind velocity
+- Adiabatic lapse rate
+- Environmental lapse rate
+- Wind roses
+- Interaction between Earth, Man and Environment
+- Biogeographic provinces of the world and agro-climatic zones of India
+- Concept of sustainable development
+- Natural resources and their assessment
+- Remote Sensing and GIS: Principles of remote sensing and GIS
+- Digital image processing and ground truthing
+- Application of remote sensing and GIS in land cover/land use planning and management (urban sprawling
+- Vegetation study
+- Forestry
+- Natural resource)
+- Waste management and climate change
+- Environmental education and awareness
+- Environmental ethics
+## Environmental Chemistry
+- Fundamentals of Environmental Chemistry: Classification of elements
+- Fundamentals of Environmental Chemistry: Stoichiometry
+- Fundamentals of Environmental Chemistry: Gibbs’ energy
+- Fundamentals of Environmental Chemistry: Chemical potential
+- Fundamentals of Environmental Chemistry: Chemical kinetics
+- Fundamentals of Environmental Chemistry: Chemical equilibria
+- Fundamentals of Environmental Chemistry: Solubility of gases in water
+- Fundamentals of Environmental Chemistry: The carbonate system
+- Fundamentals of Environmental Chemistry: Unsaturated and saturated hydrocarbons
+- Fundamentals of Environmental Chemistry: Radioisotopes
+- Composition of air
+- Particles, ions and radicals in the atmosphere
+- Chemical speciation
+- Chemical processes in the formation of inorganic and organic particulate matters
+- Thermochemical and photochemical reactions in the atmosphere
+- Oxygen and Ozone chemistry
+- Photochemical smog
+- Hydrological cycle
+- Water as a universal solvent
+- Concept of DO, BOD and COD
+- Sedimentation, coagulation, flocculation, filtration, pH and Redox potential (Eh)
+- Inorganic and organic components of soils
+- Biogeochemical cycles – nitrogen, carbon, phosphorus and sulphur
+- Toxic chemicals: Pesticides and their classification and effects
+- Biochemical aspects of heavy metals (Hg, Cd, Pb, Cr) and metalloids (As, Se)
+- CO, O3, PAN, VOC and POP
+- Carcinogens in the air
+- Principles of analytical methods: Titrimetry
+- Principles of analytical methods: Gravimetry
+- Principles of analytical methods: Bomb Calorimetry
+- Principles of analytical methods: Chromatography (Paper Chromatography, TLC, GC and HPLC)
+- Principles of analytical methods: Flame photometry
+- Principles of analytical methods: Spectrophotometry (UV-VIS, AAS, ICP-AES, ICP-MS)
+- Principles of analytical methods: Electrophoresis
+- Principles of analytical methods: XRF
+- Principles of analytical methods: XRD
+- Principles of analytical methods: NMR
+- Principles of analytical methods: FTIR
+- Principles of analytical methods: GC-MS
+- Principles of analytical methods: SEM
+- Principles of analytical methods: TEM
+## Environmental Biology
+- Ecology as an inter-disciplinary science
+- Origin of life and speciation
+- Human Ecology and Settlement
+- Ecosystem Structure and functions: Structures - Biotic and Abiotic components
+- Functions - Energy flow in ecosystems, energy flow models, food chains and food webs
+- Biogeochemical cycles, Ecological succession
+- Species diversity, Concept of ecotone, edge effects, ecological habitats and niche
+- Ecosystem stability and factors affecting stability
+- Ecosystem services
+- Basis of Ecosystem classification
+- Types of Ecosystem: Desert (hot and cold)
+- Types of Ecosystem: Forest
+- Types of Ecosystem: Rangeland
+- Types of Ecosystem: Wetlands
+- Types of Ecosystem: Lotic
+- Types of Ecosystem: Lentic
+- Types of Ecosystem: Estuarine (mangrove)
+- Types of Ecosystem: Oceanic
+- Biomes: Concept
+- Biomes: Classification and distribution
+- Characteristics of different biomes: Tundra
+- Characteristics of different biomes: Taiga
+- Characteristics of different biomes: Grassland
+- Characteristics of different biomes: Deciduous forest biome
+- Characteristics of different biomes: Highland Icy Alpine Biome
+- Characteristics of different biomes: Chapparal
+- Characteristics of different biomes: Savanna
+- Characteristics of different biomes: Tropical Rain forest
+- Population ecology: Characteristics of population
+- Population ecology: Concept of carrying capacity
+- Population ecology: Population growth and regulations
+- Population fluctuations, dispersion and metapopulation
+- Concept of ‘r’ and ‘k’ species
+- Keystone species
+- Community ecology: Definition
+- Community ecology: Community concept
+- Community ecology: Types and interaction predation
+- Community ecology: Herbivory
+- Community ecology: Parasitism and allelopathy
+- Biological invasions
+- Biodiversity and its conservation: Definition
+- Biodiversity and its conservation: Types
+- Biodiversity and its conservation: Importance of biodiversity and threats to biodiversity
+- Concept and basis of identification of ‘Hotspots’; hotspots in India
+- Measures of biodiversity
+- Strategies for biodiversity conservation: In situ
+- Strategies for biodiversity conservation: Ex situ and in vitro conservation
+- National parks, Sanctuaries, Protected areas and Sacred groves in India
+- Concepts of gene pool, biopiracy and bio-prospecting
+- Concept of restoration ecology
+- Extinct, Rare, Endangered and Threatened flora and fauna of India
+- Concept of Industrial Ecology
+- Toxicology and Microbiology: Absorption
+- Toxicology and Microbiology: Distribution and excretion of toxic agents
+- Toxicology and Microbiology: Acute and chronic toxicity
+- Toxicology and Microbiology: Concept of bioassay
+- Toxicology and Microbiology: Threshold limit value
+- Toxicology and Microbiology: Margin of safety
+- Toxicology and Microbiology: Therapeutic index
+- Toxicology and Microbiology: Biotransformation
+- Major water borne diseases and air borne microbes
+- Environmental Biotechnology: Bioremediation – definition
+- Environmental Biotechnology: Types and role of plants and microbes for in situ and ex situ remediation
+- Bioindicators, Biofertilizers, Biofuels and Biosensors
+## Environmental Geosciences
+- Origin of earth
+- Primary geochemical differentiation and formation of core, mantle, crust, atmosphere and hydrosphere
+- Concept of minerals and rocks
+- Formation of igneous and metamorphic rocks
+- Controls on formation of landforms - tectonic including plate tectonic and climatic
+- Concept of steady state and equilibrium, Energy budget of the earth
+- Earth’s thermal environment and seasons
+- Coriolis force, pressure gradient force, frictional force, geo-strophic wind field, gradient wind
+- Climates of India, western disturbances, Indian monsoon, droughts, El Nino, La Nina
+- Concept of residence time and rates of natural cycles
+- Geophysical fields
+- Weathering including weathering reactions, erosion, transportation and deposition of sediments
+- Soil forming minerals and process of soil formation
+- Identification and characterization of clay minerals
+- Soil physical and chemical properties
+- Soil types and climate control on soil formation
+- Cation exchange capacity and mineralogical controls
+- Geochemical classification of elements, abundance of elements in bulk earth, crust, hydrosphere and biosphere
+- Partitioning of elements during surficial geologic processes, Geochemical recycling of elements
+- Paleoclimate
+- Distribution of water in earth
+- Hydrology and hydrogeology
+- Major basins and groundwater provinces of India
+- Darcy’s law and its validity
+- Groundwater fluctuations
+- Hydraulic conductivity
+- Groundwater tracers
+- Land subsidence
+- Effects of excessive use of groundwater
+- Groundwater quality
+- Pollution of groundwater resources, Ghyben-Herzberg relation between fresh-saline water
+- Natural resource exploration and exploitation and related environmental concerns
+- Historical perspective and conservation of non-renewable resources
+- Natural Hazards: Catastrophic geological hazards - floods
+- Natural Hazards: Landslides
+- Natural Hazards: Earthquakes
+- Natural Hazards: Volcanism
+- Natural Hazards: Avalanche
+- Natural Hazards: Tsunami and cloud bursts
+- Prediction of hazards and mitigation of their impacts
+## Energy and Environment
+- Sun as source of energy; solar radiation and its spectral characteristics
+- Fossil fuels: Classification
+- Fossil fuels: Composition
+- Fossil fuels: Physico-chemical characteristics and energy content of coal
+- Fossil fuels: Petroleum and natural gas
+- Shale oil, Coal bed Methane, Gas hydrates
+- Gross-calorific value and net-calorific value
+- Principles of generation of hydro-power
+- Tidal energy
+- Ocean thermal energy conversion
+- Wind power
+- Geothermal energy
+- Solar energy (solar collectors
+- Photo-voltaic modules
+- Solar ponds)
+- Nuclear energy - fission and fusion, Nuclear fuels, Nuclear reactor – principles and types
+- Bioenergy: methods to produce energy from biomass
+- Environmental implications of energy use; energy use pattern in India and the world
+- Emissions of CO2 in developed and developing countries including India
+- Radiative forcing and global warming
+- Impacts of large scale exploitation of solar, wind, hydro and nuclear energy sources
+## Environmental Pollution and Control
+- Air Pollution: Sources and types of Pollutants - Natural and anthropogenic sources
+- Air Pollution: Primary and secondary pollutants
+- Criteria air pollutants
+- Sampling and monitoring of air pollutants (gaseous and particulates); period, frequency and duration of sampling
+- Principles and instruments for measurements of (i) ambient air pollutants concentration and (ii) stack emissions
+- Indian National Ambient Air Quality Standards
+- Impact of air pollutants on human health, plants and materials
+- Acid rain
+- Dispersion of air pollutants
+- Mixing height/depth, lapse rates, Gaussian plume model, line source model and area source model
+- Control devices for particulate matter: Principle and working of: settling chamber
+- Control devices for particulate matter: Centrifugal collectors
+- Control devices for particulate matter: Wet collectors
+- Control devices for particulate matter: Fabric filters and electrostatic precipitator
+- Control of gaseous pollutants through adsorption, absorption, condensation and combustion including catalytic combustion
+- Indoor air pollution, Vehicular emissions and Urban air quality
+- Noise Pollution: Sources
+- Noise Pollution: Weighting networks
+- Noise Pollution: Measurement of noise indices (Leq, L10, L90, L50, LDN, TNI)
+- Noise dose and Noise Pollution standards
+- Noise control and abatement measures: Active and Passive methods
+- Vibrations and their measurements
+- Impact of noise and vibrations on human health
+- Water Pollution: Types and sources of water pollution
+- Impact on humans, plants and animals
+- Measurement of water quality parameters: Sampling and analysis for pH
+- Measurement of water quality parameters: EC
+- Measurement of water quality parameters: Turbidity
+- Measurement of water quality parameters: TDS
+- Measurement of water quality parameters: Hardness
+- Measurement of water quality parameters: Chlorides
+- Measurement of water quality parameters: Salinity
+- Measurement of water quality parameters: DO
+- Measurement of water quality parameters: BOD
+- Measurement of water quality parameters: COD
+- Measurement of water quality parameters: Nitrates
+- Measurement of water quality parameters: Phosphates
+- Measurement of water quality parameters: Sulphates
+- Measurement of water quality parameters: Heavy metals and organic contaminants
+- Microbiological analysis – MPN
+- Indian standards for drinking water (IS: 10500
+- Indian standards for drinking water (IS: 2012)
+- Drinking water treatment: Coagulation and flocculation
+- Drinking water treatment: Sedimentation and Filtration
+- Drinking water treatment: Disinfection and Softening
+- Wastewater Treatment: Primary
+- Wastewater Treatment: Secondary and Advanced treatment methods
+- Common effluent treatment plant
+- Soil Pollution: Physico-chemical and biological properties of soil (texture
+- Structure
+- Inorganic and organic components)
+- Analysis of soil quality
+- Soil Pollution control
+- Industrial effluents and their interactions with soil components
+- Soil micro-organisms and their functions - degradation of pesticides and synthetic fertilizers
+- Thermal, Marine Pollution and Radioactive: Sources of Thermal Pollution
+- Thermal, Marine Pollution and Radioactive: Heat Islands
+- Thermal, Marine Pollution and Radioactive: Causes and consequences
+- Sources and impact of Marine Pollution
+- Methods of Abatement of Marine Pollution
+- Coastal management
+- Radioactive pollution – sources
+- Biological effects of ionizing radiations
+- Radiation exposure and radiation standards
+- Radiation protection
+## Solid and Hazardous Waste Management
+- Solid Waste - types and sources
+- Solid waste characteristics, generation rates, solid waste components, proximate and ultimate analyses of solid wastes
+- Solid waste collection and transportation: Container systems - hauled and stationary
+- Solid waste collection and transportation: Layout of collection routes
+- Solid waste collection and transportation: Transfer stations and transportation
+- Solid waste processing and recovery – Recycling
+- Recovery of materials for recycling and direct manufacture of solid waste products
+- Electrical energy generation from solid waste (Fuel pellets
+- Refuse derived fuels)
+- Composting and vermicomposting
+- Biomethanation of solid waste
+- Disposal of solid wastes – sanitary land filling and its management, incineration of solid waste
+- Hazardous waste – Types, characteristics and health impacts
+- Hazardous waste management: Treatment Methods – neutralization
+- Hazardous waste management: Oxidation reduction
+- Hazardous waste management: Precipitation
+- Hazardous waste management: Solidification
+- Hazardous waste management: Stabilization
+- Hazardous waste management: Incineration and final disposal. e-waste: classification
+- Hazardous waste management: Methods of handling and disposal
+- Fly ash: Sources
+- Fly ash: Composition and utilisation
+- Plastic waste: Sources
+- Plastic waste: Consequences and management
+## Environmental Assessment, Management and Legislation
+- Aims and objectives of Environmental Impact Assessment (EIA)
+- Environmental Impact Statement (EIS) and Environmental Management Plan (EMP)
+- EIA Guidelines
+- Impact Assessment Methodologies
+- Procedure for reviewing EIA of developmental projects
+- Life-cycle analysis, costbenefit analysis
+- Guidelines for Environmental Audit
+- Environmental Planning as a part of EIA and Environmental Audit
+- Environmental Management System Standards (ISO14000 series)
+- EIA Notification, 2006 and amendments from time to time
+- Eco-labeling schemes
+- Risk Assessment - Hazard identification
+- Hazard accounting
+- Scenarios of exposure
+- Risk characterization and Risk management
+- Overview of Environmental Laws in India: Constitutional provisions in India (Article 48A and 51A)
+- Wildlife Protection Act
+- 1972 amendments 1991
+- Forest Conservation Act
+- 1980
+- Indian Forest Act
+- Revised 1982
+- Biological Diversity Act
+- 2002
+- Water (Prevention and Control of Pollution) Act
+- 1974 amended 1988 and Rules 1975
+- Air (Prevention and Control of Pollution) Act
+- 1981 amended 1987 and Rules 1982
+- Environmental (Protection) Act
+- 1986 and Rules 1986
+- Motor Vehicle Act
+- 1988
+- The Hazardous and Other Waste (Management and Transboundary Movement) Rules
+- 2016
+- The Plastic Waste Management Rules
+- The Bio-Medical Waste Management Rules
+- The Solid Waste Management Rules
+- The e-waste (Management) Rules 2016
+- The Construction and Demolition Waste Management Rules
+- The Manufacture
+- Storage and Import of Hazardous Chemical (Amendment) Rules
+- 2000
+- The Batteries (Management and Handling) Rules
+- 2010 with Amendments
+- The Public Liability Insurance Act
+- 1991 and Rules 1991
+- Noise Pollution (Regulation and Control) Rules
+- Coastal Regulation Zones (CRZ) 1991 amended from time to time
+- National Forest Policy, 1988, National Water Policy, 2002, National Environmental Policy, 2006
+- Environmental Conventions and Agreements: Stockholm Conference on Human Environment 1972
+- Environmental Conventions and Agreements: Montreal Protocol
+- Environmental Conventions and Agreements: 1987
+- Environmental Conventions and Agreements: Conference of Parties (COPs)
+- Environmental Conventions and Agreements: Basel Convention (1989, 1992)
+- Environmental Conventions and Agreements: Ramsar Convention on Wetlands (1971)
+- Environmental Conventions and Agreements: Earth Summit at Rio de Janeiro
+- Environmental Conventions and Agreements: 1992
+- Environmental Conventions and Agreements: Agenda-21
+- Environmental Conventions and Agreements: Global Environmental Facility (GEF)
+- Environmental Conventions and Agreements: Convention on Biodiversity (1992)
+- Environmental Conventions and Agreements: UNFCCC
+- Environmental Conventions and Agreements: Kyoto Protocol
+- Environmental Conventions and Agreements: 1997
+- Environmental Conventions and Agreements: Clean Development Mechanism (CDM)
+- Environmental Conventions and Agreements: Earth Summit at Johannesburg
+- Environmental Conventions and Agreements: 2002
+- Environmental Conventions and Agreements: RIO+20
+- Environmental Conventions and Agreements: UN Summit on Millennium Development Goals
+- Environmental Conventions and Agreements: 2000
+- Environmental Conventions and Agreements: Copenhagen Summit
+- Environmental Conventions and Agreements: 2009
+- IPCC, UNEP, IGBP
+## Statistical Approaches and Modelling in Environmental Sciences
+- Attributes and Variables: Types of variables
+- Attributes and Variables: Scales of measurement
+- Attributes and Variables: Measurement of Central tendency and Dispersion
+- Attributes and Variables: Standard error
+- Attributes and Variables: Moments – measure of Skewness and Kurtosis
+- Attributes and Variables: Basic concept of probability theory
+- Attributes and Variables: Sampling theory
+- Attributes and Variables: Distributions - Normal
+- Attributes and Variables: Log-normal
+- Attributes and Variables: Binomial
+- Attributes and Variables: Poisson
+- Attributes and Variables: T
+- Attributes and Variables: 2 and F-distribution
+- Correlation
+- Regression
+- Tests of hypothesis (t-test
+- 2test ANOVA: one-way and two-way); significance and confidence limits
+- Approaches to development of environmental models; linear
+- Simple and multiple regression models
+- Validation and forecasting
+- Models of population growth and interactions: Lotka-Voltera model
+- Models of population growth and interactions: Leslie’s matrix model
+## Contemporary Environmental Issues
+- Global Environmental Issues – Biodiversity loss, Climate change, Ozone layer depletion
+- Sea level rise
+- International efforts for environmental protection
+- National Action Plan on Climate Change (Eight National missions – National Solar Mission
+- National Mission for Enhanced Energy Efficiency
+- National Mission on Sustainable Habitat
+- National Water Mission
+- National Mission for Sustaining the Himalayan Ecosystem
+- National Mission for a ‘Green India’
+- National Mission for Sustainable Agriculture
+- National Mission on Strategic Knowledge for Climate Change)
+- Current Environmental Issues in India: Environmental issues related to water resource projects - Narmada dam
+- Current Environmental Issues in India: Tehri dam
+- Current Environmental Issues in India: Almatti dam
+- Current Environmental Issues in India: Cauvery and Mahanadi
+- Current Environmental Issues in India: Hydro-power projects in Jammu & Kashmir
+- Current Environmental Issues in India: Himachal and North-Eastern States
+- Water conservation-development of watersheds, Rain water harvesting and ground water recharge
+- National river conservation plan – Namami Gange and Yamuna Action Plan
+- Eutrophication and restoration of lakes
+- Conservation of wetlands, Ramsar sites in India
+- Soil erosion, reclamation of degraded land, desertification and its control
+- Climate change - adaptability, energy security, food security and sustainability
+- Forest Conservation – Chipko movement, Appiko movement, Silent Valley movement and Gandhamardhan movement
+- People Biodiversity register
+- Wild life conservation projects: Project tiger
+- Wild life conservation projects: Project Elephant
+- Wild life conservation projects: Crocodile Conservation
+- Wild life conservation projects: GOI-UNDP Sea Turtle project
+- Wild life conservation projects: Indo-Rhino vision
+- Carbon sequestration and carbon credits
+- Waste Management – Swachha Bharat Abhiyan
+- Sustainable Habitat: Green Building
+- Sustainable Habitat: GRIHA Rating Norms
+- Vehicular emission norms in India
+- Epidemiological Issues: Fluorosis
+- Epidemiological Issues: Arsenocosis
+- Epidemiological Issues: Goitre
+- Epidemiological Issues: Dengue
+- Environmental Disasters: Minnamata Disaster
+- Environmental Disasters: Love Canal Disaster
+- Environmental Disasters: Bhopal Gas Disaster
+- Environmental Disasters: 1984
+- Environmental Disasters: Chernobyl Disaster
+- Environmental Disasters: 1986
+- Environmental Disasters: Fukusima Daiichi nuclear disaster
+- Environmental Disasters: 2011

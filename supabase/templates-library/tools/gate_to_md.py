@@ -134,7 +134,7 @@ def convert(code: str, raw: str) -> str:
 
     xl = code == "XL"
     for line in lines:
-        if re.match(r"^(Important Note|Note|In each of the following)", line, re.I):
+        if re.match(r"^(Important Note|Note\b|In each of the following)", line, re.I):
             skip_note = True
             continue
         if re.match(r"^(Core|Special) Topics:?$", line, re.I):

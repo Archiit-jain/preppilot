@@ -1,0 +1,449 @@
+---
+id: ugc-net-psychology
+name: UGC NET Psychology
+description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus for Psychology.
+category: exam
+source: UGC NET Bureau official syllabus, Paper I and subject code 04; topics split from the official text.
+verified: false
+version: 1
+---
+# Paper I: Teaching and Research Aptitude
+## Teaching Aptitude
+- Teaching: Concept
+- Teaching: Objectives
+- Teaching: Levels of teaching (Memory, Understanding and Reflective)
+- Teaching: Characteristics and basic requirements
+- Learner’s characteristics: Characteristics of adolescent and adult learners (Academic, Social, Emotional and Cognitive)
+- Learner’s characteristics: Individual differences
+- Factors affecting teaching related to: Teacher
+- Factors affecting teaching related to: Learner
+- Factors affecting teaching related to: Support material
+- Factors affecting teaching related to: Instructional facilities
+- Factors affecting teaching related to: Learning environment and Institution
+- Methods of teaching in Institutions of higher learning: Teacher centred vs Learner centred methods
+- Methods of teaching in Institutions of higher learning: Off-line vs On-line methods (Swayam, Swayamprabha, MOOCs etc.)
+- Teaching Support System: Traditional
+- Teaching Support System: Modern and ICT based
+- Evaluation Systems: Elements and Types of evaluation
+- Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
+- Evaluation Systems: Computer based testing
+- Evaluation Systems: Innovations in evaluation systems
+## Research Aptitude
+- Research: Meaning
+- Research: Types
+- Research: Characteristics
+- Research: Positivism and Post-positivistic approach to research
+- Methods of Research: Experimental
+- Methods of Research: Descriptive
+- Methods of Research: Historical
+- Methods of Research: Qualitative and Quantitative methods
+- Steps of Research
+- Thesis and Article writing: Format and styles of referencing
+- Application of ICT in research
+- Research ethics
+## Comprehension
+- A passage of text be given
+- Questions be asked from the passage to be answered
+## Communication
+- Communication: Meaning
+- Communication: Types and characteristics of communication
+- Effective communication: Verbal and Non-verbal
+- Effective communication: Inter-Cultural and group communications
+- Effective communication: Classroom communication
+- Barriers to effective communication
+- Mass-Media and Society
+## Mathematical Reasoning and Aptitude
+- Types of reasoning
+- Number series, Letter series, Codes and Relationships
+- Mathematical Aptitude (Fraction
+- Time & Distance
+- Ratio
+- Proportion and Percentage
+- Profit and Loss
+- Interest and Discounting
+- Averages etc.)
+## Logical Reasoning
+- Understanding the structure of arguments: Argument forms
+- Understanding the structure of arguments: Structure of categorical propositions
+- Understanding the structure of arguments: Mood and Figure
+- Understanding the structure of arguments: Formal and Informal fallacies
+- Understanding the structure of arguments: Uses of language
+- Understanding the structure of arguments: Connotations and denotations of terms
+- Understanding the structure of arguments: Classical square of opposition
+- Evaluating and distinguishing deductive and inductive reasoning
+- Analogies
+- Venn diagram: Simple and multiple use for establishing validity of arguments
+- Indian Logic: Means of knowledge
+- Pramanas: Pratyaksha (Perception)
+- Pramanas: Anumana (Inference)
+- Pramanas: Upamana (Comparison)
+- Pramanas: Shabda (Verbal testimony)
+- Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
+- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+## Data Interpretation
+- Sources, acquisition and classification of Data
+- Quantitative and Qualitative Data
+- Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
+- Data Interpretation
+- Data and Governance
+## Unit VIII
+- Information and Communication Technology (ICT) ICT: General abbreviations and terminology
+- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Digital initiatives in higher education
+- ICT and Governance
+## People, Development and Environment
+- Development and environment: Millennium development and Sustainable development goals
+- Human and environment interaction: Anthropogenic activities and their impacts on environment
+- Environmental issues: Local
+- Environmental issues: Regional and Global
+- Environmental issues: Air pollution
+- Environmental issues: Water pollution
+- Environmental issues: Soil pollution
+- Environmental issues: Noise pollution
+- Environmental issues: Waste (solid, liquid, biomedical, hazardous, electronic)
+- Environmental issues: Climate change and its Socio-Economic and Political dimensions
+- Impacts of pollutants on human health
+- Natural and energy resources: Solar
+- Natural and energy resources: Wind
+- Natural and energy resources: Soil
+- Natural and energy resources: Hydro
+- Natural and energy resources: Geothermal
+- Natural and energy resources: Biomass
+- Natural and energy resources: Nuclear and Forests
+- Natural hazards and disasters: Mitigation strategies
+- Environmental Protection Act (1986)
+- National Action Plan on Climate Change
+- International agreements/efforts -Montreal Protocol
+- Rio Summit
+- Convention on Biodiversity
+- Kyoto Protocol
+- Paris Agreement
+- International Solar Alliance
+## Higher Education System
+- Institutions of higher learning and education in ancient India
+- Evolution of higher learning and research in Post Independence India
+- Oriental, Conventional and Non-conventional learning programmes in India
+- Professional, Technical and Skill Based education
+- Value education and environmental education
+- Policies, Governance, and Administration
+# Paper II: Psychology
+## Emergence of Psychology
+- Psychological thought in some major Eastern Systems: Bhagavad Gita
+- Psychological thought in some major Eastern Systems: Buddhism
+- Psychological thought in some major Eastern Systems: Sufism and Integral Yoga
+- Academic psychology in India: Preindependence era
+- Academic psychology in India: Post-independence era
+- Academic psychology in India: 1970s: The move to addressing social issues
+- Academic psychology in India: 1980s: Indigenization
+- Academic psychology in India: 1990s: Paradigmatic concerns
+- Academic psychology in India: Disciplinary identity crisis
+- Academic psychology in India: 2000s: Emergence of Indian psychology in academia
+- Issues: The colonial encounter
+- Issues: Post colonialism and psychology
+- Issues: Lack of distinct disciplinary identity
+- Western: Greek heritage
+- Western: Medieval period and modern period
+- Structuralism
+- Functionalism
+- Psychoanalytical
+- Gestalt
+- Behaviorism
+- HumanisticExistential
+- Transpersonal
+- Cognitive revolution
+- Multiculturalism
+- Four founding paths of academic psychology - Wundt, Freud, James, Dilthey
+- Issues: Crisis in psychology due to strict adherence to experimentalanalytical paradigm (logical empiricism)
+- Indic influences on modern psychology
+- Essential aspects of knowledge paradigms: Ontology
+- Essential aspects of knowledge paradigms: Epistemology
+- Essential aspects of knowledge paradigms: Methodology
+- Paradigms of Western Psychology: Positivism
+- Paradigms of Western Psychology: Post-Positivism
+- Paradigms of Western Psychology: Critical perspective
+- Paradigms of Western Psychology: Social Constructionism
+- Paradigms of Western Psychology: Existential Phenomenology
+- Paradigms of Western Psychology: Co-operative Enquiry
+- Paradigmatic Controversies
+- Significant Indian paradigms on psychological knowledge: Yoga
+- Significant Indian paradigms on psychological knowledge: Bhagavad Gita
+- Significant Indian paradigms on psychological knowledge: Buddhism
+- Significant Indian paradigms on psychological knowledge: Sufism
+- Significant Indian paradigms on psychological knowledge: Integral Yoga
+- Science and spirituality (avidya and vidya)
+- The primacy of self-knowledge in Indian psychology
+## Research Methodology and Statistics
+- Research: Meaning
+- Research: Purpose
+- Research: Dimensions
+- Research problems, Variables and Operational Sampling
+- Ethics in conducting and reporting research Definitions
+- Hypothesis
+- Paradigms of research: Quantitative
+- Qualitative
+- Mixed methods approach Methods of research: Observation
+- Survey [Interview
+- Questionnaires]
+- Experimental
+- Quasi-experimental
+- Field studies
+- Cross-Cultural Studies
+- Phenomenology
+- Grounded theory
+- Focus groups
+- Narratives
+- Case studies
+- Ethnography Statistics in Psychology: Measures of Central Tendency and Dispersion
+- Normal Probability Curve
+- Parametric [t-test] and Non-parametric tests [Sign Test
+- Wilcoxon Signed rank test
+- Mann-Whitney test
+- Kruskal-Wallis test
+- Friedman]
+- Power analysis
+- Effect size
+- Correlational Analysis: Correlation [Product Moment, Rank Order]
+- Correlational Analysis: Partial correlation
+- Correlational Analysis: Multiple correlation
+- Special Correlation Methods: Biserial
+- Special Correlation Methods: Point biserial
+- Special Correlation Methods: Tetrachoric
+- Special Correlation Methods: Phi coefficient
+- Regression: Simple linear regression
+- Regression: Multiple regression
+- Factor analysis: Assumptions
+- Factor analysis: Methods
+- Factor analysis: Rotation and Interpretation
+- Experimental Designs: ANOVA [One-way, Factorial]
+- Experimental Designs: Randomized Block Designs
+- Experimental Designs: Repeated Measures Design
+- Experimental Designs: Latin Square
+- Experimental Designs: Cohort studies
+- Experimental Designs: Time series
+- Experimental Designs: MANOVA
+- Experimental Designs: ANCOVA
+- Single-subject designs
+## Psychological testing
+- Types of tests Test construction: Item writing
+- Types of tests Test construction: Item analysis Test standardization: Reliability
+- Types of tests Test construction: Validity and Norms Areas of testing: Intelligence
+- Types of tests Test construction: Creativity
+- Types of tests Test construction: Neuropsychological tests
+- Types of tests Test construction: Aptitude
+- Types of tests Test construction: Personality assessment
+- Types of tests Test construction: Interest inventories Attitude scales – Semantic differential
+- Types of tests Test construction: Staples
+- Types of tests Test construction: Likert scale
+- Computer-based psychological testing Applications of psychological testing in various settings: Clinical
+- Organizational and business
+- Education
+- Counseling
+- Military
+- Career guidance
+## Biological basis of behavior
+- Sensory systems: General and specific sensations
+- Sensory systems: Receptors and processes Neurons: Structure
+- Sensory systems: Functions
+- Sensory systems: Types
+- Sensory systems: Neural impulse
+- Sensory systems: Synaptic transmission
+- Neurotransmitters
+- The Central and Peripheral Nervous Systems – Structure and functions
+- Neuroplasticity
+- Methods of Physiological Psychology: Invasive methods – Anatomical methods
+- Methods of Physiological Psychology: Degeneration techniques
+- Methods of Physiological Psychology: Lesion techniques
+- Methods of Physiological Psychology: Chemical methods
+- Methods of Physiological Psychology: Microelectrode studies
+- Non-invasive methods – EEG, Scanning methods
+- Muscular and Glandular system: Types and functions Biological basis of Motivation: Hunger
+- Muscular and Glandular system: Thirst
+- Muscular and Glandular system: Sleep and Sex
+- Biological basis of emotion: The Limbic system
+- Biological basis of emotion: Hormonal regulation of behavior
+- Genetics and behavior: Chromosomal anomalies
+- Genetics and behavior: Nature-Nurture controversy [Twin studies and adoption studies]
+## Attention, Perception, Learning, Memory and Forgetting
+- Attention: Forms of attention
+- Models of attention Perception: Approaches to the Study of Perception: Gestalt
+- Physiological approaches Perceptual Organization: Gestalt
+- Attention: Figure and Ground
+- Attention: Law of Organization Perceptual Constancy: Size
+- Attention: Shape
+- Attention: Color
+- Attention: Illusions Perception of Form
+- Depth
+- Movement Role of motivation
+- Learning in perception Signal detection theory: Assumptions
+- Applications Subliminal perception
+- Related factors
+- Attention: Information processing approach to perception
+- Attention: Culture and perception
+- Attention: Perceptual styles
+- Attention: Pattern recognition
+- Attention: Ecological perspective on perception
+- Learning Process: Fundamental theories: Thorndike
+- Learning Process: Guthrie
+- Learning Process: Hull Classical Conditioning: Procedure
+- Learning Process: Phenomena and related issues Instrumental learning: Phenomena
+- Learning Process: Paradigms and theoretical issues
+- Learning Process: Reinforcement: Basic variables and schedules
+- Learning Process: Behaviour modification and its applications Cognitive approaches in learning: Latent learning
+- Learning Process: Observational learning
+- Verbal learning
+- Discrimination learning Recent trends in learning: Neurophysiology of learning Memory
+- Forgetting Memory processes: Encoding
+- Storage
+- Retrieval Stages of memory: Sensory memory
+- Short-term memory memory)
+- Long-term Memory (Declarative – Episodic and Procedural) (Working Semantic; Theories of Forgetting: Interference
+- Retrieval Failure
+- Decay
+- Motivated forgetting
+## Thinking, Intelligence and Creativity
+- Theoretical perspectives on thought processes: Associationism
+- Theoretical perspectives on thought processes: Gestalt
+- Theoretical perspectives on thought processes: Information processing
+- Theoretical perspectives on thought processes: Feature integration model Concept formation: Rules
+- Theoretical perspectives on thought processes: Types
+- Theoretical perspectives on thought processes: Strategies
+- Role of concepts in thinking Types of Reasoning Language and thought Problem solving: Type
+- Obstacles Decision-making: Types
+- Models Metacognition: Metacognitive knowledge
+- Metacognitive regulation Intelligence: Spearman
+- Theoretical perspectives on thought processes: Thurstone
+- Theoretical perspectives on thought processes: Jensen
+- Theoretical perspectives on thought processes: Cattell
+- Theoretical perspectives on thought processes: Gardner
+- Theoretical perspectives on thought processes: Stenberg
+- Theoretical perspectives on thought processes: Goleman
+- Theoretical perspectives on thought processes: Das
+- Theoretical perspectives on thought processes: Kar & Parrila Creativity: Torrance
+- Theoretical perspectives on thought processes: Getzels & Jackson
+- Theoretical perspectives on thought processes: Guilford
+- Theoretical perspectives on thought processes: Wallach & Kogan Relationship between Intelligence and Creativity
+## Personality, Motivation, emotion, stress and coping
+- Determinants of personality: Biological and socio-cultural Approaches to the study of personality: Psychoanalytical
+- Determinants of personality: Neo-Freudian
+- Determinants of personality: Social learning
+- Determinants of personality: Trait and Type
+- Determinants of personality: Cognitive
+- Determinants of personality: Humanistic
+- Determinants of personality: Existential
+- Determinants of personality: Transpersonal psychology
+- Other theories: Rotter's Locus of Control
+- Other theories: Seligman's Explanatory styles
+- Other theories: Kohlberg’s theory of Moral development
+- Basic motivational concepts: Instincts
+- Basic motivational concepts: Needs
+- Basic motivational concepts: Drives
+- Basic motivational concepts: Arousal
+- Basic motivational concepts: Incentives
+- Basic motivational concepts: Motivational Cycle
+- Approaches to the study of motivation: Psychoanalytical
+- Approaches to the study of motivation: Ethological
+- Approaches to the study of motivation: S-R Cognitive
+- Humanistic Exploratory behavior and curiosity Zuckerman's Sensation seeking Achievement
+- Affiliation
+- Power Motivational Competence Self-regulation Flow Emotions: Physiological correlates Theories of emotions: James-Lange
+- Approaches to the study of motivation: Canon-Bard
+- Approaches to the study of motivation: Schachter and Singer
+- Approaches to the study of motivation: Lazarus
+- Approaches to the study of motivation: Lindsley
+- Emotion regulation Conflicts: Sources and types Stress and Coping: Concept
+- Emotion regulation Conflicts: Models
+- Emotion regulation Conflicts: Type A
+- Emotion regulation Conflicts: B
+- Emotion regulation Conflicts: C
+- Emotion regulation Conflicts: D behaviors
+- Stress management strategies [Biofeedback
+- Music therapy
+- Breathing exercises
+- Progressive Muscular Relaxation
+- Guided Imagery
+- Mindfulness
+- Meditation
+- Yogasana
+- Stress Inoculation Training]
+## Social Psychology
+- Nature
+- Scope and history of social psychology Traditional theoretical perspectives: Field theory
+- Cognitive Dissonance
+- Sociobiology
+- Psychodynamic Approaches
+- Social Cognition
+- Social perception [Communication
+- Attributions]; attitude
+- Its change within cultural context; prosocial behavior Group
+- Social influence [Social Facilitation; Social loafing]; Social influence [Conformity
+- Peer Pressure
+- Persuasion
+- Compliance
+- Obedience
+- Social Power
+- Reactance]
+- Aggression
+- Group dynamics, leadership style and effectiveness
+- Theories of intergroup relations [Minimal Group Experiment and Social Identity Theory
+- Relative Deprivation Theory
+- Realistic Conflict Theory
+- Balance Theories
+- Equity Theory
+- Social Exchange Theory] Applied social psychology: Health
+- Environment and Law; Personal space
+- Crowding
+- Territoriality
+## Human Development and Interventions
+- Developmental processes: Nature
+- Developmental processes: Principles
+- Developmental processes: Factors in development
+- Developmental processes: Stages of Development
+- Successful aging
+- Theories of development: Psychoanalytical
+- Theories of development: Behavioristic
+- Theories of development: Cognitive Various aspects of development: Sensory-motor
+- Theories of development: Cognitive
+- Theories of development: Language
+- Theories of development: Emotional
+- Theories of development: Social and moral
+- Psychopathology: Concept
+- Psychopathology: Mental Status Examination
+- Psychopathology: Classification
+- Psychopathology: Causes Psychotherapies: Psychoanalysis
+- Psychopathology: Person-centered
+- Psychopathology: Gestalt
+- Psychopathology: Existential
+- Psychopathology: Acceptance Commitment Therapy
+- Psychopathology: Behavior therapy
+- Psychopathology: REBT
+- Psychopathology: CBT
+- Psychopathology: MBCT
+- Psychopathology: Play therapy
+- Psychopathology: Positive psychotherapy
+- Psychopathology: Transactional Analysis
+- Psychopathology: Dialectic behavior therapy
+- Psychopathology: Art therapy
+- Psychopathology: Performing Art Therapy
+- Psychopathology: Family therapy
+- Applications of theories of motivation
+- Learning in School Factors in educational achievement Teacher effectiveness Guidance in schools: Needs
+- Organizational set up and techniques Counselling: Process
+- Skills
+- Techniques
+## Emerging Areas
+- Issues of Gender, Poverty, Disability, and Migration: Cultural bias and discrimination
+- Stigma, Marginalization, and Social Suffering; Child Abuse and Domestic violence
+- Peace psychology: Violence
+- Peace psychology: Non-violence
+- Peace psychology: Conflict resolution at macro level
+- Peace psychology: Role of media in conflict resolution
+- Wellbeing and self-growth: Types of wellbeing [Hedonic and Eudemonic]
+- Wellbeing and self-growth: Character strengths
+- Wellbeing and self-growth: Resilience and Post-Traumatic Growth
+- Health: Health promoting and health compromising behaviors
+- Health: Life style and Chronic diseases [Diabetes, Hypertension, Coronary Heart Disease]
+- Health: Psychoneuroimmunology [Cancer, HIV/AIDS] Psychology and technology interface: Digital learning
+- Health: Digital etiquette: Cyber bullying
+- Health: Cyber pornography: Consumption
+- Health: Implications
+- Parental mediation of Digital Usage.…

@@ -1,0 +1,343 @@
+---
+id: ugc-net-political-science
+name: UGC NET Political Science
+description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus for Political Science.
+category: exam
+source: UGC NET Bureau official syllabus, Paper I and subject code 02; topics split from the official text.
+verified: false
+version: 1
+---
+# Paper I: Teaching and Research Aptitude
+## Teaching Aptitude
+- Teaching: Concept
+- Teaching: Objectives
+- Teaching: Levels of teaching (Memory, Understanding and Reflective)
+- Teaching: Characteristics and basic requirements
+- Learner’s characteristics: Characteristics of adolescent and adult learners (Academic, Social, Emotional and Cognitive)
+- Learner’s characteristics: Individual differences
+- Factors affecting teaching related to: Teacher
+- Factors affecting teaching related to: Learner
+- Factors affecting teaching related to: Support material
+- Factors affecting teaching related to: Instructional facilities
+- Factors affecting teaching related to: Learning environment and Institution
+- Methods of teaching in Institutions of higher learning: Teacher centred vs Learner centred methods
+- Methods of teaching in Institutions of higher learning: Off-line vs On-line methods (Swayam, Swayamprabha, MOOCs etc.)
+- Teaching Support System: Traditional
+- Teaching Support System: Modern and ICT based
+- Evaluation Systems: Elements and Types of evaluation
+- Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
+- Evaluation Systems: Computer based testing
+- Evaluation Systems: Innovations in evaluation systems
+## Research Aptitude
+- Research: Meaning
+- Research: Types
+- Research: Characteristics
+- Research: Positivism and Post-positivistic approach to research
+- Methods of Research: Experimental
+- Methods of Research: Descriptive
+- Methods of Research: Historical
+- Methods of Research: Qualitative and Quantitative methods
+- Steps of Research
+- Thesis and Article writing: Format and styles of referencing
+- Application of ICT in research
+- Research ethics
+## Comprehension
+- A passage of text be given
+- Questions be asked from the passage to be answered
+## Communication
+- Communication: Meaning
+- Communication: Types and characteristics of communication
+- Effective communication: Verbal and Non-verbal
+- Effective communication: Inter-Cultural and group communications
+- Effective communication: Classroom communication
+- Barriers to effective communication
+- Mass-Media and Society
+## Mathematical Reasoning and Aptitude
+- Types of reasoning
+- Number series, Letter series, Codes and Relationships
+- Mathematical Aptitude (Fraction
+- Time & Distance
+- Ratio
+- Proportion and Percentage
+- Profit and Loss
+- Interest and Discounting
+- Averages etc.)
+## Logical Reasoning
+- Understanding the structure of arguments: Argument forms
+- Understanding the structure of arguments: Structure of categorical propositions
+- Understanding the structure of arguments: Mood and Figure
+- Understanding the structure of arguments: Formal and Informal fallacies
+- Understanding the structure of arguments: Uses of language
+- Understanding the structure of arguments: Connotations and denotations of terms
+- Understanding the structure of arguments: Classical square of opposition
+- Evaluating and distinguishing deductive and inductive reasoning
+- Analogies
+- Venn diagram: Simple and multiple use for establishing validity of arguments
+- Indian Logic: Means of knowledge
+- Pramanas: Pratyaksha (Perception)
+- Pramanas: Anumana (Inference)
+- Pramanas: Upamana (Comparison)
+- Pramanas: Shabda (Verbal testimony)
+- Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
+- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+## Data Interpretation
+- Sources, acquisition and classification of Data
+- Quantitative and Qualitative Data
+- Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
+- Data Interpretation
+- Data and Governance
+## Unit VIII
+- Information and Communication Technology (ICT) ICT: General abbreviations and terminology
+- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Digital initiatives in higher education
+- ICT and Governance
+## People, Development and Environment
+- Development and environment: Millennium development and Sustainable development goals
+- Human and environment interaction: Anthropogenic activities and their impacts on environment
+- Environmental issues: Local
+- Environmental issues: Regional and Global
+- Environmental issues: Air pollution
+- Environmental issues: Water pollution
+- Environmental issues: Soil pollution
+- Environmental issues: Noise pollution
+- Environmental issues: Waste (solid, liquid, biomedical, hazardous, electronic)
+- Environmental issues: Climate change and its Socio-Economic and Political dimensions
+- Impacts of pollutants on human health
+- Natural and energy resources: Solar
+- Natural and energy resources: Wind
+- Natural and energy resources: Soil
+- Natural and energy resources: Hydro
+- Natural and energy resources: Geothermal
+- Natural and energy resources: Biomass
+- Natural and energy resources: Nuclear and Forests
+- Natural hazards and disasters: Mitigation strategies
+- Environmental Protection Act (1986)
+- National Action Plan on Climate Change
+- International agreements/efforts -Montreal Protocol
+- Rio Summit
+- Convention on Biodiversity
+- Kyoto Protocol
+- Paris Agreement
+- International Solar Alliance
+## Higher Education System
+- Institutions of higher learning and education in ancient India
+- Evolution of higher learning and research in Post Independence India
+- Oriental, Conventional and Non-conventional learning programmes in India
+- Professional, Technical and Skill Based education
+- Value education and environmental education
+- Policies, Governance, and Administration
+# Paper II: Political Science
+## Political Theory
+- Concepts Liberty
+- Equality
+- Justice
+- Rights
+- Democracy
+- Power
+- Citizenship
+- Political Traditions Liberalism Conservatism Socialism Marxism Feminism Ecologism Multiculturalism Postmodernism
+## Political Thought
+- Confucius
+- Plato
+- Aristotle
+- Machiavelli
+- Hobbes
+- Locke
+- Rousseau
+- Hegel
+- Mary Wollstonecraft
+- John Stuart Mill
+- Karl Marx
+- Gramsci
+- Hannah Arendt
+- Frantz Fanon
+- Mao Zedong
+- John Rawls
+## Indian Political Thought
+- Dharamshastra
+- Kautilya
+- Aggannasutta
+- Barani
+- Kabir
+- Pandita Ramabai
+- Bal Gangadhar Tilak
+- Swami Vivekanand
+- Rabindranath Tagore
+- M.K Gandhi
+- Sri Aurobindo
+- Periyar E
+- V
+- Ramasamy, Muhammad Iqbal, M.N.Roy, V D Savarkar, Dr
+- B.R.Ambedkar, J L Nehru, Ram Manohar Lohia, Jaya Prakash Narayan, Deendayal Upadhyaya
+## Comparative Political Analysis
+- Approaches: Institutional
+- Approaches: Political Culture
+- Approaches: Political Economy and New Institutionalism
+- Approaches: Comparative Methods Colonialism and decolonization: forms of colonialism
+- Approaches: Anti-colonial struggles and decolonization Nationalism: European and non-European
+- State theory: Debate over the nature of state in capitalist and socialist societies
+- State theory: Post-colonial state
+- State theory: Welfare state
+- Globalization and nations-states Political regimes: democratic (Electoral
+- Liberal
+- Majoritarian and Participatory) and non-democratic regimes (Patrimonialism
+- Bureaucratic authoritarianism
+- Military dictatorship
+- Totalitarianism
+- Fascist)
+- Constitutions and Constitutionalism: Forms of constitutions
+- Constitutions and Constitutionalism: Rule of law
+- Constitutions and Constitutionalism: Judicial independence and liberal constitutionalism
+- Constitutions and Constitutionalism: Emergency powers and crisis of constitutionalism
+- Democratisation: democratic transition and consolidation
+- Development: Underdevelopment
+- Development: Dependency
+- Development: Modernization
+- Development: World Systems Theory
+- Development: Development and democracy
+- Structures of Power: Ruling class
+- Structures of Power: Power elites
+- Structures of Power: Democratic elitism Actor and Processes: Electoral Systems
+- Structures of Power: Political Parties and Party System
+- Structures of Power: Interest groups
+- Structures of Power: Social movements
+- Structures of Power: New social movements
+- Structures of Power: Non Governmental Organisations (NGOs) and civil society campaigns
+- Structures of Power: Revolutions
+## International Relations Approaches to the study of International relations: Idealism
+- Concepts: State
+- Concepts: State system and non-state actors
+- Concepts: Power
+- Concepts: Sovereignty
+- Concepts: Security: traditional and non- traditional
+- Conflict and Peace: Changing Nature of Warfare
+- Conflict and Peace: Weapons of mass destruction
+- Conflict and Peace: Deterrence
+- Conflict and Peace: Conflict resolution
+- Conflict and Peace: Conflict transformation
+- United Nations: Aims
+- United Nations: Objectives
+- United Nations: Structure and Evaluation of the Working of UN
+- United Nations: Peace and Development perspectives
+- United Nations: Humanitarian intervention
+- International law; International Criminal Court Political Economy of IR; Globalisation; Global governance
+- Bretton Woods system
+- North-South Dialogue
+- WTO
+- G-20
+- BRICS
+- Regional Organisations: European Union
+- Regional Organisations: African Union
+- Regional Organisations: Shanghai Cooperation Organisation
+- Regional Organisations: ASEAN
+- Contemporary Challenges: International terrorism
+- Contemporary Challenges: Climate change and Environmental Concerns
+- Contemporary Challenges: Human Rights
+- Contemporary Challenges: Migration and Refugees
+- Contemporary Challenges: Poverty and Development
+- Contemporary Challenges: Role of Religion
+- Contemporary Challenges: Culture and Identity Politics
+## India’s Foreign Policy Perspectives on India’s Foreign Policy: India’s Identity as postcolonial
+- India’s Engagement with multipolar world: India’s relations with European Union
+- India’s Engagement with multipolar world: BRICS
+- India’s Engagement with multipolar world: ASEAN
+- India’s Engagement with multipolar world: Shanghai Cooperation Organisation
+- India’s Engagement with multipolar world: African Union
+- India’s Engagement with multipolar world: Southern African Development Community
+- India’s Engagement with multipolar world: Gulf Cooperation Council India’s relations with neighbourhood: SAARC
+- India’s Engagement with multipolar world: Gujaral doctrine
+- India’s Engagement with multipolar world: Look Eas t/ Act East
+- India’s Engagement with multipolar world: Look West
+- India’s Negotiation Strategies in International Regimes: The United Nations
+- India’s Negotiation Strategies in International Regimes: World Trade Organisation
+- India’s Negotiation Strategies in International Regimes: International Monetary Fund
+- Intergovernmental Panel on Climate Change Contemporary challenges: maritime security
+- India’s Negotiation Strategies in International Regimes: Energy security
+- India’s Negotiation Strategies in International Regimes: Environmental security
+- India’s Negotiation Strategies in International Regimes: Migrants and refugees
+- India’s Negotiation Strategies in International Regimes: Water resources
+- India’s Negotiation Strategies in International Regimes: International terrorism
+- India’s Negotiation Strategies in International Regimes: Cyber security
+## Political Institutions in India
+- Colonialism heritage
+- The contribution Indian National Movement to the making of the Indian Constitution Constituent Assembly: Composition
+- Making of the Indian Constitution: Ideological Moorings
+- Making of the Indian Constitution: Constitutional Debates Philosophy of the Constitution: Preamble
+- Making of the Indian Constitution: Fundamental Rights
+- Making of the Indian Constitution: Directive Principles Constitutionalism in India: Democracy
+- Making of the Indian Constitution: Social Change
+- Making of the Indian Constitution: National Unity
+- Making of the Indian Constitution: Checks and Balances
+- Making of the Indian Constitution: Basic Structure Debate
+- Making of the Indian Constitution: Constitutional Amendments Union Executive: President
+- Making of the Indian Constitution: Prime Minister and Council of Ministers Union Parliament: Structure
+- Making of the Indian Constitution: Role and Functioning
+- Making of the Indian Constitution: Parliamentary Committees Judiciary: Supreme Court
+- Making of the Indian Constitution: High Court
+- Making of the Indian Constitution: Judicial Review
+- Making of the Indian Constitution: Judicial Activism
+- Making of the Indian Constitution: Judicial Reform
+- Executive and Legislature in the States: Governor
+- Executive and Legislature in the States: Chief Minister
+- Executive and Legislature in the States: State Legislature Federalism in India: Strong Centre Framework
+- Executive and Legislature in the States: Asymmetrical Federal Provisions and Adaption
+- Executive and Legislature in the States: Role of Intergovernmental Coordination Mechanisms
+- Executive and Legislature in the States: Inter-State Council
+- Executive and Legislature in the States: Emerging Trends
+- Electoral Process and Election Commission of India: Conduct of Elections
+- Electoral Process and Election Commission of India: Rules
+- Electoral Process and Election Commission of India: Electoral Reforms
+- Local Government Institutions: Functioning and reforms
+- Constitutional and Statutory Bodies: Comptroller and Auditor General
+- Constitutional and Statutory Bodies: National Commission for Scheduled Castes
+- Constitutional and Statutory Bodies: National Commission for Scheduled Tribes
+- Constitutional and Statutory Bodies: National Commission for Human Rights
+- Constitutional and Statutory Bodies: National Commission for Women
+- Constitutional and Statutory Bodies: National Commission for Minorities
+## Public Administration
+- Public Administration: Meaning and evolution
+- Public Administration: Public and private administration Approaches: System Theory
+- Public Administration: Decision Making
+- Public Administration: Ecological Approach Public administration theories and concepts: Scientific Management Theory
+- Public Administration: Rational Choice theory
+- Public Administration: New Public Administration
+- Public Administration: Development Administration
+- Public Administration: Comparative Public Administration
+- Public Administration: New Public Management
+- Changing nature of Public Administration in the era of liberalisation
+- Globalisation Theories
+- Principles of Organization: Scientific Management Theory
+- Public Administration: Bureaucratic Theory
+- Public Administration: Human Relations Theory Managing the organization: Theories of leadership and motivation
+- Organisational Communication: Theories and Principles
+- Organisational Communication: Chester Bernard Principles of Communication
+- Information Management in the organization Managing Conflict in the Organization: Mary Parker Follett Management by…
+## Governance and Public Policy in India
+- Governance, good governance and democratic governance, role of state, civil society and individuals
+- Accountability and control: Institutional mechanism for checks and balances
+- Accountability and control: Legislative control over executive
+- Accountability and control: Administrative and budgetary control
+- Accountability and control: Control through parliamentary committees
+- Accountability and control: Judicial control over legislature and executive
+- Accountability and control: Administrative culture
+- Corruption and administrative reforms Institutional mechanisms for good governance: Right to Information
+- Accountability and control: Consumer Protection Act
+- Accountability and control: Citizen Charter
+- Accountability and control: Grievance redress system: Ombudsman
+- Accountability and control: Lokpal
+- Lokayukta Grassroots Governance: Panchayati Raj Institutions
+- Their functioning Planning
+- Development: Decentralised planning
+- Accountability and control: Planning for development
+- Accountability and control: Sustainable development
+- Accountability and control: Participatory development
+- Accountability and control: E-governance
+- NITI Aayog Public policy as an instrument of socio-economic development: public policies with special reference to…
+- Accountability and control: Health
+- Accountability and control: Drinking water
+- Accountability and control: Food security
+- Accountability and control: MNREGA
+- Accountability and control: NHRM
+- Accountability and control: RTE Monitoring and evaluation of public policy
+- Accountability and control: Mechanisms of making governance process accountable: jansunwai
+- Accountability and control: Social audit

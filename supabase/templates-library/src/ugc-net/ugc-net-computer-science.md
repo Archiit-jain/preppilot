@@ -1,0 +1,818 @@
+---
+id: ugc-net-computer-science
+name: UGC NET Computer Science and Applications
+description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus for Computer Science and Applications.
+category: exam
+source: UGC NET Bureau official syllabus, Paper I and subject code 87; topics split from the official text.
+verified: false
+version: 1
+---
+# Paper I: Teaching and Research Aptitude
+## Teaching Aptitude
+- Teaching: Concept
+- Teaching: Objectives
+- Teaching: Levels of teaching (Memory, Understanding and Reflective)
+- Teaching: Characteristics and basic requirements
+- Learner’s characteristics: Characteristics of adolescent and adult learners (Academic, Social, Emotional and Cognitive)
+- Learner’s characteristics: Individual differences
+- Factors affecting teaching related to: Teacher
+- Factors affecting teaching related to: Learner
+- Factors affecting teaching related to: Support material
+- Factors affecting teaching related to: Instructional facilities
+- Factors affecting teaching related to: Learning environment and Institution
+- Methods of teaching in Institutions of higher learning: Teacher centred vs Learner centred methods
+- Methods of teaching in Institutions of higher learning: Off-line vs On-line methods (Swayam, Swayamprabha, MOOCs etc.)
+- Teaching Support System: Traditional
+- Teaching Support System: Modern and ICT based
+- Evaluation Systems: Elements and Types of evaluation
+- Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
+- Evaluation Systems: Computer based testing
+- Evaluation Systems: Innovations in evaluation systems
+## Research Aptitude
+- Research: Meaning
+- Research: Types
+- Research: Characteristics
+- Research: Positivism and Post-positivistic approach to research
+- Methods of Research: Experimental
+- Methods of Research: Descriptive
+- Methods of Research: Historical
+- Methods of Research: Qualitative and Quantitative methods
+- Steps of Research
+- Thesis and Article writing: Format and styles of referencing
+- Application of ICT in research
+- Research ethics
+## Comprehension
+- A passage of text be given
+- Questions be asked from the passage to be answered
+## Communication
+- Communication: Meaning
+- Communication: Types and characteristics of communication
+- Effective communication: Verbal and Non-verbal
+- Effective communication: Inter-Cultural and group communications
+- Effective communication: Classroom communication
+- Barriers to effective communication
+- Mass-Media and Society
+## Mathematical Reasoning and Aptitude
+- Types of reasoning
+- Number series, Letter series, Codes and Relationships
+- Mathematical Aptitude (Fraction
+- Time & Distance
+- Ratio
+- Proportion and Percentage
+- Profit and Loss
+- Interest and Discounting
+- Averages etc.)
+## Logical Reasoning
+- Understanding the structure of arguments: Argument forms
+- Understanding the structure of arguments: Structure of categorical propositions
+- Understanding the structure of arguments: Mood and Figure
+- Understanding the structure of arguments: Formal and Informal fallacies
+- Understanding the structure of arguments: Uses of language
+- Understanding the structure of arguments: Connotations and denotations of terms
+- Understanding the structure of arguments: Classical square of opposition
+- Evaluating and distinguishing deductive and inductive reasoning
+- Analogies
+- Venn diagram: Simple and multiple use for establishing validity of arguments
+- Indian Logic: Means of knowledge
+- Pramanas: Pratyaksha (Perception)
+- Pramanas: Anumana (Inference)
+- Pramanas: Upamana (Comparison)
+- Pramanas: Shabda (Verbal testimony)
+- Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
+- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+## Data Interpretation
+- Sources, acquisition and classification of Data
+- Quantitative and Qualitative Data
+- Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
+- Data Interpretation
+- Data and Governance
+## Unit VIII
+- Information and Communication Technology (ICT) ICT: General abbreviations and terminology
+- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Digital initiatives in higher education
+- ICT and Governance
+## People, Development and Environment
+- Development and environment: Millennium development and Sustainable development goals
+- Human and environment interaction: Anthropogenic activities and their impacts on environment
+- Environmental issues: Local
+- Environmental issues: Regional and Global
+- Environmental issues: Air pollution
+- Environmental issues: Water pollution
+- Environmental issues: Soil pollution
+- Environmental issues: Noise pollution
+- Environmental issues: Waste (solid, liquid, biomedical, hazardous, electronic)
+- Environmental issues: Climate change and its Socio-Economic and Political dimensions
+- Impacts of pollutants on human health
+- Natural and energy resources: Solar
+- Natural and energy resources: Wind
+- Natural and energy resources: Soil
+- Natural and energy resources: Hydro
+- Natural and energy resources: Geothermal
+- Natural and energy resources: Biomass
+- Natural and energy resources: Nuclear and Forests
+- Natural hazards and disasters: Mitigation strategies
+- Environmental Protection Act (1986)
+- National Action Plan on Climate Change
+- International agreements/efforts -Montreal Protocol
+- Rio Summit
+- Convention on Biodiversity
+- Kyoto Protocol
+- Paris Agreement
+- International Solar Alliance
+## Higher Education System
+- Institutions of higher learning and education in ancient India
+- Evolution of higher learning and research in Post Independence India
+- Oriental, Conventional and Non-conventional learning programmes in India
+- Professional, Technical and Skill Based education
+- Value education and environmental education
+- Policies, Governance, and Administration
+# Paper II: Computer Science and Applications
+## Discrete Structures and Optimization
+- Mathematical Logic: Propositional and Predicate Logic
+- Mathematical Logic: Propositional Equivalences
+- Mathematical Logic: Normal Forms
+- Mathematical Logic: Predicates and Quantifiers
+- Mathematical Logic: Nested Quantifiers
+- Mathematical Logic: Rules of Inference
+- Sets and Relations: Set Operations
+- Sets and Relations: Representation and Properties of Relations
+- Sets and Relations: Equivalence Relations
+- Sets and Relations: Partially Ordering
+- Counting, Mathematical Induction and Discrete Probability: Basics of Counting
+- Counting, Mathematical Induction and Discrete Probability: Pigeonhole Principle
+- Counting, Mathematical Induction and Discrete Probability: Permutations and Combinations
+- Counting, Mathematical Induction and Discrete Probability: Inclusion- Exclusion Principle
+- Counting, Mathematical Induction and Discrete Probability: Mathematical Induction
+- Counting, Mathematical Induction and Discrete Probability: Probability
+- Counting, Mathematical Induction and Discrete Probability: Bayes’ Theorem
+- Group Theory: Groups
+- Group Theory: Subgroups
+- Group Theory: Semi Groups
+- Group Theory: Product and Quotients of Algebraic Structures
+- Group Theory: Isomorphism
+- Group Theory: Homomorphism
+- Group Theory: Automorphism
+- Group Theory: Rings
+- Group Theory: Integral Domains
+- Group Theory: Fields
+- Group Theory: Applications of Group Theory
+- Graph Theory: Simple Graph
+- Graph Theory: Multigraph
+- Graph Theory: Weighted Graph
+- Graph Theory: Paths and Circuits
+- Graph Theory: Shortest Paths in Weighted Graphs
+- Graph Theory: Eulerian Paths and Circuits
+- Graph Theory: Hamiltonian Paths and Circuits
+- Graph Theory: Planner graph
+- Graph Theory: Graph Coloring
+- Graph Theory: Bipartite Graphs
+- Graph Theory: Trees and Rooted Trees
+- Graph Theory: Prefix Codes
+- Graph Theory: Tree Traversals
+- Graph Theory: Spanning Trees and Cut-Sets
+- Boolean Algebra: Boolean Functions and its Representation
+- Boolean Algebra: Simplifications of Boolean Functions
+- Optimization: Linear Programming - Mathematical Model
+- Optimization: Graphical Solution
+- Optimization: Simplex and Dual Simplex Method
+- Optimization: Sensitive Analysis
+- Optimization: Integer Programming
+- Optimization: Transportation and Assignment Models
+- Optimization: PERT-CPM: Diagram Representation
+- Optimization: Critical Path Calculations
+- Optimization: Resource Levelling
+- Optimization: Cost Consideration in Project Scheduling
+## Computer System Architecture
+- Digital Logic Circuits and Components: Digital Computers
+- Digital Logic Circuits and Components: Logic Gates
+- Digital Logic Circuits and Components: Boolean Algebra
+- Digital Logic Circuits and Components: Map Simplifications
+- Digital Logic Circuits and Components: Combinational Circuits
+- Digital Logic Circuits and Components: Flip-Flops
+- Digital Logic Circuits and Components: Sequential Circuits
+- Digital Logic Circuits and Components: Integrated Circuits
+- Digital Logic Circuits and Components: Decoders
+- Digital Logic Circuits and Components: Multiplexers
+- Digital Logic Circuits and Components: Registers and Counters
+- Digital Logic Circuits and Components: Memory Unit
+- Data Representation: Data Types
+- Data Representation: Number Systems and Conversion
+- Data Representation: Complements
+- Data Representation: Fixed Point Representation
+- Data Representation: Floating Point Representation
+- Data Representation: Error Detection Codes
+- Data Representation: Computer Arithmetic - Addition
+- Data Representation: Subtraction
+- Data Representation: Multiplication and Division Algorithms
+- Register Transfer and Microoperations: Register Transfer Language
+- Register Transfer and Microoperations: Bus and Memory Transfers
+- Register Transfer and Microoperations: Arithmetic
+- Register Transfer and Microoperations: Logic and Shift Microoperations
+- Basic Computer Organization and Design: Stored Program Organization and Instruction Codes
+- Basic Computer Organization and Design: Computer Registers
+- Basic Computer Organization and Design: Computer Instructions
+- Basic Computer Organization and Design: Timing and Control
+- Basic Computer Organization and Design: Instruction Cycle
+- Basic Computer Organization and Design: Memory-Reference Instructions
+- Basic Computer Organization and Design: Input-Output
+- Basic Computer Organization and Design: Interrupt
+- Programming the Basic Computer: Machine Language
+- Programming the Basic Computer: Assembly Language
+- Programming the Basic Computer: Assembler
+- Programming the Basic Computer: Program Loops
+- Programming the Basic Computer: Subroutines
+- Programming the Basic Computer: Input-Output Programming
+- Microprogrammed Control: Control Memory
+- Microprogrammed Control: Address Sequencing
+- Microprogrammed Control: Design of Control Unit
+- Central Processing Unit: General Register Organization
+- Central Processing Unit: Stack Organization
+- Central Processing Unit: Instruction Formats
+- Central Processing Unit: Addressing Modes
+- Central Processing Unit: RISC Computer
+- Central Processing Unit: CISC Computer
+- Pipeline and Vector Processing: Parallel Processing
+- Pipeline and Vector Processing: Pipelining
+- Pipeline and Vector Processing: Arithmetic Pipeline
+- Pipeline and Vector Processing: Instruction Pipeline
+- Pipeline and Vector Processing: Vector Processing Array Processors
+- Input-Output Organization: Peripheral Devices
+- Input-Output Organization: Input-Output Interface
+- Input-Output Organization: Asynchronous Data Transfer
+- Input-Output Organization: Modes of Transfer
+- Input-Output Organization: Priority Interrupt
+- Input-Output Organization: DMA
+- Input-Output Organization: Serial Communication
+- Memory Hierarchy: Main Memory
+- Memory Hierarchy: Auxillary Memory
+- Memory Hierarchy: Associative Memory
+- Memory Hierarchy: Cache Memory
+- Memory Hierarchy: Virtual Memory
+- Memory Hierarchy: Memory Management Hardware
+- Multiprocessors: Characteristics of Multiprocessors
+- Multiprocessors: Interconnection Structures
+- Multiprocessors: Interprocessor Arbitration
+- Multiprocessors: Interprocessor Communication and Synchronization
+- Multiprocessors: Cache Coherence
+- Multiprocessors: Multicore Processors
+## Programming Languages and Computer Graphics
+- Language Design and Translation Issues: Programming Language Concepts
+- Language Design and Translation Issues: Paradigms and Models
+- Language Design and Translation Issues: Programming Environments
+- Language Design and Translation Issues: Virtual Computers and Binding Times
+- Language Design and Translation Issues: Programming Language Syntax
+- Language Design and Translation Issues: Stages in Translation
+- Language Design and Translation Issues: Formal Transition Models
+- Elementary Data Types: Properties of Types and Objects
+- Elementary Data Types: Scalar and Composite Data Types
+- Programming in C: Tokens
+- Programming in C: Identifiers
+- Programming in C: Data Types
+- Programming in C: Sequence Control
+- Programming in C: Subprogram Control
+- Programming in C: Arrays
+- Programming in C: Structures
+- Programming in C: Union
+- Programming in C: String
+- Programming in C: Pointers
+- Programming in C: Functions
+- Programming in C: File Handling
+- Programming in C: Command Line Argumaents
+- Programming in C: Preprocessors
+- Object Oriented Programming: Class
+- Object Oriented Programming: Object
+- Object Oriented Programming: Instantiation
+- Object Oriented Programming: Inheritance
+- Object Oriented Programming: Encapsulation
+- Object Oriented Programming: Abstract Class
+- Object Oriented Programming: Polymorphism
+- Programming in C++: Tokens
+- Programming in C++: Identifiers
+- Programming in C++: Variables and Constants
+- Programming in C++: Data types
+- Programming in C++: Operators
+- Programming in C++: Control statements
+- Programming in C++: Functions Parameter Passing
+- Programming in C++: Virtual Functions
+- Programming in C++: Class and Objects
+- Programming in C++: Constructors and Destructors
+- Programming in C++: Overloading
+- Programming in C++: Inheritance
+- Programming in C++: Templates
+- Programming in C++: Exception and Event Handling
+- Programming in C++: Streams and Files
+- Programming in C++: Multifile Programs
+- Web Programming: HTML
+- Web Programming: DHTML
+- Web Programming: XML
+- Web Programming: Scripting
+- Web Programming: Java
+- Web Programming: Servlets
+- Web Programming: Applets
+- Computer Graphics: Video-Display Devices
+- Computer Graphics: Raster-Scan and Random-Scan Systems
+- Computer Graphics: Graphics Monitors
+- Computer Graphics: Input Devices
+- Computer Graphics: Points and Lines
+- Computer Graphics: Line Drawing Algorithms
+- Computer Graphics: Mid-Point Circle and Ellipse Algorithms
+- Computer Graphics: Scan Line Polygon Fill Algorithm
+- Computer Graphics: Boundary-Fill and FloodFill
+- 2-D Geometrical Transforms and Viewing: Translation
+- Scaling
+- Rotation
+- Reflection and Shear Transformations; Matrix Representations and Homogeneous Coordinates; Composite Transforms
+- Transformations Between Coordinate Systems
+- Viewing Pipeline
+- Viewing Coordinate Reference Frame
+- Window to View-Port Coordinate Transformation
+- Viewing Functions
+- Line and Polygon Clipping Algorithms
+- 3-D Object Representation
+- Geometric Transformations and Viewing: Polygon Surfaces
+- Quadric Surfaces
+- Spline Representation
+- Bezier and B-Spline Curves; Bezier and B-Spline Surfaces; Illumination Models
+- Polygon Rendering Methods
+- Viewing Pipeline and Coordinates; General Projection Transforms and Cipping
+## Database Management Systems
+- Database System Concepts and Architecture: Data Models
+- Database System Concepts and Architecture: Schemas
+- Database System Concepts and Architecture: Instances
+- Database System Concepts and Architecture: Three-Schema Architecture and Data Independence
+- Database System Concepts and Architecture: Database Languages and Interfaces
+- Database System Concepts and Architecture: Centralized and Client/Server Architectures for DBMS
+- Data Modeling: Entity-Relationship Diagram
+- Data Modeling: Relational Model - Constraints
+- Data Modeling: Languages
+- Data Modeling: Design
+- Data Modeling: Programming
+- Data Modeling: Relational Database Schemas
+- Data Modeling: Update Operations and Dealing with Constraint Violations
+- Data Modeling: Relational Algebra and Relational Calculus
+- Data Modeling: Codd Rules
+- SQL: Data Definition and Data Types
+- SQL: Constraints
+- SQL: Queries
+- SQL: Insert
+- SQL: Delete
+- SQL: Update Statements
+- SQL: Views
+- SQL: Stored Procedures and Functions
+- SQL: Database Triggers
+- SQL: SQL Injection
+- Normalization for Relational Databases: Functional Dependencies and Normalization
+- Normalization for Relational Databases: Algorithms for Query Processing and Optimization
+- Normalization for Relational Databases: Transaction Processing
+- Normalization for Relational Databases: Concurrency Control Techniques
+- Normalization for Relational Databases: Database Recovery Techniques
+- Normalization for Relational Databases: Object and Object-Relational Databases
+- Normalization for Relational Databases: Database Security and Authorization
+- Enhanced Data Models: Temporal Database Concepts
+- Enhanced Data Models: Multimedia Databases
+- Enhanced Data Models: Deductive Databases
+- Enhanced Data Models: XML and Internet Databases
+- Enhanced Data Models: Mobile Databases
+- Enhanced Data Models: Geographic Information Systems
+- Enhanced Data Models: Genome Data Management
+- Enhanced Data Models: Distributed Databases and Client-Server Architectures
+- Data Warehousing and Data Mining: Data Modeling for Data Warehouses
+- Data Warehousing and Data Mining: Concept Hierarchy
+- Data Warehousing and Data Mining: OLAP and OLTP
+- Data Warehousing and Data Mining: Association Rules
+- Data Warehousing and Data Mining: Classification
+- Data Warehousing and Data Mining: Clustering
+- Data Warehousing and Data Mining: Regression
+- Data Warehousing and Data Mining: Support Vector Machine
+- Data Warehousing and Data Mining: K-Nearest Neighbour
+- Data Warehousing and Data Mining: Hidden Markov Model
+- Data Warehousing and Data Mining: Summarization
+- Data Warehousing and Data Mining: Dependency Modeling
+- Data Warehousing and Data Mining: Link Analysis
+- Data Warehousing and Data Mining: Sequencing Analysis
+- Data Warehousing and Data Mining: Social Network Analysis
+- Big Data Systems: Big Data Characteristics
+- Big Data Systems: Types of Big Data
+- Big Data Systems: Big Data Architecture
+- Big Data Systems: Introduction to Map-Reduce and Hadoop
+- Big Data Systems: Distributed File System
+- Big Data Systems: HDFS
+- NOSQL: NOSQL and Query Optimization
+- NOSQL: Different NOSQL Products
+- NOSQL: Querying and Managing NOSQL
+- NOSQL: Indexing and Ordering Data Sets
+- NOSQL: NOSQL in Cloud
+## System Software and Operating System
+- System Software: Machine
+- System Software: Assembly and High-Level Languages
+- System Software: Compilers and Interpreters
+- System Software: Loading
+- System Software: Linking and Relocation
+- System Software: Macros
+- System Software: Debuggers
+- Basics of Operating Systems: Operating System Structure
+- Basics of Operating Systems: Operations and Services
+- Basics of Operating Systems: System Calls
+- Basics of Operating Systems: Operating-System Design and Implementation
+- Basics of Operating Systems: System Boot
+- Process Management: Process Scheduling and Operations
+- Process Management: Interprocess Communication
+- Process Management: Communication in Client–Server Systems
+- Process Management: Process Synchronization
+- Process Management: Critical-Section Problem
+- Process Management: Peterson’s Solution
+- Process Management: Semaphores
+- Process Management: Synchronization
+- Threads: Multicore Programming
+- Threads: Multithreading Models
+- Threads: Thread Libraries
+- Threads: Implicit Threading
+- Threads: Threading Issues
+- CPU Scheduling: Scheduling Criteria and Algorithms
+- CPU Scheduling: Thread Scheduling
+- CPU Scheduling: MultipleProcessor Scheduling
+- CPU Scheduling: Real-Time CPU Scheduling
+- Deadlocks: Deadlock Characterization
+- Deadlocks: Methods for Handling Deadlocks
+- Deadlocks: Deadlock Prevention
+- Deadlocks: Avoidance and Detection
+- Deadlocks: Recovery from Deadlock
+- Memory Management: Contiguous Memory Allocation
+- Memory Management: Swapping
+- Memory Management: Paging
+- Memory Management: Segmentation
+- Memory Management: Demand Paging
+- Memory Management: Page Replacement
+- Memory Management: Allocation of Frames
+- Memory Management: Thrashing
+- Memory Management: Memory-Mapped Files
+- Storage Management: Mass-Storage Structure
+- Storage Management: Disk Structure
+- Storage Management: Scheduling and Management
+- Storage Management: RAID Structure
+- File and Input/Output Systems: Access Methods
+- File and Input/Output Systems: Directory and Disk Structure
+- File and Input/Output Systems: FileSystem Mounting
+- File and Input/Output Systems: File Sharing
+- File and Input/Output Systems: File-System Structure and Implementation
+- File and Input/Output Systems: Directory Implementation
+- File and Input/Output Systems: Allocation Methods
+- File and Input/Output Systems: Free-Space Management
+- File and Input/Output Systems: Efficiency and Performance
+- File and Input/Output Systems: Recovery
+- File and Input/Output Systems: I/O Hardware
+- File and Input/Output Systems: Application I/O Interface
+- File and Input/Output Systems: Kernel I/O Subsystem
+- File and Input/Output Systems: Transforming I/O Requests to Hardware Operations
+- Security: Protection
+- Security: Access Matrix
+- Security: Access Control
+- Security: Revocation of Access Rights
+- Security: Program Threats
+- Security: System and Network Threats
+- Security: Cryptography as a Security Tool
+- Security: User Authentication
+- Security: Implementing Security Defenses
+- Virtual Machines: Types of Virtual Machines and Implementations
+- Virtual Machines: Virtualization
+- Linux Operating Systems: Design Principles
+- Linux Operating Systems: Kernel Modules
+- Linux Operating Systems: Process Management
+- Linux Operating Systems: Scheduling
+- Linux Operating Systems: Memory Management
+- Linux Operating Systems: File Systems
+- Linux Operating Systems: Input and Output
+- Linux Operating Systems: Interprocess Communication
+- Linux Operating Systems: Network Structure
+- Windows Operating Systems: Design Principles
+- Windows Operating Systems: System Components
+- Windows Operating Systems: Terminal Services and Fast User Switching
+- Windows Operating Systems: File System
+- Windows Operating Systems: Networking
+- Distributed Systems: Types of Network based Operating Systems
+- Distributed Systems: Network Structure
+- Distributed Systems: Communication Structure and Protocols
+- Distributed Systems: Robustness
+- Distributed Systems: Design Issues
+- Distributed Systems: Distributed File Systems
+## Software Engineering
+- Software Process Models: Software Process
+- Software Process Models: Generic Process Model – Framework Activity
+- Software Process Models: Task Set and Process Patterns
+- Software Process Models: Process Lifecycle
+- Software Process Models: Prescriptive Process Models
+- Software Process Models: Project Management
+- Software Process Models: Component Based Development
+- Software Process Models: Aspect-Oriented Software Development
+- Software Process Models: Formal Methods
+- Software Process Models: Agile Process Models – Extreme Programming (XP)
+- Software Process Models: Adptive Software Development
+- Software Process Models: Scrum
+- Software Process Models: Dynamic System Development Model
+- Software Process Models: Feature Driven Development
+- Software Process Models: Crystal
+- Software Process Models: Web Engineering
+- Software Requirements: Functional and Non-Functional Requirements
+- Software Requirements: Eliciting Requirements
+- Software Requirements: Developing Use Cases
+- Software Requirements: Requirement Analysis and Modelling
+- Software Requirements: Requirements Review
+- Software Requirements: Software Requirment and Specification (SRS) Document
+- Software Design: Abstraction
+- Software Design: Architecture
+- Software Design: Patterns
+- Software Design: Separation of Concerns
+- Software Design: Modularity
+- Software Design: Information Hiding
+- Software Design: Functional Independence
+- Software Design: Cohesion and Coupling
+- Software Design: Object-Oriented Design
+- Software Design: Data Design
+- Software Design: Architectural Design
+- Software Design: User Interface Design
+- Software Design: Component Level Design
+- Software Quality: McCall’s Quality Factors
+- Software Quality: ISO 9126 Quality Factors
+- Software Quality: Quality Control
+- Software Quality: Quality Assurance
+- Software Quality: Risk Management
+- Software Quality: Risk Mitigation
+- Software Quality: Monitoring and Management (RMMM)
+- Software Quality: Software Reliability
+- Estimation and Scheduling of Software Projects: Software Sizing
+- Estimation and Scheduling of Software Projects: LOC and FP based Estimations
+- Estimation and Scheduling of Software Projects: Estimating Cost and Effort
+- Estimation and Scheduling of Software Projects: Estimation Models
+- Estimation and Scheduling of Software Projects: Constructive Cost Model (COCOMO)
+- Estimation and Scheduling of Software Projects: Project Scheduling and Staffing
+- Estimation and Scheduling of Software Projects: Time-line Charts
+- Software Testing: Verification and Validation
+- Software Testing: Error
+- Software Testing: Fault
+- Software Testing: Bug and Failure
+- Software Testing: Unit and Integration Tesing
+- Software Testing: White-box and Black-box Testing
+- Software Testing: Basis Path Testing
+- Software Testing: Control Structure Testing
+- Software Testing: Deriving Test Cases
+- Software Testing: Alpha and Beta Testing
+- Software Testing: Regression Testing
+- Software Testing: Performance Testing
+- Software Testing: Stress Testing
+- Software Configuration Management: Change Control and Version Control
+- Software Configuration Management: Software Reuse
+- Software Configuration Management: Software Re-engineering
+- Software Configuration Management: Reverse Engineering
+## Data Structures and Algorithms
+- Data Structures: Arrays and their Applications
+- Data Structures: Sparse Matrix
+- Data Structures: Stacks
+- Data Structures: Queues
+- Data Structures: Priority Queues
+- Data Structures: Linked Lists
+- Data Structures: Trees
+- Data Structures: Forest
+- Data Structures: Binary Tree
+- Data Structures: Threaded Binary Tree
+- Data Structures: Binary Search Tree
+- Data Structures: AVL Tree
+- Data Structures: B Tree
+- Data Structures: B+ Tree
+- Data Structures: B* Tree
+- Data Structures: Data Structure for Sets
+- Data Structures: Graphs
+- Data Structures: Sorting and Searching Algorithms
+- Data Structures: Hashing
+- Performance Analysis of Algorithms and Recurrences: Time and Space Complexities
+- Performance Analysis of Algorithms and Recurrences: Asymptotic Notation
+- Performance Analysis of Algorithms and Recurrences: Recurrence Relations
+- Design Techniques: Divide and Conquer
+- Design Techniques: Dynamic Programming
+- Design Techniques: Greedy Algorithms
+- Design Techniques: Backtracking
+- Design Techniques: Branch and Bound
+- Lower Bound Theory: Comparison Trees
+- Lower Bound Theory: Lower Bounds through Reductions
+- Graph Algorithms: Breadth-First Search
+- Graph Algorithms: Depth-First Search
+- Graph Algorithms: Shortest Paths
+- Graph Algorithms: Maximum Flow
+- Graph Algorithms: Minimum Spanning Trees
+- Complexity Theory: P and NP Class Problems
+- Complexity Theory: NP-completeness and Reducibility
+- Selected Topics: Number Theoretic Algorithms
+- Selected Topics: Polynomial Arithmetic
+- Selected Topics: Fast Fourier Transform
+- Selected Topics: String Matching Algorithms
+- Advanced Algorithms: Parallel Algorithms for Sorting
+- Advanced Algorithms: Searching and Merging
+- Advanced Algorithms: Approximation Algorithms
+- Advanced Algorithms: Randomized Algorithms
+## Theory of Computation and Compilers
+- Theory of Computation: Formal Language
+- Theory of Computation: Non-Computational Problems
+- Theory of Computation: Diagonal Argument
+- Theory of Computation: Russels’s Paradox
+- Regular Language Models: Deterministic Finite Automaton (DFA)
+- Regular Language Models: Non-Deterministic Finite Automaton (NDFA)
+- Regular Language Models: Equivalence of DFA and NDFA
+- Regular Language Models: Regular Languages
+- Regular Language Models: Regular Grammars
+- Regular Language Models: Regular Expressions
+- Regular Language Models: Properties of Regular Language
+- Regular Language Models: Pumping Lemma
+- Regular Language Models: NonRegular Languages
+- Regular Language Models: Lexical Analysis
+- Context Free Language: Pushdown Automaton (PDA)
+- Context Free Language: Non-Deterministic Pushdown Automaton (NPDA)
+- Context Free Language: Context Free Grammar
+- Context Free Language: Chomsky Normal Form
+- Context Free Language: Greibach Normal Form
+- Context Free Language: Ambiguity
+- Context Free Language: Parse Tree Representation of Derivation Trees
+- Context Free Language: Equivalence of PDA’s and Context Free Grammars
+- Context Free Language: Properties of Context Free Language
+- Turing Machines (TM): Standard Turing Machine and its Variations
+- Turing Machines (TM): Universal Turing Machines
+- Turing Machines (TM): Models of Computation and Church-Turing Thesis
+- Turing Machines (TM): Recursive and RecursivelyEnumerable Languages
+- Turing Machines (TM): Context-Sensitive Languages
+- Turing Machines (TM): Unrestricted Grammars
+- Turing Machines (TM): Chomsky Hierarchy of Languages
+- Turing Machines (TM): Construction of TM for Simple Problems
+- Unsolvable Problems and Computational Complexity: Unsolvable Problem
+- Unsolvable Problems and Computational Complexity: Halting Problem
+- Unsolvable Problems and Computational Complexity: Post Correspondence Problem
+- Unsolvable Problems and Computational Complexity: Unsolvable Problems for Context-Free Languages
+- Unsolvable Problems and Computational Complexity: Measuring and Classifying Complexity
+- Unsolvable Problems and Computational Complexity: Tractable and Intractable Problems
+- Syntax Analysis: Associativity
+- Syntax Analysis: Precedence
+- Syntax Analysis: Grammar Transformations
+- Syntax Analysis: Top Down Parsing
+- Syntax Analysis: Recursive Descent Predictive Parsing
+- Syntax Analysis: LL(1) Parsing
+- Syntax Analysis: Bottom up Parsing
+- Syntax Analysis: LR Parser
+- Syntax Analysis: LALR(1) Parser
+- Semantic Analysis: Attribute Grammar
+- Semantic Analysis: Syntax Directed Definitions
+- Semantic Analysis: Inherited and Synthesized Attributes
+- Semantic Analysis: Dependency Graph
+- Semantic Analysis: Evaluation Order
+- Semantic Analysis: S-attributed and L-attributed Definitions
+- Semantic Analysis: Type-Checking
+- Run Time System: Storage Organization
+- Run Time System: Activation Tree
+- Run Time System: Activation Record
+- Run Time System: Stack Allocation of Activation Records
+- Run Time System: Parameter Passing Mechanisms
+- Run Time System: Symbol Table
+- Intermediate Code Generation: Intermediate Representations
+- Intermediate Code Generation: Translation of Declarations
+- Intermediate Code Generation: Assignments
+- Intermediate Code Generation: Control Flow
+- Intermediate Code Generation: Boolean Expressions and Procedure Calls
+- Code Generation and Code Optimization: Control-flow
+- Code Generation and Code Optimization: Data-flow Analysis
+- Code Generation and Code Optimization: Local Optimization
+- Code Generation and Code Optimization: Global Optimization
+- Code Generation and Code Optimization: Loop Optimization
+- Code Generation and Code Optimization: Peep-Hole Optimization
+- Code Generation and Code Optimization: Instruction Scheduling
+## Data Communication and Computer Networks
+- Data Communication: Components of a Data Communication System
+- Data Communication: Simplex
+- Data Communication: HalfDuplex and Duplex Modes of Communication
+- Data Communication: Analog and Digital Signals
+- Data Communication: Noiseless and Noisy Channels
+- Data Communication: Bandwidth
+- Data Communication: Throughput and Latency
+- Data Communication: Digital and Analog Transmission
+- Data Communication: Data Encoding and Modulation Techniques
+- Data Communication: Broadband and Baseband Transmission
+- Data Communication: Multiplexing
+- Data Communication: Transmission Media
+- Data Communication: Transmission Errors
+- Data Communication: Error Handling Mechanisms
+- Computer Networks: Network Topologies
+- Computer Networks: Local Area Networks
+- Computer Networks: Metropolitan Area Networks
+- Computer Networks: Wide Area Network
+- Computer Networks: Wireless Networks
+- Computer Networks: Internet
+- Network Models: Layered Architecture
+- Network Models: OSI Reference Model and its Protocols
+- Network Models: TCP/IP Protocol Suite
+- Network Models: Physical
+- Network Models: Logical
+- Network Models: Port and Specific Addresses
+- Network Models: Switching Techniques
+- Functions of OSI and TCP/IP Layers: Framing
+- Functions of OSI and TCP/IP Layers: Error Detection and Correction
+- Functions of OSI and TCP/IP Layers: Flow and Error Control
+- Functions of OSI and TCP/IP Layers: Sliding Window Protocol
+- Functions of OSI and TCP/IP Layers: HDLC
+- Functions of OSI and TCP/IP Layers: Multiple Access – CSMA/CD
+- Functions of OSI and TCP/IP Layers: CSMA/CA
+- Functions of OSI and TCP/IP Layers: Reservation
+- Functions of OSI and TCP/IP Layers: Polling
+- Functions of OSI and TCP/IP Layers: Token Passing
+- Functions of OSI and TCP/IP Layers: FDMA
+- Functions of OSI and TCP/IP Layers: CDMA
+- Functions of OSI and TCP/IP Layers: TDMA
+- Functions of OSI and TCP/IP Layers: Network Devices
+- Functions of OSI and TCP/IP Layers: Backbone Networks
+- Functions of OSI and TCP/IP Layers: Virtual LANs
+- IPv4 Structure and Address Space; Classful and Classless Addressing; Datagram
+- Fragmentation and Checksum; IPv6 Packet Format
+- Mapping Logical to Physical Address (ARP)
+- Direct and Indirect Network Layer Delivery; Routing Algorithms
+- TCP
+- UDP and SCTP Protocols; Flow Control
+- Error Control and Congestion Control in TCP and SCTP
+- World Wide Web (WWW): Uniform Resource Locator (URL)
+- World Wide Web (WWW): Domain Name Service (DNS)
+- World Wide Web (WWW): Resolution - Mapping Names to Addresses and Addresses to Names
+- World Wide Web (WWW): Electronic Mail Architecture
+- World Wide Web (WWW): SMTP
+- World Wide Web (WWW): POP and IMAP
+- World Wide Web (WWW): TELNET and FTP
+- Network Security: Malwares
+- Network Security: Cryptography and Steganography
+- Network Security: Secret-Key Algorithms
+- Network Security: Public-Key Algorithms
+- Network Security: Digital Signature
+- Network Security: Virtual Private Networks
+- Network Security: Firewalls
+- Mobile Technology: GSM and CDMA
+- Mobile Technology: Services and Architecture of GSM and Mobile Computing
+- Mobile Technology: Middleware and Gateway for Mobile Computing
+- Mobile Technology: Mobile IP and Mobile Communication Protocol
+- Mobile Technology: Communication Satellites
+- Mobile Technology: Wireless Networks and Topologies
+- Mobile Technology: Cellular Topology
+- Mobile Technology: Mobile Adhoc Networks
+- Mobile Technology: Wireless Transmission and Wireless LANs
+- Mobile Technology: Wireless Geolocation Systems
+- Mobile Technology: GPRS and SMS
+- Cloud Computing and IoT: SaaS
+- Cloud Computing and IoT: PaaS
+- Cloud Computing and IoT: IaaS
+- Cloud Computing and IoT: Public and Private Cloud
+- Cloud Computing and IoT: Virtualization
+- Cloud Computing and IoT: Virtual Server
+- Cloud Computing and IoT: Cloud Storage
+- Cloud Computing and IoT: Database Storage
+- Cloud Computing and IoT: Resource Management
+- Cloud Computing and IoT: Service Level Agreement
+- Cloud Computing and IoT: Basics of IoT
+## Artificial Intelligence (AI)
+- Approaches to AI: Turing Test and Rational Agent Approaches
+- Approaches to AI: State Space Representation of Problems
+- Approaches to AI: Heuristic Search Techniques
+- Approaches to AI: Game Playing
+- Approaches to AI: Min-Max Search
+- Approaches to AI: Alpha Beta Cutoff Procedures
+- Knowledge Representation: Logic
+- Knowledge Representation: Semantic Networks
+- Knowledge Representation: Frames
+- Knowledge Representation: Rules
+- Knowledge Representation: Scripts
+- Knowledge Representation: Conceptual Dependency and Ontologies
+- Knowledge Representation: Expert Systems
+- Knowledge Representation: Handling Uncertainty in Knowledge
+- Planning: Components of a Planning System
+- Planning: Linear and Non Linear Planning
+- Planning: Goal Stack Planning
+- Planning: Hierarchical Planning
+- Planning: STRIPS
+- Planning: Partial Order Planning
+- Natural Language Processing: Grammar and Language
+- Natural Language Processing: Parsing Techniques
+- Natural Language Processing: Semantic Analysis and Prgamatics
+- Multi Agent Systems: Agents and Objects
+- Multi Agent Systems: Agents and Expert Systems
+- Multi Agent Systems: Generic Structure of Multiagent System
+- Multi Agent Systems: Semantic Web
+- Multi Agent Systems: Agent Communication
+- Multi Agent Systems: Knowledge Sharing using Ontologies
+- Multi Agent Systems: Agent Development Tools
+- Fuzzy Sets: Notion of Fuzziness
+- Fuzzy Sets: Membership Functions
+- Fuzzy Sets: Fuzzification and Defuzzification
+- Fuzzy Sets: Operations on Fuzzy Sets
+- Fuzzy Sets: Fuzzy Functions and Linguistic Variables
+- Fuzzy Sets: Fuzzy Relations
+- Fuzzy Sets: Fuzzy Rules and Fuzzy Inference
+- Fuzzy Sets: Fuzzy Control System and Fuzzy Rule Based Systems
+- Genetic Algorithms (GA): Encoding Strategies
+- Genetic Algorithms (GA): Genetic Operators
+- Genetic Algorithms (GA): Fitness Functions and GA Cycle
+- Genetic Algorithms (GA): Problem Solving using GA
+- Artificial Neural Networks (ANN): Supervised
+- Artificial Neural Networks (ANN): Unsupervised and Reinforcement Learning
+- Artificial Neural Networks (ANN): Single Perceptron
+- Artificial Neural Networks (ANN): Multi Layer Perceptron
+- Artificial Neural Networks (ANN): Self Organizing Maps
+- Artificial Neural Networks (ANN): Hopfield Network
