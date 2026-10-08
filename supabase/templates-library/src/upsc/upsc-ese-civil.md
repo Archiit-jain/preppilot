@@ -5,7 +5,7 @@ description: Engineering Services: General Studies and Engineering Aptitude, and
 category: exam
 source: UPSC Engineering Services Examination 2027 notification, Section III Standard and Syllabi; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 
 # Prelims Paper I: General Studies and Engineering Aptitude
@@ -192,9 +192,8 @@ version: 1
 - Components and layout of sewerage system
 - Planning & design of Domestic Waste-water disposal system
 - Sludge management including treatment, disposal and re-use of treated effluents
-- Industrial waste waters
-- Effluent Treatment Plants including institutional
-- Industrial sewage management. (c) Solid Waste Management: Sources & classification of solid wastes along with planning…
+- Industrial waste waters and Effluent Treatment Plants including institutional and industrial sewage management
+- Solid Waste Management: Sources & classification of solid wastes along with planning & design of its management system
 - Disposal system
 - Beneficial aspects of wastes and Utilization by Civil Engineers. (d) Air
 - Noise pollution and Ecology: Concepts & general methodology

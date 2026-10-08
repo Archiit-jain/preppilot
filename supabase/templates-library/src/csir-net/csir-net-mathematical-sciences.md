@@ -5,7 +5,7 @@ description: Part A General Aptitude and Units 1 to 4 of the Mathematical Scienc
 category: exam
 source: CSIR HRDG official syllabus, Mathematical Sciences; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 
 # Part A: General Aptitude
@@ -205,7 +205,8 @@ version: 1
 - Probability proportional to size sampling
 - Ratio and regression methods
 - Completely randomized designs, randomized block designs and Latin-square designs
-- Connectedness and orthogonality of block designs, BIBD. 2K factorial experiments: confounding and construction
+- Connectedness and orthogonality of block designs, BIBD
+- 2K factorial experiments: confounding and construction
 - Hazard function and failure rates, censoring and life testing, series and parallel systems
 - Linear programming problem, simplex methods, duality
 - Elementary queuing and inventory models

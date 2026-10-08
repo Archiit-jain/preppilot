@@ -36,8 +36,10 @@ KEEP_WHOLE = 90  # a sentence this short stays one topic
 
 def topics(text: str) -> list:
     out = []
+    # "..., etc. Next sentence": the list ends there.
+    text = re.sub(r",?\s*\betc\.?\s+(?=[A-Z0-9])", ". ", text)
     text = re.sub(r"\b(vs|etc|eg|e\.g|i\.e)\.\s", lambda m: m.group(1) + " ", text)
-    for sentence in re.split(r"(?<=[.;])\s+(?=[A-Z(])", text):
+    for sentence in re.split(r"(?<=[.;])\s+(?=[A-Z0-9(])", text):
         sentence = clean(sentence)
         if not sentence:
             continue

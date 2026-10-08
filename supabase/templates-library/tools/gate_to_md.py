@@ -108,8 +108,13 @@ def fit(topic: str) -> list:
     """Splits a topic too long for the app at its natural joins; shortens as a last resort."""
     if len(topic) <= LIMIT:
         return [topic]
+    # "survey (a, b) leveling (c, d)": two bracketed lists run together; split between them.
+    # Sub-item markers "(a) ... (b) ..." also start a new piece.
+    between = re.split(r"(?<=\))\s+(?=[A-Za-z][^()]*\()|\s+\([a-h]\)\s+", topic)
+    if len(between) > 1:
+        return [q for p in between if clean(p) for q in fit(clean(p))]
     # "Heading (a, b, c)" too long as one: each bracketed item under the heading.
-    bracketed = re.match(r"^(.{2,60}?)\s*\((.+)\)\s*$", topic)
+    bracketed = re.match(r"^([^()]{2,60}?)\s*\(([^()]+)\)\s*$", topic)
     if bracketed and "," in bracketed.group(2):
         head = clean(bracketed.group(1))
         return [q for p in bracketed.group(2).split(",") if clean(p) for q in fit(f"{head}: {clean(p)}")]

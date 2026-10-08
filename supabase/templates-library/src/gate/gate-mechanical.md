@@ -5,7 +5,7 @@ description: General Aptitude and the full Mechanical Engineering paper syllabus
 category: exam
 source: GATE 2026 official syllabus (ME), IIT Guwahati; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 
 # General Aptitude
@@ -255,12 +255,8 @@ version: 1
 - Riser and gating design
 - Plastic deformation and yield criteria
 - Fundamentals of hot and cold working processes
-- Load estimation for bulk (forging
-- Rolling
-- Extrusion
-- Drawing) and sheet (shearing
-- Deep drawing
-- Bending) metal forming processes
+- Load estimation for bulk (forging, rolling, extrusion, drawing)
+- Sheet (shearing, deep drawing, bending) metal forming processes
 - Principles of powder metallurgy
 - Principles of welding
 - Brazing

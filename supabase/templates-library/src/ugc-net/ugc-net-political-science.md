@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 02; topics split from the official text.
 verified: false
-version: 2
+version: 3
 ---
 
 # Paper I: Teaching and Research Aptitude
@@ -225,13 +225,12 @@ version: 2
 - State theory: Debate over the nature of state in capitalist and socialist societies
 - State theory: Post-colonial state
 - State theory: Welfare state
-- Democratic: Electoral
-- Democratic: Liberal
-- Democratic: Majoritarian and Participatory) and non-democratic regimes (Patrimonialism
-- Democratic: Bureaucratic authoritarianism
-- Democratic: Military dictatorship
-- Democratic: Totalitarianism
-- Democratic: Fascist
+- Democratic (Electoral, Liberal, Majoritarian and Participatory)
+- Non-democratic regimes: Patrimonialism
+- Non-democratic regimes: Bureaucratic authoritarianism
+- Non-democratic regimes: Military dictatorship
+- Non-democratic regimes: Totalitarianism
+- Non-democratic regimes: Fascist
 - Constitutions and Constitutionalism: Forms of constitutions
 - Constitutions and Constitutionalism: Rule of law
 - Constitutions and Constitutionalism: Judicial independence and liberal constitutionalism

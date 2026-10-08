@@ -384,6 +384,38 @@
       "sha256": "a535b91e52ded1f85f4ec08fe101450d23130c6df916f760b560af511e33a468",
       "textHash": "794cb4f595dbe17bcd9e7ddc89cb3ac5ca8691db68da5127eaf47fa62ab3e00c",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "ssc-chsl-2026",
+      "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsle_2026.pdf",
+      "templates": ["ssc-chsl"],
+      "sha256": "74eb89c24cb232000393f0ad9b9edce7ac2b2ebda100248090581676a162dfb8",
+      "textHash": "21270344826d8d81c5d829814b9af0b88da85f650d91f1c4ffddcfcae51f08ce",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ssc-je-2026",
+      "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_je_2026.pdf",
+      "templates": ["ssc-je-civil", "ssc-je-electrical", "ssc-je-mechanical"],
+      "sha256": "3efcdd945ddbd6b72d84ae5124ed5e4e3571e81d93c0910c51b5ad6119e0156d",
+      "textHash": "50beef4cf7f39ad5ef39bfab8b0c4f5f74bfe5fdba9048a1ad50b5cef5178727",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ssc-gd-2026",
+      "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_CTGD_2026.pdf",
+      "templates": ["ssc-gd"],
+      "sha256": "0d849077c59287161f27a215c432d7757561f0b4889f03e3fb9dd2a556abae50",
+      "textHash": "e6116515e7629364fd76a988758ef0a75055da67ec53f0964a7182c3672d3050",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "rrb-cen-05-2025",
+      "url": "https://rrbsecunderabad.gov.in/wp-content/uploads/2025/10/CEN-5_2025_JE_DMS_CMA_-English_-28.10.2025.pdf",
+      "templates": ["rrb-je-civil", "rrb-je-electrical", "rrb-je-electronics", "rrb-je-mechanical"],
+      "sha256": "2f64db59b775d787ad39c9214d9e408556f93413ca9ef4acb4c1d97b0bae07e6",
+      "textHash": "15a61c6abdec896e9e08ffaff4effc2035a582db62851f0b461877549b3141e1",
+      "recorded": "2026-10-08"
     }
   ]
 }

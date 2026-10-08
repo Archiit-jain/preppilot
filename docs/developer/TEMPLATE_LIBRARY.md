@@ -93,7 +93,11 @@ The others work the same way, each for one official source:
 - `csir_net_to_md.py`: CSIR NET Chemical, Life (merged CSIR-DBT), Mathematical
   and Physical Sciences, from the CSIR HRDG syllabus PDFs.
 
-UPSC CDS, NDA and CMSE are written by hand from their notifications.
+- `ssc_je_to_md.py`: SSC JE Civil, Electrical and Mechanical (SSC JE 2026 notice).
+- `rrb_je_to_md.py`: RRB JE Civil, Electrical, Electronics and Mechanical (RRB CEN 05/2025,
+  para 13 and Annexure VII A to D).
+
+UPSC CDS, NDA, CMSE and SSC CHSL and GD are written by hand from their notices.
 
 ## Syllabus change check
 
