@@ -10,7 +10,7 @@ fingerprints of the copy that was used: the file's SHA-256, and a hash of its te
 with everything but letters and digits removed. A changed file whose text is the
 same (re-saved, new metadata) is reported but not counted as a change.
 
-It needs `pdftotext` (poppler-utils). Government sites are sometimes slow or block
+It reads PDFs (with `pdftotext`, poppler-utils) and web pages (by their visible text). Government sites are sometimes slow or block
 some networks; a source that cannot be fetched is reported as unreachable and does
 not fail the check.
 
@@ -20,6 +20,7 @@ publishes its syllabus at a new address; that has to be added here by hand.
 
 import datetime
 import hashlib
+import html
 import json
 import os
 import re
@@ -33,17 +34,33 @@ MANIFEST = Path(__file__).resolve().parent.parent / "sources.json"
 USER_AGENT = "Mozilla/5.0 (PrepPilot syllabus check)"
 
 
-def text_hash(pdf: Path) -> str:
-    out = subprocess.run(
-        ["pdftotext", "-enc", "UTF-8", str(pdf), "-"], capture_output=True, check=True
-    ).stdout.decode("utf8", "replace")
+def is_pdf(path: Path) -> bool:
+    return path.read_bytes()[:4] == b"%PDF"
+
+
+def page_text(path: Path) -> str:
+    """The visible text of a web page: scripts, styles and tags removed."""
+    page = path.read_bytes().decode("utf8", "replace")
+    page = re.sub(r"(?is)<(script|style|noscript)\b.*?</\1>", " ", page)
+    return html.unescape(re.sub(r"<[^>]+>", " ", page))
+
+
+def text_hash(path: Path) -> str:
+    if is_pdf(path):
+        out = subprocess.run(
+            ["pdftotext", "-enc", "UTF-8", str(path), "-"], capture_output=True, check=True
+        ).stdout.decode("utf8", "replace")
+    else:
+        out = page_text(path)
     # Different pdftotext versions space and break lines differently; letters
     # and digits are what matter.
     return hashlib.sha256(re.sub(r"[^0-9a-z]", "", out.lower()).encode()).hexdigest()
 
 
-def file_hash(pdf: Path) -> str:
-    return hashlib.sha256(pdf.read_bytes()).hexdigest()
+def file_hash(path: Path) -> str:
+    # A web page's bytes change on every load (tokens, timestamps), so a page is
+    # compared by its text only.
+    return hashlib.sha256(path.read_bytes()).hexdigest() if is_pdf(path) else text_hash(path)
 
 
 def fetch(url: str, dest: Path, attempts: int = 3) -> None:
@@ -56,8 +73,8 @@ def fetch(url: str, dest: Path, attempts: int = 3) -> None:
         except OSError:
             if attempt == attempts - 1:
                 raise
-    if not data.startswith(b"%PDF"):
-        raise ValueError("the response is not a PDF")
+    if not data.startswith(b"%PDF") and b"<html" not in data[:2000].lower():
+        raise ValueError("the response is neither a PDF nor a web page")
     dest.write_bytes(data)
 
 
@@ -67,7 +84,9 @@ def record(directory: Path) -> None:
     for source in manifest["sources"]:
         pdf = directory / f"{source['key']}.pdf"
         if not pdf.exists():
-            print(f"skip {source['key']}: no {pdf.name}")
+            pdf = directory / f"{source['key']}.html"
+        if not pdf.exists():
+            print(f"skip {source['key']}: no {source['key']}.pdf or .html")
             continue
         source["sha256"] = file_hash(pdf)
         source["textHash"] = text_hash(pdf)

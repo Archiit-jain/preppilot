@@ -464,6 +464,70 @@
       "sha256": "f7b4426aa957add2e4f0441c6dbbcfede5c8622259bec42b0212f4b89c32f717",
       "textHash": "f345ce5c06d442d0d20038df780b7d8ad4d549187b76b4f83016942c36a6b01c",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "nimcet-2026",
+      "url": "https://cdnbbsr.s3waas.gov.in/s33e6260b81898beacda3d16db379ed329/uploads/2026/02/202602271201279962.pdf",
+      "templates": ["nimcet"],
+      "sha256": "4fc9189a770d6baef95d43a41a5514efdd96a1a1ee0f7785918f555cc6b61b01",
+      "textHash": "ee6e10677de776d89b2f62e045face0d5a9c188e052c4ab76f61fe7c9a24b937",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "bitsat-2026",
+      "url": "https://admissions.bits-pilani.ac.in/FD/downloads/BITSAT_Syllabus.pdf",
+      "templates": ["bitsat"],
+      "sha256": "26113ab547bf9d92fec0e6a259df238b804f4fdf09d8b3fe9911bf5603fac791",
+      "textHash": "21b09a37ad7958fad6857b6a31dcb455e2eb6d8bd49eb25e0a0ed8f2f67a9a2c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "iiser-iat-2026",
+      "url": "https://www.iiseradmission.in/assets/pdfs/IB_IAT_2026_ENG.pdf",
+      "templates": ["iiser-iat"],
+      "sha256": "7cb210371a724c22e822939474f8571bcee8849a4cddd5195ecf0da38e67ab35",
+      "textHash": "b15f7f8508dd15691d2b1b5828faf8a2b193fe77765b216ef2f48f5cd7f3c93c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "amu-btech",
+      "url": "https://results.amucontrollerexams.com/display/download?file=btech_b.arch.pdf",
+      "templates": ["amu-btech"],
+      "sha256": "290294c3c1c47a362be8ddf4dada4d4605273a6b53e859445a1fa8d5b2fb418c",
+      "textHash": "8e13a9a3b11a6a68205dea0fd2a5a38cafd93d031aebf41b9228bc343de909a5",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "cftri-msc-ft-2026",
+      "url": "https://www.cftri.res.in/PDF/MSC-FT-2026-28-SYLLABUS.pdf",
+      "templates": ["cftri-msc-food-technology"],
+      "sha256": "4ea061c96d5540363594cb1506ecc5ea0649a3fc61a44602ae825292e520afa4",
+      "textHash": "46426e98e09e9d6af8cfba4530585b00c8a088515067644719d28969ac994b97",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "clat-2027-ug",
+      "url": "https://consortiumofnlus.ac.in/clat-2027/ug-syllabus.html",
+      "templates": ["clat-ug"],
+      "sha256": "094cf6580979daa948b5e84ed6c7af6cf1253696de371aea12ad7639ae4d965b",
+      "textHash": "094cf6580979daa948b5e84ed6c7af6cf1253696de371aea12ad7639ae4d965b",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "clat-2027-pg",
+      "url": "https://consortiumofnlus.ac.in/clat-2027/pg-syllabus.html",
+      "templates": ["clat-pg"],
+      "sha256": "e63f392574ea017d334f85e92a6be19cda1db626eb4e621fae8bc8b3ace5c1ff",
+      "textHash": "e63f392574ea017d334f85e92a6be19cda1db626eb4e621fae8bc8b3ace5c1ff",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "iim-indore-ipm",
+      "url": "https://iimidr.ac.in/programmes/academic-programmes/five-year-integrated-programme-in-management-ipm/",
+      "templates": ["ipmat-indore"],
+      "sha256": "4c956590b878e3fc25ec781187a55f68fa4a5faa256ec05a928ed06e83ae385d",
+      "textHash": "4c956590b878e3fc25ec781187a55f68fa4a5faa256ec05a928ed06e83ae385d",
+      "recorded": "2026-10-08"
     }
   ]
 }

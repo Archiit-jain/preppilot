@@ -101,13 +101,18 @@ The others work the same way, each for one official source:
   syllabus (D113): stages and sections are official; topics are those listed by at least
   two independent exam analyses, and the script's docstring names them.
 
+- `entrance_to_md.py`: NIMCET, BITSAT, IISER IAT, AMU B.Tech and CFTRI M.Sc. Food
+  Technology, each from its official syllabus.
+- `aptitude_to_md.py`: CAT, IPMAT Indore, CLAT UG and CLAT PG (D113, like the banking exams).
+
 UPSC CDS, NDA, CMSE and SSC CHSL and GD are written by hand from their notices.
 
 ## Syllabus change check
 
 `supabase/templates-library/sources.json` lists the official document behind each
 template, with fingerprints of the copy the template was built from.
-`tools/check_sources.py` downloads each one again and compares:
+`tools/check_sources.py` downloads each one again (a PDF, or a web page compared by its
+visible text) and compares:
 
 - **unchanged**: nothing to do.
 - **changed**: the text differs. Rebuild the listed templates from the new
