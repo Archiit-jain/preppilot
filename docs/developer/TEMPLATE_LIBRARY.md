@@ -108,7 +108,12 @@ The others work the same way, each for one official source:
   (DCI BDS regulations; NBEMS subject list), GPAT (PCI B. Pharm syllabus in GPAT's five areas).
   The DCI gazette PDF is a scanned image, so the change check can only compare its bytes.
 
-UPSC CDS, NDA, CMSE and SSC CHSL and GD are written by hand from their notices.
+- `cs_cma_to_md.py`: CS Executive and Professional (the syllabus page of each ICSI study material)
+  and CMA Foundation, Intermediate and Final (ICMAI prospectus, Syllabus 2022).
+- `cisce_to_md.py`: ICSE Class 9 and 10 and ISC Class 11 and 12 (Science, Commerce, Humanities),
+  from the ICSE 2027 and ISC 2027 subject syllabuses. English is transcribed in the script.
+
+UPSC CDS, NDA, CMSE, SSC CHSL and GD, and CSEET are written by hand from their notices.
 
 ## Syllabus change check
 

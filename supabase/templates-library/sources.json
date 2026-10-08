@@ -568,6 +568,407 @@
       "sha256": "4fd2a46a2f5b0e98e6854b923cc0041f63ef1fd1d97f3aebd5ee3ce2126b7dab",
       "textHash": "e9ecc7d2ce0a51db3ea42b7566f9ca1955018b50e5ec4beece7b2e5ad2990d6f",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-cseet-2026",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/restructured-syllabus-cseet-with-cover-7018cfdc.pdf",
+      "templates": ["cseet"],
+      "sha256": "7018cfdc8e4aa4350c74be963f83a5e4b98a2b0eda09881fa9a04bbaf69ff826",
+      "textHash": "3e01501cbee32814a04a361366bc6dc6d8af025d85848d3c7f0267e0fbf50fc9",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e1",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/jigl7454845410012025-a99d4cae.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "a99d4caedff48b6b7f0a1aef561ac818264ea618124ac04cce6e758f9e671f3b",
+      "textHash": "97c22be13aa4a402f26794d0bb2c5d93045ae0294f7de6a21045b86c26651227",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e2",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/company-law-practices-3e591a57.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "3e591a57345c7ec273538b481b385e7e08dc2e0b90f06ef76e6335014d3b4e7d",
+      "textHash": "13bf8314ac6d0ac4ed7e47f2e74c85350d3a08b446130f06fcf9dcbdb750781c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e3",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/sbill-10012025545454-13500dd6.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "13500dd6c88b51e4ec9ec5e12a3431b02907759ab8f13127780abb9707a6a7cf",
+      "textHash": "9083de8bac3ef1d84c41b50372670daeea67e529b9b07c244d814496e673830f",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e4",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/cafm1001202455454-5e6f27c6.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "5e6f27c6e08dd4c793f053312a4463c40cd936b909cc903d5bae6994f467a673",
+      "textHash": "08816d923b70e368318355bff21804bc0cdc7900883e54c2b581ec3da25473c3",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e5",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/cmslbook100120254574154-e1147f86.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "e1147f869863e6734f697590d181ac20a470191683f5ba05acc8c23fc411053a",
+      "textHash": "ebb2b9a4304daad357fcdafd56dfcb3056bd6b33497d406d09c681b5a545642e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e6",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/ecipl-study-material-5d2e05ce.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "5d2e05ce8be8887eb38ae202b27b5719ab777acfcbfbfd298fd4dfc499b6a61a",
+      "textHash": "b82cf29410416342aeb419850330a19dbb60bf4be10ecd09653cbff8d1528173",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-e7",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/final-book-tax-laws-practice-249189b8.pdf",
+      "templates": ["cs-executive"],
+      "sha256": "249189b8b578e759fa53c7da75d6cf906fefcb249a61d4890d56495d3d4adc35",
+      "textHash": "e40a4f910f94782d4f2eeef1d80d98acdf49a6d12c95df8d104a5d56267ebbdb",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p1",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/environmental-social-and-governance-esg-principles-practice-14082025-663140de.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "663140de274391eea95170b32d8e1bd38615eff5d9c0066729487690853c4e5c",
+      "textHash": "d6c5ffaa83eae54577d8f34e1e9f92c1a054e7083c2ee53874cc9eb85c4c99e5",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p2",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/drafting-pleadings-appearances-professional-programme-july2023-a3bb2bb4.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "a3bb2bb4adc57cd80dabb28cc51d9a09c3718c4dd342ddeea47c6d5c02b1f29a",
+      "textHash": "97b86be25a79303432ff25682aec9f4654db4ba13ddf53ef13d6e9d67b0f259e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p3",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/compliance-management-audit-due-diligence-e804a060.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "e804a0608b38c93975d2088c205132ee9971a9956c599538c03095e3b39b48ea",
+      "textHash": "8e0894c2b865d6e04aa0b7c3c3b7e4a9e4cfcf86902ee356d95673c358e4125a",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p41",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/csr-social-governance-5b48e27c.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "5b48e27cd3fead65bc48e1f144ec15418292f4bd9c779c871d51092a33930e82",
+      "textHash": "9f067ab4829b9cb82d5cf5e51145cd210e96b5ed1a98b7e765a6b8bfd1cd1af9",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p42",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/internal-and-forensic-audit-865973cc.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "865973cc6cb7b4ab003072ba87e0da8e73ca65e8e532dbb8741da6272a8b7786",
+      "textHash": "e462daebbf84dc9923e55094ada6d48f5c22b9e517d92cac5ab3c62c3f167d51",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p43",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/intellectual-property-rights-law-practice-5e4480d8.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "5e4480d86873fc186f7bd22f962ccb30f7bb1c28fa5cdbbd183ffc6bbeadf07c",
+      "textHash": "d1a5afde21c01a801114cf5271062fdd793bc5032a44c97428837522613a1a17",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p44",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/artificial-intelligence-data-analytics-and-cyber-security-laws-practice-bca2e9ff.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "bca2e9ff676f9de2f1aad543d0f0e187664f3690f11fb5b0046e2f60076e805c",
+      "textHash": "7fad9f941659eb5f5436145414529337dbc3085d717919d99bf9d62bb7aa2422",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p45",
+      "url": "https://icsi-static.b-cdn.net/icsi-prod/media/cms_uploads/book-advanced-direct-lawspractice-552025-91f62536.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "91f6253610a2e6867e482c08125e83151c35731e219304e67658d75b4851a188",
+      "textHash": "20482ac8b7d526503a82fd57648bac1295922a99dc9641c13af25642f33bfa4c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p46",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/final-book-ifsca-regulations-listing-and-compliances-20012026-14149123.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "14149123c9433d8781fe5782d375e4b534d96d4e8e770cd8ab9bf401f632936b",
+      "textHash": "e4779b95554d491dc4de721de2017ed9cad7f6a384288f65120a7a8716ac377c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p5",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/sm-cf-final-pp-14082025-4c002156.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "4c00215612961213acb1853a7e984d8534ad6e53ad07e5b92855557dcec1d27b",
+      "textHash": "1be5bb30718be30afb01cb0ce6cfce016bac52bde2e11d1c44e0431f45065435",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p6",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/corporate-restruucturing-valuation-insolvency-14082025-1a9d6672.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "1a9d6672780c6365f08e895717b72ee49546b6a9cbd289be527db5f1e0008149",
+      "textHash": "81c7f82abaf56c131315de9fd62babd47c6176122402a27faaa7126656dcdb08",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p71",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/elective-paper-no-71-arbitration-mediation-conciliation-46722be7.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "46722be7c48eaf549de49c67a91de9cf092eb8736e9c0003d8f6e3bb808c6e7d",
+      "textHash": "6377e79fabc4e0a940fc2388e2093ca784c18ffaf93692f34d50500763508500",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p72",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/elective-paper-no-72-goods-services-tax-gst-corporate-tax-planning-323f811e.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "323f811e30f4f4d5872cb919b7f874484a5e5cff2f67854c77132ee0ea68125a",
+      "textHash": "fc6cc218b6a1aeb5d6b0fa75293262c4ef673b37fb888c85e3945e2e63502e56",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p73",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/elective-paper-no-73-labour-laws-practice-42104645.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "421046456b013bdb05f9b97f22e8eafda4f563dfaf195bf60e58ddebe6a7e8f2",
+      "textHash": "6741c95604d9a5eedcf3737aa4c2048347fc4043afd5ad9e2d14bfda8919276e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p74",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/elective-paper-no-74-banking-insurance-laws-practice-f7760d98.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "7bc7d68c2834427ac4d5eb3d69a7c6d16efebf0a150219aa7fb8b360b856d96c",
+      "textHash": "2da239ad82faeabec9149f5e388d4d49ebbc994530fe806c5376ef0a5d09ae74",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icsi-2022-p75",
+      "url": "https://icsis3-console.kreate-cloud.com:9002/icsi-prod/media/cms_uploads/elective-paper-no-75-insolvency-and-bankruptcy-law-practice-9d38b0ae.pdf",
+      "templates": ["cs-professional"],
+      "sha256": "e89c28aa538ef5311abfdc93a29f308389cee7525cff3d378755770c465698e0",
+      "textHash": "3b9e6730f5825f7c650fb95318d45beb306bbb91568168e1e14617e701129e5e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icmai-cma-2022",
+      "url": "https://dwpivt501gtb6.cloudfront.net/upload/students/Syllabus2022/CMA_Prospectus_Syllabus_2022.pdf",
+      "templates": ["cma-foundation", "cma-intermediate", "cma-final"],
+      "sha256": "834b8ab120d9fdbf653422f6448ac629d03d0438c85ad090276495baeb38c4e2",
+      "textHash": "61028326c0d021c3af4e7fd7eb87b1637eda2fe8c8ae5f2c65edbcc056f8bd04",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-english",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/2.-English.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "f29d9699fa0b55ff247d784595fe7727714a07468a0d32603ba875ec436d3851",
+      "textHash": "165ab864c475b2f29235d64c19dcff3d6a7e96482f14287309ff83d8a213a870",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-history",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-History-Civics.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "f7dcdfe81603436b4fd34a01cfc817010bbb0a931487951beb915597b9c14dac",
+      "textHash": "6b1c7f90511228b1a9f595ec0d544553d346ef6e831b9ea352be546436d05552",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-geography",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Geography.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "d4fa4d4fc971aa3d7386161e86b6414b1850992b3357bc4514fc03e12786221f",
+      "textHash": "9777f352028071fc1b49a3c271b41ad8c1e0be59c833cf548e933347e5341f3b",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-maths",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/9.-Mathematics.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "08b64aa3b4a5ff2b818bb2a92d4459c0a64c99622e2422fec6f26d90d97c7d16",
+      "textHash": "727bf7504398beffd7bfe22f0d811d542599c4565fde39892835ed69ea8a15fb",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-physics",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/10.-Physics.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "2acfb898c5377a15c7e89770dba64597a5760bbb4683b3c2c2c47651b9003cac",
+      "textHash": "67bda193da25775a8bc06d39608979245af3a8622df3e6eabcc7ce4f2e1b07c4",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-chemistry",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/11.-Chemistry.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "18026d7b758953978288418a3dd1a70abf9e502680b41608ee29d30e100120be",
+      "textHash": "e518c9a7dd8aa7a63432c0e7e13cb28c9b22842d9897b215b14d99566f3adbdf",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-biology",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/12.-Biology.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "f804154ed40b35394d85cc25ca59fb2d47089a5e3ba5fe6cfc74759173ab694f",
+      "textHash": "5bc825160cf0a2556ceac729c2d7b8afa4eaee87132998b077ccdfa54e155403",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "icse-2027-computer",
+      "url": "https://cisce.org/wp-content/uploads/2025/03/18.-Computer-Applications.pdf",
+      "templates": ["icse-class-9", "icse-class-10"],
+      "sha256": "8855803e2e9d566b9bbaaaadb014f181e40f8a02ec6ef899f3dd85a8cb088a5c",
+      "textHash": "1803412b0886c9d0b6bae998a75b405c14ffe80d528a1b09dd14178e539e62e7",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-english",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/2.-ISC-English.pdf",
+      "templates": [
+        "isc-class-11-science",
+        "isc-class-12-science",
+        "isc-class-11-commerce",
+        "isc-class-12-commerce",
+        "isc-class-11-humanities",
+        "isc-class-12-humanities"
+      ],
+      "sha256": "0d428b681a7f3ea40a60402aad2b50339bc4a9e8117b0fc2b11adc56acf7f2fb",
+      "textHash": "0883a76288fd32acdb4becbaf072d9b91263cab63a949e73520ab172c8ebb010",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-maths",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/17.-ISC-Mathematics.pdf",
+      "templates": [
+        "isc-class-11-science",
+        "isc-class-12-science",
+        "isc-class-11-commerce",
+        "isc-class-12-commerce"
+      ],
+      "sha256": "fe272b0fbf5e1ef1df1a5a8ae269bc3ffad18905107c3e9678143a6754e8d9a5",
+      "textHash": "478057117cd33bc56db1022d33c35b03a9626d63752077d521cc86043272abc1",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-physics",
+      "url": "https://cisce.org/wp-content/uploads/2026/02/ISC-2027-Physics.pdf",
+      "templates": ["isc-class-11-science", "isc-class-12-science"],
+      "sha256": "18d4fc0f33ff9b5a5cdb575ec92190f3a32bbd4d69931566adff3de32792a6d2",
+      "textHash": "9e47048e116acbde544291e67371d8a72f77894e9db15d788da2fc01ed302ed7",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-chemistry",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/19.-ISC-Chemistry-1.pdf",
+      "templates": ["isc-class-11-science", "isc-class-12-science"],
+      "sha256": "8cc033031b12f40db02390719ab8606106ee318597c133fd71e5fc66ff12ce1d",
+      "textHash": "4d8db4ad4c291f779105ac487f142b884d1ba4d8f27585b8f1469b7bca5f66f3",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-biology",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/20.-ISC-Biology.pdf",
+      "templates": ["isc-class-11-science", "isc-class-12-science"],
+      "sha256": "8419f94fea206eb5b3978908d1a44e3ed0eae325872814e444672a68175cc0af",
+      "textHash": "23a7ad224bf8299f20315097d4c6ce5173af91e594cc73d66c2bfa57b8d36c4d",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-computer",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/25.-ISC-Computer-Science.doc.pdf",
+      "templates": ["isc-class-11-science", "isc-class-12-science"],
+      "sha256": "360f3b056e476addd1ee35d6afd9ee0d13ef68ff7dbac30c666a7028e036426a",
+      "textHash": "12240ffffb46423663af55a0473cb6de4a94def8b704cc9c10d448d79c8b5e97",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-accountancy",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/15.-ISC-Accountancy.docx.pdf",
+      "templates": ["isc-class-11-commerce", "isc-class-12-commerce"],
+      "sha256": "74853ba5cfae43484194973c4dec5492317a8a42d971513f928176da825c3071",
+      "textHash": "a418f918e04a8dc42aded751ba3bd3097551b9c06d34e37b856052454c9c1577",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-commerce",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/14.-ISC-Commerce.doc.pdf",
+      "templates": ["isc-class-11-commerce", "isc-class-12-commerce"],
+      "sha256": "117991fce279c7560fd13329253f924a89b6d4a35372043f5f9ad8942a389550",
+      "textHash": "1fb475e243f5da9d40759c1e483e43dc3cb211afd266b4203c74b5d16dafd9a5",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-economics",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/13.-ISC-Economics-1.pdf",
+      "templates": [
+        "isc-class-11-commerce",
+        "isc-class-12-commerce",
+        "isc-class-11-humanities",
+        "isc-class-12-humanities"
+      ],
+      "sha256": "8275fbef05ccb71f5410b8cbd221a1c9960c37a311402e3933fdcd4e5d407060",
+      "textHash": "94a2ac700520f870e1056c4393e6bf9ad8097f770bd4fa0c96bc8dc58e134561",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-business",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/16.-ISC-Business-Studies-1.pdf",
+      "templates": ["isc-class-11-commerce", "isc-class-12-commerce"],
+      "sha256": "8716d6e8bc981dc01b5e080b6da828ec43ce317de901e54623bd30b03e01f4c4",
+      "textHash": "76041185a7671a58259fed672dc5a9e9909ecae980fb3d368d96ce2dee9d2a81",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-history",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/8.-ISC-History-2.pdf",
+      "templates": ["isc-class-11-humanities", "isc-class-12-humanities"],
+      "sha256": "26212405729c7857608867c458c3e17b8707bbdc8af64572f1e74e42c46eb03b",
+      "textHash": "d305cc344911de6455bd24b10ec67a03a85ba0892b5e58722b04542b0e088fa5",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-polsci",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/9.-ISC-Political-Science-1.pdf",
+      "templates": ["isc-class-11-humanities", "isc-class-12-humanities"],
+      "sha256": "8455e169f31fc18876e0ba9c6eec9d9d3f3ed0573ed11257f674e785631a7a21",
+      "textHash": "67442a1a0c2166d2a8031a59c7aa8721e7c2349d3c33770b14a5f0ae2bf42aa0",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-geography",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/10.-ISC-Geography-1.pdf",
+      "templates": ["isc-class-11-humanities", "isc-class-12-humanities"],
+      "sha256": "f13f8f1d0bb79dfc8de563750ac697eb4c4011a4d69a8035b17584458cb7349c",
+      "textHash": "bebd9417bf461ac09e33c574bcee7047dfd9a8bfbb3ff473ddde2d077514da23",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-psychology",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/12.-Psychology.pdf",
+      "templates": ["isc-class-11-humanities", "isc-class-12-humanities"],
+      "sha256": "1f9cb9d4e48a716920ce87026861c3cf5ff26b47be7770fb2303779c5ad69b47",
+      "textHash": "4ada3e783cdd901348c74c9f4987fa70e40513311d5ad8116987365bb5e8cc64",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "isc-2027-sociology",
+      "url": "https://cisce.org/wp-content/uploads/2025/04/11.-ISC-Sociology-1.pdf",
+      "templates": ["isc-class-11-humanities", "isc-class-12-humanities"],
+      "sha256": "9cd2247bef4061871e68182a48972330986e42213d15b3a1ee5950ad76d8d18a",
+      "textHash": "79bd28f749987cbed31e90d56372d8c155c41202685d6521c36cfb47e12bcfc8",
+      "recorded": "2026-10-08"
     }
   ]
 }
