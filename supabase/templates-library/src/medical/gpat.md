@@ -1,0 +1,2032 @@
+---
+id: gpat
+name: GPAT
+description: Graduate Pharmacy Aptitude Test: the B. Pharm syllabus in GPAT's five question areas.
+category: exam
+source: Areas: NBEMS GPAT 2024 Information Bulletin, para 5.3. Topics: PCI Rules and Syllabus for the B. Pharm course, theory courses (unit contents).
+verified: false
+version: 1
+---
+
+# Pharmacognosy and Allied Subjects
+
+## BP405 Pharmacognosy and Phytochemistry I
+
+- Introduction to Pharmacognosy
+- Definition, history, scope and development of Pharmacognosy
+- Sources of Drugs – Plants, Animals, Marine & Tissue culture
+- Organized drugs
+- Unorganized drugs (dried latex, dried juices, dried extracts, gums and mucilages, oleoresins and oleo- gum -resins)
+- Classification of drugs: Alphabetical
+- Classification of drugs: Morphological
+- Classification of drugs: Taxonomical
+- Classification of drugs: Chemical
+- Classification of drugs: Pharmacological, chemo
+- Sero taxonomical classification of drugs Quality control of Drugs of Natural Origin: Adulteration of drugs of natural…
+- Evaluation by organoleptic, microscopic, physical
+- Chemical and biological methods and properties
+- Quantitative microscopy of crude drugs including lycopodium spore method, leafconstants
+- Camera lucida and diagrams of microscopic objects to scale with camera lucida
+- Cultivation, Collection, Processing
+- Storage of drugs of natural origin: Cultivation
+- Collection of drugs of natural origin Factors influencing cultivation of medicinal plants
+- Plant hormones and their applications
+- Polyploidy, mutation and hybridization with reference to medicinal plants Conservation of medicinal plants
+- Plant tissue culture: Historical development of plant tissue culture
+- Plant tissue culture: Types of cultures
+- Plant tissue culture: Nutritional requirements
+- Plant tissue culture: Growth and their maintenance
+- Applications of plant tissue culture in pharmacognosy
+- Edible vaccines
+- Role of Pharmacognosy in allopathy and traditional systems of medicine namely
+- Pharmacognosy in various systems of medicine: Ayurveda
+- Pharmacognosy in various systems of medicine: Unani
+- Pharmacognosy in various systems of medicine: Siddha
+- Pharmacognosy in various systems of medicine: Homeopathy and Chinese systems of medicine
+- Introduction to secondary metabolites: Definition
+- Introduction to secondary metabolites: Classification
+- Introduction to secondary metabolites: Properties and test for identification of Alkaloids
+- Introduction to secondary metabolites: Glycosides
+- Introduction to secondary metabolites: Flavonoids
+- Introduction to secondary metabolites: Tannins
+- Introduction to secondary metabolites: Volatile oil and Resins
+- Study of biological source
+- Chemical nature and uses of drugs of natural origin containing following drugs Plant Products: Fibers - Cotton, Jute
+- Hemp Hallucinogens, Teratogens
+- Natural allergens Primary metabolites: General introduction
+- Detailed study with respect to chemistry, sources, preparation, evaluation, preservation, storage
+- Therapeutic used
+- Commercial utility as Pharmaceutical Aids and/or Medicines for the following Primary metabolites: Carbohydrates: Acacia
+- Agar, Tragacanth
+- Honey Proteins and Enzymes : Gelatin, casein
+- Proteolytic enzymes (Papain, bromelain, serratiopeptidase, urokinase, streptokinase, pepsin)
+- Lipids(Waxes, fats, fixed oils): Castor oil
+- Lipids(Waxes, fats, fixed oils): Chaulmoogra oil
+- Lipids(Waxes, fats, fixed oils): Wool Fat
+- Lipids(Waxes, fats, fixed oils): Bees Wax Marine Drugs: Novel medicinal agents from marine sources 104
+
+## BP504 Pharmacognosy and Phytochemistry II
+
+- Metabolic pathways in higher plants
+- Their determination a) Brief study of basic metabolic pathways
+- Formation of different secondary metabolites through these pathways- Shikimic acid pathway
+- Acetate pathways
+- Amino acid pathway. b) Study of utilization of radioactive isotopes in the investigation of Biogenetic studies
+- General introduction, composition
+- Chemistry & chemical classes, biosources
+- Therapeutic uses and commercial applications of following secondary metabolites: Alkaloids: Vinca, Rauwolfia, Belladonna
+- Opium
+- Phenylpropanoids and Flavonoids: Lignans, Tea, Ruta Steroids
+- Cardiac Glycosides & Triterpenoids: Liquorice, Dioscorea
+- Digitalis Volatile oils: Mentha, Clove, Cinnamon, Fennel, Coriander
+- Tannins: Catechu
+- Pterocarpus Resins: Benzoin, Guggul, Ginger, Asafoetida, Myrrh
+- Colophony Glycosides: Senna, Aloes
+- Bitter Almond Iridoids
+- Other terpenoids & Naphthaquinones: Gentian, Artemisia, taxus, carotenoids
+- Isolation
+- Identification and Analysis of Phytoconstituents a) Terpenoids: Menthol, Citral
+- Artemisin b) Glycosides: Glycyrhetinic acid & Rutin c) Alkaloids: Atropine,Quinine,Reserpine,Caffeine d) Resins:…
+- Curcumin
+- Industrial production
+- Estimation and utilization of the following phytoconstituents: Forskolin, Sennoside, Artemisinin, Diosgenin, Digoxin
+- Atropine, Podophyllotoxin, Caffeine, Taxol
+- Vincristine and Vinblastine
+- Basics of Phytochemistry Modern methods of extraction
+- Application of latest techniques like Spectroscopy
+- Chromatography and electrophoresis in the isolation
+- Purification and identification of crude drugs
+
+## BP603 Herbal Drug Technology
+
+- Herbs as raw materials Definition of herb, herbal medicine
+- Herbal medicinal product
+- Herbal drug preparation Source of Herbs Selection, identification
+- Authentication of herbal materials Processing of herbal raw material Biodynamic Agriculture Good agricultural…
+- Pest and Pest management in medicinal plants: Biopesticides/Bioinsecticides
+- Indian Systems of Medicine a) Basic principles involved in Ayurveda, Siddha
+- Unani and Homeopathy b) Preparation and standardization of Ayurvedic formulations viz Aristas and Asawas, Ghutika,Churna
+- Lehya and Bhasma
+- Nutraceuticals General aspects, market, growth
+- Scope and types of products available in the market
+- Health benefits and role of Nutraceuticals in ailments like Diabetes, CVS diseases, Cancer
+- Irritable bowel syndrome and various Gastro intestinal diseases
+- Study of following herbs as health food: Alfaalfa
+- Study of following herbs as health food: Chicory
+- Study of following herbs as health food: Ginger
+- Study of following herbs as health food: Fenugreek
+- Study of following herbs as health food: Garlic
+- Study of following herbs as health food: Honey
+- Study of following herbs as health food: Amla
+- Study of following herbs as health food: Ginseng
+- Study of following herbs as health food: Ashwagandha
+- Spirulina Herbal-Drug and Herb-Food Interactions: General introduction to interaction and classification
+- Study of following drugs and their possible side effects and interactions: Hypercium, kava-kava, Ginkobiloba, Ginseng
+- Garlic
+- Pepper & Ephedra
+- Herbal Cosmetics Sources and description of raw materials of herbal origin used via, fixed oils, waxes, gums colours
+- Perfumes
+- Protective agents
+- Bleaching agents
+- Antioxidants in products such as skin care
+- Hair care and oral hygiene products
+- Herbal excipients: Herbal Excipients – Significance of substances of natural origin as excipients – colorants
+- Herbal excipients: Sweeteners
+- Herbal excipients: Binders
+- Herbal excipients: Diluents
+- Herbal excipients: Viscosity builders
+- Herbal excipients: Disintegrants
+- Herbal excipients: Flavors & perfumes
+- Herbal formulations: Conventional herbal formulations like syrups
+- Herbal formulations: Mixtures and tablets and Novel dosage forms like phytosomes
+- Evaluation of Drugs WHO & ICH guidelines for the assessment of herbal drugs Stability testing of herbal drugs
+- A) Definition of the terms: Patent, IPR, Farmers right, Breeder’s right
+- Bioprospecting and Biopiracy b) Patenting aspects of Traditional Knowledge and Natural Products
+- Case study of Curcuma & Neem
+- Regulatory Issues - Regulations in India (ASU DTAB, ASU DCC)
+- Regulation of manufacture of ASU drugs - Schedule Z of Drugs & Cosmetics Act for ASU drugs
+- General Introduction to Herbal Industry Herbal drugs industry: Present scope and future prospects
+- A brief account of plant based industries and institutions involved in work on medicinal and aromatic plants in India
+- Schedule T – Good Manufacturing Practice of Indian systems of medicine Components of GMP (Schedule – T)
+- Its objectives Infrastructural requirements, working space, storage area
+- Machinery and equipments
+- Standard operating procedures
+- Health and hygiene
+- Documentation and records
+
+# Pharmaceutical Chemistry and Allied Subjects
+
+## BP102 Pharmaceutical Analysis
+
+- Pharmaceutical analysis- Definition and scope
+- Different techniques of analysis
+- Methods of expressing concentration
+- Primary and secondary standards
+- Preparation and standardization of various molar and normal solutionsOxalic acid
+- Sodium hydroxide
+- Hydrochloric acid
+- Sodium thiosulphate, sulphuric acid
+- Potassium permanganate and ceric ammonium sulphate
+- Errors: Sources of errors
+- Errors: Types of errors
+- Errors: Methods of minimizing errors
+- Errors: Accuracy
+- Errors: Precision and significant figures
+- Pharmacopoeia, Sources of impurities in medicinal agents,limit tests
+- Acid base titration: Theories of acid base indicators
+- Acid base titration: Classification of acid base titrations and theory involved in titrations of strong
+- Acid base titration: Weak
+- Acid base titration: Very weak acids and bases
+- Acid base titration: Neutralization curves
+- Non aqueous titration: Solvents
+- Non aqueous titration: Acidimetry and alkalimetry titration and estimation of Sodium benzoate and Ephedrine HCl
+- Precipitation titrations: Mohr’s method
+- Precipitation titrations: Volhard’s
+- Precipitation titrations: Modified Volhard’s
+- Precipitation titrations: Fajans method
+- Precipitation titrations: Estimation of sodium chloride
+- Complexometric titration: Classification
+- Complexometric titration: Metal ion indicators
+- Complexometric titration: Masking and demasking reagents
+- Complexometric titration: Estimation of Magnesium sulphate
+- Complexometric titration: Calcium gluconate
+- Gravimetry: Principle and steps involved in gravimetric analysis
+- Purity of the precipitate: Co-precipitation and post precipitation
+- Purity of the precipitate: Estimation of barium sulphate
+- Basic Principles,methods and application of diazotisation titration
+- Redox titrations
+- Concepts of oxidation and reduction
+- Types of redox titrations (Principles and applications) Cerimetry, Iodimetry, Iodometry, Bromatometry, Dichrometry
+- Titration with potassium iodate
+- Electrochemical methods of analysis
+- Conductometry- Introduction, Conductivity cell, Conductometric titrations, applications
+- Potentiometry - Electrochemical cell
+- Construction and working of reference (Standard hydrogen, silver chloride electrode and calomel electrode)
+- Indicator electrodes (metal electrodes and glass electrode)
+- Methods to determine end point of potentiometric titration and applications
+- Polarography - Principle
+- Ilkovic equation
+- Construction and working of dropping mercury electrode and rotating platinum electrode, applications 34
+
+## BP104 Pharmaceutical Inorganic Chemistry
+
+- Impurities in pharmaceutical substances: History of Pharmacopoeia
+- Impurities in pharmaceutical substances: Sources and types of impurities
+- Impurities in pharmaceutical substances: Principle involved in the limit test for Chloride
+- Impurities in pharmaceutical substances: Sulphate
+- Impurities in pharmaceutical substances: Iron
+- Impurities in pharmaceutical substances: Arsenic
+- Impurities in pharmaceutical substances: Lead and Heavy metals
+- Impurities in pharmaceutical substances: Modified limit test for Chloride and Sulphate General methods of preparation
+- Impurities in pharmaceutical substances: Assay for the compounds superscripted with asterisk (*)
+- Properties and medicinal uses of inorganic compounds belonging to the following classes
+- Acids, Bases and Buffers: Buffer equations and buffer capacity in general
+- Acids, Bases and Buffers: Buffers in pharmaceutical systems
+- Acids, Bases and Buffers: Preparation
+- Acids, Bases and Buffers: Stability
+- Acids, Bases and Buffers: Buffered isotonic solutions
+- Acids, Bases and Buffers: Measurements of tonicity
+- Acids, Bases and Buffers: Calculations and methods of adjusting isotonicity
+- Major extra and intracellular electrolytes: Functions of major physiological ions
+- Major extra and intracellular electrolytes: Electrolytes used in the replacement therapy: Sodium chloride*
+- Major extra and intracellular electrolytes: Potassium chloride
+- Major extra and intracellular electrolytes: Calcium gluconate* and Oral Rehydration Salt (ORS)
+- Major extra and intracellular electrolytes: Physiological acid base balance
+- Dental products: Dentifrices
+- Dental products: Role of fluoride in the treatment of dental caries
+- Dental products: Desensitizing agents
+- Dental products: Calcium carbonate
+- Dental products: Sodium fluoride
+- Dental products: Zinc eugenol cement
+- Gastrointestinal agents Acidifiers: Ammonium chloride* and Dil
+- HCl Antacid: Ideal properties of antacids
+- HCl Antacid: Combinations of antacids
+- HCl Antacid: Sodium Bicarbonate*
+- HCl Antacid: Aluminum hydroxide gel
+- HCl Antacid: Magnesium hydroxide mixture Cathartics: Magnesium sulphate
+- HCl Antacid: Sodium orthophosphate
+- HCl Antacid: Kaolin and Bentonite Antimicrobials: Mechanism
+- HCl Antacid: Classification
+- HCl Antacid: Potassium permanganate
+- HCl Antacid: Boric acid
+- HCl Antacid: Hydrogen peroxide*
+- HCl Antacid: Chlorinated lime*
+- HCl Antacid: Iodine and its preparations
+- Miscellaneous compounds Expectorants: Potassium iodide, Ammonium chloride*
+- Emetics: Copper sulphate*
+- Emetics: Sodium potassium tartarate Haematinics: Ferrous sulphate*
+- Emetics: Ferrous gluconate Poison and Antidote: Sodium thiosulphate*
+- Emetics: Activated charcoal
+- Emetics: Sodium nitrite333 Astringents: Zinc Sulphate
+- Emetics: Potash Alum
+- Radiopharmaceuticals: Radio activity
+- Radiopharmaceuticals: Measurement of radioactivity
+- Radiopharmaceuticals: Properties of α
+- Radiopharmaceuticals: Β
+- Radiopharmaceuticals: Γ radiations
+- Radiopharmaceuticals: Half life
+- Radiopharmaceuticals: Radio isotopes and study of radio isotopes - Sodium iodide I
+- Radiopharmaceuticals: Storage conditions
+- Radiopharmaceuticals: Precautions & pharmaceutical application of radioactive substances
+
+## BP202 Pharmaceutical Organic Chemistry I
+
+- Classification, nomenclature
+- Isomerism Classification of Organic Compounds Common
+- IUPAC systems of nomenclature of organic compounds (up to 10 Carbons open chain
+- Carbocyclic compounds) Structural isomerisms in organic compounds
+- 10 Hours
+- Alkanes*
+- Alkenes* and Conjugated dienes* SP3 hybridization in alkanes
+- Halogenation of alkanes
+- Uses of paraffins
+- Stabilities of alkenes
+- SP2 hybridization in alkenes E1 and E2 reactions – kinetics
+- Order of reactivity of alkyl halides
+- Rearrangement of carbocations
+- Saytzeffs orientation and evidences
+- E1 verses E2 reactions, Factors affecting E1 and E2 reactions
+- Ozonolysis
+- Electrophilic addition reactions of alkenes
+- Markownikoff’s orientation
+- Free radical addition reactions of alkenes
+- Anti Markownikoff’s orientation
+- Stability of conjugated dienes, Diel-Alder
+- Electrophilic addition
+- Free radical addition reactions of conjugated dienes
+- Allylic rearrangement
+- Alkyl halides* SN1 and SN2 reactions - kinetics
+- Stereochemistry and rearrangement of carbocations
+- SN1 versus SN2 reactions
+- Factors affecting SN1 and SN2 reactions Structure and uses of ethylchloride, Chloroform
+- Trichloroethylene
+- Tetrachloroethylene, dichloromethane
+- Tetrachloromethane and iodoform
+- Alcohols*- Qualitative tests
+- Structure and uses of Ethyl alcohol, Methyl alcohol, chlorobutanol
+- Cetosteryl alcohol, Benzyl alcohol, Glycerol
+- Propylene glycol
+- Carbonyl compounds* (Aldehydes and ketones) Nucleophilic addition
+- Electromeric effect
+- Aldol condensation
+- Crossed Aldol condensation
+- Cannizzaro reaction
+- Crossed Cannizzaro reaction
+- Benzoin condensation
+- Perkin condensation
+- Qualitative tests
+- Structure and uses of Formaldehyde, Paraldehyde, Acetone, Chloral hydrate, Hexamine, Benzaldehyde, Vanilin
+- Cinnamaldehyde
+- Carboxylic acids* Acidity of carboxylic acids
+- Effect of substituents on acidity
+- Inductive effect and qualitative tests for carboxylic acids
+- Amide and ester Structure and Uses of Acetic acid, Lactic acid, Tartaric acid, Citric acid, Succinic acid
+- Oxalic acid, salicylic acid, Benzoic acid, Benzyl benzoate
+- Dimethyl phthalate
+- Methyl salicylate and Acetyl salicylic acid
+- Aliphatic amines* - Basicity, effect of substituent on Basicity
+- Qualitative test, Structure and uses of Ethanolamine, Ethylenediamine, Amphetamine 59
+
+## BP301 Pharmaceutical Organic Chemistry II
+
+- Benzene and its derivatives A
+- Analytical
+- Synthetic and other evidences in the derivation of structure of benzene, Orbital picture
+- Resonance in benzene
+- Aromatic characters
+- Huckel’s rule B
+- Reactions of benzene - nitration, sulphonation
+- Halogenation- reactivity
+- Friedelcrafts alkylation- reactivity, limitations
+- Friedelcrafts acylation
+- Substituents
+- Effect of substituents on reactivity
+- Orientation of mono substituted benzene compounds towards electrophilic substitution reaction D
+- Structure and uses of DDT, Saccharin, BHC and Chloramine
+- Phenols* - Acidity of phenols
+- Effect of substituents on acidity
+- Qualitative tests
+- Structure and uses of phenol, cresols, resorcinol, naphthols
+- Aromatic Amines* - Basicity of amines
+- Effect of substituents on basicity
+- Synthetic uses of aryl diazonium salts
+- Aromatic Acids* –Acidity, effect of substituents on acidity and important reactions of benzoic acid
+- Fats and Oils
+- Fatty acids – reactions
+- Hydrolysis, Hydrogenation, Saponification and Rancidity of oils, Drying oils
+- Analytical constants – Acid value
+- Saponification value, Ester value, Iodine value, Acetyl value
+- Reichert Meissl (RM) value – significance and principle involved in their determination
+- Polynuclear hydrocarbons
+- Synthesis, reactions
+- Structure and medicinal uses of Naphthalene, Phenanthrene, Anthracene, Diphenylmethane
+- Triphenylmethane and their derivatives
+- Cyclo alkanes* Stabilities – Baeyer’s strain theory
+- Limitation of Baeyer’s strain theory
+- Coulson and Moffitt’s modification
+- Sachse Mohr’s theory (Theory of strainless rings)
+- Reactions of cyclopropane and cyclobutane only 74
+
+## BP401 Pharmaceutical Organic Chemistry III
+
+- Stereo isomerism Optical isomerism – Optical activity, enantiomerism
+- Diastereoisomerism
+- Meso compounds Elements of symmetry
+- Chiral and achiral molecules DL system of nomenclature of optical isomers, sequence rules
+- RS system of nomenclature of optical isomers Reactions of chiral molecules Racemic modification
+- Resolution of racemic mixture
+- Asymmetric synthesis: partial and absolute
+- Geometrical isomerism Nomenclature of geometrical isomers (Cis Trans, EZ
+- Syn Anti systems) Methods of determination of configuration of geometrical isomers
+- Conformational isomerism in Ethane, n-Butane and Cyclohexane
+- Stereo isomerism in biphenyl compounds (Atropisomerism) and conditions for optical activity
+- Stereospecific and stereoselective reactions
+- Heterocyclic compounds: Nomenclature and classification Synthesis
+- Heterocyclic compounds: Reactions and medicinal uses of following compounds/derivatives Pyrrole
+- Heterocyclic compounds: Furan
+- Heterocyclic compounds: Thiophene Relative aromaticity and reactivity of Pyrrole
+- Heterocyclic compounds: Furan and Thiophene
+- Synthesis
+- Reactions and medicinal uses of following compounds/derivatives Pyrazole, Imidazole
+- Oxazole and Thiazole
+- Pyridine, Quinoline, Isoquinoline, Acridine and Indole
+- Basicity of pyridine Synthesis and medicinal uses of Pyrimidine, Purine
+- Azepines and their derivatives
+- Reactions of synthetic importance Metal hydride reduction (NaBH4 and LiAlH4)
+- Clemmensen reduction, Birch reduction
+- Wolff Kishner reduction
+- Oppenauer-oxidation and Dakin reaction
+- Beckmanns rearrangement and Schmidt rearrangement
+- Claisen-Schmidt condensation
+
+## BP402 Medicinal Chemistry I
+
+- Introduction to Medicinal Chemistry History
+- Development of medicinal chemistry Physicochemical properties in relation to biological action Ionization, Solubility
+- Partition Coefficient
+- Hydrogen bonding, Protein binding, Chelation, Bioisosterism
+- Optical and Geometrical isomerism
+- Drug metabolism Drug metabolism principles- Phase I and Phase II
+- Factors affecting drug metabolism including stereo chemical aspects
+- Drugs acting on Autonomic Nervous System Adrenergic Neurotransmitters: Biosynthesis and catabolism of catecholamine
+- Adrenergic receptors (Alpha & Beta) and their distribution
+- Sympathomimetic agents: SAR of Sympathomimetic agents Direct acting: Nor-epinephrine
+- Sympathomimetic agents: Epinephrine
+- Sympathomimetic agents: Phenylephrine*
+- Sympathomimetic agents: Dopamine
+- Sympathomimetic agents: Methyldopa
+- Sympathomimetic agents: Clonidine
+- Sympathomimetic agents: Dobutamine
+- Sympathomimetic agents: Isoproterenol
+- Sympathomimetic agents: Terbutaline
+- Sympathomimetic agents: Salbutamol*
+- Sympathomimetic agents: Bitolterol
+- Sympathomimetic agents: Naphazoline
+- Sympathomimetic agents: Oxymetazoline and Xylometazoline
+- Indirect acting agents: Hydroxyamphetamine, Pseudoephedrine, Propylhexedrine
+- Agents with mixed mechanism: Ephedrine, Metaraminol
+- Adrenergic Antagonists: Alpha adrenergic blockers: Tolazoline*
+- Adrenergic Antagonists: Phentolamine
+- Adrenergic Antagonists: Phenoxybenzamine
+- Adrenergic Antagonists: Prazosin
+- Adrenergic Antagonists: Dihydroergotamine
+- Adrenergic Antagonists: Methysergide
+- Beta adrenergic blockers: SAR of beta blockers
+- Beta adrenergic blockers: Propranolol*
+- Beta adrenergic blockers: Metibranolol
+- Beta adrenergic blockers: Atenolol
+- Beta adrenergic blockers: Betazolol
+- Beta adrenergic blockers: Bisoprolol
+- Beta adrenergic blockers: Esmolol
+- Beta adrenergic blockers: Metoprolol
+- Beta adrenergic blockers: Labetolol
+- Beta adrenergic blockers: Carvedilol
+- Cholinergic neurotransmitters: Biosynthesis and catabolism of acetylcholine
+- Cholinergic receptors (Muscarinic & Nicotinic) and their distribution
+- Parasympathomimetic agents: SAR of Parasympathomimetic agents Direct acting agents: Acetylcholine
+- Parasympathomimetic agents: Carbachol*
+- Parasympathomimetic agents: Bethanechol
+- Parasympathomimetic agents: Methacholine
+- Parasympathomimetic agents: Pilocarpine
+- Indirect acting/ Cholinesterase inhibitors (Reversible & Irreversible): Physostigmine, Neostigmine*, Pyridostigmine
+- Edrophonium chloride
+- Tacrine hydrochloride
+- Ambenonium chloride, Isofluorphate
+- Echothiophate iodide, Parathione, Malathion
+- Cholinesterase reactivator: Pralidoxime chloride
+- Cholinergic Blocking agents: SAR of cholinolytic agents Solanaceous alkaloids and analogues: Atropine sulphate
+- Cholinergic Blocking agents: Hyoscyamine sulphate
+- Cholinergic Blocking agents: Scopolamine hydrobromide
+- Cholinergic Blocking agents: Homatropine hydrobromide
+- Cholinergic Blocking agents: Ipratropium bromide*
+- Synthetic cholinergic blocking agents: Tropicamide
+- Synthetic cholinergic blocking agents: Cyclopentolate hydrochloride
+- Synthetic cholinergic blocking agents: Clidinium bromide
+- Synthetic cholinergic blocking agents: Dicyclomine hydrochloride*
+- Synthetic cholinergic blocking agents: Glycopyrrolate
+- Synthetic cholinergic blocking agents: Methantheline bromide
+- Synthetic cholinergic blocking agents: Propantheline bromide
+- Synthetic cholinergic blocking agents: Benztropine mesylate
+- Synthetic cholinergic blocking agents: Orphenadrine citrate
+- Synthetic cholinergic blocking agents: Biperidine hydrochloride
+- Synthetic cholinergic blocking agents: Procyclidine hydrochloride*
+- Synthetic cholinergic blocking agents: Tridihexethyl chloride
+- Synthetic cholinergic blocking agents: Isopropamide iodide
+- Synthetic cholinergic blocking agents: Ethopropazine hydrochloride
+- Drugs acting on Central Nervous System A
+- Sedatives and Hypnotics: Benzodiazepines: SAR of Benzodiazepines
+- Sedatives and Hypnotics: Chlordiazepoxide
+- Sedatives and Hypnotics: Diazepam*
+- Sedatives and Hypnotics: Oxazepam
+- Sedatives and Hypnotics: Chlorazepate
+- Sedatives and Hypnotics: Lorazepam
+- Sedatives and Hypnotics: Alprazolam
+- Sedatives and Hypnotics: Zolpidem Barbiturtes: SAR of barbiturates
+- Sedatives and Hypnotics: Barbital*
+- Sedatives and Hypnotics: Phenobarbital
+- Sedatives and Hypnotics: Mephobarbital
+- Sedatives and Hypnotics: Amobarbital
+- Sedatives and Hypnotics: Butabarbital
+- Sedatives and Hypnotics: Pentobarbital
+- Sedatives and Hypnotics: Secobarbital Miscelleneous: Amides & imides: Glutethmide
+- Alcohol & their carbamate derivatives: Meprobomate, Ethchlorvynol
+- Aldehyde & their derivatives: Triclofos sodium, Paraldehyde
+- Antipsychotics Phenothiazeines: SAR of Phenothiazeines - Promazine hydrochloride
+- Antipsychotics Phenothiazeines: Chlorpromazine hydrochloride*
+- Antipsychotics Phenothiazeines: Triflupromazine
+- Antipsychotics Phenothiazeines: Thioridazine hydrochloride
+- Antipsychotics Phenothiazeines: Piperacetazine hydrochloride
+- Antipsychotics Phenothiazeines: Prochlorperazine maleate
+- Antipsychotics Phenothiazeines: Trifluoperazine hydrochloride
+- Ring Analogues of Phenothiazeines: Chlorprothixene
+- Ring Analogues of Phenothiazeines: Thiothixene
+- Ring Analogues of Phenothiazeines: Loxapine succinate
+- Ring Analogues of Phenothiazeines: Clozapine
+- Fluro buterophenones: Haloperidol, Droperidol, Risperidone
+- Beta amino ketones: Molindone hydrochloride
+- Benzamides: Sulpieride
+- Anticonvulsants: SAR of Anticonvulsants
+- Anticonvulsants: Mechanism of anticonvulsant action Barbiturates: Phenobarbitone
+- Anticonvulsants: Methabarbital
+- Hydantoins: Phenytoin*
+- Hydantoins: Mephenytoin
+- Hydantoins: Ethotoin Oxazolidine diones: Trimethadione
+- Hydantoins: Paramethadione Succinimides: Phensuximide
+- Hydantoins: Methsuximide
+- Hydantoins: Ethosuximide* Urea and monoacylureas: Phenacemide
+- Hydantoins: Carbamazepine* Benzodiazepines: Clonazepam Miscellaneous: Primidone
+- Hydantoins: Valproic acid
+- Hydantoins: Gabapentin
+- Hydantoins: Felbamate
+- Drugs acting on Central Nervous System General anesthetics: Inhalation anesthetics: Halothane*
+- Drugs acting on Central Nervous System General anesthetics: Sevoflurane
+- Drugs acting on Central Nervous System General anesthetics: Isoflurane
+- Drugs acting on Central Nervous System General anesthetics: Desflurane
+- Methoxyflurane, Enflurane, Ultra short acting barbitutrates: Methohexital sodium*
+- Methoxyflurane, Enflurane, Ultra short acting barbitutrates: Thiamylal sodium
+- Methoxyflurane, Enflurane, Ultra short acting barbitutrates: Thiopental sodium
+- Ketamine hydrochloride.* Narcotic and non-narcotic analgesics Morphine and related drugs: SAR of Morphine analogues
+- Dissociative anesthetics: Morphine sulphate
+- Dissociative anesthetics: Codeine
+- Dissociative anesthetics: Meperidine hydrochloride
+- Dissociative anesthetics: Anilerdine hydrochloride
+- Dissociative anesthetics: Diphenoxylate hydrochloride
+- Dissociative anesthetics: Loperamide hydrochloride
+- Dissociative anesthetics: Fentanyl citrate*
+- Dissociative anesthetics: Methadone hydrochloride*
+- Dissociative anesthetics: Propoxyphene hydrochloride
+- Dissociative anesthetics: Pentazocine
+- Dissociative anesthetics: Levorphanol tartarate
+- Narcotic antagonists: Nalorphine hydrochloride
+- Narcotic antagonists: Levallorphan tartarate
+- Narcotic antagonists: Naloxone hydrochloride
+- Anti-inflammatory agents: Sodium salicylate
+- Anti-inflammatory agents: Aspirin
+- Anti-inflammatory agents: Mefenamic acid*
+- Anti-inflammatory agents: Meclofenamate
+- Anti-inflammatory agents: Indomethacin
+- Anti-inflammatory agents: Sulindac
+- Anti-inflammatory agents: Tolmetin
+- Anti-inflammatory agents: Zomepriac
+- Anti-inflammatory agents: Diclofenac
+- Anti-inflammatory agents: Ketorolac
+- Anti-inflammatory agents: Ibuprofen*
+- Anti-inflammatory agents: Naproxen
+- Anti-inflammatory agents: Piroxicam
+- Anti-inflammatory agents: Phenacetin
+- Anti-inflammatory agents: Acetaminophen
+- Anti-inflammatory agents: Antipyrine
+- Anti-inflammatory agents: Phenylbutazone
+
+## BP501 Medicinal Chemistry II
+
+- Antihistaminic agents: Histamine
+- Antihistaminic agents: Receptors and their distribution in the humanbody H1–antagonists: Diphenhydramine hydrochloride*
+- Antihistaminic agents: Dimenhydrinate
+- Antihistaminic agents: Doxylamines cuccinate
+- Antihistaminic agents: Clemastine fumarate
+- Antihistaminic agents: Diphenylphyraline hydrochloride
+- Antihistaminic agents: Tripelenamine hydrochloride
+- Antihistaminic agents: Chlorcyclizine hydrochloride
+- Antihistaminic agents: Meclizine hydrochloride
+- Antihistaminic agents: Buclizine hydrochloride
+- Antihistaminic agents: Chlorpheniramine maleate
+- Antihistaminic agents: Triprolidine hydrochloride*
+- Antihistaminic agents: Phenidamine tartarate
+- Antihistaminic agents: Promethazine hydrochloride*
+- Antihistaminic agents: Trimeprazine tartrate
+- Antihistaminic agents: Cyproheptadine hydrochloride
+- Antihistaminic agents: Azatidine maleate
+- Antihistaminic agents: Astemizole
+- Antihistaminic agents: Loratadine
+- Antihistaminic agents: Cetirizine
+- Antihistaminic agents: Levocetrazine Cromolyn sodium H2-antagonists: Cimetidine*
+- Antihistaminic agents: Famotidine
+- Antihistaminic agents: Ranitidin
+- Gastric Proton pump inhibitors: Omeprazole
+- Gastric Proton pump inhibitors: Lansoprazole
+- Gastric Proton pump inhibitors: Rabeprazole
+- Gastric Proton pump inhibitors: Pantoprazole Anti-neoplastic agents: Alkylating agents: Meclorethamine*
+- Gastric Proton pump inhibitors: Cyclophosphamide
+- Gastric Proton pump inhibitors: Melphalan
+- Gastric Proton pump inhibitors: Chlorambucil
+- Gastric Proton pump inhibitors: Busulfan
+- Gastric Proton pump inhibitors: Thiotepa Antimetabolites: Mercaptopurine*
+- Gastric Proton pump inhibitors: Thioguanine
+- Gastric Proton pump inhibitors: Fluorouracil
+- Gastric Proton pump inhibitors: Cytarabine
+- Gastric Proton pump inhibitors: Methotrexate*
+- Gastric Proton pump inhibitors: Azathioprine Antibiotics: Dactinomycin
+- Gastric Proton pump inhibitors: Daunorubicin
+- Gastric Proton pump inhibitors: Doxorubicin
+- Gastric Proton pump inhibitors: Bleomycin Plant products: Etoposide
+- Gastric Proton pump inhibitors: Vinblastin sulphate
+- Gastric Proton pump inhibitors: Vincristin sulphate Miscellaneous: Cisplatin
+- Gastric Proton pump inhibitors: Mitotane
+- Floxuridine
+- Anti-anginal: Vasodilators: Amyl nitrite
+- Anti-anginal: Nitroglycerin*
+- Anti-anginal: Pentaerythritol tetranitrate
+- Anti-anginal: Isosorbide dinitrite*
+- Anti-anginal: Dipyridamole
+- Calcium channel blockers: Verapamil
+- Calcium channel blockers: Bepridil hydrochloride
+- Calcium channel blockers: Diltiazem hydrochloride
+- Calcium channel blockers: Nifedipine
+- Calcium channel blockers: Amlodipine
+- Calcium channel blockers: Felodipine
+- Calcium channel blockers: Nicardipine
+- Calcium channel blockers: Nimodipine
+- Diuretics: Carbonic anhydrase Dichlorphenamide. inhibitors: Acetazolamide*
+- Diuretics: Methazolamide
+- Diuretics: Thiazides: Chlorthiazide*
+- Diuretics: Cyclothiazide
+- Diuretics: Hydrochlorothiazide
+- Diuretics: Hydroflumethiazide
+- Diuretics: Loop diuretics: Furosemide*
+- Diuretics: Bumetanide
+- Diuretics: Ethacrynic acid
+- Potassium sparing Diuretics: Spironolactone, Triamterene, Amiloride
+- Osmotic Diuretics: Mannitol Anti-hypertensive Agents: Timolol
+- Osmotic Diuretics: Captopril
+- Osmotic Diuretics: Lisinopril
+- Osmotic Diuretics: Enalapril
+- Osmotic Diuretics: Benazepril hydrochloride
+- Osmotic Diuretics: Quinapril hydrochloride
+- Osmotic Diuretics: Methyldopate hydrochloride
+- Osmotic Diuretics: * Clonidine hydrochloride
+- Osmotic Diuretics: Guanethidine monosulphate
+- Osmotic Diuretics: Guanabenz acetate
+- Osmotic Diuretics: Sodium nitroprusside
+- Osmotic Diuretics: Diazoxide
+- Osmotic Diuretics: Minoxidil
+- Osmotic Diuretics: Reserpine
+- Osmotic Diuretics: Hydralazine hydrochloride
+- Anti-arrhythmic Drugs: Quinidine sulphate
+- Anti-arrhythmic Drugs: Procainamide hydrochloride
+- Anti-arrhythmic Drugs: Disopyramide phosphate*
+- Anti-arrhythmic Drugs: Phenytoin sodium
+- Anti-arrhythmic Drugs: Lidocaine hydrochloride
+- Anti-arrhythmic Drugs: Tocainide hydrochloride
+- Anti-arrhythmic Drugs: Mexiletine hydrochloride
+- Anti-arrhythmic Drugs: Lorcainide hydrochloride
+- Anti-arrhythmic Drugs: Amiodarone
+- Anti-arrhythmic Drugs: Sotalol
+- Anti-hyperlipidemic agents: Clofibrate
+- Anti-hyperlipidemic agents: Lovastatin
+- Anti-hyperlipidemic agents: Cholesteramine and Cholestipol Coagulant & Anticoagulants: Menadione
+- Anti-hyperlipidemic agents: Acetomenadione
+- Anti-hyperlipidemic agents: Warfarin*
+- Anti-hyperlipidemic agents: Anisindione
+- Anti-hyperlipidemic agents: Clopidogrel Drugs used in Congestive Heart Failure: Digoxin
+- Anti-hyperlipidemic agents: Digitoxin
+- Anti-hyperlipidemic agents: Nesiritide
+- Anti-hyperlipidemic agents: Bosentan
+- Anti-hyperlipidemic agents: Tezosentan
+- Drugs acting on Endocrine system Nomenclature
+- Stereochemistry and metabolism of steroids Sex hormones: Testosterone, Nandralone, Progestrones, Oestriol, Oestradiol
+- Oestrione
+- Diethyl stilbestrol
+- Drugs for erectile dysfunction: Sildenafil, Tadalafil
+- Oral contraceptives: Mifepristone
+- Oral contraceptives: Norgestril
+- Oral contraceptives: Levonorgestrol Corticosteroids: Cortisone
+- Oral contraceptives: Hydrocortisone
+- Oral contraceptives: Prednisolone
+- Oral contraceptives: Betamethasone
+- Oral contraceptives: Dexamethasone Thyroid and antithyroid drugs: L-Thyroxine
+- Oral contraceptives: L-Thyronine
+- Oral contraceptives: Propylthiouracil
+- Oral contraceptives: Methimazole
+- Antidiabetic agents: Insulin and its preparations Sulfonyl ureas: Tolbutamide*
+- Antidiabetic agents: Chlorpropamide
+- Antidiabetic agents: Glipizide
+- Antidiabetic agents: Glimepiride
+- Biguanides: Metformin
+- Thiazolidinediones: Pioglitazone, Rosiglitazone
+- Meglitinides: Repaglinide, Nateglinide
+- Glucosidase inhibitors: Acrabose, Voglibose
+- Local Anesthetics: SAR of Local anesthetics Benzoic Acid derivatives
+- Cocaine, Hexylcaine, Meprylcaine, Cyclomethycaine, Piperocaine
+- Amino Benzoic acid derivatives: Benzocaine*
+- Amino Benzoic acid derivatives: Butamben
+- Amino Benzoic acid derivatives: Procaine*
+- Amino Benzoic acid derivatives: Butacaine
+- Amino Benzoic acid derivatives: Propoxycaine
+- Amino Benzoic acid derivatives: Tetracaine
+- Amino Benzoic acid derivatives: Benoxinate
+- Lidocaine/Anilide derivatives: Lignocaine, Mepivacaine, Prilocaine, Etidocaine
+- Miscellaneous: Phenacaine, Diperodon, Dibucaine.*
+
+## BP601 Medicinal Chemistry III
+
+- Antibiotics Historical background, Nomenclature, Stereochemistry
+- Structure activity relationship
+- Chemical degradation classification and important products of the following classes. β-Lactam antibiotics: Penicillin
+- Cepholosporins
+- Β- Lactamase inhibitors
+- Monobactams Aminoglycosides: Streptomycin, Neomycin
+- Kanamycin Tetracyclines: Tetracycline, Oxytetracycline, Minocycline
+- Doxycycline Chlortetracycline
+- Chemical degradation classification and important products of the following classes
+- Macrolide: Erythromycin Clarithromycin, Azithromycin
+- Miscellaneous: Chloramphenicol*, Clindamycin
+- Prodrugs: Basic concepts and application of prodrugs design
+- Antimalarials: Etiology of malaria
+- Quinolines: SAR
+- Quinolines: Quinine sulphate
+- Quinolines: Chloroquine*
+- Quinolines: Amodiaquine
+- Quinolines: Primaquine phosphate
+- Quinolines: Pamaquine*
+- Quinolines: Quinacrine hydrochloride
+- Quinolines: Mefloquine
+- Biguanides and dihydro triazines: Cycloguanil pamoate, Proguanil
+- Miscellaneous: Pyrimethamine, Artesunete, Artemether, Atovoquone
+- Anti-tubercular Agents Synthetic anti tubercular agents: Isoniozid*
+- Anti-tubercular Agents Synthetic anti tubercular agents: Ethionamide
+- Anti-tubercular Agents Synthetic anti tubercular agents: Ethambutol
+- Anti-tubercular Agents Synthetic anti tubercular agents: Pyrazinamide
+- Para amino salicylic acid.* Anti tubercular antibiotics: Rifampicin
+- Anti-tubercular Agents Synthetic anti tubercular agents: Rifabutin
+- Anti-tubercular Agents Synthetic anti tubercular agents: Cycloserine Streptomycine
+- Anti-tubercular Agents Synthetic anti tubercular agents: Capreomycin sulphate
+- Urinary tract anti-infective agents Quinolones: SAR of quinolones
+- Urinary tract anti-infective agents Quinolones: Nalidixic Acid
+- Urinary tract anti-infective agents Quinolones: Norfloxacin
+- Urinary tract anti-infective agents Quinolones: Enoxacin
+- Urinary tract anti-infective agents Quinolones: Ciprofloxacin*
+- Urinary tract anti-infective agents Quinolones: Ofloxacin
+- Urinary tract anti-infective agents Quinolones: Lomefloxacin
+- Urinary tract anti-infective agents Quinolones: Sparfloxacin
+- Urinary tract anti-infective agents Quinolones: Gatifloxacin
+- Urinary tract anti-infective agents Quinolones: Moxifloxacin Miscellaneous: Furazolidine
+- Urinary tract anti-infective agents Quinolones: Nitrofurantoin*
+- Urinary tract anti-infective agents Quinolones: Methanamine
+- Antiviral agents: Amantadine hydrochloride
+- Antiviral agents: Rimantadine hydrochloride
+- Antiviral agents: Idoxuridine trifluoride
+- Antiviral agents: Acyclovir*
+- Antiviral agents: Gancyclovir
+- Antiviral agents: Zidovudine
+- Antiviral agents: Didanosine
+- Antiviral agents: Zalcitabine
+- Antiviral agents: Lamivudine
+- Antiviral agents: Loviride
+- Antiviral agents: Delavirding
+- Antiviral agents: Ribavirin
+- Antiviral agents: Saquinavir
+- Antiviral agents: Indinavir
+- Antiviral agents: Ritonavir
+- Antifungal agents: Antifungal antibiotics: Amphotericin-B
+- Antifungal agents: Nystatin
+- Antifungal agents: Natamycin
+- Antifungal agents: Griseofulvin
+- Synthetic Antifungal agents: Clotrimazole
+- Synthetic Antifungal agents: Econazole
+- Synthetic Antifungal agents: Butoconazole
+- Synthetic Antifungal agents: Oxiconazole Tioconozole
+- Synthetic Antifungal agents: Miconazole*
+- Synthetic Antifungal agents: Ketoconazole
+- Synthetic Antifungal agents: Terconazole
+- Synthetic Antifungal agents: Itraconazole
+- Synthetic Antifungal agents: Fluconazole
+- Synthetic Antifungal agents: Naftifine hydrochloride
+- Synthetic Antifungal agents: Tolnaftate*
+- Anti-protozoal Agents: Metronidazole*
+- Anti-protozoal Agents: Tinidazole
+- Anti-protozoal Agents: Ornidazole
+- Anti-protozoal Agents: Diloxanide
+- Anti-protozoal Agents: Iodoquinol
+- Anti-protozoal Agents: Pentamidine Isethionate
+- Anti-protozoal Agents: Atovaquone
+- Anti-protozoal Agents: Eflornithine
+- Anthelmintics: Diethylcarbamazine citrate*
+- Anthelmintics: Thiabendazole
+- Anthelmintics: Mebendazole*
+- Anthelmintics: Albendazole
+- Anthelmintics: Niclosamide
+- Anthelmintics: Oxamniquine
+- Anthelmintics: Praziquantal
+- Anthelmintics: Ivermectin
+- Sulphonamides and Sulfones Historical development, chemistry
+- Classification and SAR of Sulfonamides: Sulphamethizole, Sulfisoxazole, Sulphamethizine, Sulfacetamide*, Sulphapyridine
+- Sulfamethoxaole*, Sulphadiazine
+- Mefenide acetate, Sulfasalazine
+- Folate reductase inhibitors: Trimethoprim*, Cotrimoxazole
+- Sulfones: Dapsone*
+- Introduction to Drug Design Various approaches used in drug design
+- Physicochemical parameters used in quantitative structure activity relationship (QSAR) such as partition coefficient
+- Hammet’s electronic parameter
+- Tafts steric parameter and Hansch analysis
+- Pharmacophore modeling and docking techniques
+- Combinatorial Chemistry: Concept and applications of combinatorial chemistry: solid phase and solution phase synthesis
+
+## BP701 Instrumental Methods of Analysis
+
+- UV Visible spectroscopy Electronic transitions, chromophores, auxochromes, spectral shifts
+- Solvent effect on absorption spectra
+- Beer and Lambert’s law
+- Derivation and deviations
+- Instrumentation - Sources of radiation
+- Wavelength selectors, sample cells
+- DetectorsPhoto tube
+- Photomultiplier tube
+- Photo voltaic cell
+- Silicon Photodiode
+- Applications - Spectrophotometric titrations
+- Single component and multi component analysis Fluorimetry Theory
+- Concepts of singlet
+- Doublet and triplet electronic states
+- Internal and external conversions
+- Factors affecting fluorescence, quenching
+- Instrumentation and applications
+- IR spectroscopy Introduction
+- Fundamental modes of vibrations in poly atomic molecules, sample handling
+- Factors affecting vibrations Instrumentation - Sources of radiation
+- Wavelength selectors
+- Detectors - Golay cell, Bolometer, Thermocouple, Thermister
+- Pyroelectric detector and applications Flame Photometry-Principle, interferences
+- Instrumentation and applications Atomic absorption spectroscopy- Principle, interferences
+- Instrumentation and applications Nepheloturbidometry- Principle
+- Introduction to chromatography Adsorption and partition column chromatography-Methodology, advantages
+- Disadvantages and applications
+- Thin layer chromatography- Introduction, Principle, Methodology, Rf values, advantages
+- Paper chromatography-Introduction, methodology
+- Development techniques, advantages
+- Disadvantages and applications Electrophoresis– Introduction
+- Factors affecting electrophoretic mobility
+- Techniques of paper, gel
+- Capillary electrophoresis, applications
+- Gas chromatography - Introduction, theory, instrumentation, derivatization
+- Temperature programming, advantages
+- Disadvantages and applications High performance liquid chromatography (HPLC)-Introduction, theory, instrumentation
+- Advantages and applications
+- Ion exchange chromatography- Introduction, classification
+- Ion exchange resins, properties
+- Mechanism of ion exchange process
+- Factors affecting ion exchange
+- Methodology and applications Gel chromatography- Introduction, theory
+- Instrumentation and applications Affinity chromatography- Introduction, theory
+- Instrumentation and applications 145
+
+# Pharmaceutics and Allied Subjects
+
+## BP103 Pharmaceutics I
+
+- Historical background
+- Development of profession of pharmacy: History of profession of Pharmacy in India in relation to pharmacy education
+- Industry and organization
+- Pharmacy as a career
+- Pharmacopoeias: Introduction to IP, BP
+- USP and Extra Pharmacopoeia
+- Dosage forms: Introduction to dosage forms, classification and definitions
+- Prescription: Definition
+- Prescription: Parts of prescription
+- Prescription: Handling of Prescription and Errors in prescription
+- Posology: Definition, Factors affecting posology
+- Pediatric dose calculations based on age, body weight and body surface area
+- Pharmaceutical calculations: Weights and measures – Imperial & Metric system
+- Pharmaceutical calculations: Calculations involving percentage solutions
+- Pharmaceutical calculations: Alligation
+- Pharmaceutical calculations: Proof spirit and isotonic solutions based on freezing point and molecular weight
+- Powders: Definition
+- Powders: Classification
+- Powders: Advantages and disadvantages
+- Powders: Simple & compound powders – official preparations
+- Powders: Dusting powders
+- Powders: Effervescent
+- Powders: Efflorescent and hygroscopic powders
+- Powders: Eutectic mixtures
+- Geometric dilutions
+- Liquid dosage forms: Advantages and disadvantages of liquid dosage forms
+- Excipients used in formulation of liquid dosage forms
+- Solubility enhancement techniques
+- Monophasic liquids: Definitions and preparations of Gargles
+- Monophasic liquids: Mouthwashes
+- Monophasic liquids: Throat Paint
+- Monophasic liquids: Eardrops
+- Monophasic liquids: Nasal drops
+- Monophasic liquids: Enemas
+- Monophasic liquids: Syrups
+- Monophasic liquids: Elixirs
+- Monophasic liquids: Liniments and Lotions
+- Biphasic liquids
+- Suspensions: Definition
+- Suspensions: Advantages and disadvantages
+- Suspensions: Classifications
+- Suspensions: Preparation of suspensions
+- Flocculated and Deflocculated suspension & stability problems and methods to overcome
+- Emulsions: Definition
+- Emulsions: Classification
+- Emulsions: Emulsifying agent
+- Emulsions: Test for the identification of type ofEmulsion
+- Emulsions: Methods of preparation & stability problems and methods to overcome
+- Suppositories: Definition
+- Suppositories: Types
+- Suppositories: Advantages and disadvantages
+- Suppositories: Types of bases
+- Suppositories: Methods of preparations
+- Displacement value & its calculations, evaluation of suppositories
+- Pharmaceutical incompatibilities: Definition
+- Pharmaceutical incompatibilities: Classification
+- Pharmaceutical incompatibilities: Physical
+- Pharmaceutical incompatibilities: Chemical and therapeutic incompatibilities with examples
+- UNIV – V
+- Semisolid dosage forms: Definitions
+- Semisolid dosage forms: Classification
+- Semisolid dosage forms: Mechanisms and factors influencing dermal penetration of drugs
+- Preparation of ointments, pastes, creams and gels
+- Excipients used in semi solid dosage forms
+- Evaluation of semi solid dosages forms 37
+
+## BP302 Physical Pharmaceutics I
+
+- States of Matter and properties of matter: State of matter
+- States of Matter and properties of matter: Changes in the state of matter
+- States of Matter and properties of matter: Latent heats
+- States of Matter and properties of matter: Vapour pressure
+- States of Matter and properties of matter: Sublimation critical point
+- States of Matter and properties of matter: Eutectic mixtures
+- States of Matter and properties of matter: Gases
+- States of Matter and properties of matter: Aerosols – inhalers
+- States of Matter and properties of matter: Relative humidity
+- States of Matter and properties of matter: Liquid complexes
+- States of Matter and properties of matter: Liquid crystals
+- States of Matter and properties of matter: Glassy states
+- States of Matter and properties of matter: Solidcrystalline
+- States of Matter and properties of matter: Amorphous & polymorphism
+- Physicochemical properties of drug molecules: Refractive index
+- Physicochemical properties of drug molecules: Optical rotation
+- Physicochemical properties of drug molecules: Dielectric constant
+- Physicochemical properties of drug molecules: Dipole moment
+- Physicochemical properties of drug molecules: Dissociation constant
+- Physicochemical properties of drug molecules: Determinations and applications
+- Surface and interfacial phenomenon: Liquid interface
+- Surface and interfacial phenomenon: Surface & interfacial tensions
+- Surface and interfacial phenomenon: Surface free energy
+- Surface and interfacial phenomenon: Measurement of surface & interfacial tensions
+- Surface and interfacial phenomenon: Spreading coefficient
+- Surface and interfacial phenomenon: Adsorption at liquid interfaces
+- Surface and interfacial phenomenon: Surface active agents
+- Surface and interfacial phenomenon: HLB Scale
+- Surface and interfacial phenomenon: Solubilisation
+- Surface and interfacial phenomenon: Detergency
+- Surface and interfacial phenomenon: Adsorption at solid interface
+- Complexation and protein binding: Introduction
+- Complexation and protein binding: Classification of Complexation
+- Complexation and protein binding: Applications
+- Complexation and protein binding: Methods of analysis
+- Complexation and protein binding: Protein binding
+- Complexation and protein binding: Complexation and drug action
+- Complexation and protein binding: Crystalline structures of complexes and thermodynamic treatment of stability constants
+- PH, buffers and Isotonic solutions: Sorensen’s pH scale
+- PH, buffers and Isotonic solutions: PH determination (electrometric and calorimetric)
+- PH, buffers and Isotonic solutions: Applications of buffers
+- PH, buffers and Isotonic solutions: Buffer equation
+- PH, buffers and Isotonic solutions: Buffer capacity
+- PH, buffers and Isotonic solutions: Buffers in pharmaceutical and biological systems
+- PH, buffers and Isotonic solutions: Buffered isotonic solutions
+
+## BP304 Pharmaceutical Engineering
+
+- Flow of fluids: Types of manometers
+- Flow of fluids: Reynolds number and its significance
+- Flow of fluids: Bernoulli’s theorem and its applications
+- Flow of fluids: Energy losses
+- Flow of fluids: Orifice meter
+- Flow of fluids: Venturimeter
+- Flow of fluids: Pitot tube and Rotometer
+- Size Reduction: Objectives
+- Size Reduction: Mechanisms & Laws governing size reduction
+- Size Reduction: Factors affecting size reduction
+- Size Reduction: Principles
+- Size Reduction: Construction
+- Size Reduction: Working
+- Size Reduction: Uses
+- Size Reduction: Merits and demerits of Hammer mill
+- Size Reduction: Ball mill
+- Size Reduction: Fluid energy mill
+- Size Reduction: Edge runner mill & end runner mill
+- Size Separation: Objectives
+- Size Separation: Applications & mechanism of size separation
+- Size Separation: Official standards of powders
+- Size Separation: Sieves
+- Size Separation: Size separation Principles
+- Size Separation: Construction
+- Size Separation: Working
+- Size Separation: Uses
+- Size Separation: Merits and demerits of Sieve shaker
+- Size Separation: Cyclone separator
+- Size Separation: Air separator
+- Size Separation: Bag filter & elutriation tank
+- Heat Transfer: Objectives, applications & Heat transfer mechanisms
+- Fourier’s law, Heat transfer by conduction, convection & radiation
+- Heat interchangers & heat exchangers
+- Evaporation: Objectives
+- Evaporation: Applications and factors influencing evaporation
+- Evaporation: Differences between evaporation and other heat process. principles
+- Evaporation: Construction
+- Evaporation: Working
+- Evaporation: Uses
+- Evaporation: Merits and demerits of Steam jacketed kettle
+- Evaporation: Horizontal tube evaporator
+- Evaporation: Climbing film evaporator
+- Evaporation: Forced circulation evaporator
+- Evaporation: Multiple effect evaporator& Economy of multiple effect evaporator. 
+- Distillation: Basic Principles and methodology of simple distillation
+- Distillation: Flash distillation
+- Distillation: Fractional distillation
+- Distillation: Distillation under reduced pressure
+- Distillation: Steam distillation & molecular distillation
+- Drying: Objectives
+- Drying: Applications & mechanism of drying process
+- Drying: Measurements & applications of Equilibrium Moisture content
+- Drying: Rate of drying curve. principles
+- Drying: Construction
+- Drying: Working
+- Drying: Uses
+- Drying: Merits and demerits of Tray dryer
+- Drying: Drum dryer spray dryer
+- Drying: Fluidized bed dryer
+- Drying: Vacuum dryer
+- Drying: Freeze dryer
+- Mixing: Objectives
+- Mixing: Applications & factors affecting mixing
+- Mixing: Difference between solid and liquid mixing
+- Mixing: Mechanism of solid mixing
+- Mixing: Liquids mixing and semisolids mixing
+- Principles, Construction, Working, uses
+- Merits and Demerits of Double cone blender
+- Twin shell blender, ribbon blender
+- Sigma blade mixer
+- Planetary mixers, Propellers, Turbines
+- Paddles & Silverson Emulsifier
+- Filtration: Objectives
+- Filtration: Applications
+- Filtration: Theories & Factors influencing filtration
+- Filtration: Filter aids
+- Filtration: Filter medias
+- Principle, Construction, Working, Uses
+- Merits and demerits of plate & frame filter, filter leaf
+- Rotary drum filter
+- Meta filter & Cartridge filter
+- Membrane filters and Seidtz filter
+- Centrifugation: Objectives
+- Centrifugation: Principle & applications of Centrifugation
+- Centrifugation: Principles
+- Centrifugation: Construction
+- Centrifugation: Working
+- Centrifugation: Uses
+- Centrifugation: Merits and demerits of Perforated basket centrifuge
+- Centrifugation: Non-perforated basket centrifuge
+- Centrifugation: Semi continuous centrifuge & super centrifuge
+- Materials of pharmaceutical plant construction
+- Corrosion and its prevention: Factors affecting during materials selected for Pharmaceutical plant construction
+- Theories of corrosion
+- Types of corrosion and there prevention
+- Ferrous and nonferrous metals
+- Inorganic and organic non metals
+- Basic of material handling systems
+
+## BP403 Physical Pharmaceutics II
+
+- Rheology: Newtonian systems
+- Rheology: Law of flow
+- Rheology: Kinematic viscosity
+- Rheology: Effect of temperature
+- Rheology: Non-Newtonian systems
+- Rheology: Pseudoplastic
+- Rheology: Dilatant
+- Rheology: Plastic
+- Rheology: Thixotropy
+- Rheology: Thixotropy in formulation
+- Rheology: Determination of viscosity
+- Rheology: Capillary
+- Rheology: Falling Sphere
+- Rheology: Rotational viscometers Deformation of solids: Plastic and elastic deformation
+- Rheology: Heckel equation
+- Rheology: Stress
+- Rheology: Strain
+- Rheology: Elastic Modulus
+- Coarse dispersion: Suspension
+- Coarse dispersion: Interfacial properties of suspended particles
+- Coarse dispersion: Settling in suspensions
+- Coarse dispersion: Formulation of flocculated and deflocculated suspensions
+- Emulsions and theories of emulsification, microemulsion and multiple emulsions
+- Stability of emulsions
+- Preservation of emulsions
+- Rheological properties of emulsions and emulsion formulation by HLB method
+- Micromeretics: Particle size and distribution
+- Micromeretics: Mean particle size
+- Micromeretics: Number and weight distribution
+- Micromeretics: Particle number
+- Micromeretics: Methods for determining particle size by different methods
+- Micromeretics: Counting and separation method
+- Micromeretics: Particle shape
+- Micromeretics: Specific surface
+- Micromeretics: Methods for determining surface area
+- Micromeretics: Permeability
+- Micromeretics: Adsorption
+- Micromeretics: Derived properties of powders
+- Micromeretics: Porosity
+- Micromeretics: Packing arrangement
+- Micromeretics: Densities
+- Micromeretics: Bulkiness & flow properties
+- Drug stability: Reaction kinetics: zero
+- Drug stability: Pseudo-zero
+- Drug stability: First & second order
+- Drug stability: Units of basic rate constants
+- Drug stability: Determination of reaction order
+- Physical and chemical factors influencing the chemical degradation of pharmaceutical product: temperature, solvent
+- Ionic strength
+- Dielectric constant
+- Specific & general acid base catalysis
+- Simple numerical problems
+- Stabilization of medicinal agents against common reactions like hydrolysis & oxidation
+- Accelerated stability testing in expiration dating of pharmaceutical dosage forms
+- Photolytic degradation and its prevention 96
+
+## BP502 Industrial Pharmacy I
+
+- Preformulation Studies: Introduction to preformulation
+- Preformulation Studies: Goals and objectives
+- Preformulation Studies: Study of physicochemical characteristics of drug substances
+- Physical properties: Physical form (crystal & amorphous)
+- Physical properties: Particle size
+- Physical properties: Shape
+- Physical properties: Flow properties
+- Physical properties: Solubility profile (pKa, pH, partition coefficient)
+- Physical properties: Polymorphism
+- Chemical Properties: Hydrolysis
+- Chemical Properties: Oxidation
+- Chemical Properties: Reduction
+- Chemical Properties: Racemisation
+- Polymerization BCS classification of drugs & its significant Application of preformulation considerations in the…
+- Chemical Properties: Liquid oral and parenteral dosage forms and its impact on stability of dosage forms
+- Tablets
+- Introduction, ideal characteristics of tablets, classification of tablets
+- Excipients
+- Formulation of tablets
+- Granulation methods
+- Compression and processing problems
+- Equipments and tablet tooling
+- Tablet coating: Types of coating
+- Tablet coating: Coating materials
+- Tablet coating: Formulation of coating composition
+- Tablet coating: Methods of coating
+- Tablet coating: Equipment employed and defects in coating
+- In process
+- Finished product tests Liquid orals: Formulation
+- Manufacturing consideration of syrups
+- Elixirs suspensions, emulsions
+- Filling and packaging; evaluation of liquid orals official in pharmacopoeia
+- Capsules
+- Hard gelatin capsules: Introduction
+- Hard gelatin capsules: Production of hard gelatin capsule shells. size of capsules
+- Hard gelatin capsules: Filling
+- Hard gelatin capsules: Finishing and special techniques of formulation of hard gelatin capsules
+- Hard gelatin capsules: Manufacturing defects
+- In process and final product quality control tests for capsules
+- Soft gelatin capsules: Nature of shell and capsule content
+- Soft gelatin capsules: Size of capsules
+- Soft gelatin capsules: Importance of base adsorption and minim/gram factors
+- Soft gelatin capsules: Production
+- Soft gelatin capsules: In process and final product quality control tests
+- Packing, storage and stability testing of soft gelatin capsules and their applications
+- Pellets: Introduction
+- Pellets: Formulation requirements
+- Pellets: Pelletization process
+- Pellets: Equipments for manufacture of pellets
+- Parenteral Products
+- Definition, types, advantages and limitations
+- Preformulation factors and essential requirements, vehicles, additives
+- Importance of isotonicity
+- Production procedure, production facilities and controls, aseptic processing
+- Formulation of injections, sterile powders
+- Large volume parenterals and lyophilized products
+- Containers and closures selection
+- Filling and sealing of ampoules
+- Vials and infusion fluids
+- Quality control tests of parenteral products
+- Ophthalmic Preparations: Introduction
+- Ophthalmic Preparations: Formulation considerations
+- Ophthalmic Preparations: Formulation of eye drops, eye ointments and eye lotions
+- Ophthalmic Preparations: Methods of preparation
+- Ophthalmic Preparations: Labeling, containers
+- Ophthalmic Preparations: Evaluation of ophthalmic preparations
+- Cosmetics: Formulation and preparation of the following cosmetic preparations: lipsticks
+- Cosmetics: Shampoos
+- Cosmetics: Cold cream and vanishing cream
+- Cosmetics: Tooth pastes
+- Cosmetics: Hair dyes and sunscreens
+- Pharmaceutical Aerosols: Definition
+- Pharmaceutical Aerosols: Propellants
+- Pharmaceutical Aerosols: Containers
+- Pharmaceutical Aerosols: Valves
+- Pharmaceutical Aerosols: Types of aerosol systems
+- Pharmaceutical Aerosols: Formulation and manufacture of aerosols
+- Evaluation of aerosols
+- Quality control and stability studies
+- Packaging Materials Science: Materials used for packaging of pharmaceutical products
+- Packaging Materials Science: Factors influencing choice of containers
+- Packaging Materials Science: Legal and official requirements for containers
+- Packaging Materials Science: Stability aspects of packaging materials
+- Packaging Materials Science: Quality control tests
+
+## BP604 Biopharmaceutics and Pharmacokinetics
+
+- Hours Introduction to Biopharmaceutics Absorption
+- Mechanisms of drug absorption through GIT
+- Factors influencing drug absorption though GIT
+- Absorption of drug from Non per oral extra-vascular routes
+- Distribution Tissue permeability of drugs
+- Binding of drugs, apparent
+- Volume of drug distribution
+- Plasma and tissue protein binding of drugs
+- Factors affecting protein-drug binding
+- Kinetics of protein binding, Clinical significance of protein binding of drugs
+- Hours Elimination: Drug metabolism and basic understanding metabolic pathways renal excretion of drugs
+- Hours Elimination: Factors affecting renal excretion of drugs
+- Hours Elimination: Renal clearance
+- Non renal routes of drug excretion of drugs Bioavailability
+- Bioequivalence: Definition
+- Objectives of bioavailability
+- Hours Elimination: Absolute and relative bioavailability
+- Hours Elimination: Measurement of bioavailability
+- Hours Elimination: In-vitro drug dissolution models
+- Hours Elimination: In-vitro-in-vivo correlations
+- Hours Elimination: Bioequivalence studies
+- Hours Elimination: Methods to enhance the dissolution rates and bioavailability of poorly soluble drugs
+- Pharmacokinetics: Definition and introduction to Pharmacokinetics
+- Pharmacokinetics: Compartment models
+- Pharmacokinetics: Non compartment models
+- Pharmacokinetics: Physiological models
+- Pharmacokinetics: One compartment open model
+- Intravenous Injection (Bolus)
+- Intravenous infusion and
+- Extra vascular administrations
+- Pharmacokinetics parameters - KE, t1/2, Vd, AUC, Ka
+- Clt and CLR- definitions methods of eliminations
+- Understanding of their significance and application
+- 137 Multicompartment models: Two compartment open model
+- IV bolus Kinetics of multiple dosing
+- Steady state drug levels
+- Calculation of loading and mainetnance doses and their significance in clinical settins
+- Nonlinear Pharmacokinetics
+- Introduction
+- Factors causing Non-linearity
+- Michaelis-menton method of estimating parameters, Explanation with example of drugs
+
+## BP702 Industrial Pharmacy II
+
+- Pilot plant scale up techniques: General considerations - including significance of personnel requirements
+- Pilot plant scale up techniques: Space requirements
+- Pilot plant scale up techniques: Raw materials
+- Pilot plant scale up techniques: Pilot plant scale up considerations for solids
+- Pilot plant scale up techniques: Liquid orals
+- Pilot plant scale up techniques: Semi solids and relevant documentation
+- Pilot plant scale up techniques: SUPAC guidelines
+- Pilot plant scale up techniques: Introduction to platform technology
+- Technology development and transfer: WHO guidelines for Technology Transfer(TT): Terminology
+- Technology development and transfer: Technology transfer protocol
+- Technology development and transfer: Quality risk management
+- Technology development and transfer: Transfer from R & D to production (Process, packaging and cleaning)
+- Granularity of TT Process (API, excipients, finished products, packaging materials) Documentation
+- Technology development and transfer: Premises and equipments
+- Technology development and transfer: Qualification and validation
+- Technology development and transfer: Quality control
+- Technology development and transfer: Analytical method transfer
+- Technology development and transfer: Approved regulatory bodies and agencies
+- Technology development and transfer: Commercialization - practical aspects and problems (case studies)
+- Technology development and transfer: TT agencies in India - APCTD
+- Technology development and transfer: NRDC
+- Technology development and transfer: TIFAC
+- Technology development and transfer: BCIL
+- Technology development and transfer: TBSE / SIDBI
+- TT related documentation - confidentiality agreement, licensing, MoUs, legal issues
+- Regulatory affairs: Introduction
+- Regulatory affairs: Historical overview of Regulatory Affairs
+- Regulatory affairs: Regulatory authorities
+- Regulatory affairs: Role of Regulatory affairs department
+- Responsibility of Regulatory Affairs Professionals Regulatory requirements for drug approval: Drug Development Teams
+- Regulatory affairs: Non-Clinical Drug Development
+- Regulatory affairs: Pharmacology
+- Regulatory affairs: Drug Metabolism and Toxicology
+- Regulatory affairs: General considerations of Investigational New Drug (IND) Application
+- Regulatory affairs: Investigator’s Brochure (IB) and New Drug Application (NDA)
+- Regulatory affairs: Clinical research / BE studies
+- Regulatory affairs: Clinical Research Protocols
+- Regulatory affairs: Biostatistics in Pharmaceutical Product Development
+- Regulatory affairs: Data Presentation for FDA Submissions
+- Regulatory affairs: Management of Clinical Studies
+- Quality management systems: Quality management & Certifications: Concept of Quality
+- Quality management systems: Total Quality Management
+- Quality management systems: Quality by Design (QbD)
+- Quality management systems: Six Sigma concept
+- Quality management systems: Out of Specifications (OOS)
+- Quality management systems: Change control
+- Quality management systems: Introduction to ISO 9000 series of quality systems standards
+- Quality management systems: ISO 14000
+- Quality management systems: NABL
+- Quality management systems: GLP
+- Central Drug Standard Control Organization (CDSCO) and State Licensing Authority: Organization
+- Indian Regulatory Requirements: Responsibilities
+- Indian Regulatory Requirements: Certificate of Pharmaceutical Product (COPP)
+- Indian Regulatory Requirements: Regulatory requirements and approval procedures for New Drugs
+
+## BP704 Novel Drug Delivery Systems
+
+- Controlled drug delivery systems: Introduction
+- Controlled drug delivery systems: Terminology/definitions and rationale
+- Controlled drug delivery systems: Advantages
+- Controlled drug delivery systems: Disadvantages
+- Selection of drug candidates.Approaches to design controlled release formulations based on diffusion
+- Controlled drug delivery systems: Dissolution and ion exchange principles
+- Physicochemical and biological properties of drugs relevant to controlled release formulations Polymers: Introduction
+- Classification, properties
+- Advantages and application of polymers in formulation of controlled release drug delivery systems
+- Microencapsulation: Definition
+- Microencapsulation: Advantages and disadvantages
+- Microencapsulation: Microspheres /microcapsules
+- Microencapsulation: Microparticles
+- Microencapsulation: Methods of microencapsulation
+- Microencapsulation: Applications Mucosal Drug Delivery system: Introduction
+- Microencapsulation: Principles of bioadhesion / mucoadhesion
+- Microencapsulation: Concepts
+- Transmucosal permeability
+- Formulation considerations of buccal delivery systems Implantable Drug Delivery Systems:Introduction
+- Microencapsulation: Concept of implantsand osmotic pump
+- Transdermal Drug Delivery Systems: Introduction
+- Transdermal Drug Delivery Systems: Permeation through skin
+- Transdermal Drug Delivery Systems: Factors affecting permeation
+- Transdermal Drug Delivery Systems: Permeation enhancers
+- Transdermal Drug Delivery Systems: Basic components of TDDS
+- Transdermal Drug Delivery Systems: Formulation approaches Gastroretentive drug delivery systems: Introduction
+- Transdermal Drug Delivery Systems: Advantages
+- Transdermal Drug Delivery Systems: Disadvantages
+- Transdermal Drug Delivery Systems: Approaches for GRDDS – Floating
+- Transdermal Drug Delivery Systems: High density systems, inflatable
+- Gastroadhesive systems
+- Their applications Nasopulmonary drug delivery system: Introduction to Nasal
+- Pulmonary routes of drug delivery
+- Transdermal Drug Delivery Systems: Formulation of Inhalers (dry powder and metered dose)
+- Transdermal Drug Delivery Systems: Nasal sprays
+- Transdermal Drug Delivery Systems: Nebulizers
+- Targeted drug Delivery: Concepts and approaches advantages and disadvantages
+- Targeted drug Delivery: Introduction to liposomes
+- Targeted drug Delivery: Niosomes
+- Targeted drug Delivery: Nanoparticles
+- Targeted drug Delivery: Monoclonal antibodies and their applications
+- Ocular Drug Delivery Systems: Introduction
+- Ocular Drug Delivery Systems: Intra ocular barriers and methods to overcome –Preliminary study
+- Ocular Drug Delivery Systems: Ocular formulations and ocuserts Intrauterine Drug Delivery Systems: Introduction
+- Ocular Drug Delivery Systems: Advantages and disadvantages
+- Ocular Drug Delivery Systems: Development of intra uterine devices (IUDs) and applications
+
+# Pharmacology and Allied Subjects
+
+## BP404 Pharmacology I
+
+- General Pharmacology
+- Introduction to Pharmacology- Definition
+- Historical landmarks and scope of pharmacology
+- Nature and source of drugs
+- Essential drugs concept and routes of drug administration, agonists
+- Antagonists( competitive and non competitive), spare receptors, addiction, tolerance, dependence, tachyphylaxis
+- Idiosyncrasy, allergy
+- Pharmacokinetics- Membrane transport, absorption, distribution
+- Metabolism and excretion of drugs .Enzyme induction
+- Enzyme inhibition
+- Kinetics of elimination
+- Pharmacodynamics- Principles and mechanisms of drug action
+- Receptor theories and classification of receptors
+- Regulation of receptors. drug receptors interactions signal transduction mechanisms
+- G-protein–coupled receptors
+- Ion channel receptor
+- Transmembrane enzyme linked receptors
+- Transmembrane JAK-STAT binding receptor and receptors that regulate transcription factors
+- Dose response relationship
+- Therapeutic index
+- Combined effects of drugs and factors modifying drug action
+- Adverse drug reactions
+- Drug interactions (pharmacokinetic and pharmacodynamic)
+- Drug discovery and clinical evaluation of new drugs -Drug discovery phase
+- Preclinical evaluation phase
+- Clinical trial phase
+- Phases of clinical trials and pharmacovigilance
+- Pharmacology of drugs acting on peripheral nervous system
+- Organization and function of ANS. b.Neurohumoral transmission,co-transmission and classification of neurotransmitters
+- Parasympathomimetics, Parasympatholytics, Sympathomimetics, sympatholytics
+- Neuromuscular blocking agents and skeletal muscle relaxants (peripheral)
+- Local anesthetic agents
+- Drugs used in myasthenia gravis and glaucoma
+- Pharmacology of drugs acting on central nervous system
+- Neurohumoral transmission in the C.N.S.special emphasis on importance of various neurotransmitters like with GABA
+- Glutamate, Glycine, serotonin, dopamine
+- General anesthetics and pre-anesthetics
+- Sedatives, hypnotics and centrally acting muscle relaxants
+- Anti-epileptics
+- Alcohols and disulfiram
+- Psychopharmacological agents: Antipsychotics
+- Psychopharmacological agents: Antidepressants
+- Psychopharmacological agents: Anti-anxiety agents
+- Psychopharmacological agents: Anti-manics and hallucinogens
+- Drugs used in Parkinsons disease and Alzheimer’s disease
+- CNS stimulants and nootropics
+- Opioid analgesics and antagonists
+- Drug addiction, drug abuse, tolerance and dependence
+
+## BP503 Pharmacology II
+
+- Pharmacology of drugs acting on cardio vascular system
+- Introduction to hemodynamic and electrophysiology of heart
+- Drugs used in congestive heart failure
+- Anti-hypertensive drugs
+- Anti-anginal drugs
+- Anti-arrhythmic drugs
+- Anti-hyperlipidemic drugs
+- Drug used in the therapy of shock
+- Hematinics, coagulants and anticoagulants
+- Fibrinolytics and anti-platelet drugs
+- Plasma volume expanders 2
+- Pharmacology of drugs acting on urinary system
+- Diuretics
+- Anti-diuretics
+- Autocoids and related drugs
+- Introduction to autacoids and classification
+- Histamine, 5-HT and their antagonists
+- Prostaglandins, Thromboxanes and Leukotrienes
+- Angiotensin, Bradykinin and Substance P
+- Non-steroidal anti-inflammatory agents
+- Anti-gout drugs
+- Antirheumatic drugs
+- Pharmacology of drugs acting on endocrine system
+- Basic concepts in endocrine pharmacology
+- Anterior Pituitary hormones- analogues and their inhibitors
+- Thyroid hormones- analogues and their inhibitors
+- Hormones regulating plasma calcium level- Parathormone, Calcitonin and Vitamin-D
+- Insulin, Oral Hypoglycemic agents and glucagon
+- ACTH and corticosteroids
+- Androgens and Anabolic steroids
+- Estrogens, progesterone and oral contraceptives
+- Drugs acting on the uterus
+- Bioassay
+- Principles and applications of bioassay. b.Types of bioassay
+- Bioassay of insulin, oxytocin, vasopressin, ACTH, d-tubocurarine, digitalis
+- Histamine and 5-HT 116
+
+## BP602 Pharmacology III
+
+- Pharmacology of drugs acting on Respiratory system
+- Anti -asthmatic drugs
+- Drugs used in the management of COPD
+- Expectorants and antitussives
+- Nasal decongestants
+- Respiratory stimulants 2
+- Pharmacology of drugs acting on the Gastrointestinal Tract
+- Antiulcer agents
+- Drugs for constipation and diarrhoea
+- Appetite stimulants and suppressants
+- Digestants and carminatives
+- Emetics and anti-emetics
+- Chemotherapy
+- General principles of chemotherapy
+- Sulfonamides and cotrimoxazole
+- Antibiotics- Penicillins, cephalosporins, chloramphenicol, macrolides
+- Quinolones and fluoroquinolins
+- Tetracycline and aminoglycosides
+- Antitubercular agents
+- Antileprotic agents
+- Antifungal agents
+- Antiviral drugs e.Anthelmintics
+- Antimalarial drugs
+- Antiamoebic agents
+- Chemotherapy l
+- Urinary tract infections and sexually transmitted diseases. m
+- Chemotherapy of malignancy
+- Immunopharmacology
+- Immunostimulants
+- Immunosuppressant Protein drugs
+- Monoclonal antibodies
+- Target drugs to antigen, biosimilars
+- Principles of toxicology
+- Definition and basic knowledge of acute, subacute and chronic toxicity
+- Definition and basic knowledge of genotoxicity, carcinogenicity
+- Teratogenicity and mutagenicity
+- General principles of treatment of poisoning
+- Clinical symptoms and management of barbiturates, morphine
+- Organophosphosphorus compound and lead
+- Mercury and arsenic poisoning
+- Chronopharmacology
+- Definition of rhythm and cycles
+- Biological clock and their significance leading to chronotherapy
+
+# Other Subjects of B. Pharm
+
+## BP101 Human Anatomy and Physiology I
+
+- Introduction to human body Definition and scope of anatomy and physiology
+- Levels of structural organization and body systems
+- Basic life processes, homeostasis
+- Basic anatomical terminology
+- Cellular level of organization Structure and functions of cell
+- Transport across cell membrane, cell division, cell junctions
+- General principles of cell communication
+- Intracellular signaling pathway activation by extracellular signal molecule
+- Forms of intracellular signaling: a) Contact-dependent b) Paracrine c) Synaptic d) Endocrine
+- Tissue level of organization Classification of tissues, structure
+- Location and functions of epithelial
+- Muscular and nervous and connective tissues
+- Integumentary system Structure and functions of skin
+- Skeletal system Divisions of skeletal system
+- Types of bone
+- Salient features and functions of bones of axial and appendicular skeletal system Organization of skeletal muscle
+- Physiology of muscle contraction
+- Neuromuscular junction
+- Joints Structural and functional classification, types of joints movements and its articulation
+- Body fluids and blood
+- Body fluids
+- Composition and functions of blood, hemopoeisis
+- Formation of hemoglobin, anemia
+- Mechanisms of coagulation, blood grouping, Rh factors, transfusion
+- Its significance and disorders of blood
+- Reticulo endothelial system
+- Lymphatic system Lymphatic organs and tissues
+- Lymphatic vessels
+- Lymph circulation and functions of lymphatic system
+- Classification of peripheral nervous system: Structure and functions of sympathetic and parasympathetic nervous system
+- Origin and functions of spinal and cranial nerves
+- Special senses Structure and functions of eye, ear, nose and tongue and their disorders
+- Cardiovascular system Heart – anatomy of heart
+- Blood circulation, blood vessels
+- Structure and functions of artery
+- Vein and capillaries
+- Elements of conduction system of heart and heart beat
+- Its regulation by autonomic nervous system, cardiac output, cardiac cycle
+- Regulation of blood pressure, pulse, electrocardiogram and disorders of heart
+
+## BP201 Human Anatomy and Physiology II
+
+- Nervous system Organization of nervous system, neuron, neuroglia
+- Classification and properties of nerve fibre
+- Electrophysiology
+- Action potential, nerve impulse, receptors, synapse
+- Neurotransmitters
+- Central nervous system: Meninges
+- Ventricles of brain and cerebrospinal fluid.structure and functions of brain (cerebrum, brain stem, cerebellum)
+- Central nervous system: Spinal cord (gross structure, functions of afferent and efferent nerve tracts,reflex activity)
+- Digestive system Anatomy of GI Tract with special reference to anatomy and functions of stomach
+- ( Acid production in the stomach
+- Regulation of acid production through parasympathetic nervous system
+- Pepsin role in protein digestion) small intestine and large intestine
+- Anatomy and functions of salivary glands
+- Pancreas and liver
+- Movements of GIT
+- Digestion and absorption of nutrients and disorders of GIT
+- Energetics Formation and role of ATP, Creatinine Phosphate and BMR
+- Respiratory system Anatomy of respiratory system with special reference to anatomy of lungs
+- Mechanism of respiration
+- Regulation of respiration Lung Volumes and capacities transport of respiratory gases
+- Artificial respiration
+- Resuscitation methods
+- Urinary system Anatomy of urinary tract with special reference to anatomy of kidney and nephrons
+- Functions of kidney and urinary tract
+- Physiology of urine formation
+- Micturition reflex and role of kidneys in acid base balance
+- Role of RAS in kidney and disorders of kidney. 
+- Endocrine system Classification of hormones
+- Mechanism of hormone action
+- Structure and functions of pituitary gland, thyroid gland
+- Parathyroid gland, adrenal gland, pancreas, pineal gland
+- Thymus and their disorders
+- Reproductive system Anatomy of male and female reproductive system
+- Functions of male and female reproductive system, sex hormones
+- Physiology of menstruation, fertilization, spermatogenesis, oogenesis
+- Pregnancy and parturition
+- Introduction to genetics Chromosomes
+- Genes and DNA
+- Protein synthesis
+- Genetic pattern of inheritance 55
+
+## BP203 Biochemistry
+
+- Biomolecules Introduction, classification
+- Chemical nature and biological role of carbohydrate, lipids, nucleic acids
+- Amino acids and proteins
+- Bioenergetics Concept of free energy
+- Endergonic and exergonic reaction
+- Relationship between free energy
+- Enthalpy and entropy
+- Redox potential
+- Energy rich compounds; classification; biological significances of ATP and cyclic AMP
+- Carbohydrate metabolism Glycolysis – Pathway
+- Energetics and significance Citric acid cycle- Pathway
+- Energetics and significance HMP shunt and its significance
+- Glucose-6-Phosphate dehydrogenase (G6PD)
+- Deficiency Glycogen metabolism Pathways
+- Glycogen storage diseases (GSD) Gluconeogenesis- Pathway
+- Its significance Hormonal regulation of blood glucose level
+- Diabetes mellitus
+- Biological oxidation Electron transport chain (ETC) and its mechanism
+- Oxidative phosphorylation & its mechanism
+- Substrate level phosphorylation Inhibitors ETC
+- Oxidative phosphorylation/Uncouplers
+- Lipid metabolism β-Oxidation of saturated fatty acid (Palmitic acid) Formation and utilization of ketone bodies
+- Ketoacidosis De novo synthesis of fatty acids (Palmitic acid) Biological significance of cholesterol
+- Conversion of cholesterol into bile acids
+- Steroid hormone and vitamin D Disorders of lipid metabolism: Hypercholesterolemia, atherosclerosis
+- Fatty liver and obesity
+- Amino acid metabolism General reactions of amino acid metabolism: Transamination
+- Deamination & decarboxylation
+- Urea cycle and its disorders Catabolism of phenylalanine and tyrosine and their metabolic disorders (Phenyketonuria
+- Albinism, alkeptonuria
+- Tyrosinemia) Synthesis and significance of biological substances
+- 5-HT, melatonin, dopamine, noradrenaline
+- Adrenaline Catabolism of heme
+- Hyperbilirubinemia and jaundice
+- Nucleic acid metabolism
+- Genetic information transfer Biosynthesis of purine
+- Pyrimidine nucleotides Catabolism of purine nucleotides, Hyperuricemia
+- Gout disease Organization of mammalian genome Structure of DNA, RNA
+- Their functions DNA replication (semi conservative model) Transcription or RNA synthesis Genetic code
+- Translation or Protein synthesis and inhibitors
+- Enzymes Introduction, properties
+- Nomenclature and IUB classification of enzymes Enzyme kinetics (Michaelis plot
+- Line Weaver Burke plot) Enzyme inhibitors with examples Regulation of enzymes: enzyme induction and repression
+- Allosteric enzymes regulation Therapeutic
+- Diagnostic applications of enzymes
+- Isoenzymes Coenzymes –Structure
+- Biochemical functions
+
+## BP303 Pharmaceutical Microbiology
+
+- Introduction, history of microbiology, its branches, scope and its importance
+- Introduction to Prokaryotes and Eukaryotes Study of ultra-structure and morphological classification of bacteria
+- Nutritional requirements
+- Raw materials used for culture media and physical parameters for growth, growth curve
+- Isolation and preservation methods for pure cultures
+- Cultivation of anaerobes
+- Quantitative measurement of bacterial growth (total & viable count)
+- Study of different types of phase constrast microscopy, dark field microscopy and electron microscopy
+- Identification of bacteria using staining techniques (simple, Gram’s &Acid fast staining) and biochemical tests (IMViC)
+- Study of principle, procedure, merits
+- Demerits and applications of physical
+- Chemical gaseous
+- Radiation and mechanical method of sterilization
+- Evaluation of the efficiency of sterilization methods
+- Equipments employed in large scale sterilization
+- Sterility indicators
+- Study of morphology, classification
+- Reproduction/replication and cultivation of Fungi and Viruses
+- Classification and mode of action of disinfectants Factors influencing disinfection, antiseptics and their evaluation
+- For bacteriostatic and bactericidal actions Evaluation of bactericidal & Bacteriostatic
+- Sterility testing of products (solids, liquids, ophthalmic and other sterile products) according to IP
+- BP and USP
+- Designing of aseptic area, laminar flow equipments
+- Study of different sources of contamination in an aseptic area and methods of prevention, clean area classification
+- Principles and methods of different microbiological assay
+- Methods for standardization of antibiotics, vitamins and amino acids
+- Assessment of a new antibiotic
+- Types of spoilage
+- Factors affecting the microbial spoilage of pharmaceutical products
+- Sources and types of microbial contaminants
+- Assessment of microbial contamination and spoilage
+- Preservation of pharmaceutical products using antimicrobial agents, evaluation of microbial stability of formulations
+- Growth of animal cells in culture
+- General procedure for cell culture, Primary
+- Established and transformed cell cultures
+- Application of cell cultures in pharmaceutical industry and research
+
+## BP505 Pharmaceutical Jurisprudence
+
+- Drugs and Cosmetics Act, 1940 and its rules 1945: Objectives
+- Drugs and Cosmetics Act, 1940 and its rules 1945: Definitions
+- Legal definitions of schedules to the Act
+- Rules Import of drugs – Classes of drugs
+- Cosmetics prohibited from import
+- Drugs and Cosmetics Act, 1940 and its rules 1945: Import under license or permit
+- Offences and penalties
+- Manufacture of drugs – Prohibition of manufacture and sale of certain drugs
+- Conditions for grant of license and conditions of license for manufacture of drugs
+- Manufacture of drugs for test
+- Examination and analysis
+- Manufacture of new drug
+- Loan license and repacking license
+- Drugs and Cosmetics Act, 1940 and its rules 1945
+- Detailed study of Schedule G, h, M, n, P, t, u, V, X, y
+- Part XII B
+- Sch F & DMR (OA) Sale of Drugs – Wholesale
+- Retail sale and Restricted license
+- Offences
+- Penalties Labeling & Packing of drugs- General labeling requirements
+- Specimen labels for drugs, cosmetics
+- List of permitted colors
+- Administration of the Act and Rules – Drugs Technical Advisory Board
+- Central drugs Laboratory
+- Drugs Consultative Committee
+- Government drug analysts
+- Licensing authorities
+- Controlling authorities
+- Drugs Inspectors
+- Pharmacy Act –1948: Objectives
+- Pharmacy Act –1948: Definitions
+- Pharmacy Act –1948: Pharmacy Council of India
+- Pharmacy Act –1948: Its constitution and functions
+- Pharmacy Act –1948: Education Regulations
+- Pharmacy Act –1948: State and Joint state pharmacy councils
+- Pharmacy Act –1948: Constitution and functions
+- Pharmacy Act –1948: Registration of Pharmacists
+- Pharmacy Act –1948: Offences and Penalties
+- Medicinal and Toilet Preparation Act –1955: Objectives
+- Medicinal and Toilet Preparation Act –1955: Definitions
+- Medicinal and Toilet Preparation Act –1955: Licensing
+- Medicinal and Toilet Preparation Act –1955: Manufacture In bond and Outside bond
+- Medicinal and Toilet Preparation Act –1955: Export of alcoholic preparations
+- Medicinal and Toilet Preparation Act –1955: Manufacture of Ayurvedic
+- Medicinal and Toilet Preparation Act –1955: Homeopathic
+- Medicinal and Toilet Preparation Act –1955: Patent & Proprietary Preparations
+- Offences and Penalties
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Objectives
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Definitions
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Authorities and Officers
+- Constitution and Functions of narcotic & Psychotropic Consultative Committee
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: National Fund for Controlling the Drug Abuse
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Prohibition
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Control and Regulation
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Opium poppy cultivation and production of poppy straw
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Manufacture
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Sale and export of opium
+- Narcotic Drugs and Psychotropic substances Act-1985 and Rules: Offences and Penalties
+- Study of Salient Features of Drugs and Magic Remedies Act and its rules: Objectives, Definitions
+- Prohibition of certain advertisements
+- Classes of Exempted advertisements
+- Prevention of Cruelty to animals Act-1960: Objectives
+- Prevention of Cruelty to animals Act-1960: Definitions
+- Prevention of Cruelty to animals Act-1960: Institutional Animal Ethics Committee
+- Prevention of Cruelty to animals Act-1960: CPCSEA guidelines for Breeding and Stocking of Animals
+- Prevention of Cruelty to animals Act-1960: Performance of Experiments
+- Prevention of Cruelty to animals Act-1960: Transfer and acquisition of animals for experiment
+- Prevention of Cruelty to animals Act-1960: Records
+- Prevention of Cruelty to animals Act-1960: Power to suspend or revoke registration
+- Prevention of Cruelty to animals Act-1960: Offences and Penalties
+- National Pharmaceutical Pricing Authority: Drugs Price Control Order (DPCO)2013
+- Objectives, Definitions
+- Sale prices of bulk drugs
+- Retail price of formulations
+- Retail price and ceiling price of scheduled formulations
+- National List of Essential Medicines (NLEM)
+- Pharmaceutical Legislations – A brief review, Introduction
+- Study of drugs enquiry committee
+- Health survey and development committee
+- Hathi committee and Mudaliar committee
+- Code of Pharmaceutical ethics D efinition
+- Pharmacist in relation to his job, trade
+- Medical profession and his profession
+- Pharmacist’s oath
+- Medical Termination of Pregnancy Act
+- Right to Information Act
+- Introduction to Intellectual Property Rights (IPR) Recommended books: (Latest Edition) 1
+- Forensic Pharmacy by B
+- Suresh 2
+- Text book of Forensic Pharmacy by B.M
+- Mithal 3
+- Hand book of drug law-by M.L
+- Mehra 4
+- A text book of Forensic Pharmacy by N.K
+- Jain 5
+- Drugs and Cosmetics Act/Rules by Govt. of India publications
+- Medicinal and Toilet preparations act 1955 by Govt. of India publications
+- Narcotic drugs and psychotropic substances act by Govt. of India publications 8
+- Drugs and Magic Remedies act by Govt. of India publication 9.Bare Acts of the said laws published by Government
+- Reference books (Theory) SEMESTER VI
+
+## BP605 Pharmaceutical Biotechnology
+
+- A) Brief introduction to Biotechnology with reference to Pharmaceutical Sciences. b) Enzyme Biotechnology- Methods of…
+- Applications. c) Biosensors- Working
+- Applications of biosensors in Pharmaceutical Industries. d) Brief introduction to Protein Engineering. e) Use of…
+- Production of Enzymes- General consideration - Amylase, Catalase, Peroxidase, Lipase, Protease
+- Penicillinase. f) Basic principles of genetic engineering
+- A) Study of cloning vectors, restriction endonucleases and DNA ligase. b) Recombinant DNA technology
+- Application of genetic engineering in medicine. c) Application of r DNA technology
+- Genetic engineering in the production of
+- Interferon
+- Vaccines- hepatitis- B
+- Hormones-Insulin. d) Brief introduction to PCR
+- Types of immunity- humoral immunity
+- Cellular immunity a) Structure of Immunoglobulins b) Structure and Function of MHC c) Hypersensitivity reactions
+- Immune stimulation and Immune suppressions. d) General method of the preparation of bacterial vaccines, toxoids
+- Viral vaccine, antitoxins
+- Serum-immune blood derivatives
+- Other products relative to immunity. e) Storage conditions
+- Stability of official vaccines f) Hybridoma technology- Production
+- Purification and Applications g) Blood products and Plasma Substituties
+- A) Immuno blotting techniques- ELISA
+- Western blotting
+- Southern blotting. b) Genetic organization of Eukaryotes and Prokaryotes c) Microbial genetics including transformation
+- Transduction, conjugation, plasmids
+- Transposons. d) Introduction to Microbial biotransformation
+- Applications. e) Mutation: Types of mutation/mutants
+- A) Fermentation methods and general requirements
+- Study of media, equipments
+- Sterilization methods
+- Aeration process
+- Stirring. b) Large scale production fermenter design
+- Its various controls. c) Study of the production of - penicillins, citric acid, Vitamin B12, Glutamic acid, Griseofulvin
+- D) Blood Products: Collection
+- Processing and Storage of whole human blood
+- Dried human plasma
+- Plasma Substituties
+
+## BP606 Pharmaceutical Quality Assurance
+
+- Quality Assurance and Quality Management concepts: Definition and concept of Quality control
+- Quality Assurance and Quality Management concepts: Quality assurance and GMP Total Quality Management (TQM): Definition
+- Quality Assurance and Quality Management concepts: Elements
+- Quality Assurance and Quality Management concepts: Philosophies ICH Guidelines: purpose
+- Quality Assurance and Quality Management concepts: Participants
+- Quality Assurance and Quality Management concepts: Process of harmonization
+- Quality Assurance and Quality Management concepts: Brief overview of QSEM
+- Quality Assurance and Quality Management concepts: With special emphasis on Q-series guidelines
+- Quality Assurance and Quality Management concepts: ICH stability testing guidelines Quality by design (QbD): Definition
+- Quality Assurance and Quality Management concepts: Overview
+- Quality Assurance and Quality Management concepts: Elements of QbD program
+- Quality Assurance and Quality Management concepts: Tools ISO 9000 & ISO14000: Overview
+- Quality Assurance and Quality Management concepts: Benefits
+- Quality Assurance and Quality Management concepts: Steps for registration NABL accreditation : Principles and procedures
+- Organization and personnel: Personnel responsibilities
+- Organization and personnel: Training
+- Organization and personnel: Hygiene and personal records
+- Premises: Design
+- Premises: Construction and plant layout
+- Premises: Maintenance
+- Premises: Sanitation
+- Premises: Environmental control
+- Premises: Utilities and maintenance of sterile areas
+- Premises: Control of contamination
+- Equipments and raw materials: Equipment selection
+- Equipments and raw materials: Purchase specifications
+- Equipments and raw materials: Maintenance
+- Equipments and raw materials: Purchase specifications and maintenance of stores for raw materials
+- Quality Control: Quality control test for containers
+- Quality Control: Rubber closures and secondary packing materials
+- Good Laboratory Practices: General Provisions
+- Good Laboratory Practices: Organization and Personnel
+- Good Laboratory Practices: Facilities
+- Good Laboratory Practices: Equipment
+- Good Laboratory Practices: Testing Facilities Operation
+- Good Laboratory Practices: Test and Control Articles
+- Good Laboratory Practices: Protocol for Conduct of a Nonclinical Laboratory Study
+- Good Laboratory Practices: Records and Reports
+- Good Laboratory Practices: Disqualification of Testing Facilities
+- Complaints: Complaints and evaluation of complaints
+- Complaints: Handling of return good
+- Complaints: Recalling and waste disposal
+- Document maintenance in pharmaceutical industry: Batch Formula Record
+- Document maintenance in pharmaceutical industry: Master Formula Record
+- Document maintenance in pharmaceutical industry: SOP
+- Document maintenance in pharmaceutical industry: Quality audit
+- Document maintenance in pharmaceutical industry: Quality Review and Quality documentation
+- Document maintenance in pharmaceutical industry: Reports and documents
+- Document maintenance in pharmaceutical industry: Distribution records
+- Calibration and Validation: Introduction
+- Calibration and Validation: Definition and general principles of calibration
+- Calibration and Validation: Qualification and validation
+- Calibration and Validation: Importance and scope of validation
+- Calibration and Validation: Types of validation
+- Calibration and Validation: Validation master plan
+- Calibration of pH meter
+- Qualification of UV-Visible spectrophotometer
+- General principles of Analytical method Validation
+- Warehousing: Good warehousing practice, materials management
+
+## BP703 Pharmacy Practice
+
+- A) Hospital and it’s organization Definition
+- Classification of hospital- Primary
+- Secondary and Tertiary hospitals
+- Classification based on clinical and non- clinical basis
+- Organization Structure of a Hospital
+- Medical staffs involved in the hospital and their functions. b) Hospital pharmacy and its organization Definition
+- Functions of hospital pharmacy
+- Organization structure, Location
+- Layout and staff requirements
+- Responsibilities
+- Functions of hospital pharmacists. c) Adverse drug reaction Classifications - Excessive pharmacological effects
+- Secondary pharmacological effects, idiosyncrasy
+- Allergic drug reactions
+- Genetically determined toxicity
+- Toxicity following sudden withdrawal of drugs
+- Drug interaction- beneficial interactions
+- Adverse interactions
+- Pharmacokinetic drug interactions
+- Methods for detecting drug interactions
+- Spontaneous case reports and record linkage studies
+- Adverse drug reaction reporting
+- Management. d) Community Pharmacy Organization
+- Structure of retail
+- Wholesale drug store
+- Types and design
+- Legal requirements for establishment and maintenance of a drug store
+- Dispensing of proprietary products
+- Maintenance of records of retail and wholesale drug store
+- A) Drug distribution system in a hospital Dispensing of drugs to inpatients
+- Types of drug distribution systems
+- Charging policy and labelling
+- Dispensing of drugs to ambulatory patients
+- Dispensing of controlled drugs. b) Hospital formulary Definition
+- Contents of hospital formulary
+- Differentiation of hospital formulary and Drug list
+- Preparation and revision, addition
+- Deletion of drug from hospital formulary. c) Therapeutic drug monitoring Need for Therapeutic Drug Monitoring
+- Factors to be considered during the Therapeutic Drug Monitoring
+- Indian scenario for Therapeutic Drug Monitoring. d) Medication adherence Causes of medication non-adherence
+- Pharmacist role in the medication adherence
+- Monitoring of patient medication adherence. e) Patient medication history interview Need for the patient medication…
+- Medication interview forms. f) Community pharmacy management Financial, materials, staff
+- Infrastructure requirements
+- A) Pharmacy and therapeutic committee Organization, functions
+- Policies of the pharmacy and therapeutic committee in including drugs into formulary
+- Inpatient and outpatient prescription
+- Automatic stop order
+- Emergency drug list preparation. b) information services Drug Drug and Poison information centre
+- Sources of drug information
+- Computerised services, storage
+- Retrieval of information. c) Patient counseling Definition of patient counseling; steps involved in patient counseling
+- Special cases that require the pharmacist d) Education
+- Training program in the hospital Role of pharmacist in the education
+- Training program
+- Internal and external training program
+- Services to the nursing homes/clinics
+- Code of ethics for community pharmacy
+- Role of pharmacist in the interdepartmental communication
+- Community health education. e) Prescribed medication order
+- Communication skills Prescribed medication order- interpretation
+- Legal requirements
+- Communication skills- communication with prescribers and patients
+- A) preparation
+- Implementation Budget preparation
+- Implementation Budget b) Clinical Pharmacy Introduction to Clinical Pharmacy
+- Concept of clinical pharmacy
+- Functions and responsibilities of clinical pharmacist
+- Drug therapy monitoring - medication chart review, clinical review
+- Pharmacist intervention
+- Ward round participation
+- Medication history and Pharmaceutical care
+- Dosing pattern and drug therapy based on Pharmacokinetic & disease pattern. c)
+- Over the counter (OTC) sales Introduction and sale of over the counter
+- Rational use of common over the counter medications
+- A) Drug store management and inventory control Organisation of drug store
+- Types of materials stocked and storage conditions
+- Purchase and inventory control: principles
+- Purchase procedure, purchase order
+- Procurement and stocking
+- Economic order quantity
+- Reorder quantity level
+- Methods used for the analysis of the drug expenditure b) Investigational use of drugs Description
+- Principles involved, classification, control, identification
+- Role of hospital pharmacist
+- Advisory committee. c) Interpretation of Clinical Laboratory Tests Blood chemistry, hematology, urinalysis
+
+## BP801 Biostatistics and Research Methodology
+
+- Introduction: Statistics
+- Introduction: Biostatistics
+- Introduction: Frequency distribution Measures of central tendency: Mean
+- Introduction: Median
+- Introduction: Mode- Pharmaceutical examples Measures of dispersion: Dispersion
+- Introduction: Range
+- Introduction: Standard deviation
+- Introduction: Pharmaceutical problems Correlation: Definition
+- Introduction: Karl Pearson’s coefficient of correlation
+- Introduction: Multiple correlation - Pharmaceuticals examples
+- Regression: Curve fitting by the method of least squares
+- Regression: Fitting the lines y= a + bx and x = a + by
+- Regression: Multiple regression
+- Regression: Standard error of regression– Pharmaceutical Examples Probability:Definition of probability
+- Regression: Binomial distribution
+- Regression: Normal distribution
+- Regression: Poisson’s distribution
+- Regression: Properties - problems Sample
+- Regression: Population
+- Regression: Large sample
+- Regression: Small sample
+- Regression: Null hypothesis
+- Regression: Alternative hypothesis
+- Regression: Sampling
+- Regression: Essence of sampling
+- Regression: Types of sampling
+- Regression: Error-I type
+- Regression: Error-II type
+- Standard error of mean (SEM) - Pharmaceutical examples Parametric test: t-test(Sample, Pooled or Unpaired and Paired)
+- Regression: ANOVA
+- Regression: (One way and Two way)
+- Regression: Least Significance difference
+- Non Parametric tests: Wilcoxon Rank Sum Test
+- Non Parametric tests: Mann-Whitney U test
+- Non Parametric tests: Kruskal-Wallis test
+- Non Parametric tests: Friedman Test Introduction to Research: Need for research
+- Non Parametric tests: Need for design of Experiments
+- Non Parametric tests: Experiential Design Technique
+- Non Parametric tests: Plagiarism Graphs: Histogram
+- Non Parametric tests: Pie Chart
+- Non Parametric tests: Cubic Graph
+- Non Parametric tests: Response surface plot
+- Non Parametric tests: Counter Plot graph Designing the methodology: Sample size determination and Power of a study
+- Non Parametric tests: Report writing and presentation of data
+- Non Parametric tests: Protocol
+- Non Parametric tests: Cohorts studies
+- Non Parametric tests: Observational studies
+- Non Parametric tests: Experimental studies
+- Non Parametric tests: Designing clinical trial
+- Non Parametric tests: Various phases
+- Blocking
+- Confounding system for Two-level factorials Regression modeling: Hypothesis testing in Simple
+- Clinical Trials Problems: Statistical Analysis Using Excel, SPSS, MINITAB®
+- DESIGN OF EXPERIMENTS
+- R - Online Statistical Software’s to Industrial and Clinical trial approach
+- Design and Analysis of experiments: Factorial Design: Definition, 22, 23design
+- Advantage of factorial design Response Surface methodology: Central composite design
+- Advantage of factorial design Response Surface methodology: Historical design
+- Advantage of factorial design Response Surface methodology: Optimization Techniques

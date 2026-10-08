@@ -528,6 +528,46 @@
       "sha256": "4c956590b878e3fc25ec781187a55f68fa4a5faa256ec05a928ed06e83ae385d",
       "textHash": "4c956590b878e3fc25ec781187a55f68fa4a5faa256ec05a928ed06e83ae385d",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "nbems-fmge-dec-2024",
+      "url": "https://natboard.edu.in/viewUpload?xyz=cUtIMVEvdzBwS1QzQXBtRjZPUzR4QT09",
+      "templates": ["fmge", "ini-cet"],
+      "sha256": "99ab39369e15f1fc0cce86712dae5fc0b8fb148936aa396eada1a0b3bbf97520",
+      "textHash": "dbaafbf8ea6186709052ddc4cfa7ce75a641e6ed9521a18775421be099b1550c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "nbems-neet-mds-2025",
+      "url": "https://natboard.edu.in/viewUpload?xyz=NjkwNGpsQzRERHlrMExoQm1CaWZxZz09",
+      "templates": ["neet-mds"],
+      "sha256": "3669d797bc8e13da017af35ebd9d586fb44998c3c7ec5acc62b50ed7aff8fdb6",
+      "textHash": "2137aedfd5247284309920fd3573ae43149e91f4b8d70ff8228f29591bc2fe4e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "nbems-gpat-2024",
+      "url": "https://natboard.edu.in/viewUpload?xyz=a201MG95cW1sdVhsZDFwRk90R3F3dz09",
+      "templates": ["gpat"],
+      "sha256": "c930d939e4615c2cde552385bdbb3732ec87f47037df4f2a0b9af3441c48f806",
+      "textHash": "10fdc9c40daf01bfccd8f0fa94522fce0912b7d9b632ab4de61c81253cec2a97",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dci-bds-regulations-2007",
+      "url": "https://dciindia.gov.in/Rule_Regulation/Gazette/18.%20Revised%20BDS%20Course%20Regulations,%202007/Revised%20BDS%20Course%20Regulations,%202007%20(alongwith%20corrigendum).pdf",
+      "templates": ["bds", "neet-mds"],
+      "sha256": "4f6de1fabaac46606664bce5ce8b7abd1c0cd182af542139cf98a18d61c72f8e",
+      "textHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "pci-bpharm-syllabus",
+      "url": "https://pci.gov.in/documents/1277/Syllabus_B_Pharm_Y4DhvIW.pdf",
+      "templates": ["gpat"],
+      "sha256": "4fd2a46a2f5b0e98e6854b923cc0041f63ef1fd1d97f3aebd5ee3ce2126b7dab",
+      "textHash": "e9ecc7d2ce0a51db3ea42b7566f9ca1955018b50e5ec4beece7b2e5ad2990d6f",
+      "recorded": "2026-10-08"
     }
   ]
 }

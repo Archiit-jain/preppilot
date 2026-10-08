@@ -104,6 +104,9 @@ The others work the same way, each for one official source:
 - `entrance_to_md.py`: NIMCET, BITSAT, IISER IAT, AMU B.Tech and CFTRI M.Sc. Food
   Technology, each from its official syllabus.
 - `aptitude_to_md.py`: CAT, IPMAT Indore, CLAT UG and CLAT PG (D113, like the banking exams).
+- `med_to_md.py`: FMGE and INI-CET (NBEMS extract of the MBBS curriculum), BDS and NEET MDS
+  (DCI BDS regulations; NBEMS subject list), GPAT (PCI B. Pharm syllabus in GPAT's five areas).
+  The DCI gazette PDF is a scanned image, so the change check can only compare its bytes.
 
 UPSC CDS, NDA, CMSE and SSC CHSL and GD are written by hand from their notices.
 
