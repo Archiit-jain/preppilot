@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 17; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Management
 ## Unit I
 - Management – Concept
@@ -187,12 +196,11 @@ version: 1
 ## Unit V
 - Value & Returns – Time Preference for Money
 - Valuation of Bonds and Shares
-- Risk and Returns; Capital Budgeting – Nature of Investment
+- Risk and Returns
+- Capital Budgeting – Nature of Investment
 - Evaluation
-- Comparison of Methods; Risk
-- Uncertainly Analysis Dividend – Theories
-- Determination Mergers
-- Acquisition – Corporate Restructuring
+- Comparison of Methods
+- Risk and Uncertainly Analysis Dividend – Theories and Determination Mergers and Acquisition – Corporate Restructuring
 - Value Creation
 - Merger Negotiations
 - Leveraged Buyouts
@@ -284,8 +292,10 @@ version: 1
 - Balance of payment Foreign Direct Investment – Benefits
 - Costs Multilateral regulation of Trade
 - Investment under WTO International Trade Procedures
-- Documentation; EXIM Policies Role of International Financial Institutions – IMF
-- World Bank Information Technology – Use of Computers in Management Applications; MIS
+- Documentation
+- EXIM Policies Role of International Financial Institutions – IMF
+- World Bank Information Technology – Use of Computers in Management Applications
+- MIS
 - DSS Artificial Intelligence and Big Data Data Warehousing
 - Data Mining and Knowledge Management – Concepts Managing Technological Change
 ## Unit X
@@ -297,9 +307,8 @@ version: 1
 - Rural Entrepreneurship Innovations in Business – Types of Innovations
 - Creating and Identifying Opportunities
 - Screening of Business Ideas Business Plan and Feasibility Analysis – Concept and Process of Technical
-- Market
-- Financial Analysis Micro
-- Small Scale Industries in India; Role of Government in Promoting SSI Sickness in Small Industries – Reasons
+- Market and Financial Analysis Micro and Small Scale Industries in India
+- Role of Government in Promoting SSI Sickness in Small Industries – Reasons
 - Rehabilitation Institutional Finance to Small Industries – Financial Institutions
 - Commercial Banks
 - Cooperative Banks

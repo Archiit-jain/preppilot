@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 58; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Law
 ## JURISPRUDENCE
 - 1
@@ -141,7 +150,9 @@ version: 1
 - Modernism and post-modernism
 ## CONSTITUTIONAL AND ADMINISTRATIVE LAW
 - 1
-- Preamble, fundamental rights and duties, directive principles of state policy. 2
+- Preamble
+- Fundamental rights and duties
+- Directive principles of state policy. 2
 - Union and State executive and their interrelationship 3
 - Union and State legislature and distribution of legislative powers 4
 - Judiciary 5
@@ -155,7 +166,9 @@ version: 1
 - 2
 - Sources of International law 3
 - Recognition of states and governments 4
-- Nationality, immigrants, refugees and internally displaced persons (IDPs) 5
+- Nationality
+- Immigrants
+- Refugees and internally displaced persons (IDPs) 5
 - Extradition and asylum 6
 - United Nations and its organs 7
 - Settlement of international disputes 8
@@ -180,23 +193,36 @@ version: 1
 - Nature and definition of tort 2
 - General principles of tortious liability 3
 - General defenses 4
-- Specific torts – Negligence, nuisance, trespass and defamation 5
+- Specific torts – Negligence
+- Nuisance
+- Trespass and defamation 5
 - Remoteness of damages 6
 - Strict and absolute liability 7
 - Tortious liability of the State 8
 - The Consumer Protection Act 1986 - Definitions, consumer rights and redressal mechanism 9
-- The Motor Vehicles Act, 1988 - No fault liability, third party insurance and claims tribunal 10
-- The Competition Act, 2002 - Prohibition of certain agreements, abuse of dominant position and regulation of combinations
+- The Motor Vehicles Act
+- 1988 - No fault liability
+- Third party insurance and claims tribunal 10
+- The Competition Act
+- 2002 - Prohibition of certain agreements
+- Abuse of dominant position and regulation of combinations
 ## COMMERCIAL LAW
 - 1
 - Essential elements of contract and e-contract 2
-- Breach of contract, frustration of contract, void and voidable agreements 3
+- Breach of contract
+- Frustration of contract
+- Void and voidable agreements 3
 - Standard form of contract and quasi-contract 4
-- Specific contracts - Bailment, pledge, indemnity, guarantee and agency 5
+- Specific contracts - Bailment
+- Pledge
+- Indemnity
+- Guarantee and agency 5
 - Sale of Goods Act, 1930 6
 - Partnership and limited liability partnership 7
 - Negotiable Instruments Act, 1881 8
-- Company law – Incorporation of a company, prospectus, shares and debentures 9
+- Company law – Incorporation of a company
+- Prospectus
+- Shares and debentures 9
 - Company law – Directors and meetings 10
 - Corporate social responsibility
 ## FAMILY LAW
@@ -221,7 +247,11 @@ version: 1
 - Concept and development of human rights 7
 - Universalism and cultural relativism 8
 - International Bill of Rights 9
-- Group rights – Women, children, persons with disabilities, elderly persons, minorities and weaker sections 10
+- Group rights – Women
+- Children
+- Persons with disabilities
+- Elderly persons
+- Minorities and weaker sections 10
 - Protection and enforcement of human rights in India – National Human Rights Commission
 - National Commission for Minorities
 - National Commission for Women
@@ -232,9 +262,16 @@ version: 1
 - Concept and meaning of intellectual property 2
 - Theories of intellectual property 3
 - International conventions pertaining to intellectual properties 4
-- Copyright and neighboring rights – Subject matters, limitations and exceptions, infringement and remedies 5
-- Law of patent – Patentability, procedure for grant of patent, limitations and exceptions, infringement and remedies 6
-- Law of trademark – Registration of trademarks, kinds of trademarks, infringement and passing off, remedies 7
+- Copyright and neighboring rights – Subject matters
+- Limitations and exceptions
+- Infringement and remedies 5
+- Law of patent – Patentability
+- Procedure for grant of patent
+- Infringement and remedies 6
+- Law of trademark – Registration of trademarks
+- Kinds of trademarks
+- Infringement and passing off
+- Remedies 7
 - Protection of Geographical Indications 8
 - Bio-diversity and Traditional Knowledge 9
 - Information technology law- digital signature and electronic signature
@@ -243,13 +280,21 @@ version: 1
 - Cyber crimes, penalties and adjudication
 ## COMPARATIVE PUBLIC LAW AND SYSTEMS OF GOVERNANCE
 - 1
-- Comparative Law – Relevance, methodology, problems and concerns in Comparison 2
+- Comparative Law – Relevance
+- Methodology
+- Problems and concerns in Comparison 2
 - Forms of governments – Presidential and parliamentary, unitary and federal 3
 - Models of federalism – USA, Canada and India 4
 - Rule of Law – ‘Formal’ and ‘substantive’ versions 5
-- Separation of powers – India, UK, USA and France 6
-- Independence of judiciary, judicial activism and accountability – India, UK and USA 7
-- Systems of constitutional review – India, USA, Switzerland and France 8
+- Separation of powers – India
+- UK
+- USA and France 6
+- Independence of judiciary
+- Judicial activism and accountability – India
+- UK and USA 7
+- Systems of constitutional review – India
+- USA
+- Switzerland and France 8
 - Amendment of the Constitution – India, USA and South Africa 9
 - Ombudsman –Sweden, UK and India 10
 - Open Government and Right to Information - USA, UK and India

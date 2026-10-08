@@ -37,13 +37,13 @@ NUMBERED = re.compile(r"^(\d{1,2})\.\s+([A-Z][^.]{2,90})$")
 HEADED = re.compile(r"^([A-Z][^:;]{1,60}?)\s*:\s*(.+)$")
 
 
-def items(text: str) -> list:
-    """Top-level pieces of a list, split on ; and , but never inside brackets."""
+def items(text: str, separators: str = ";,") -> list:
+    """Top-level pieces of a list, split on the separators but never inside brackets."""
     out, depth, current = [], 0, ""
     for ch in text:
         depth += ch in "(["
         depth -= ch in ")]"
-        if ch in ";," and depth == 0:
+        if ch in separators and depth == 0:
             out.append(current)
             current = ""
         else:
@@ -56,17 +56,20 @@ def topics_from(line: str) -> list:
     topics = []
     line = re.sub(r"\b(vs|etc|e\.g|i\.e)\.\s", lambda m: m.group(1) + " ", line)
     for sentence in re.split(r"\.\s+(?=[A-Z])", line):
-        sentence = clean(sentence)
-        if not sentence:
-            continue
-        headed = HEADED.match(sentence)
-        if headed:
-            head = clean(headed.group(1))
-            parts = items(headed.group(2))
-            if len(parts) > 1:
-                topics.extend(f"{head}: {p}" if len(head) + len(p) + 2 <= LIMIT else p for p in parts)
-                continue
-        topics.append(sentence)
+        # Semicolons separate whole ideas; commas only list within one. So a
+        # sentence is cut at semicolons first. A heading ("Environmental
+        # issues: ...") carries on to the parts after it until another heading.
+        carry = None
+        for clause in items(sentence, ";"):
+            headed = HEADED.match(clause)
+            if headed:
+                carry = clean(headed.group(1))
+                parts = items(headed.group(2), ",")
+            else:
+                parts = items(clause, ",") if clause.count(",") >= 2 else [clause]
+            for part in parts:
+                prefixed = f"{carry}: {part}" if carry and part != clause or (carry and not headed) else part
+                topics.append(prefixed if len(prefixed) <= LIMIT else part)
     return [t for topic in topics for t in fit(topic)]
 
 

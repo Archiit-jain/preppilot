@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 02; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Political Science
 ## Political Theory
 - Concepts Liberty
@@ -167,29 +176,37 @@ version: 1
 - Sri Aurobindo
 - Periyar E
 - V
-- Ramasamy, Muhammad Iqbal, M.N.Roy, V D Savarkar, Dr
-- B.R.Ambedkar, J L Nehru, Ram Manohar Lohia, Jaya Prakash Narayan, Deendayal Upadhyaya
+- Ramasamy
+- Muhammad Iqbal
+- M.N.Roy
+- V D Savarkar
+- Dr
+- B.R.Ambedkar
+- J L Nehru
+- Ram Manohar Lohia
+- Jaya Prakash Narayan
+- Deendayal Upadhyaya
 ## Comparative Political Analysis
 - Approaches: Institutional
 - Approaches: Political Culture
 - Approaches: Political Economy and New Institutionalism
-- Approaches: Comparative Methods Colonialism and decolonization: forms of colonialism
-- Approaches: Anti-colonial struggles and decolonization Nationalism: European and non-European
+- Comparative Methods Colonialism and decolonization: Forms of colonialism
+- Anti-colonial struggles and decolonization Nationalism: European and non-European
 - State theory: Debate over the nature of state in capitalist and socialist societies
 - State theory: Post-colonial state
 - State theory: Welfare state
-- Globalization and nations-states Political regimes: democratic (Electoral
-- Liberal
-- Majoritarian and Participatory) and non-democratic regimes (Patrimonialism
-- Bureaucratic authoritarianism
-- Military dictatorship
-- Totalitarianism
-- Fascist)
+- Democratic: Electoral
+- Democratic: Liberal
+- Democratic: Majoritarian and Participatory) and non-democratic regimes (Patrimonialism
+- Democratic: Bureaucratic authoritarianism
+- Democratic: Military dictatorship
+- Democratic: Totalitarianism
+- Democratic: Fascist
 - Constitutions and Constitutionalism: Forms of constitutions
 - Constitutions and Constitutionalism: Rule of law
 - Constitutions and Constitutionalism: Judicial independence and liberal constitutionalism
 - Constitutions and Constitutionalism: Emergency powers and crisis of constitutionalism
-- Democratisation: democratic transition and consolidation
+- Democratisation: Democratic transition and consolidation
 - Development: Underdevelopment
 - Development: Dependency
 - Development: Modernization
@@ -213,15 +230,16 @@ version: 1
 - Conflict and Peace: Changing Nature of Warfare
 - Conflict and Peace: Weapons of mass destruction
 - Conflict and Peace: Deterrence
-- Conflict and Peace: Conflict resolution
-- Conflict and Peace: Conflict transformation
+- Conflict and Peace: Conflict resolution, conflict transformation
 - United Nations: Aims
 - United Nations: Objectives
 - United Nations: Structure and Evaluation of the Working of UN
 - United Nations: Peace and Development perspectives
 - United Nations: Humanitarian intervention
-- International law; International Criminal Court Political Economy of IR; Globalisation; Global governance
-- Bretton Woods system
+- International law
+- International Criminal Court Political Economy of IR
+- Globalisation
+- Global governance and Bretton Woods system
 - North-South Dialogue
 - WTO
 - G-20
@@ -235,8 +253,7 @@ version: 1
 - Contemporary Challenges: Human Rights
 - Contemporary Challenges: Migration and Refugees
 - Contemporary Challenges: Poverty and Development
-- Contemporary Challenges: Role of Religion
-- Contemporary Challenges: Culture and Identity Politics
+- Contemporary Challenges: Role of Religion, Culture and Identity Politics
 ## India’s Foreign Policy Perspectives on India’s Foreign Policy: India’s Identity as postcolonial
 - India’s Engagement with multipolar world: India’s relations with European Union
 - India’s Engagement with multipolar world: BRICS
@@ -296,24 +313,27 @@ version: 1
 - Constitutional and Statutory Bodies: National Commission for Minorities
 ## Public Administration
 - Public Administration: Meaning and evolution
-- Public Administration: Public and private administration Approaches: System Theory
-- Public Administration: Decision Making
-- Public Administration: Ecological Approach Public administration theories and concepts: Scientific Management Theory
-- Public Administration: Rational Choice theory
-- Public Administration: New Public Administration
-- Public Administration: Development Administration
-- Public Administration: Comparative Public Administration
-- Public Administration: New Public Management
+- Public and private administration Approaches: System Theory
+- Public and private administration Approaches: Decision Making
+- Ecological Approach Public administration theories and concepts: Scientific Management Theory
+- Public and private administration Approaches: Rational Choice theory
+- Public and private administration Approaches: New Public Administration
+- Public and private administration Approaches: Development Administration
+- Public and private administration Approaches: Comparative Public Administration
+- Public and private administration Approaches: New Public Management
 - Changing nature of Public Administration in the era of liberalisation
 - Globalisation Theories
 - Principles of Organization: Scientific Management Theory
-- Public Administration: Bureaucratic Theory
-- Public Administration: Human Relations Theory Managing the organization: Theories of leadership and motivation
+- Public and private administration Approaches: Bureaucratic Theory
+- Human Relations Theory Managing the organization: Theories of leadership and motivation
 - Organisational Communication: Theories and Principles
 - Organisational Communication: Chester Bernard Principles of Communication
 - Information Management in the organization Managing Conflict in the Organization: Mary Parker Follett Management by…
 ## Governance and Public Policy in India
-- Governance, good governance and democratic governance, role of state, civil society and individuals
+- Governance
+- Good governance and democratic governance
+- Role of state
+- Civil society and individuals
 - Accountability and control: Institutional mechanism for checks and balances
 - Accountability and control: Legislative control over executive
 - Accountability and control: Administrative and budgetary control
@@ -323,21 +343,21 @@ version: 1
 - Corruption and administrative reforms Institutional mechanisms for good governance: Right to Information
 - Accountability and control: Consumer Protection Act
 - Accountability and control: Citizen Charter
-- Accountability and control: Grievance redress system: Ombudsman
-- Accountability and control: Lokpal
+- Grievance redress system: Ombudsman
+- Grievance redress system: Lokpal
 - Lokayukta Grassroots Governance: Panchayati Raj Institutions
 - Their functioning Planning
 - Development: Decentralised planning
-- Accountability and control: Planning for development
-- Accountability and control: Sustainable development
-- Accountability and control: Participatory development
-- Accountability and control: E-governance
+- Grievance redress system: Planning for development
+- Grievance redress system: Sustainable development
+- Grievance redress system: Participatory development
+- Grievance redress system: E-governance
 - NITI Aayog Public policy as an instrument of socio-economic development: public policies with special reference to…
-- Accountability and control: Health
-- Accountability and control: Drinking water
-- Accountability and control: Food security
-- Accountability and control: MNREGA
-- Accountability and control: NHRM
-- Accountability and control: RTE Monitoring and evaluation of public policy
-- Accountability and control: Mechanisms of making governance process accountable: jansunwai
-- Accountability and control: Social audit
+- Grievance redress system: Health
+- Grievance redress system: Drinking water
+- Grievance redress system: Food security
+- Grievance redress system: MNREGA
+- Grievance redress system: NHRM
+- Grievance redress system: RTE Monitoring and evaluation of public policy
+- Mechanisms of making governance process accountable: Jansunwai
+- Mechanisms of making governance process accountable: Social audit

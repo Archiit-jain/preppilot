@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 04; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Psychology
 ## Emergence of Psychology
 - Psychological thought in some major Eastern Systems: Bhagavad Gita
@@ -135,8 +144,7 @@ version: 1
 - Academic psychology in India: Post-independence era
 - Academic psychology in India: 1970s: The move to addressing social issues
 - Academic psychology in India: 1980s: Indigenization
-- Academic psychology in India: 1990s: Paradigmatic concerns
-- Academic psychology in India: Disciplinary identity crisis
+- Academic psychology in India: 1990s: Paradigmatic concerns, disciplinary identity crisis
 - Academic psychology in India: 2000s: Emergence of Indian psychology in academia
 - Issues: The colonial encounter
 - Issues: Post colonialism and psychology
@@ -152,7 +160,10 @@ version: 1
 - Transpersonal
 - Cognitive revolution
 - Multiculturalism
-- Four founding paths of academic psychology - Wundt, Freud, James, Dilthey
+- Four founding paths of academic psychology - Wundt
+- Freud
+- James
+- Dilthey
 - Issues: Crisis in psychology due to strict adherence to experimentalanalytical paradigm (logical empiricism)
 - Indic influences on modern psychology
 - Essential aspects of knowledge paradigms: Ontology
@@ -182,8 +193,7 @@ version: 1
 - Paradigms of research: Quantitative
 - Qualitative
 - Mixed methods approach Methods of research: Observation
-- Survey [Interview
-- Questionnaires]
+- Survey [Interview, Questionnaires]
 - Experimental
 - Quasi-experimental
 - Field studies
@@ -287,19 +297,18 @@ version: 1
 - Learning Process: Hull Classical Conditioning: Procedure
 - Learning Process: Phenomena and related issues Instrumental learning: Phenomena
 - Learning Process: Paradigms and theoretical issues
-- Learning Process: Reinforcement: Basic variables and schedules
-- Learning Process: Behaviour modification and its applications Cognitive approaches in learning: Latent learning
-- Learning Process: Observational learning
+- Reinforcement: Basic variables and schedules
+- Behaviour modification and its applications Cognitive approaches in learning: Latent learning, observational learning
 - Verbal learning
 - Discrimination learning Recent trends in learning: Neurophysiology of learning Memory
 - Forgetting Memory processes: Encoding
 - Storage
 - Retrieval Stages of memory: Sensory memory
-- Short-term memory memory)
-- Long-term Memory (Declarative – Episodic and Procedural) (Working Semantic; Theories of Forgetting: Interference
-- Retrieval Failure
-- Decay
-- Motivated forgetting
+- Short-term memory memory), Long-term Memory (Declarative – Episodic and Procedural) (Working Semantic
+- Theories of Forgetting: Interference
+- Theories of Forgetting: Retrieval Failure
+- Theories of Forgetting: Decay
+- Theories of Forgetting: Motivated forgetting
 ## Thinking, Intelligence and Creativity
 - Theoretical perspectives on thought processes: Associationism
 - Theoretical perspectives on thought processes: Gestalt
@@ -317,11 +326,10 @@ version: 1
 - Theoretical perspectives on thought processes: Gardner
 - Theoretical perspectives on thought processes: Stenberg
 - Theoretical perspectives on thought processes: Goleman
-- Theoretical perspectives on thought processes: Das
-- Theoretical perspectives on thought processes: Kar & Parrila Creativity: Torrance
-- Theoretical perspectives on thought processes: Getzels & Jackson
-- Theoretical perspectives on thought processes: Guilford
-- Theoretical perspectives on thought processes: Wallach & Kogan Relationship between Intelligence and Creativity
+- Das, Kar & Parrila Creativity: Torrance
+- Das, Kar & Parrila Creativity: Getzels & Jackson
+- Das, Kar & Parrila Creativity: Guilford
+- Das, Kar & Parrila Creativity: Wallach & Kogan Relationship between Intelligence and Creativity
 ## Personality, Motivation, emotion, stress and coping
 - Determinants of personality: Biological and socio-cultural Approaches to the study of personality: Psychoanalytical
 - Determinants of personality: Neo-Freudian
@@ -372,16 +380,10 @@ version: 1
 - Sociobiology
 - Psychodynamic Approaches
 - Social Cognition
-- Social perception [Communication
-- Attributions]; attitude
-- Its change within cultural context; prosocial behavior Group
-- Social influence [Social Facilitation; Social loafing]; Social influence [Conformity
-- Peer Pressure
-- Persuasion
-- Compliance
-- Obedience
-- Social Power
-- Reactance]
+- Social perception [Communication, Attributions]
+- Attitude and its change within cultural context
+- Prosocial behavior Group and Social influence [Social Facilitation; Social loafing]
+- Social influence [Conformity, Peer Pressure, Persuasion, Compliance, Obedience, Social Power, Reactance]
 - Aggression
 - Group dynamics, leadership style and effectiveness
 - Theories of intergroup relations [Minimal Group Experiment and Social Identity Theory
@@ -390,7 +392,8 @@ version: 1
 - Balance Theories
 - Equity Theory
 - Social Exchange Theory] Applied social psychology: Health
-- Environment and Law; Personal space
+- Environment and Law
+- Personal space
 - Crowding
 - Territoriality
 ## Human Development and Interventions
@@ -432,7 +435,10 @@ version: 1
 - Techniques
 ## Emerging Areas
 - Issues of Gender, Poverty, Disability, and Migration: Cultural bias and discrimination
-- Stigma, Marginalization, and Social Suffering; Child Abuse and Domestic violence
+- Stigma
+- Marginalization
+- Social Suffering
+- Child Abuse and Domestic violence
 - Peace psychology: Violence
 - Peace psychology: Non-violence
 - Peace psychology: Conflict resolution at macro level
@@ -443,7 +449,7 @@ version: 1
 - Health: Health promoting and health compromising behaviors
 - Health: Life style and Chronic diseases [Diabetes, Hypertension, Coronary Heart Disease]
 - Health: Psychoneuroimmunology [Cancer, HIV/AIDS] Psychology and technology interface: Digital learning
-- Health: Digital etiquette: Cyber bullying
-- Health: Cyber pornography: Consumption
-- Health: Implications
+- Digital etiquette: Cyber bullying
+- Cyber pornography: Consumption
+- Cyber pornography: Implications
 - Parental mediation of Digital Usage.…

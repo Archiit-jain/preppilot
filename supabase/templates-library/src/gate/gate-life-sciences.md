@@ -5,7 +5,7 @@ description: General Aptitude and the full Life Sciences paper syllabus.
 category: exam
 source: GATE 2026 official syllabus (XL), IIT Guwahati; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # General Aptitude
 ## Verbal Aptitude
@@ -285,10 +285,10 @@ version: 1
 - Organization of eukaryotic genome structure
 - Gene expression
 - Gene mutation and repair
-- Chromosomal aberrations (numerical: euploidy and aneuploidy and structural: deletion
-- Duplication
-- Inversion
-- Translocation)
+- Chromosomal aberrations: Numerical: euploidy and aneuploidy and structural: deletion
+- Chromosomal aberrations: Duplication
+- Chromosomal aberrations: Inversion
+- Chromosomal aberrations: Translocation
 - Transposons
 - Model organisms for functional genetics and genomics
 - Introduction to transcriptomics, proteomics and metabolomics

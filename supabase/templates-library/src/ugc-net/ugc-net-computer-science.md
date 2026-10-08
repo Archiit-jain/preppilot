@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 87; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Computer Science and Applications
 ## Discrete Structures and Optimization
 - Mathematical Logic: Propositional and Predicate Logic
@@ -314,14 +323,14 @@ version: 1
 - Computer Graphics: Graphics Monitors
 - Computer Graphics: Input Devices
 - Computer Graphics: Points and Lines
-- Computer Graphics: Line Drawing Algorithms
-- Computer Graphics: Mid-Point Circle and Ellipse Algorithms
-- Computer Graphics: Scan Line Polygon Fill Algorithm
-- Computer Graphics: Boundary-Fill and FloodFill
+- Computer Graphics: Line Drawing Algorithms, Mid-Point Circle and Ellipse Algorithms
+- Computer Graphics: Scan Line Polygon Fill Algorithm, Boundary-Fill and FloodFill
 - 2-D Geometrical Transforms and Viewing: Translation
 - Scaling
 - Rotation
-- Reflection and Shear Transformations; Matrix Representations and Homogeneous Coordinates; Composite Transforms
+- Reflection and Shear Transformations
+- Matrix Representations and Homogeneous Coordinates
+- Composite Transforms
 - Transformations Between Coordinate Systems
 - Viewing Pipeline
 - Viewing Coordinate Reference Frame
@@ -332,9 +341,12 @@ version: 1
 - Geometric Transformations and Viewing: Polygon Surfaces
 - Quadric Surfaces
 - Spline Representation
-- Bezier and B-Spline Curves; Bezier and B-Spline Surfaces; Illumination Models
+- Bezier and B-Spline Curves
+- Bezier and B-Spline Surfaces
+- Illumination Models
 - Polygon Rendering Methods
-- Viewing Pipeline and Coordinates; General Projection Transforms and Cipping
+- Viewing Pipeline and Coordinates
+- General Projection Transforms and Cipping
 ## Database Management Systems
 - Database System Concepts and Architecture: Data Models
 - Database System Concepts and Architecture: Schemas
@@ -357,10 +369,8 @@ version: 1
 - SQL: Insert
 - SQL: Delete
 - SQL: Update Statements
-- SQL: Views
-- SQL: Stored Procedures and Functions
-- SQL: Database Triggers
-- SQL: SQL Injection
+- SQL: Views, Stored Procedures and Functions
+- SQL: Database Triggers, SQL Injection
 - Normalization for Relational Databases: Functional Dependencies and Normalization
 - Normalization for Relational Databases: Algorithms for Query Processing and Optimization
 - Normalization for Relational Databases: Transaction Processing
@@ -395,25 +405,20 @@ version: 1
 - Big Data Systems: Types of Big Data
 - Big Data Systems: Big Data Architecture
 - Big Data Systems: Introduction to Map-Reduce and Hadoop
-- Big Data Systems: Distributed File System
-- Big Data Systems: HDFS
+- Big Data Systems: Distributed File System, HDFS
 - NOSQL: NOSQL and Query Optimization
-- NOSQL: Different NOSQL Products
-- NOSQL: Querying and Managing NOSQL
+- NOSQL: Different NOSQL Products, Querying and Managing NOSQL
 - NOSQL: Indexing and Ordering Data Sets
 - NOSQL: NOSQL in Cloud
 ## System Software and Operating System
 - System Software: Machine
 - System Software: Assembly and High-Level Languages
 - System Software: Compilers and Interpreters
-- System Software: Loading
-- System Software: Linking and Relocation
-- System Software: Macros
-- System Software: Debuggers
+- System Software: Loading, Linking and Relocation
+- System Software: Macros, Debuggers
 - Basics of Operating Systems: Operating System Structure
 - Basics of Operating Systems: Operations and Services
-- Basics of Operating Systems: System Calls
-- Basics of Operating Systems: Operating-System Design and Implementation
+- Basics of Operating Systems: System Calls, Operating-System Design and Implementation
 - Basics of Operating Systems: System Boot
 - Process Management: Process Scheduling and Operations
 - Process Management: Interprocess Communication
@@ -482,13 +487,11 @@ version: 1
 - Linux Operating Systems: Memory Management
 - Linux Operating Systems: File Systems
 - Linux Operating Systems: Input and Output
-- Linux Operating Systems: Interprocess Communication
-- Linux Operating Systems: Network Structure
+- Linux Operating Systems: Interprocess Communication, Network Structure
 - Windows Operating Systems: Design Principles
 - Windows Operating Systems: System Components
 - Windows Operating Systems: Terminal Services and Fast User Switching
-- Windows Operating Systems: File System
-- Windows Operating Systems: Networking
+- Windows Operating Systems: File System, Networking
 - Distributed Systems: Types of Network based Operating Systems
 - Distributed Systems: Network Structure
 - Distributed Systems: Communication Structure and Protocols
@@ -516,8 +519,7 @@ version: 1
 - Software Requirements: Eliciting Requirements
 - Software Requirements: Developing Use Cases
 - Software Requirements: Requirement Analysis and Modelling
-- Software Requirements: Requirements Review
-- Software Requirements: Software Requirment and Specification (SRS) Document
+- Software Requirements: Requirements Review, Software Requirment and Specification (SRS) Document
 - Software Design: Abstraction
 - Software Design: Architecture
 - Software Design: Patterns
@@ -584,8 +586,7 @@ version: 1
 - Data Structures: Sorting and Searching Algorithms
 - Data Structures: Hashing
 - Performance Analysis of Algorithms and Recurrences: Time and Space Complexities
-- Performance Analysis of Algorithms and Recurrences: Asymptotic Notation
-- Performance Analysis of Algorithms and Recurrences: Recurrence Relations
+- Performance Analysis of Algorithms and Recurrences: Asymptotic Notation, Recurrence Relations
 - Design Techniques: Divide and Conquer
 - Design Techniques: Dynamic Programming
 - Design Techniques: Greedy Algorithms
@@ -633,8 +634,7 @@ version: 1
 - Context Free Language: Equivalence of PDA’s and Context Free Grammars
 - Context Free Language: Properties of Context Free Language
 - Turing Machines (TM): Standard Turing Machine and its Variations
-- Turing Machines (TM): Universal Turing Machines
-- Turing Machines (TM): Models of Computation and Church-Turing Thesis
+- Turing Machines (TM): Universal Turing Machines, Models of Computation and Church-Turing Thesis
 - Turing Machines (TM): Recursive and RecursivelyEnumerable Languages
 - Turing Machines (TM): Context-Sensitive Languages
 - Turing Machines (TM): Unrestricted Grammars
@@ -686,8 +686,7 @@ version: 1
 - Data Communication: HalfDuplex and Duplex Modes of Communication
 - Data Communication: Analog and Digital Signals
 - Data Communication: Noiseless and Noisy Channels
-- Data Communication: Bandwidth
-- Data Communication: Throughput and Latency
+- Data Communication: Bandwidth, Throughput and Latency
 - Data Communication: Digital and Analog Transmission
 - Data Communication: Data Encoding and Modulation Techniques
 - Data Communication: Broadband and Baseband Transmission
@@ -724,13 +723,16 @@ version: 1
 - Functions of OSI and TCP/IP Layers: Network Devices
 - Functions of OSI and TCP/IP Layers: Backbone Networks
 - Functions of OSI and TCP/IP Layers: Virtual LANs
-- IPv4 Structure and Address Space; Classful and Classless Addressing; Datagram
-- Fragmentation and Checksum; IPv6 Packet Format
+- IPv4 Structure and Address Space
+- Classful and Classless Addressing
+- Datagram, Fragmentation and Checksum
+- IPv6 Packet Format
 - Mapping Logical to Physical Address (ARP)
-- Direct and Indirect Network Layer Delivery; Routing Algorithms
+- Direct and Indirect Network Layer Delivery
+- Routing Algorithms
 - TCP
-- UDP and SCTP Protocols; Flow Control
-- Error Control and Congestion Control in TCP and SCTP
+- UDP and SCTP Protocols
+- Flow Control, Error Control and Congestion Control in TCP and SCTP
 - World Wide Web (WWW): Uniform Resource Locator (URL)
 - World Wide Web (WWW): Domain Name Service (DNS)
 - World Wide Web (WWW): Resolution - Mapping Names to Addresses and Addresses to Names
@@ -749,13 +751,11 @@ version: 1
 - Mobile Technology: Services and Architecture of GSM and Mobile Computing
 - Mobile Technology: Middleware and Gateway for Mobile Computing
 - Mobile Technology: Mobile IP and Mobile Communication Protocol
-- Mobile Technology: Communication Satellites
-- Mobile Technology: Wireless Networks and Topologies
+- Mobile Technology: Communication Satellites, Wireless Networks and Topologies
 - Mobile Technology: Cellular Topology
 - Mobile Technology: Mobile Adhoc Networks
 - Mobile Technology: Wireless Transmission and Wireless LANs
-- Mobile Technology: Wireless Geolocation Systems
-- Mobile Technology: GPRS and SMS
+- Mobile Technology: Wireless Geolocation Systems, GPRS and SMS
 - Cloud Computing and IoT: SaaS
 - Cloud Computing and IoT: PaaS
 - Cloud Computing and IoT: IaaS
@@ -780,8 +780,7 @@ version: 1
 - Knowledge Representation: Rules
 - Knowledge Representation: Scripts
 - Knowledge Representation: Conceptual Dependency and Ontologies
-- Knowledge Representation: Expert Systems
-- Knowledge Representation: Handling Uncertainty in Knowledge
+- Knowledge Representation: Expert Systems, Handling Uncertainty in Knowledge
 - Planning: Components of a Planning System
 - Planning: Linear and Non Linear Planning
 - Planning: Goal Stack Planning
@@ -789,8 +788,7 @@ version: 1
 - Planning: STRIPS
 - Planning: Partial Order Planning
 - Natural Language Processing: Grammar and Language
-- Natural Language Processing: Parsing Techniques
-- Natural Language Processing: Semantic Analysis and Prgamatics
+- Natural Language Processing: Parsing Techniques, Semantic Analysis and Prgamatics
 - Multi Agent Systems: Agents and Objects
 - Multi Agent Systems: Agents and Expert Systems
 - Multi Agent Systems: Generic Structure of Multiagent System
@@ -801,10 +799,8 @@ version: 1
 - Fuzzy Sets: Notion of Fuzziness
 - Fuzzy Sets: Membership Functions
 - Fuzzy Sets: Fuzzification and Defuzzification
-- Fuzzy Sets: Operations on Fuzzy Sets
-- Fuzzy Sets: Fuzzy Functions and Linguistic Variables
-- Fuzzy Sets: Fuzzy Relations
-- Fuzzy Sets: Fuzzy Rules and Fuzzy Inference
+- Fuzzy Sets: Operations on Fuzzy Sets, Fuzzy Functions and Linguistic Variables
+- Fuzzy Sets: Fuzzy Relations, Fuzzy Rules and Fuzzy Inference
 - Fuzzy Sets: Fuzzy Control System and Fuzzy Rule Based Systems
 - Genetic Algorithms (GA): Encoding Strategies
 - Genetic Algorithms (GA): Genetic Operators

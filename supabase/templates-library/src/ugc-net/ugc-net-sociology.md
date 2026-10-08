@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 05; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Sociology
 ## Classical Sociological Traditions
 - Emile Durkheim
@@ -176,7 +185,9 @@ version: 1
 - Reading Social Science Research, Data and Documents
 - Induction and Deduction
 - Fact, Concept and Theory
-- Hypotheses, Research Questions, Objectives
+- Hypotheses
+- Research Questions
+- Objectives
 ## Quantitative and Qualitative Methods
 - Ethnography
 - Survey Method
@@ -207,7 +218,9 @@ version: 1
 - Education
 - Law and Customs
 ## Social Stratification
-- Social Difference, Hierarchy, Inequality and Marginalization
+- Social Difference
+- Hierarchy
+- Inequality and Marginalization
 - Caste and Class
 - Gender, Sexuality and Disability
 - Race, Tribe and Ethnicity
@@ -244,12 +257,20 @@ version: 1
 - Role of International Development Organizations
 ## Social Movements and Protests
 - Political Factions, Pressure Groups
-- Movements based on Caste, Ethnicity, Ideology, Gender, Disability, Religion and Region
+- Movements based on Caste
+- Ethnicity
+- Ideology
+- Gender
+- Disability
+- Religion and Region
 - Civil Society and Citizenship
 - NGOs, Activism and Leadership
 - Reservations and Politics
 ## Economy and Society
-- Exchange, Gift , Capital, Labour and Market
+- Exchange
+- Gift
+- Capital
+- Labour and Market
 - Mode of Production Debates
 - Property and Property Relations
 - State and Market: Welfarism and Neoliberalism

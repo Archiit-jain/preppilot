@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 08; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,30 +132,35 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Commerce
 ## Business Environment and International Business
 - Concepts and elements of business environment: Economic environment- Economic systems
 - Concepts and elements of business environment: Economic policies(Monetary and fiscal policies)
 - Concepts and elements of business environment: Political environmentRole of government in business
-- Concepts and elements of business environment: Legal environment- Consumer Protection Act
-- Concepts and elements of business environment: FEMA
+- Concepts and elements of business environment: Legal environment- Consumer Protection Act, FEMA
 - Concepts and elements of business environment: Socio-cultural factors and their influence on business
 - Concepts and elements of business environment: Corporate Social Responsibility (CSR)
-- Scope
-- Importance of international business; Globalization
-- Its drivers; Modes of entry into international business
-- Theories of international trade; Government intervention in international trade; Tariff
-- Non-tariff barriers; India’s foreign trade policy
-- Foreign direct investment (FDI) and Foreign portfolio investment (FPI); Types of FDI
-- Costs and benefits of FDI to home and host countries; Trends in FDI; India’s FDI policy
+- Scope and importance of international business
+- Globalization and its drivers
+- Modes of entry into international business
+- Theories of international trade
+- Government intervention in international trade
+- Tariff and non-tariff barriers
+- India’s foreign trade policy
+- Foreign direct investment (FDI) and Foreign portfolio investment (FPI)
+- Types of FDI, Costs and benefits of FDI to home and host countries
+- Trends in FDI
+- India’s FDI policy
 - Balance of payments (BOP): Importance and components of BOP
 - Regional Economic Integration: Levels of Regional Economic Integration
 - Regional Economic Integration: Trade creation and diversion effects
-- Regional Economic Integration: Regional Trade Agreements: European Union (EU)
-- Regional Economic Integration: ASEAN
-- Regional Economic Integration: SAARC
-- Regional Economic Integration: NAFTA
+- Regional Trade Agreements: European Union (EU)
+- Regional Trade Agreements: ASEAN
+- Regional Trade Agreements: SAARC
+- Regional Trade Agreements: NAFTA
 - International Economic institutions: IMF
 - International Economic institutions: World Bank
 - International Economic institutions: UNCTAD
@@ -158,7 +170,8 @@ version: 1
 - World Trade Organisation (WTO): TRIPS
 - World Trade Organisation (WTO): TRIMS
 ## Accounting and Auditing
-- Basic accounting principles; concepts and postulates
+- Basic accounting principles
+- Concepts and postulates
 - Partnership Accounts: Admission
 - Partnership Accounts: Retirement
 - Partnership Accounts: Death
@@ -182,7 +195,9 @@ version: 1
 - Financial Statements Analysis: Ratio analysis
 - Financial Statements Analysis: Funds flow Analysis
 - Financial Statements Analysis: Cash flow analysis
-- Human Resources Accounting; Inflation Accounting; Environmental Accounting
+- Human Resources Accounting
+- Inflation Accounting
+- Environmental Accounting
 - Indian Accounting Standards and IFRS
 - Auditing: Independent financial audit
 - Auditing: Vouching
@@ -213,18 +228,23 @@ version: 1
 - Pricing strategies: Price penetration
 - Pricing strategies: Peak load pricing
 ## Business Finance
-- Scope and sources of finance; Lease financing
+- Scope and sources of finance
+- Lease financing
 - Cost of capital and time value of money
 - Capital structure
 - Capital budgeting decisions: Conventional and scientific techniques of capital budgeting analysis
-- Working capital management; Dividend decision: Theories and policies
-- Risk and return analysis; Asset securitization
+- Working capital management
+- Dividend decision: Theories and policies
+- Risk and return analysis
+- Asset securitization
 - International monetary system
-- Foreign exchange market; Exchange rate risk and hedging techniques
+- Foreign exchange market
+- Exchange rate risk and hedging techniques
 - International financial markets and instruments: Euro currency
 - International financial markets and instruments: GDRs
 - International financial markets and instruments: ADRs
-- International arbitrage; Multinational capital budgeting
+- International arbitrage
+- Multinational capital budgeting
 ## Business Statistics and Research Methods
 - Measures of central tendency
 - Measures of dispersion
@@ -309,8 +329,7 @@ version: 1
 - Marketing: Marketing channels
 - Marketing: Marketing mix
 - Marketing: Strategic marketing planning
-- Marketing: Market segmentation
-- Marketing: Targeting and positioning
+- Marketing: Market segmentation, targeting and positioning
 - Product decisions: Concept
 - Product decisions: Product line
 - Product decisions: Product mix decisions
@@ -326,7 +345,9 @@ version: 1
 - Promotion decisions: Promotion mix
 - Distribution decisions: Channels of distribution
 - Distribution decisions: Channel management
-- Consumer Behaviour; Consumer buying process; factors influencing consumer buying decisions
+- Consumer Behaviour
+- Consumer buying process
+- Factors influencing consumer buying decisions
 - Service marketing
 - Trends in marketing: Social marketing
 - Trends in marketing: Online marketing
@@ -353,8 +374,7 @@ version: 1
 - Negotiable Instruments Act, 1881: Dishonour and discharge of negotiable instruments
 - The Companies Act, 2013: Nature and kinds of companies
 - The Companies Act, 2013: Company formation
-- The Companies Act, 2013: Management
-- The Companies Act, 2013: Meetings and winding up of a joint stock company
+- The Companies Act, 2013: Management, meetings and winding up of a joint stock company
 - Limited Liability Partnership: Structure and procedure of formation of LLP in India
 - The Competition Act, 2002: Objectives and main provisions
 - The Information Technology Act, 2000: Objectives and main provisions
@@ -381,9 +401,11 @@ version: 1
 - Corporate Tax Planning: Concepts and significance of corporate tax planning
 - Corporate Tax Planning: Tax avoidance versus tax evasion
 - Corporate Tax Planning: Techniques of corporate tax planning
-- Corporate Tax Planning: Tax considerations in specific business situations: Make or buy decisions
-- Corporate Tax Planning: Own or lease an asset
-- Corporate Tax Planning: Retain
-- Corporate Tax Planning: Renewal or replacement of asset
-- Corporate Tax Planning: Shut down or continue operations
-- Deduction and collection of tax at source; Advance payment of tax; E-filing of income-tax returns
+- Tax considerations in specific business situations: Make or buy decisions
+- Tax considerations in specific business situations: Own or lease an asset
+- Tax considerations in specific business situations: Retain
+- Tax considerations in specific business situations: Renewal or replacement of asset
+- Tax considerations in specific business situations: Shut down or continue operations
+- Deduction and collection of tax at source
+- Advance payment of tax
+- E-filing of income-tax returns

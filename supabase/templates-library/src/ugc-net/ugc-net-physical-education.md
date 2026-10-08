@@ -5,7 +5,7 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 47; topics split from the official text.
 verified: false
-version: 1
+version: 2
 ---
 # Paper I: Teaching and Research Aptitude
 ## Teaching Aptitude
@@ -54,14 +54,16 @@ version: 1
 - Mass-Media and Society
 ## Mathematical Reasoning and Aptitude
 - Types of reasoning
-- Number series, Letter series, Codes and Relationships
-- Mathematical Aptitude (Fraction
-- Time & Distance
-- Ratio
-- Proportion and Percentage
-- Profit and Loss
-- Interest and Discounting
-- Averages etc.)
+- Number series
+- Letter series
+- Codes and Relationships
+- Mathematical Aptitude: Fraction
+- Mathematical Aptitude: Time & Distance
+- Mathematical Aptitude: Ratio
+- Mathematical Aptitude: Proportion and Percentage
+- Mathematical Aptitude: Profit and Loss
+- Mathematical Aptitude: Interest and Discounting
+- Mathematical Aptitude: Averages etc
 ## Logical Reasoning
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
@@ -79,7 +81,9 @@ version: 1
 - Pramanas: Upamana (Comparison)
 - Pramanas: Shabda (Verbal testimony)
 - Pramanas: Arthapatti (Implication) and Anupalabddhi (Non-apprehension)
-- Structure and kinds of Anumana (inference), Vyapti (invariable relation), Hetvabhasas (fallacies of inference)
+- Structure and kinds of Anumana (inference)
+- Vyapti (invariable relation)
+- Hetvabhasas (fallacies of inference)
 ## Data Interpretation
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
@@ -88,7 +92,10 @@ version: 1
 - Data and Governance
 ## Unit VIII
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
-- Basics of Internet, Intranet, E-mail, Audio and Video-conferencing
+- Basics of Internet
+- Intranet
+- E-mail
+- Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
 ## People, Development and Environment
@@ -125,7 +132,9 @@ version: 1
 - Oriental, Conventional and Non-conventional learning programmes in India
 - Professional, Technical and Skill Based education
 - Value education and environmental education
-- Policies, Governance, and Administration
+- Policies
+- Governance
+- Administration
 # Paper II: Physical Education
 ## Unit I
 - Physical education and adapted physical education
@@ -144,7 +153,10 @@ version: 1
 - Recreational programmes for various categories of people
 - Wellness- its importance, benefits and challenges
 - Development and maintenance of wellness
-- Teaching Aptitude – nature, objectives, characteristics of teaching, learner characteristics and teaching methods
+- Teaching Aptitude – nature
+- Objectives
+- Characteristics of teaching
+- Learner characteristics and teaching methods
 - Social aspects of sports- sports as a socializing agency
 - Social values
 - Sports leadership
@@ -193,7 +205,8 @@ version: 1
 - Concepts
 - Credit system for various subject coursestheory and practical
 - Impact of technology in physical education and sports
-- Curriculum evaluation: Concepts and purpose; procedure and appraisal
+- Curriculum evaluation: Concepts and purpose
+- Procedure and appraisal
 ## Unit VI
 - Health- its objectives and spectrum
 - Health education, its importance and principles
@@ -211,22 +224,44 @@ version: 1
 - Body weight control and its significance on health
 - Role of exercise, dieting and combination of exercise & dieting on weight control
 - First-aid- objectives and principles
-- First-aid for Shock, poisoning, burns, drowning, bleeding, electric shock and common sports injuries
-- Pollution- Air, water, sound and radiation
+- First-aid for Shock
+- Poisoning
+- Burns
+- Drowning
+- Bleeding
+- Electric shock and common sports injuries
+- Pollution- Air
+- Water
+- Sound and radiation
 - Effects of pollution on health, Preventive and safety measures from pollution
 - Nutrition- Balanced diet and its components
 - Nutritional Deficiencies
 - Understanding of malnutrition and nutritional supplements
-- Effects of smoking, alcohol, & drugs on health; prevention and rehabilitation
+- Effects of smoking
+- Alcohol
+- & drugs on health
+- Prevention and rehabilitation
 ## Unit VII
 - Sports training- its characteristics and principles
-- Training load, its features, principles and adaptation process
+- Training load
+- Its features
+- Principles and adaptation process
 - Means and methods of executing training load
-- Overload, its Causes, symptoms and remedial measures
-- Strength- its characteristics, types of strength, factors determining strength and strength development
-- Endurance- its characteristics, types of endurance, factors determining endurance and endurance development
-- Speed- its characteristics, types of Speed, factors determining Speed and speed development
-- Flexibility-its characteristics, types of flexibility, factors determining flexibility and flexibility development
+- Overload
+- Its Causes
+- Symptoms and remedial measures
+- Strength- its characteristics
+- Types of strength
+- Factors determining strength and strength development
+- Endurance- its characteristics
+- Types of endurance
+- Factors determining endurance and endurance development
+- Speed- its characteristics
+- Types of Speed
+- Factors determining Speed and speed development
+- Flexibility-its characteristics
+- Types of flexibility
+- Factors determining flexibility and flexibility development
 - Coordinative abilities- its characteristics
 - Types of coordinative abilities
 - Factors determining coordinative abilities and development of coordinative abilities
@@ -247,26 +282,47 @@ version: 1
 - Identification and formulation of research problem
 - Types of research hypotheses and their formulation
 - Hypotheses testing
-- Tools of research- Questionnaires, opinionnaires, interviews and observation
-- Sources and steps of literature search- library, research data bases, internet- search engines, online journals
+- Tools of research- Questionnaires
+- Opinionnaires
+- Interviews and observation
+- Sources and steps of literature search- library
+- Research data bases
+- Internet- search engines
+- Online journals
 - Note taking and critical reading
 - Sampling Techniques- Probability and non probability
 - Data, its types and collecting measures
 - Normal probability curve and grading scales
 - Statistical processes, their importance and uses in research
 - Application of parametric and non parametric statistical techniques in research
-- Computer applications- statistical packages for data analyses- SPSS, e-mail, search engines and Microsoft office
-- Preparation of research proposal, report, abstract, paper for publication and paper for presentation
+- Computer applications- statistical packages for data analyses- SPSS
+- E-mail
+- Search engines and Microsoft office
+- Preparation of research proposal
+- Report
+- Abstract
+- Paper for publication and paper for presentation
 ## Unit IX
 - Test, measurement and evaluation -their types and importance in physical education and sports
 - Principles and processes of evaluation in physical education
 - Criteria of selecting an appropriate test and administration of testing programme
 - Types of tests and construction of standard knowledge and skill tests
-- Tests for fitness- Physical fitness, motor fitness, motor ability and motor educability
+- Tests for fitness- Physical fitness
+- Motor fitness
+- Motor ability and motor educability
 - Health related fitness tests
-- Test for fitness components- strength, endurance, speed, flexibility and coordinative abilities
-- Sports skill tests- Badminton, Basketball, Football, Hockey, Tennis, and Volleyball
-- Anthropometric Measurements- land marks and measurement of various body segments ,height
+- Test for fitness components- strength
+- Endurance
+- Speed
+- Flexibility and coordinative abilities
+- Sports skill tests- Badminton
+- Basketball
+- Football
+- Hockey
+- Tennis
+- Volleyball
+- Anthropometric Measurements- land marks and measurement of various body segments
+- Height
 - Sitting-height
 - Weight
 - Diameters
@@ -293,7 +349,9 @@ version: 1
 - Personnel management- objectives and principles
 - Self-appraisal, communication skills and time management
 - Essential skills of administration
-- Financial management- objectives, purposes, principles and scope
+- Financial management- objectives
+- Purposes
+- Principles and scope
 - Planning and preparation of budget
 - Mechanics of purchase and auditing
 - Supervision - objectives, principles and importance of supervision
