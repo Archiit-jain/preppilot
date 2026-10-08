@@ -1,0 +1,26 @@
+name: Syllabus check
+
+# Weekly: have the official syllabus documents behind the template library changed?
+# A failed run means at least one changed; the run summary lists the templates to rebuild.
+
+on:
+  schedule:
+    - cron: '30 3 * * 1' # Mondays 03:30 UTC (09:00 IST)
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Compare official syllabi with the recorded copies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pdftotext
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Check sources
+        run: python supabase/templates-library/tools/check_sources.py

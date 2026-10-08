@@ -94,3 +94,24 @@ The others work the same way, each for one official source:
   and Physical Sciences, from the CSIR HRDG syllabus PDFs.
 
 UPSC CDS, NDA and CMSE are written by hand from their notifications.
+
+## Syllabus change check
+
+`supabase/templates-library/sources.json` lists the official document behind each
+template, with fingerprints of the copy the template was built from.
+`tools/check_sources.py` downloads each one again and compares:
+
+- **unchanged**: nothing to do.
+- **changed**: the text differs. Rebuild the listed templates from the new
+  document, bump their `version`, upload, then record the new copy:
+  `python tools/check_sources.py --record <dir with <key>.pdf>`.
+- **re-saved**: the file differs but its text does not. Nothing to do.
+- **unreachable**: the site did not answer. Check it by hand if it keeps happening.
+
+The **Syllabus check** workflow runs it every Monday and can be started by hand
+from the Actions tab. A failed run means a syllabus changed; its summary lists the
+templates. GitHub emails a failed scheduled run to the repository owner.
+
+It only watches documents it knows. When an exam publishes a new cycle's
+notification at a new address, add that address to `sources.json` and rebuild.
+When adding a template, add its source and record it.

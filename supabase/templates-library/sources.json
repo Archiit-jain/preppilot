@@ -1,0 +1,389 @@
+{
+  "note": "Official documents behind the library. See tools/check_sources.py.",
+  "sources": [
+    {
+      "key": "gate-ga",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/GA_2026_Syllabus.pdf",
+      "templates": [
+        "gate-aerospace",
+        "gate-agricultural",
+        "gate-architecture-planning",
+        "gate-biomedical",
+        "gate-biotechnology",
+        "gate-chemical",
+        "gate-chemistry",
+        "gate-civil",
+        "gate-data-science-ai",
+        "gate-ecology-evolution",
+        "gate-electrical",
+        "gate-electronics-communication",
+        "gate-environmental",
+        "gate-geomatics",
+        "gate-mathematics",
+        "gate-mechanical",
+        "gate-metallurgical",
+        "gate-mining",
+        "gate-naval-marine",
+        "gate-petroleum",
+        "gate-physics",
+        "gate-statistics",
+        "gate-textile",
+        "gate-life-sciences"
+      ],
+      "sha256": "8556714f0cd441b10c533b4fde8b9f4ce0df300168b16dcd23f54b2d08b38820",
+      "textHash": "343d53ed23dd160536f7a15412f8bac884eaed69868854124b897920cb7478b7",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ae",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/AE_2026_Syllabus.pdf",
+      "templates": ["gate-aerospace"],
+      "sha256": "4daa8a49cc6098236faf163828e92abd17f6e83b942baf50df0c06bacd6ec949",
+      "textHash": "ac20324b56fbcb75e20c1a6f02ad2cace0b9584f6f23a4a9337620a7338c9adc",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ag",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/AG_2026_Syllabus.pdf",
+      "templates": ["gate-agricultural"],
+      "sha256": "01109985d8d3c6a305f75e9e956cde0ec235ec0e03c0427cec30d4e5cac91f9c",
+      "textHash": "237aa28fcdd0c81d9974901bf4b20df4717d8aa918738b0e645747cd43474de8",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ar",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/AR_2026_Syllabus.pdf",
+      "templates": ["gate-architecture-planning"],
+      "sha256": "d63124acad675bedf72fcbebbb0735496605e534760bb944b592dc39e6dea0de",
+      "textHash": "03191681cba427a9058cbfebd5ff5fd3bfe15493c9d7ff704868eca957b03379",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-bm",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/BM_2026_Syllabus.pdf",
+      "templates": ["gate-biomedical"],
+      "sha256": "bc654701630496ef3fe1b3381c12a2d093df0598ad9075c809c307ad6c15e2b2",
+      "textHash": "ffec4ee224fcf96a9124257620dfb182c23c38e79648ee52c6f7976f40f869b1",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-bt",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/BT_2026_Syllabus.pdf",
+      "templates": ["gate-biotechnology"],
+      "sha256": "12209026f0451d15c63a3e5355d8368a54de0302e0c7b7b6288e89063434fa7a",
+      "textHash": "c51605391ab2213211b8b57579ca3e6ab819611b27e63f15275b6cf7f49d8db0",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ch",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/CH_2026_Syllabus.pdf",
+      "templates": ["gate-chemical"],
+      "sha256": "5b57e45aa7141cdc3ee0940a2d0b0509d032b0a9f0da1d8e9015e44241247648",
+      "textHash": "68fe440f80ee3336a1729b3c092cba121c30bc5a657a6dc647cf23de07179788",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-cy",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/CY_2026_Syllabus.pdf",
+      "templates": ["gate-chemistry"],
+      "sha256": "848b9150631219b89012aa7b013cf4a9214702523b8c48398dda3cb489efd596",
+      "textHash": "bf5fd3f86fcfb2e2a299f11b035daffb6a1bb8dad24f81f95d88ffe1f9b15f4b",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ce",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/CE_2026_Syllabus.pdf",
+      "templates": ["gate-civil"],
+      "sha256": "38e60328bb973b957be9da414d4dcbae1794f9f7321b79a8ef3fee70ca0d5ebf",
+      "textHash": "7b5f04eafb967d95a378e1083daecd4dfdaa5daa4760533c4ef3372f46a56e69",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-da",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/DA_2026_Syllabus.pdf",
+      "templates": ["gate-data-science-ai"],
+      "sha256": "4edfb576740e3dbaca8bad7895285a851e0a9193c274bf91be3af40aca127962",
+      "textHash": "b6bee9b3d3bc9a43f081a6c036ae59772cc78af74b67d3fb76cdad36f1129f3e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ey",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/EY_2026_Syllabus.pdf",
+      "templates": ["gate-ecology-evolution"],
+      "sha256": "3fd4f674a7d5992f4618b1cecae552b75f2d9a7be5d54b184cd0e40339c0a478",
+      "textHash": "5632157d06a7536718b72669868a6fe65be081e954152bfe155070a466e78680",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ee",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/EE_2026_Syllabus.pdf",
+      "templates": ["gate-electrical"],
+      "sha256": "2fe7a936ec3f23a519fe2e788bc2ebfd6d0e5c9b3064fd466b45392bbe431d44",
+      "textHash": "be1391b4e34bad8e264af21930d3f5d03abe939949e03b812ae2794c88e20790",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ec",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/EC_2026_Syllabus.pdf",
+      "templates": ["gate-electronics-communication"],
+      "sha256": "be75951505bbddfc7432cd3ac74fc9a050cb1d3dcdd1951e18cfb461154af312",
+      "textHash": "3d6e1b1846dc04e2cded5e28431632c5cefb209a4bebeefac54661b33f8ef5aa",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-es",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/ES_2026_Syllabus.pdf",
+      "templates": ["gate-environmental"],
+      "sha256": "f771e7ce89df41422ac0672ff45980edfa8a6be7a30a37314ecb0920a434fa37",
+      "textHash": "1b4f981e4d68217a2005a52067b3132ea05eda426cd93411b162ca155cadea50",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ge",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/GE_2026_Syllabus.pdf",
+      "templates": ["gate-geomatics"],
+      "sha256": "af1814dcecd51db6a1d2471cd9298ab216d2d14cc15241a147454e9cbf5f9dba",
+      "textHash": "a4a755f895c9af77d1250841a6b828475bb7aba8d67f0adb49ff1c221667e796",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ma",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/MA_2026_Syllabus.pdf",
+      "templates": ["gate-mathematics"],
+      "sha256": "ad24a98e67fed8eefc834abb1dd42657dbf8f2f76e51af3ae474e6d565cd4090",
+      "textHash": "7f6ef93ffda1783962e3838a610755b6a06041bcb9813c8f8fc7246cda1af27b",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-me",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/ME_2026_Syllabus.pdf",
+      "templates": ["gate-mechanical"],
+      "sha256": "4f97b0ced0214b951e097fe3578334c5b9db76ddd32352cdfa63ee2a82f06d97",
+      "textHash": "e742d469cbc6a42d9fb79606dc97643feea77f400768c1932772e6b38d49a28f",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-mt",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/MT_2026_Syllabus.pdf",
+      "templates": ["gate-metallurgical"],
+      "sha256": "d4440c2305b014e826251de1743b8d0cc48feb794e6bcda6ff753d38960829d2",
+      "textHash": "dec3f5212d2a6ca16ecd9e7a0abb6e045fb8473defc718c5dadde8088bcd4c55",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-mn",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/MN_2026_Syllabus.pdf",
+      "templates": ["gate-mining"],
+      "sha256": "9ab159af7ce55625e7b0516fc9cb4dabea6cbab45fb83fe70aa41e03eab13c47",
+      "textHash": "be9e5fa022930b5babb1b6ad828f394831120ce4e4499f2912e56d958a33b874",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-nm",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/NM_2026_Syllabus.pdf",
+      "templates": ["gate-naval-marine"],
+      "sha256": "aa66c6c2176ba62d7bcfb91febbc2c5eb3f31e6a82556f426bd05faa6f07a689",
+      "textHash": "3fa0b0e8769ccfa1a9a4315335f126cb57ccdb2af869253cb954e30d609b7939",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-pe",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/PE_2026_Syllabus.pdf",
+      "templates": ["gate-petroleum"],
+      "sha256": "9597b33ed8d18ee4d76b481c240347991449492a2f94dd21d1ce4c7e73caaf7c",
+      "textHash": "d7d2bf26c33f25d4d2e9bb1bcdc5b6a6e10a28e533c8bf4803d33e47b43aaf85",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-ph",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/PH_2026_Syllabus.pdf",
+      "templates": ["gate-physics"],
+      "sha256": "4f588c04e3607cab9894d68cb3007a3b8a13b9e5360c894baabe122ec1cb5770",
+      "textHash": "d0cb7fc6a1bf36de6a94365d22da513ffccdfaacb94834e079df1c00fbf39499",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-st",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/ST_2026_Syllabus.pdf",
+      "templates": ["gate-statistics"],
+      "sha256": "1e8c1f6123085568ead998117906f62f949853941627ffe3e5f57c2222fc4222",
+      "textHash": "f9ef0c043e649dc5c6c6ec863f855d6ea273de482318b492b3e03e4f4e1337c8",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-tf",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/TF_2026_Syllabus.pdf",
+      "templates": ["gate-textile"],
+      "sha256": "2cfca9819e8ba70ac7d4590be315d4088e8d733396845604de82f6a559923482",
+      "textHash": "90fd7a71a47292481fdb78fc332b7415adfbe10f12b1c852f55e0d0bd68b8199",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "gate-xl",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/XL-2026_Combined_Syllabus.pdf",
+      "templates": ["gate-life-sciences"],
+      "sha256": "7176a7684fd5d0707afb3524e5155b6d7d63686bef6d3ee58b8c7f089343c05e",
+      "textHash": "9eba594f82d33058247d8297a0cc42bd59f41c17c5e68dd02e560c8885ad29a0",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-paper-1",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/00-Paper-I/Paper-I_English.pdf",
+      "templates": [
+        "ugc-net-commerce",
+        "ugc-net-computer-science",
+        "ugc-net-environmental-sciences",
+        "ugc-net-law",
+        "ugc-net-management",
+        "ugc-net-physical-education",
+        "ugc-net-political-science",
+        "ugc-net-psychology",
+        "ugc-net-sociology"
+      ],
+      "sha256": "222d54ea40dbbed7c695ef33ddd0d8b02517d7b5ff5ef5b3b415d9cd938dd919",
+      "textHash": "8d9108dbee885729c083baa1350bc2372ea1580af1b43779f9cb807618543213",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-08",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/08/Commerce_English.pdf",
+      "templates": ["ugc-net-commerce"],
+      "sha256": "d3f5f97369f79da02b9b17fcde157f8aaf1c18e9707b4d12cbd9a59db120c1e0",
+      "textHash": "fc7d31451bfbc477a33be40e3742e7fbed3f1c5cc03fdeebc600f3ff93d0b616",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-87",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/87/Computer%20Science%20and%20Applications_English%20Only.pdf",
+      "templates": ["ugc-net-computer-science"],
+      "sha256": "60c40a7ca5e43067e2a20aa5d7fe23a106a74ea72922520a7c5321de741b7378",
+      "textHash": "fd5f54ebaa35575ed72c77cf3e5275f60a026498ab61ec7b25e474ee6b88066d",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-89",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/89/Environmental%20Science_English%20Only.pdf",
+      "templates": ["ugc-net-environmental-sciences"],
+      "sha256": "81af39b2e7e4a35f6e3170921c5ceeb85c5a1586a4d699dd8ffbf120a2f3f707",
+      "textHash": "692bb11e37187696e54c8374b579480a5b98a874acebd01e5125d8d6f117fcb5",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-58",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/58/Law_English.pdf",
+      "templates": ["ugc-net-law"],
+      "sha256": "24236f390f79ae518e4945f4e2bbd46333f064f7bc08600c9075ec066fbc44e3",
+      "textHash": "ebeb6ae1ff1d3a0b8943f761bca15c6d59a382327ab69c2b0d97d3b255bb2972",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-17",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/17/Management_English.pdf",
+      "templates": ["ugc-net-management"],
+      "sha256": "c3bd281b2b754ab4a23ba409cd12709b7af3be3d43602db6cfa168951ebf7156",
+      "textHash": "cf4d53b6c694fa7639180876e2444340aea375c771a05450491898b59d8a18c1",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-47",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/47/Physical%20Education_English.pdf",
+      "templates": ["ugc-net-physical-education"],
+      "sha256": "f682c5ddd0cbd81db8d103665c3abf624dc42cb1ba9a9ee1f31d72457e35206c",
+      "textHash": "d9c2591d24e69a626c8d7ca6cbdc7c5afddd22ca8b42ebab169b0810fe7774a6",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-02",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/02/Political%20Science_English.pdf",
+      "templates": ["ugc-net-political-science"],
+      "sha256": "34dfb63fd2d7ee6fc920a54458e0f1c40263c8a9b66cc5bc6d8c84e80ab6e860",
+      "textHash": "6cc8f191aac40af7a6bab8daf3d84a70f7bebf2254cc9748deca583767fa9ec3",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-04",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/04/Psychology_English.pdf",
+      "templates": ["ugc-net-psychology"],
+      "sha256": "6728da3ef176ca0c95cccd73f27ec2da18ef7338a08d66f9a8da254d28bb67b2",
+      "textHash": "f92bc09b773bd2e0cc199ace2e05a9d9b4cf623596936fd8b07711293b96fc8a",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ugc-net-05",
+      "url": "https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/05/Sociology_English.pdf",
+      "templates": ["ugc-net-sociology"],
+      "sha256": "390db0d6ff7d8c46a43a650fce3f35bd229a307c729dcf2960e51a9d71f9e78b",
+      "textHash": "a47f3cb9db3c6fee75232b9edf880056dabadd022612646d7b1b4b063a1c8fb7",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "upsc-ese-2027",
+      "url": "https://www.upsc.gov.in/sites/default/files/Notif-ESEP-2027-Engl-160926.pdf",
+      "templates": [
+        "upsc-ese-civil",
+        "upsc-ese-mechanical",
+        "upsc-ese-electrical",
+        "upsc-ese-electronics-telecom"
+      ],
+      "sha256": "21ac2a089af079ab4f30c29d26c00e3eb8cd9979ca4d79e2b7cb75595dd94726",
+      "textHash": "f76313d9b8fe08d16d32e567e2e2c3e77d5250649197a557c81df80098caef21",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "upsc-cds-ii-2026",
+      "url": "https://www.upsc.gov.in/sites/default/files/Notif-CDS-II-2026-Engl-200526.pdf",
+      "templates": ["upsc-cds"],
+      "sha256": "4ee10d94a8649eb3e6d4a0015ed538713cc99a232a8861a6d478678266bc1a5d",
+      "textHash": "aa413e67837128dab3e45bf02a9d4cd6f4d49b615287beb301a3c8ec862b753f",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "upsc-nda-ii-2026",
+      "url": "https://www.upsc.gov.in/sites/default/files/Notif-NDA-II-2026-Engl-200526.pdf",
+      "templates": ["upsc-nda"],
+      "sha256": "1a55cc500bf8263f6ade9f94f08e5b414a99ed38252a90242a2bce36dacb3981",
+      "textHash": "190d3bf3ea94e519a2008bf9d7250cb9bec62eb81883939f9d1539301a8b7474",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "upsc-cmse-2026",
+      "url": "https://www.upsc.gov.in/sites/default/files/Notification-CMSE-2026-English-110326.pdf",
+      "templates": ["upsc-cmse"],
+      "sha256": "0ff63a5dee8eb803b2702a3d5ffec01213f619ee9258712c7ef60eaf9fdaa57d",
+      "textHash": "c0bb680d6be7e288d9d17735d575b061be857c2944e4bda3e0f742888ac72a8c",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "csir-net-chem",
+      "url": "https://csirhrdg.res.in/SiteContent/ManagedContent/ContentFiles/20201221135711180chemical_science_syllabus.pdf",
+      "templates": ["csir-net-chemical-sciences"],
+      "sha256": "dd90f54981dc68cf686cba770742bb790265b6bf7b0eeafd54a8fe8045f61154",
+      "textHash": "69afff1b3339921dbbcb856939eb10a61a728d7964b960d4f5f7160ba27b940f",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "csir-net-life",
+      "url": "https://csirhrdg.res.in/SiteContent/ManagedContent/ContentFiles/20260121115025355Merged_Syllabus_CSIR-DBT_21Jan2026.pdf",
+      "templates": ["csir-net-life-sciences"],
+      "sha256": "9b5f9e6cc25e4dc4e09ce48d21411112da517584675707d4e49936b61acae090",
+      "textHash": "c1025ed175d777a8fd0b26d64dcd2c8be8d2108ae79039491c27230e2b937a85",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "csir-net-math",
+      "url": "https://csirhrdg.res.in/SiteContent/ManagedContent/ContentFiles/20201221140054469mathmeticascience_syllbus.pdf",
+      "templates": ["csir-net-mathematical-sciences"],
+      "sha256": "8c9490ae418453735f708bc67fc0e469b287981a8c30f038a64321c1e0b55d99",
+      "textHash": "75c685a077c9a9ad249d576c7bdbf1fc5af66dc29c46081e92943bf651859a3a",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "csir-net-phys",
+      "url": "https://csirhrdg.res.in/SiteContent/ManagedContent/ContentFiles/20201221140202824physicalscience_syllbus.pdf",
+      "templates": ["csir-net-physical-sciences"],
+      "sha256": "a535b91e52ded1f85f4ec08fe101450d23130c6df916f760b560af511e33a468",
+      "textHash": "794cb4f595dbe17bcd9e7ddc89cb3ac5ca8691db68da5127eaf47fa62ab3e00c",
+      "recorded": "2026-10-08"
+    }
+  ]
+}
