@@ -97,6 +97,10 @@ The others work the same way, each for one official source:
 - `rrb_je_to_md.py`: RRB JE Civil, Electrical, Electronics and Mechanical (RRB CEN 05/2025,
   para 13 and Annexure VII A to D).
 
+- `bank_to_md.py`: IBPS PO and Clerk, SBI PO and Clerk. These boards publish no topic
+  syllabus (D113): stages and sections are official; topics are those listed by at least
+  two independent exam analyses, and the script's docstring names them.
+
 UPSC CDS, NDA, CMSE and SSC CHSL and GD are written by hand from their notices.
 
 ## Syllabus change check

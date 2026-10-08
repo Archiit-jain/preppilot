@@ -416,6 +416,54 @@
       "sha256": "2f64db59b775d787ad39c9214d9e408556f93413ca9ef4acb4c1d97b0bae07e6",
       "textHash": "15a61c6abdec896e9e08ffaff4effc2035a582db62851f0b461877549b3141e1",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "ibps-po-xvi",
+      "url": "https://www.ibps.in/wp-content/uploads/Detailed-Notification_CRP-PO-XVI_Final_V1_30.06.2026.pdf",
+      "templates": ["ibps-po"],
+      "sha256": "9379acfcad5750585ead182b5b0660fde89b324a8a2fa79dce9a9a9e69f73ebe",
+      "textHash": "7f7f15f808f19b1c37d89869fbebb3b95bacc959b589de40211efc26652aef83",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ibps-csa-xvi",
+      "url": "https://www.ibps.in/wp-content/uploads/Notification_CRP_CSA_XVI-Final.pdf",
+      "templates": ["ibps-clerk"],
+      "sha256": "1c10773a0e692e0bfd7e0565724420ed4d05756420a88eb5805c684876c0f084",
+      "textHash": "779ccf7e86972314778dc095957c874a3a29bdc52c78bf243ab0d73c7958ec9a",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "sbi-po-2026",
+      "url": "https://sbi.bank.in/documents/77530/57941/18062026_1_Detailed_Adv.2026.pdf/1f1a9532-8a2f-6e59-08a0-616d62a497b1",
+      "templates": ["sbi-po"],
+      "sha256": "22dd33b5141eeb8214937dd4af5121d715bdf85f4a05a2cffdecda3ffe7b509b",
+      "textHash": "a2a4bde70bc6ff08c407f26b3a6d08ef5298a29706ffdcedb332ad6f2125af73",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "sbi-po-2026-handout",
+      "url": "https://sbi.bank.in/documents/77530/57941334/22072026_SBI+%28PO%29+PRE+IH+Eng+2026.pdf/5518888e-7662-47a8-e916-00b1957ca830",
+      "templates": ["sbi-po"],
+      "sha256": "2fe00a51be06ecc6a174869c9b05d0479cdac4effe1efe8392b7ec6c539b5d4b",
+      "textHash": "862f8a3b777df72656aed987404f6732d5c89284d8cefe0e7977fa3acfb4fedf",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "sbi-ja-2026",
+      "url": "https://sbi.bank.in/webfiles/uploads/files_2627/08/JA_2026_Detailed_Advt_Eng.pdf",
+      "templates": ["sbi-clerk"],
+      "sha256": "5018c4660bc945253f56e7b866d8b22114cdf3fff439311d05a67846f426508b",
+      "textHash": "4f0d85845dcea79846e382ef9b3eda5029e8b6df1957099b2892b1f7b2398b0e",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "sbi-ja-2026-handout",
+      "url": "https://sbi.bank.in/webfiles/uploads/files_2627/SBI_Jr_Associates_IH_Phase_I_2026-27_Eng.pdf",
+      "templates": ["sbi-clerk"],
+      "sha256": "f7b4426aa957add2e4f0441c6dbbcfede5c8622259bec42b0212f4b89c32f717",
+      "textHash": "f345ce5c06d442d0d20038df780b7d8ad4d549187b76b4f83016942c36a6b01c",
+      "recorded": "2026-10-08"
     }
   ]
 }
