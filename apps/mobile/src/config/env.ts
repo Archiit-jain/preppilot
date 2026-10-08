@@ -167,3 +167,9 @@ export function themesBaseUrl(raw: RawEnv = bundledEnv): string | null {
   const url = optional(raw.supabaseUrl)?.replace(/\/+$/, '');
   return url === undefined || url === null ? null : `${url}/storage/v1/object/public/themes/`;
 }
+
+/** The cloud template library: the project's public `templates` Storage bucket (D111). */
+export function templatesBaseUrl(raw: RawEnv = bundledEnv): string | null {
+  const url = optional(raw.supabaseUrl)?.replace(/\/+$/, '');
+  return url === undefined || url === null ? null : `${url}/storage/v1/object/public/templates/`;
+}

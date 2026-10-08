@@ -16,3 +16,4 @@ export * from './timer/focus-settings';
 export * from './flashcards/scheduling';
 export * from './ai/study-aids';
 export * from './theme/theme-pack';
+export * from './templates/template-library';

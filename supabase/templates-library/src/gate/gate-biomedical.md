@@ -1,0 +1,218 @@
+---
+id: gate-biomedical
+name: GATE Biomedical Engineering
+description: General Aptitude and the full Biomedical Engineering paper syllabus.
+category: exam
+source: GATE 2026 official syllabus (BM), IIT Guwahati; topics split from the official text.
+verified: false
+version: 1
+---
+# General Aptitude
+## Verbal Aptitude
+- Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
+- Verb-noun agreement and other parts of speech
+- Basic vocabulary: words, idioms and phrases in context
+- Reading and comprehension
+- Narrative sequencing
+## Quantitative Aptitude
+- Data interpretation: bar graphs, pie charts and other graphs
+- 2- and 3-dimensional plots, maps and tables
+- Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
+- Permutations, combinations and series
+- Mensuration and geometry
+- Elementary statistics and probability
+## Analytical Aptitude
+- Logic: deduction and induction
+- Analogy
+- Numerical relations and reasoning
+## Spatial Aptitude
+- Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
+- Paper folding, cutting and patterns in 2 and 3 dimensions
+# Biomedical Engineering
+## Biomedical Engineering
+- Engineering Mathematics
+## Linear Algebra
+- Matrix algebra
+- Systems of linear equations
+- Eigenvalues and eigenvectors
+## Calculus
+- Mean value theorems
+- Theorems of integral calculus
+- Partial derivatives
+- Maxima and minima
+- Multiple integrals
+- Fourier series
+- Vector identities
+- Line
+- Surface and volume integrals
+- Stokes
+- Gauss and Green's theorems
+## Differential equations
+- First order linear and nonlinear differential equations
+- Higher order linear differential equations with constant coefficients
+- Method of separation of variables
+- Cauchy's and Euler's equations
+- Initial and boundary value problems
+- Solution of partial differential equations
+## Analysis of complex variables
+- Analytic functions
+- Cauchy's integral theorem and integral formula
+- Taylor's and Laurent's series
+- Residue theorem
+## Probability and Statistics
+- Sampling theorems
+- Conditional probability
+- Mean
+- Median
+- Mode and standard deviation
+- Random variables
+- Discrete and continuous distributions: normal
+- Poisson and binomial distributions
+- Tests of Significance
+- Statistical power analysis
+- Sample size estimation
+- Linear Regression and correlation analysis
+## Numerical Methods
+- Matrix inversion
+- Numerical solutions of nonlinear algebraic equations
+- Iterative methods for solving differential equations
+- Numerical integration
+- Electrical Circuits
+- Voltage and current sources - independent
+- Dependent
+- Ideal and practical
+- V-i relationships of resistor, inductor and capacitor
+- Transient analysis of RLC circuits with dc excitation
+- Kirchoff’s laws
+- Superposition
+- Thevenin
+- Norton
+- Maximum power transfer and reciprocity theorems
+- Peak, average and rms values of ac quantities
+- Apparent, active and reactive powers
+- Phasor analysis, impedance and admittance
+- Series and parallel resonance
+- Realization of basic filters with R
+- L and C elements
+- Bode plot
+- Signals and Systems
+- Continuous and Discrete Signal and Systems - Periodic, a periodic and impulse signals
+- Sampling theorem
+- Laplace and Fourier transforms
+- Impulse response of systems
+- Transfer function
+- Frequency response of first and second order linear time invariant systems
+- Convolution
+- Correlation
+- Discrete time systems - impulse response
+- Frequency response
+- DFT
+- Z - transform
+- Basics of IIR and FIR filter
+- Analog and Digital Electronics
+- Basic characteristics and applications of diode, BJT and MOSFET
+- Characteristics and applications of operational amplifiers - difference amplifier
+- Adder
+- Subtractor
+- Integrator
+- Differentiator
+- Instrumentation amplifier
+- Buffer
+- Filters and waveform generators
+- Number systems, Boolean algebra
+- Combinational logic circuits - arithmetic circuits
+- Comparators
+- Schmitt trigger
+- Encoder/decoder
+- MUX/DEMUX
+- Multi-vibrators
+- Sequential circuits latches and flip flops
+- State diagrams
+- Shift registers and counters
+- Principles of ADC and DAC
+- Microprocessor- architecture, interfacing memory and input- output devices
+- Measurements and Control Systems
+- SI units
+- Systematic and random errors in measurement
+- Expression of uncertainty accuracy and precision index
+- Propagation of errors
+- PMMC, MI and dynamometer type
+- Instruments
+- DC potentiometer
+- Bridges for measurement of R
+- L and C
+- Q-meter
+- Basics of control system - transfer function
+- Sensors and Bioinstrumentation
+- Sensors - resistive
+- Capacitive
+- Inductive
+- Piezoelectric
+- Hall effect
+- Electro chemical
+- Optical
+- Sensor signal conditioning circuits
+- Application of LASER in sensing and therapy
+- Origin of bio potentials and their measurement techniques - ECG
+- EEG
+- EMG
+- ERG
+- EOG
+- GSR
+- PCG
+- Principles of measuring blood pressure
+- Body temperature
+- Volume and flow in arteries
+- Veins and tissues
+- Respiratory measurements and cardiac output measurement
+- Operating principle of medical equipment-sphygmomanometer
+- Ventilator
+- Cardiac pacemaker
+- Defibrillator
+- Pulse oximeter
+- Hemodialyzer Electrical Isolation (optical and electrical) and Safety of Biomedical Instruments
+- Human Anatomy and Physiology
+- Basics of cell, types of tissues and organ systems
+- Homeostasis
+- Basics of organ systems - musculoskeletal
+- Respiratory
+- Circulatory
+- Excretory
+- Endocrine
+- Nervous
+- Gastrointestinal and reproductive
+- Medical Imaging Systems
+- Basic physics
+- Instrumentation and image formation techniques in medical imaging modalities such as X-Ray
+- Computed Tomography
+- Single Photon Emission Computed Tomography
+- Positron Emission Tomography
+- Magnetic Resonance Imaging
+- Ultrasound
+- Biomechanics
+- Kinematics of muscles and joints - free-body diagrams and equilibrium
+- Forces and stresses in joints
+- Biomechanical analysis of joints
+- Gait analysis
+- Hard Tissues - Definition of Stress and Strain
+- Deformation Mechanics
+- Structure and mechanical properties of bone cortical and cancellous bones
+- Soft Tissues - Structure
+- Functions
+- Material properties
+- Visco elastic properties
+- Maxwell & Voight models
+- Biofluid mechanics - Flow properties of blood in the intact human cardiovascular system
+- Biomaterials
+- Basic properties of biomaterials - Metallic
+- Ceramic
+- Polymeric and Composite
+- Fundamental characteristics of implants - biocompatibility
+- Bioactivity
+- Biodegradability
+- Basics of drug delivery
+- Basics of tissue engineering
+- Biomaterial characterization techniques - Rheology
+- Atomic Force Microscopy
+- Electron Microscopy
+- Transmission Electron Microscopy Fourier Transform Infrared Spectroscopy

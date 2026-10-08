@@ -55,3 +55,4 @@ __pycache__/
 
 # Built theme packs (node supabase/themes/build-themes.mjs); uploaded to Storage, not committed.
 supabase/themes/dist/
+supabase/templates-library/dist/

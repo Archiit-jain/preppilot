@@ -1,0 +1,314 @@
+---
+id: gate-textile
+name: GATE Textile Engineering and Fibre Science
+description: General Aptitude and the full Textile Engineering and Fibre Science paper syllabus.
+category: exam
+source: GATE 2026 official syllabus (TF), IIT Guwahati; topics split from the official text.
+verified: false
+version: 1
+---
+# General Aptitude
+## Verbal Aptitude
+- Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
+- Verb-noun agreement and other parts of speech
+- Basic vocabulary: words, idioms and phrases in context
+- Reading and comprehension
+- Narrative sequencing
+## Quantitative Aptitude
+- Data interpretation: bar graphs, pie charts and other graphs
+- 2- and 3-dimensional plots, maps and tables
+- Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
+- Permutations, combinations and series
+- Mensuration and geometry
+- Elementary statistics and probability
+## Analytical Aptitude
+- Logic: deduction and induction
+- Analogy
+- Numerical relations and reasoning
+## Spatial Aptitude
+- Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
+- Paper folding, cutting and patterns in 2 and 3 dimensions
+# Textile Engineering and Fibre Science
+## Textile Engineering and Fibre Science
+- ENGINEERING MATHEMATICS
+## Linear Algebra
+- Matrices and Determinants
+- Systems of linear equations
+- Eigen values and Eigen vectors
+## Calculus
+- Limit, continuity and differentiability
+- Successive differentiation
+- Partial differentiation
+- Maxima and minima
+- Errors and approximations
+- Definite and improper integrals
+- Sequences and series
+- Test for convergence
+- Power series
+- Taylor series
+## Differential Equations
+- First order linear and non-linear differential equations
+- Higher order linear differential equations with constant coefficients
+- Euler-Cauchy equation
+- Partial differential equations
+- Wave and heat equations
+- Laplace’s equation
+## Probability and Statistics
+- Random variables
+- Poisson, binomial and normal distributions
+- Mean
+- Mode
+- Median
+- Standard deviation
+- Confidence interval
+- Test of hypothesis
+- Correlation analysis
+- Regression analysis
+- Analysis of variance
+- Control charts
+## Numerical Methods
+- Numerical solutions of linear and non-linear algebraic equations
+- Numerical integration by trapezoidal and Simpson’s rules
+- Single-step and multi-step numerical methods for differential equations
+- TEXTILE ENGINEERING AND FIBRE SCIENCE
+# Textile Fibres
+## Textile Fibres
+- Classification of textile fibres
+- Essential requirements of fibre forming polymers
+- Gross and fine structures of natural fibres like cotton
+- Wool
+- Silk
+- Introduction to bast fibres
+- Properties and uses of natural and man-made fibres including carbon
+- Aramid and ultra-high molecular weight polyethylene fibres
+- Physical and chemical methods of fibre and blend identification and blend analysis
+- Molecular architecture
+- Amorphous and crystalline phases
+- Glass transition
+- Plasticization
+- Crystallization
+- Melting
+- Factors affecting Tg and Tm
+- Polymerization of nylon-6
+- Nylon-66
+- Poly (ethylene terephthalate)
+- Polyacrylonitrile and polypropylene
+- Melt spinning processes for PET, polyamide and polypropylene
+- Preparation of spinning dope
+- Principles of wet spinning
+- Dry spinning
+- Dry-jet-wet spinning and gel spinning
+- Spinning of acrylic, viscose and other regenerated cellulosic fibres such as polynosic and lyocell
+- Post spinning operations such as drawing
+- Heat setting
+- Tow-to-top conversion
+- Spin finish composition and applications
+- Different texturing methods
+- Methods of investigating fibre structure such as density
+- X-ray diffraction
+- Birefringence
+- Optical and electron microscopy such as SEM and TEM
+- I.R. spectroscopy
+- Thermal methods such as DSC
+- DMA
+- TMA and TGA
+- Structure and morphology of man-made fibres
+- Mechanical properties of fibres
+- Moisture sorption of fibres
+- Fibre structure-property correlation
+# Yarn Manufacture, Yarn Structure and Properties
+## Yarn Manufacture, Yarn Structure and Properties
+- Principles of ginning
+- Principles of opening, cleaning and blending
+- Working principles of modern blow room machines
+- Fundamentals of carding
+- Conventional vs. modern carding machine
+- Card setting
+- Card clothing
+- Periodic mass variation in card sliver
+- Card auto leveller
+- Principles of roller drawing
+- Roller arrangements in drafting systems
+- Periodic mass
+- Variation in drawn sliver
+- Draw frame auto leveller
+- Principles of cotton combing
+- Combing cycle and mechanisms
+- Recent developments in combing machine
+- Principles of drafting
+- Twisting
+- Bobbin building in roving formation
+- Modern developments in roving machine
+- Principles of drafting, twisting and cop building in ring spinning
+- Causes of end breakages
+- Modern developments in ring spinning machine
+- Working principles of ring doubler and twofor-one twister
+- Relationship between single yarn twist and folded yarn twist
+- Principles of compact
+- Rotor
+- Air-jet
+- Air-vortex
+- Friction
+- Core
+- Wrap and twist-less spinning processes
+- Influence of fibre geometry, fibre configuration and fibre orientation in yarn
+- Fibre packing density of yarn
+- Yarn diameter
+- Yarn twist and its relation to yarn strength
+- Helical arrangement of fibres in yarns
+- Yarn contraction
+- Fibre migration in yarns
+- Stress-strain relation in yarn
+- Mass irregularity of yarn
+- Structure-property relationship in ring
+- Compact
+- Rotor
+- Air-jet and friction spun yarns
+# Fabric Manufacture, Structure and Properties
+## Fabric Manufacture, Structure and Properties
+- Principles of winding processes
+- Classification of winding methods
+- Patterning mechanism
+- Yarn clearers and tensioners
+- Different systems of yarn splicing
+- Warping objectives and classification
+- Different types of warping creels
+- Features of beam and sectional warping machines
+- Different sizing systems
+- Sizing of spun and filament yarns
+- Drawing-in process
+- Principles of pirn winding
+- Primary and secondary motions of loom
+- Shedding motion
+- Positive and negative shedding mechanisms
+- Type of sheds
+- Tappet, dobby and jacquard shedding
+- Weft insertion
+- Mechanics of weft insertion with shuttle
+- Shuttle picking and checking
+- Beat-up
+- Kinematics of sley
+- Loom timing diagram
+- Cam designing
+- Effect of sley setting and cam profile on fabric formation
+- Take- up and Let-off motions
+- Warp and weft stop motions
+- Warp protection
+- Weft replenishment
+- Principles of weft insertion systems of shuttle-less weaving machines such as projectile
+- Rapier
+- Water-jet and air-jet
+- Principles of functioning of multiphase and circular looms
+- Types of selvedges
+- Basic woven fabric constructions and their derivatives
+- Crepe
+- Cord
+- Terry
+- Gauze
+- Leno and double cloth constructions
+- Drawing and lifting plans
+- Fundamentals of weft knitting
+- Classification of weft knitting technologies
+- Weft knitted constructions such as plain
+- Rib
+- Interlock and purl
+- Different knit stitches such as loop, tuck and float
+- Principle of warp knitting
+- Classification of warp knitting technologies
+- Swinging and shogging motion of guide bar
+- Basic warp knit construction such as pillar
+- Tricot
+- Atlas
+- Inlay and nets.Fibre preparation processes for nonwovens
+- Web formation and bonding processes
+- Spun-bonding and melt-blowing technologies
+- Applications of nonwoven fabrics
+- Principles of braiding
+- Type of braids
+- Maypole braiding technology
+- Peirce’s equations for plain woven fabric geometry
+- Elastic a model of plain-woven fabric
+- Thickness, cover and maximum set of woven fabrics
+- Geometry of plain weft knitted loop
+- Munden’s constants and tightness factor for plain weft knitted fabrics
+- Geometry of tubular braids
+# Textile Testing
+## Textile Testing
+- Sampling techniques for fibres, yarns and fabrics
+- Sample size and sampling errors
+- Moisture in textiles
+- Fibre length
+- Fineness
+- Crimp
+- Maturity and trash content
+- Tensile testing of fibres
+- High volume fibre testing
+- Linear density of sliver, roving and yarn
+- Twist and hairiness of yarn
+- Tensile testing of yarns
+- Evenness testing
+- Fault measurement and analysis of yarns
+- Fabric thickness
+- Compressibility
+- Stiffness
+- Shear
+- Drape
+- Crease recovery
+- Tear strength
+- Bursting strength
+- Pilling and abrasion resistance
+- Tensile testing of fabrics
+- Objective evaluation of low stress mechanical characteristics
+- Air permeability
+- Wetting and wicking
+- Water-vapour transmission through fabrics
+- Thermal resistance of fabrics
+# Chemical Processing
+## Chemical Processing
+- Impurities in natural fibre
+- Singeing
+- Chemistry and practice of preparatory processes for cotton
+- Preparatory processing of wool and silk
+- Mercerization of cotton
+- Preparatory processes for manmade fibres and their blends
+- Optical brightening agent
+- Classification of dyes
+- Dyeing of cotton
+- Wool
+- Silk
+- Polyester
+- Nylon and acrylic with appropriate classes of dyes
+- Dyeing of polyester/cotton and polyester/wool blends
+- Dyeing machines
+- Dyeing processes and machines for cotton knitted fabrics
+- Dye-fibre interaction
+- Introduction to thermodynamics and kinetics of dyeing
+- Brief idea about the relation between colour and chemical constitution
+- Beer-Lambert’s law
+- Kubelka-Munk theory and its application in colour measurement
+- Methods for determination of wash, light and rubbing fastness
+- Methods of printing such as roller printing and screen printing
+- Preparation of printing paste
+- Various types of thickeners
+- Printing auxiliaries
+- Direct styles of printing of (i) cotton with reactive dyes
+- Wool
+- Silk
+- Nylon with acid and metal complex dyes
+- Polyester with disperse dyes
+- Resist and discharge printing of cotton, silk and polyester
+- Pigment printing
+- Transfer printing of polyester
+- Inkjet printing
+- Printing faults
+- Mechanical finishing of cotton
+- Stiff
+- Soft
+- Wrinkle resistant
+- Water repellent
+- Flame retardant and enzyme (bio-polishing) finishing of cotton
+- Milling, decatizing and shrink resistant finishing of wool
+- Antistatic and soil release finishing
+- Heat setting of synthetic fabrics
+- Minimum application techniques
+- Pollution control and treatment of effluents

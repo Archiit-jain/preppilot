@@ -1,0 +1,694 @@
+---
+id: gate-life-sciences
+name: GATE Life Sciences
+description: General Aptitude and the full Life Sciences paper syllabus.
+category: exam
+source: GATE 2026 official syllabus (XL), IIT Guwahati; topics split from the official text.
+verified: false
+version: 1
+---
+# General Aptitude
+## Verbal Aptitude
+- Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
+- Verb-noun agreement and other parts of speech
+- Basic vocabulary: words, idioms and phrases in context
+- Reading and comprehension
+- Narrative sequencing
+## Quantitative Aptitude
+- Data interpretation: bar graphs, pie charts and other graphs
+- 2- and 3-dimensional plots, maps and tables
+- Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
+- Permutations, combinations and series
+- Mensuration and geometry
+- Elementary statistics and probability
+## Analytical Aptitude
+- Logic: deduction and induction
+- Analogy
+- Numerical relations and reasoning
+## Spatial Aptitude
+- Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
+- Paper folding, cutting and patterns in 2 and 3 dimensions
+# Chemistry
+## Atomic Structure and Periodicity
+- Planck’s quantum theory
+- Wave particle duality
+- Uncertainty principle
+- Comparison between Bohr’s model and quantum mechanical model of hydrogen atom
+- Electronic configuration of atoms and ions
+- Hund’s rule and Pauli’s exclusion principle
+- Periodic table and periodic properties: ionization energy
+- Electron affinity
+- Electronegativity and atomic size
+## Structure and Bonding
+- Ionic and covalent bonding
+- MO and VB approaches for diatomic molecules
+- VSEPR theory and shape of molecules
+- Hybridization
+- Resonance
+- Dipole moment
+- Structure parameters such as bond length
+- Bond angle and bond energy
+- Hydrogen bonding and van der Waals interactions
+- Ionic solids, ionic radii and lattice energy (Born‐Haber cycle)
+- HSAB principle
+## S, p and d Block Elements
+- Oxides
+- Halides and hydrides of alkali
+- Alkaline earth metals
+- B
+- Al
+- Si
+- N
+- P
+- S
+- General characteristics of 3d elements
+- Coordination complexes: valence bond and crystal field theory
+- Colour
+- Geometry
+- Magnetic properties and isomerism
+## Chemical Equilibria
+- Osmotic pressure
+- Elevation of boiling point and depression of freezing point
+- Ionic equilibria in solution
+- Solubility product
+- Common ion effect
+- Hydrolysis of salts
+- PH
+- Buffer and their applications
+- Equilibrium constants (Kc, Kp, and KX) for homogeneous reactions
+- Section 5: Electrochemistry
+- Conductance
+- Kohlrausch law
+- Cell potentials
+- EMF
+- Nernst equation
+- Thermodynamic aspects and their applications
+## Reaction Kinetics
+- Rate constant
+- Order of reaction
+- Molecularity
+- Activation energy
+- Zero
+- First and second order kinetics
+- Catalysis and elementary enzyme reactions
+- Reversible and irreversible inhibition of enzymes
+## Thermodynamics
+- Qualitative treatment of state and path functions
+- First law
+- Reversible and irreversible processes
+- Internal energy
+- Enthalpy
+- Kirchoff equation
+- Heat of reaction
+- Hess’s law
+- Heat of formation
+- Second law, entropy and free energy
+- Gibbs‐Helmholtz equation
+- Free energy change and spontaneity
+- Free energy changes from equilibrium constant
+- Section 8: Structure-Reactivity Correlations and Organic Reaction Mechanisms
+- Acids and bases
+- Electronic and steric effects
+- Stereochemistry
+- Optical and geometrical isomerism
+- Tautomerism
+- Conformers and concept of aromaticity
+- Elementary treatment of SN1
+- SN2
+- E1
+- E2 and radical reactions
+- Hoffmann/Saytzeff rules
+- Addition reactions
+- Markownikoff rule and Kharasch effect
+- Elementary hydroboration reactions
+- Grignard’s reagents and their uses
+- Aromatic electrophilic substitutions, orientation effect as exemplified by various functional groups
+- Identification of common functional groups by chemical tests
+## Chemistry of Biomolecules
+- Amino acids
+- Proteins
+- Nucleic acids and nucleotides
+- Peptide sequencing by chemical and enzymatic proteolytic methods
+- DNA sequencing by chemical and enzymatic methods
+- Carbohydrates (upto hexoses only)
+- Lipids (triglycerides only)
+- Principles of biomolecule purification-Ion exchange and gel filtration chromatography
+- Identification of these biomolecules and Beer-Lambert’s law
+# Biochemistry
+## Section 1
+- Organization of life
+- Importance of water
+- Structure and function of biomolecules: Amino acids
+- Carbohydrates
+- Lipids
+- Proteins and Nucleic acids
+- Protein structure, folding/misfolding and function
+- Myoglobin
+- Hemoglobin
+- Lysozyme
+- Ribonuclease A
+- Carboxypeptidase and Chymotrypsin
+## Section 2
+- Enzyme kinetics, regulation and inhibition
+- Vitamins and Coenzymes
+- Bioenergetics and metabolism
+- Generation and utilization of ATP
+- Metabolic pathways and their regulation: glycolysis
+- TCA cycle
+- Pentose phosphate pathway
+- Oxidative phosphorylation
+- Gluconeogenesis
+- Glycogen and fatty acid metabolism
+- Metabolism of Nitrogen containing compounds: nitrogen fixation, amino acids and nucleotides
+- Photosynthesis, Calvin cycle
+## Biochemical separation techniques
+- Ion exchange
+- Size exclusion and affinity chromatography
+- Centrifugation
+- Characterization of biomolecules by electrophoresis
+- DNA- protein and protein – protein interactions
+- UV-visible and fluorescence spectroscopy
+- Mass spectrometry
+## Section 5
+- Cell structure and organelles
+- Biological membranes
+- Action potential
+- Transport across membranes
+- Membrane assembly and Protein targeting
+- Signal transduction
+- Receptorligand interaction
+- Hormones and neurotransmitters
+## Section 6
+- DNA replication, transcription and translation
+- DNA damage and repair
+- Biochemical regulation of gene expression
+- Recombinant DNA technology and applications: PCR
+- Site directed mutagenesis
+- DNA-microarray
+- Next generation sequencing
+- Gene silencing and editing
+## Immune System
+- Innate and adaptive
+- Cell of the immune system
+- Active and passive immunity
+- Complement system
+- Antibody structure, function and diversity
+- B cell and T Cell receptors
+- B cell and T cell activation
+- Major histocompatibilty complex
+- Immunological techniques: Immuno diffusion
+- Immune-electrophoresis
+- RIA and ELISA
+- Flow cytometry
+- Monoclonal antibodies and their applications
+# Botany
+## Plant Systematics
+- Botanical nomenclature
+- History of plant taxonomy
+- Diversity and classification of plants
+- APG system of plant classification
+- Phylogenetics and cladistics, molecular taxonomy and DNA barcoding
+- Centers for plant taxonomy and herbaria in India
+## Plant Anatomy
+- Anatomy of root
+- Stem and leaves
+- Floral organs
+- Embryo and young seedlings
+- Primary and secondary meristems
+- Stellar organization
+- Vascular system and their ontogeny
+- Xylem and phloem structure
+- Secondary growth in plants and wood anatomy
+- Plant cell structure and differences from animal cells
+## Plant Development; Cell and Tissue Morphogenesis
+- Life cycle of an angiosperm, development of male and female gametophyte
+- Cell fate determination and tissue patterning
+- Spacing mechanisms in trichomes and stomata
+- Embryogenesis, organization and function of shoot and root apical meristems
+- Transition to flowering: photoperiodism and vernalization
+- ABC model of floral organ patterning
+- Pollen germination
+- Double fertilization
+- Seed development
+- Xylem and phloem cell differentiation, photomorphogenesis
+- Phytochrome
+- Cryptochrome
+- Phototropin
+- Role of auxin
+- Cytokinin
+- Gibberellins
+- Brassinosteroids on plant development
+## Plant Physiology and Biochemistry
+- Plant water relations
+- Mechanisms of uptake and transport of water
+- Ions
+- Solutes from soil to plants
+- Apoplastic and symplastic transport mechanisms
+- Mechanism of stomatal movements
+- Nitrogen metabolism
+- Photosynthesis
+- C3
+- C4 and CAM cycles
+- Photorespiration
+- Respiration: glycolysis
+- TCA cycle and electron transport chain
+- Plant responses and mechanisms of abiotic stresses including drought
+- Salinity
+- Freezing and heat stress
+- Metal toxicity
+- Role of abscisic acid in abiotic stresses
+- Structure and function of biomolecules (proteins, carbohydrates, lipids, nucleic acid)
+- Enzyme kinetics
+- Structure and biosynthesis of major plant secondary metabolites (alkaloids, terpenes, phenylpropanoids, flavonoids)
+- Biosynthesis
+- Mechanism of action and physiological effects of auxin
+- Cytokinin
+- Gibberellic acids
+- Brassinosteroid
+- Ethylene
+- Strigolactone
+- Abscisic acid
+- Salicylic and jasmonic acid
+- Senescence and programmed cell death
+## Genetics and Genomics
+- Cell cycle and cell division
+- Principles of Mendelian inheritance
+- Linkage
+- Recombination
+- Genetic mapping
+- Extra chromosomal inheritance
+- Introduction to epigenetics
+- Gene silencing- transgene silencing
+- Post transcriptional gene silencing
+- MiRNA and siRNA
+- Evolution and
+- Organization of eukaryotic genome structure
+- Gene expression
+- Gene mutation and repair
+- Chromosomal aberrations (numerical: euploidy and aneuploidy and structural: deletion
+- Duplication
+- Inversion
+- Translocation)
+- Transposons
+- Model organisms for functional genetics and genomics
+- Introduction to transcriptomics, proteomics and metabolomics
+## Plant Breeding, Genetic Modification, Genome Editing
+- Principles
+- Methods – selection
+- Hybridization
+- Heterosis
+- Male sterility, genetic maps and
+- Molecular markers
+- Embryo rescue
+- Haploid and doubled haploids
+- Plant tissue culture: micropropagation
+- Embryo culture and in vitro regeneration
+- Somatic embryogenesis
+- Artificial seed
+- Cryopreservation
+- Somaclonal variation
+- Somatic cell hybridization
+- Markerassisted selection
+- Gene transfer methods viz. direct and vector-mediated
+- Generation of transgenic plants
+- Introduction to genome editing: CRISPR/Cas9, Cre-Lox system to generate chimeras
+- Plastid transformation
+- Chemical mutagenesis
+## Economic and Applied Botany
+- A general account of economically and medicinally important plants- cereals
+- Pulses
+- Plants yielding fibers
+- Timber
+- Sugar
+- Beverages
+- Oils
+- Rubber
+- Pigments
+- Dyes
+- Gums
+- Drugs and narcotics
+- Economic importance of algae
+- Fungi
+- Lichen and bacteria
+- Major Indian cash crops
+- Effect of industrialization on agricultural botany such as plastic on fiber economy
+- Genetically modified crops and its regulation, e.g
+- Bt cotton
+- Bt brinjal
+- Golden rice etc
+## Plant Pathology
+- Nature and classification of plant diseases
+- Diseases of important crops caused by fungi
+- Bacteria
+- Nematodes and viruses
+- Their control measures (chemical and biological) mechanism(s) of pathogenesis
+- Resistance: basal
+- Systemic
+- Induced systemic resistance
+- Gene for gene concept
+- Molecular detection of pathogens
+- Plantmicrobe interactions: symbionts and mycorrhiza, pathogens and pests
+- Signaling pathways in plant defence response
+- Salicylic acid (SA) and jasmonic acid (JA) in plantpathogen and plant-herbivore interaction, necrosis
+- Host-parasitic plant interaction (such as Cuscuta)
+## Ecology and Environment
+- Ecosystems – types
+- Dynamics
+- Degradation
+- Biogeochemical cycles
+- Ecological succession
+- Food webs and energy flow through ecosystem
+- Vegetation types of the world
+- Indian vegetation types and biogeographical zones
+- Climate and flora endemism
+- Pollution and global climate change
+- Speciation and extinction
+- Biodiversity and conservation strategies
+- Ecological hotspots
+- Afforestation
+- Habitat restoration
+- Plant interactions with other organisms
+- Epiphytes, parasites and endophytes
+# Microbiology
+## Historical Perspective
+- Discovery of microbial world
+- Landmark discoveries relevant to the field of microbiology
+- Controversy over spontaneous generation
+- Role of microorganisms in transformation of organic matter and in the causation of diseases
+## Methods in Microbiology
+- Pure culture techniques
+- Principles of microbial nutrition
+- Enrichment culture techniques for isolation of microorganisms
+- Antigen and antibody detection methods for microbial diagnosis
+- Light-
+- Phase contrast-
+- Fluorescence- and electron-microscopy
+- PCR, real-time PCR for quantitation of microbes
+- Next generation sequencing technologies in microbiology
+## Microbial Taxonomy and Diversity
+- Bacteria, Archea and their broad classification
+- Eukaryotic microbes: Yeasts, molds and protozoa
+- Viruses and their classification
+- Molecular approaches to microbial taxonomy and phylogeny
+## Prokaryotic Cells
+- Cell walls
+- Cell membranes and their biosynthesis
+- Mechanisms of solute transport across membranes
+- Flagella and Pili
+- Capsules
+- Cell inclusions like endospores and gas vesicles
+- Bacterial locomotion, including positive and negative chemotaxis
+## Microbial Growth
+- Definition of growth
+- Growth curve
+- Mathematical expression of exponential growth phase
+- Measurement of growth and growth yields
+- Synchronous growth
+- Continuous culture
+- Effect of environmental factors on growth
+- Bacterial biofilm and biofouling
+## Disinfection and Sterilization
+- Principles, methods and assessment of efficacy
+## Energetics
+- Redox reactions and electron carriers
+- Electron transport and oxidative phosphorylation
+- An overview of metabolism
+- Glycolysis
+- Pentose-phosphate pathway
+- Entner-Doudoroff pathway
+- Glyoxalate pathway
+- The citric acid cycle
+- Fermentation
+- Aerobic and anaerobic respiration
+- Chemolithotrophy
+- Photosynthesis
+- Calvin cycle
+- Biosynthetic pathway for fatty acids synthesis
+- Common regulatory mechanisms in synthesis of amino acids
+- Regulation of major metabolic pathways
+## Microbial Diseases and Host Pathogen Interaction
+- Normal microbiota
+- Classification of infectious diseases
+- Reservoirs of infection
+- Nosocomial infection
+- Opportunistic infections
+- Emerging infectious diseases
+- Mechanism of microbial pathogenicity
+- Nonspecific defense of host
+- Antigens and antibodies
+- Humoral and cell mediated immunity
+- Vaccines
+- Passive immunization
+- Immune deficiency
+- Human diseases caused by viruses
+- Bacteria
+- Pathogenic fungi
+## Chemotherapy/Antibiotics
+- General characteristics of antimicrobial drugs
+- Antibiotics: Classification molecular mechanism of mode of action and resistance
+- Antifungal and antiviral drugs
+## Microbial Genetics
+- Types of mutation
+- UV and chemical mutagens
+- Selection of mutants
+- Ames test for mutagenesis
+- Bacterial genetic system: transformation
+- Conjugation
+- Transduction
+- Recombination
+- Plasmids
+- Transposons
+- DNA repair
+- Regulation of gene expression: repression and induction
+- Operon model
+- Bacterial genome with special reference to E.coli
+- Phage λ and its life cycle
+- RNA
+- Mutation in virus genomes, virus recombination and reassortment
+- Basic concept of microbial genomics
+## Microbial Ecology
+- Microbial interactions
+- Carbon, sulphur and nitrogen cycles
+- Soil microorganisms associated with vascular plants
+- Bioremediation
+- Uncultivable microorganisms
+- Basic concept of metagenomics and metatranscriptomics
+# Zoology
+## Animal Diversity
+- Distribution
+- Systematics and classification of animals
+- Phylogenetic relationships (based on classical and molecular phylogenetic tools)
+## Evolution
+- Origin and history of life on earth
+- Theories of evolution
+- Natural selection
+- Adaptation
+- Speciation
+## Genetics
+- Basic Principles of inheritance
+- Molecular basis of heredity
+- Sex determination and sexlinked characteristics
+- Cytoplasmic inheritance
+- Linkage
+- Recombination and mapping of genes in eukaryotes
+- Population genetics
+- Genetic disorders
+- Roles of model organisms in understanding genetic principles
+## Biochemistry and Molecular Biology
+- Nucleic acids
+- Proteins
+- Lipids and carbohydrates
+- Replication
+- Transcription and translation
+- Krebs cycle
+- Glycolysis
+- Enzyme catalysis
+- Hormones and their actions
+- Roles of vitamins and minerals
+## Cell Biology
+- Basic principles of cellular microscopy
+- Structure of cell
+- Cytoskeletal organization
+- Cellular organelles and their structure and function
+- Cell cycle
+- Cell division
+- Chromosomes and chromatin structure
+## Gene expression in Eukaryotes
+- Eukaryotic genome organization and regulation of gene expression, transposable elements
+## Animal Anatomy and Physiology
+- Comparative physiology
+- The respiratory system
+- Muscular system
+- Circulatory system
+- Digestive system
+- The nervous system
+- The excretory system
+- The endocrine system
+- The reproductive system
+- The skeletal system
+## Parasitology and Immunology
+- Nature of parasite
+- Host-parasite relation
+- Protozoan and helminthic parasites
+- The immune response
+- Cellular and humoral immune response
+## Development Biology
+- Gametogenesis
+- Embryonic development
+- Cellular differentiation
+- Organogenesis
+- Metamorphosis
+- Model organisms used in developmental biology
+- Genetic and molecular basis of development
+- Stem cells
+## Ecology
+- The ecosystem
+- Animal distribution
+- Ecological niche and its contribution to ecological diversity
+- The food chain
+- Population dynamics
+- Species diversity
+- Zoogeography
+- Biogeochemical cycles
+- Conservation biology
+- Ecotoxicology
+## Animal Behaviour
+- Type of behaviours
+- Courtship
+- Mating and territoriality
+- Instinct
+- Learning and memory
+- Social behaviour across the animal taxa
+- Communication
+- Pheromones
+- Evolution of behavior in animals
+# Food Technology
+## Carbohydrates
+- Structure and functional properties of mono-
+- Oligo-
+- & poly- saccharides including starch
+- Cellulose
+- Pectic substances and dietary fibre
+- Gelatinization and retrogradation of starch
+- Proteins: classification and structure of proteins in food
+- Biochemical changes in post mortem and tenderization of muscles
+- Lipids: classification and structure of lipids
+- Rancidity
+- Polymerization and polymorphism
+- Pigments: carotenoids
+- Chlorophylls
+- Anthocyanins
+- Tannins and myoglobin
+- Food flavours: terpenes
+- Esters
+- Aldehydes
+- Ketones and quinines
+- Enzymes: specificity
+- Simple and inhibition kinetics
+- Coenzymes
+- Enzymatic and non- enzymatic browning
+- Nutrition: balanced diet
+- Essential amino acids and essential fatty acids
+- Protein efficiency ratio
+- Water soluble and fat soluble vitamins
+- Role of minerals in nutrition
+- Co-factors
+- Anti-nutrients
+- Nutraceuticals
+- Nutrient deficiency diseases
+- Chemical and biochemical changes: changes occur in foods during different processing
+## Characteristics of Microorganisms
+- Morphology of bacteria
+- Yeast
+- Mold and actinomycetes
+- Spores and vegetative cells
+- Gram-staining
+- Microbial growth: growth and death kinetics, serial dilution technique
+- Food spoilage: spoilage microorganisms in different food products including milk
+- Fish
+- Meat
+- Egg
+- Cereals and their products
+- Toxins from microbes: pathogens and non-pathogens including Staphylococcus
+- Salmonella
+- Shebelle
+- Escherichia
+- Bacillus
+- Clostridium
+- Aspergillums genera
+- Fermented foods and beverages: curd
+- Yoghurt
+- Cheese
+- Pickles
+- Soya-sauce
+- Sauerkraut
+- Idly
+- Dose
+- Vinegar
+- Alcoholic beverages and sausage
+## Processing Principles
+- Thermal processing
+- Chilling
+- Freezing
+- Dehydration
+- Addition of preservatives and food additives
+- Irradiation
+- Fermentation
+- Hurdle technology
+- Intermediate moisture foods
+- Food pack aging and storage: packaging materials
+- Aseptic packaging
+- Controlled and modified atmosphere storage
+- Cereal processing and products: milling of rice
+- Wheat
+- Maize
+- Parboiling of paddy
+- Bread
+- Biscuits
+- Extruded products and ready to eat breakfast cereals
+- Oil processing: expelling
+- Solvent extraction
+- Refining and hydrogenation
+- Fruits and vegetables processing: extraction
+- Clarification
+- Concentration and packaging of fruit juice
+- Jam
+- Jelly
+- Marmalade
+- Squash
+- Candies
+- Tomato sauce
+- Ketchup
+- Puree
+- Potato chips
+- Pickles
+- Plantation crops processing and products: tea
+- Coffee
+- Cocoa
+- Spice
+- Extraction of essential oils and oleoresins from spices
+- Milk and milk products processing: pasteurization and sterilization
+- Cream
+- Butter
+- Ghee
+- Ice- cream
+- Cheese and milk powder
+- Processing of animal products: drying
+- Canning
+- Freezing of fish and meat
+- Production of egg powder
+- Waste utilization: pectin from fruit astes, uses of by-products from rice milling
+- Food standards and quality maintenance: FPO
+- PFA
+- A-Mark
+- ISI
+- HACCP
+- Food plant sanitation and cleaning in place (CIP)
+## Mass and energy balance
+- Momentum transfer: Flow rate and pressure drop relationships for Newtonian fluids flowing through pipe
+- Reynolds number
+- Heat transfer: heat transfer by conduction
+- Convection
+- Radiation
+- Heat exchangers
+- Mass transfer: molecular diffusion and

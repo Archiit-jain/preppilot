@@ -2,13 +2,15 @@ import {
   TEMPLATE_CATEGORIES,
   bundledTemplates,
   countTemplate,
+  searchCatalog,
   searchTemplates,
   templatesInCategory,
   type SyllabusTemplate,
+  type TemplateCatalogEntry,
   type TemplateCategory,
 } from '@preppilot/shared';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import {
   AppHeader,
@@ -26,6 +28,7 @@ import { useAuthStore } from '../auth/auth-store';
 import { useTrackersStore } from '../trackers/trackers-store';
 import { useTheme } from '../../theme/theme-context';
 import { importTemplate } from './import-template';
+import { useTemplateLibraryStore } from './template-library-store';
 
 type Filter = TemplateCategory | 'all';
 
@@ -60,6 +63,30 @@ export function TemplatesScreen() {
   // Category first, then the query, so a search runs inside the filter a
   // student can see rather than silently ignoring it.
   const visible = searchTemplates(templatesInCategory(bundledTemplates, filter), query);
+
+  // The online library, listed after the bundled templates and filtered the
+  // same way. A template that also ships with the app is shown once, bundled.
+  const library = useTemplateLibraryStore();
+  const loadLibrary = library.load;
+  useEffect(() => {
+    if (useTemplateLibraryStore.getState().status === 'idle') void loadLibrary();
+  }, [loadLibrary]);
+  const bundledIds = new Set(bundledTemplates.map((template) => template.id));
+  const online = searchCatalog(
+    library.entries.filter(
+      (entry) => !bundledIds.has(entry.id) && (filter === 'all' || entry.category === filter),
+    ),
+    query,
+  );
+  const total = visible.length + online.length;
+
+  const openOnline = async (entry: TemplateCatalogEntry) => {
+    setError(null);
+    const template = await library.open(entry);
+    if (template === null) return;
+    setPreviewing(template);
+    void countWhatIsAlreadyThere();
+  };
 
   const confirmImport = async () => {
     if (previewing === null || userId === null) return;
@@ -142,7 +169,7 @@ export function TemplatesScreen() {
           hint={
             query.trim().length === 0
               ? undefined
-              : `${visible.length} ${visible.length === 1 ? 'template' : 'templates'}`
+              : `${total} ${total === 1 ? 'template' : 'templates'}`
           }
         />
 
@@ -158,7 +185,7 @@ export function TemplatesScreen() {
           ))}
         </View>
 
-        {visible.length === 0 ? (
+        {total === 0 ? (
           query.trim().length > 0 ? (
             <EmptyState
               title="No template matches that"
@@ -201,6 +228,61 @@ export function TemplatesScreen() {
               </Pressable>
             );
           })
+        )}
+
+        {online.map((entry) => {
+          const opening = library.opening === entry.id;
+          return (
+            <Pressable
+              key={entry.id}
+              accessibilityRole="button"
+              accessibilityLabel={entry.name}
+              accessibilityHint="Downloads the syllabus and opens a preview"
+              accessibilityState={{ busy: opening }}
+              disabled={library.opening !== null}
+              onPress={() => void openOnline(entry)}
+              testID={`template-${entry.id}`}
+            >
+              <Card>
+                <Text variant="bodyLarge" weight="semibold">
+                  {entry.name}
+                </Text>
+                <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
+                  {entry.description}
+                </Text>
+                <Text variant="caption" tone="muted" style={{ marginTop: theme.spacing.sm }}>
+                  {opening
+                    ? 'Downloading…'
+                    : `${entry.counts.subjects} subjects · ${entry.counts.chapters} chapters · ${entry.counts.topics} topics · online`}
+                </Text>
+              </Card>
+            </Pressable>
+          );
+        })}
+
+        {library.error !== null && (
+          <Text variant="small" tone="danger" accessibilityRole="alert" testID="library-error">
+            {library.error}
+          </Text>
+        )}
+        {library.status === 'loading' && (
+          <Text variant="small" tone="muted" testID="library-loading">
+            Loading more templates…
+          </Text>
+        )}
+        {library.status === 'failed' && (
+          <View style={{ gap: theme.spacing.sm }}>
+            <Text variant="small" tone="secondary" testID="library-failed">
+              Couldn't load the online templates. Check your connection.
+            </Text>
+            <Button
+              label="Try again"
+              size="small"
+              variant="ghost"
+              testID="library-retry"
+              onPress={() => void library.load()}
+            />
+          </View>
         )}
 
         <Card>

@@ -233,6 +233,13 @@ confirmed before building.
 | ---- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | D110 | The **Continue tracking** card under the tracker's greeting is removed, with the code that chose what to continue. The greeting stays. | The project owner found it annoying. Every subject's play button already starts its timer in one tap. |
 
+## 17. A cloud template library (8 October 2026)
+
+| #    | Decision                                                                                                                                                                                                                                                    | Why                                                                                                                                                                       |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| D111 | Templates beyond the bundled core live in a public `templates` Storage bucket (`catalog.json`, `templates/<id>.json`), listed on the Templates screen with the bundled ones and downloaded only when opened.                                                | About 155 new templates at topic level would have added roughly 3 MB to the app. The project owner chose the cloud, as for themes. Imported templates still work offline. |
+| D112 | Which exams to cover was compared against another app's template list, using **names only**. All content comes from official syllabi (or a named curriculum for skills), recorded per template. Script-split templates are `verified: false` until checked. | Copying another app's syllabus content would take its work. Official syllabi are public and are the authority anyway.                                                     |
+
 ---
 
 ## Open items
