@@ -113,6 +113,10 @@ The others work the same way, each for one official source:
 - `cisce_to_md.py`: ICSE Class 9 and 10 and ISC Class 11 and 12 (Science, Commerce, Humanities),
   from the ICSE 2027 and ISC 2027 subject syllabuses. English is transcribed in the script.
 
+- `intl_to_md.py`: CFA Levels I-III (CFA Institute topic outlines), USMLE (content outline), MCAT
+  (AAMC outline), SMLE (SCFHS guide), GCSE (DfE subject content), and SAT, GRE, GMAT, TOEFL, IELTS,
+  LSAT and MRCS Part A transcribed from the owners' pages. GMAT's Quant topics follow D113.
+
 UPSC CDS, NDA, CMSE, SSC CHSL and GD, and CSEET are written by hand from their notices.
 
 ## Syllabus change check

@@ -969,6 +969,182 @@
       "sha256": "9cd2247bef4061871e68182a48972330986e42213d15b3a1ee5950ad76d8d18a",
       "textHash": "79bd28f749987cbed31e90d56372d8c155c41202685d6521c36cfb47e12bcfc8",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "cfa-2026-level-1",
+      "url": "https://www.cfainstitute.org/sites/default/files/docs/programs/cfa-program/2026-l1-topics-combined.pdf",
+      "templates": ["cfa-level-1"],
+      "sha256": "2d2971832c76e7691c9a9417331c5dad7d0a655ac77dc21bf412ac40e67dedf8",
+      "textHash": "f851baa90af87c277a58a3a4f44fbcbf7aa937368dbc5aecf007d58384b8aea4",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "cfa-2026-level-2",
+      "url": "https://www.cfainstitute.org/sites/default/files/docs/programs/cfa-program/2026-l2-topics-combined.pdf",
+      "templates": ["cfa-level-2"],
+      "sha256": "4711f8a843b9109dc0e7fbcc50f6ebe4109ab6d1580e3743574f36cddcb09e0e",
+      "textHash": "274382e98b80521999074a9238b9877160c78de6786e99e450f1f506698d3499",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "cfa-2026-level-3-pm",
+      "url": "https://www.cfainstitute.org/sites/default/files/docs/programs/cfa-program/2026leveliii-portfolio-management-pathwaytopicoutline_online.pdf",
+      "templates": ["cfa-level-3"],
+      "sha256": "063c461ba7ab369b3ad4945e620b4077f28d49c893b9af76980ba9a4923a36d2",
+      "textHash": "8695e8ef289a67df59b882246d554881fd758dad830cb85d5b4b95ccf4af523a",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "cfa-2026-level-3-pmk",
+      "url": "https://www.cfainstitute.org/sites/default/files/docs/programs/cfa-program/2026leveliii-private-markets-pathwaytopicoutline_online.pdf",
+      "templates": ["cfa-level-3"],
+      "sha256": "b6d663443715f02b90e9cec34c78fa05d6eb45f7e1e8eb46f854a247ed4fab1a",
+      "textHash": "1d7d5c9582f523e055781fd83723923bcf8ea1d766d00f26ec6e23a78b0d5863",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "cfa-2026-level-3-pw",
+      "url": "https://www.cfainstitute.org/sites/default/files/docs/programs/cfa-program/2026leveliii-private-wealth-pathwaytopicoutline_online.pdf",
+      "templates": ["cfa-level-3"],
+      "sha256": "674aec45b29e7204239f654b2d907dc0193e38ff4767327e88e97bb2d775bd84",
+      "textHash": "32fcf7839aa3131de270eae697857e62f6cb34d99c176b5e12a4554fd1e3124f",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "usmle-content-outline",
+      "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
+      "templates": ["usmle"],
+      "sha256": "3d793f7c80655e364ed4216dcc5b5e4d14e6331225d97ecdf6ccbcb372fb21a9",
+      "textHash": "68fafe1708a52277d790419555b57bcb8e7dea0048219891e5bb1a93ffdad6d9",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "aamc-mcat-outline",
+      "url": "https://students-residents.aamc.org/media/9261/download",
+      "templates": ["mcat"],
+      "sha256": "324858748d5e7396b4441f659fec94a4b5f590ea87d9de73b3f2f7c56848132d",
+      "textHash": "4ababb5a9a71d94fa0b57b497e7776de9253ecd345935db9b84928fa7b515e8d",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "collegeboard-sat-framework",
+      "url": "https://satsuite.collegeboard.org/media/pdf/assessment-framework-for-digital-sat-suite.pdf",
+      "templates": ["sat"],
+      "sha256": "e1238b7840eb4c9af93a20e1bc415eafbf316b6a8adc6c131df5345ddca9549b",
+      "textHash": "4f0708361d86f58fa1a490c909202ac6e2584d40d7ea34024d9d6e155acf5552",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "scfhs-smle-guide-2024",
+      "url": "https://scfhs.org.sa/sites/default/files/2024-07/SMLE%20Applicant%20Guide%202024.pdf",
+      "templates": ["smle"],
+      "sha256": "2c3a5607eb0cff201a5eb1c8894000efb03a32b72daf0c865f916620c9fcee33",
+      "textHash": "1d5391c0f28957539cc28716fc6ada84733b18d3362565502e5dbc9107fa61cd",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "mrcs-content-guide",
+      "url": "https://rcpsg.ac.uk/sites/default/files/2025-04/MRCS%20content%20guide.pdf",
+      "templates": ["mrcs-part-a"],
+      "sha256": "74be331f98cc14e5b5d31631d85baba4cb060fb164496c1de51c7d8f86617b50",
+      "textHash": "146d90b6ded788f71f5c127a4a24982e150169d6aa65938c9d9ab229d6dfef57",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dfe-gcse-maths",
+      "url": "https://assets.publishing.service.gov.uk/media/5a7cb5b040f0b6629523b52c/GCSE_mathematics_subject_content_and_assessment_objectives.pdf",
+      "templates": ["gcse"],
+      "sha256": "647a751b51c71d9ced1c9356aa70b15ceb1a4acb2fd5bc9af49619ead06d0ee6",
+      "textHash": "41276fae393afab63bb9309fd21046585fb879c5327fbb022bfa9647d0027679",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dfe-gcse-combined-science",
+      "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/800339/Combined_science_GCSE_updated_May_2019.pdf",
+      "templates": ["gcse"],
+      "sha256": "3449916da7a1be1d512521613422d773cd2a672d7b46bde7a74306ed39dd6c2c",
+      "textHash": "5fc45e197f6432f53bcd5233017c00df21e1d3de724e35344747e8898b9e1e81",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dfe-gcse-english-language",
+      "url": "https://assets.publishing.service.gov.uk/media/5a7bfd7640f0b63f7572aa8b/GCSE_English_language.pdf",
+      "templates": ["gcse"],
+      "sha256": "41c4d4f6d1b1afb8c0d2a39d436b7a33f793cc495565da3ebc085ff81ad962bc",
+      "textHash": "ca552d7a58420c270c31aba4fd0dd13d3f6fcfc3aa04ad5baa8f474dd3b55959",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dfe-gcse-english-literature",
+      "url": "https://assets.publishing.service.gov.uk/media/5a7ca069e5274a29d8363d20/GCSE_English_literature.pdf",
+      "templates": ["gcse"],
+      "sha256": "6dec6fc05dd8998b5d6de5311826e98a396346c3593003c182fefa6b88d3165a",
+      "textHash": "77cd1139f0e3e5ba36ca76b99470fd8a2e9f10d99bd81fd2f9a6995c7ba54987",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dfe-gcse-geography",
+      "url": "https://assets.publishing.service.gov.uk/media/5a7d5754e5274a33be64898e/GCSE_geography.pdf",
+      "templates": ["gcse"],
+      "sha256": "d1a03fc3ff0027f34bc623927ac67206500bbfc0c5c28eef853488fa60359ccc",
+      "textHash": "c22bea05c8f98c623da5cbe7bc4ccdb397a305cd32abb98d31e749bc7d0eff90",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "dfe-gcse-history",
+      "url": "https://assets.publishing.service.gov.uk/media/5a7ef7ad40f0b6230268ca9a/history_GCSE_formatted.pdf",
+      "templates": ["gcse"],
+      "sha256": "5876104c5aea578b7d2f431e59412db23870aa2d8749a88123531722356f4100",
+      "textHash": "39378e47e802fba613cb8d00e284cb9a6e75432b89a8e8d4400fea8a81503ad9",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ets-gre-quant",
+      "url": "https://www.ets.org/gre/test-takers/general-test/prepare/content/quantitative-reasoning.html",
+      "templates": ["gre-general"],
+      "sha256": "1302c4ce147371744ac3e0ce4f3de21473bb5f8d64d59cff10e1c60bcfb10181",
+      "textHash": "1302c4ce147371744ac3e0ce4f3de21473bb5f8d64d59cff10e1c60bcfb10181",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ets-toefl-content",
+      "url": "https://www.ets.org/toefl/test-takers/ibt/about/content.html",
+      "templates": ["toefl"],
+      "sha256": "dd4363bae7897eca9e250b042c48479aead457dfd7af18a10c2ab6e454d22dd2",
+      "textHash": "dd4363bae7897eca9e250b042c48479aead457dfd7af18a10c2ab6e454d22dd2",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ielts-academic-reading",
+      "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading",
+      "templates": ["ielts"],
+      "sha256": "c362dc4ddd57474adbce5e8e34162fde78a749dec22bddf481b475ab843e13bc",
+      "textHash": "c362dc4ddd57474adbce5e8e34162fde78a749dec22bddf481b475ab843e13bc",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "ielts-academic-listening",
+      "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-listening",
+      "templates": ["ielts"],
+      "sha256": "120b8cbb15e280dbd15f147bde4081c6c7d845dbc0e55ececb0f47f86b1d9771",
+      "textHash": "120b8cbb15e280dbd15f147bde4081c6c7d845dbc0e55ececb0f47f86b1d9771",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "lsac-lsat-logical-reasoning",
+      "url": "https://www.lsac.org/lsat/taking-lsat/test-format/logical-reasoning",
+      "templates": ["lsat"],
+      "sha256": "59c606877285564bf3b91ebb9f4c6b736679ad018fb938a785cef8db2d747c4f",
+      "textHash": "59c606877285564bf3b91ebb9f4c6b736679ad018fb938a785cef8db2d747c4f",
+      "recorded": "2026-10-08"
+    },
+    {
+      "key": "lsac-lsat-reading-comprehension",
+      "url": "https://www.lsac.org/lsat/taking-lsat/test-format/reading-comprehension",
+      "templates": ["lsat"],
+      "sha256": "fe4c1a0e4e4c4566bb43282662cd2f14b7dda0966612c33075bd7a64ab94ddcc",
+      "textHash": "fe4c1a0e4e4c4566bb43282662cd2f14b7dda0966612c33075bd7a64ab94ddcc",
+      "recorded": "2026-10-08"
     }
   ]
 }
