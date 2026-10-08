@@ -7,35 +7,49 @@ source: GATE 2026 official syllabus (MN), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Engineering Mathematics
+
 ## Linear Algebra
+
 - Matrices and Determinants
 - Inverse and Rank of matrix
 - Systems of linear equations
 - Eigen values and Eigen vectors
 - Cayley-Hamilton Theorem
+
 ## Calculus
+
 - Limit, continuity and differentiability
 - Partial Derivatives
 - Mean value theorems
@@ -45,36 +59,49 @@ version: 1
 - Sequences and series
 - Test for convergence
 - Fourier series
+
 ## Vector Calculus
+
 - Gradient
 - Divergence and Curl
 - Line
 - Surface and volume integrals
 - Stokes, Gauss and Green’s theorems
+
 ## Differential Equations
+
 - Linear and non-linear first order ODEs
 - Higher order linear ODEs with constant coefficients
 - Cauchy’s and Euler’s equations
+
 ## Probability and Statistics
+
 - Measures of central tendency and dispersion
 - Hypothesis testing
 - Binomial
 - Poisson
 - Exponential and normal distributions
 - Correlation and regression analysis
+
 ## Numerical Methods
+
 - Solutions of linear algebraic equations
 - Interpolation
 - Integration of trapezoidal and Simpson’s rule
 - Single and multi-step methods for differential equations
+
 # Mining Geology, Mine Development and Surveying
+
 ## Mining Geology
+
 - Minerals
 - Rocks and their Origin
 - Classification
 - Ore Genesis
 - Structural Geology
+
 ## Mine Development
+
 - Methods of access to deposits
 - Underground drivages
 - Drilling method and machines
@@ -82,7 +109,9 @@ version: 1
 - Blasting devices
 - Blast design practices
 - RockTool Interaction applicable to mechanical cutting systems and their selection
+
 ## Mine Surveying
+
 - Levels and levelling
 - Theodolite
 - Tacheometry
@@ -97,8 +126,11 @@ version: 1
 - Total Station
 - GPS
 - Basics of GIS and remote sensing
+
 # Geomechanics and Ground Control
+
 ## Engineering Mechanics
+
 - Equivalent force systems
 - Equations of equilibrium
 - Two dimensional frames and trusses
@@ -106,7 +138,9 @@ version: 1
 - Friction forces
 - Particle kinematics and dynamics
 - Beam analysis
+
 ## Geomechanics
+
 - Geo-technical properties of rocks
 - Rock mass classification
 - Instrumentation and in-situ stress measurement techniques
@@ -115,13 +149,18 @@ version: 1
 - Stress distribution around mine openings
 - Subsidence
 - Slope stability
+
 ## Ground Control
+
 - Design of pillars
 - Roof supporting systems
 - Mine filling
 - Strata Control and Monitoring Plan
+
 # Mining Methods and Machinery
+
 ## Mining Methods
+
 - Surface mining: layout
 - Development
 - Loading
@@ -136,7 +175,9 @@ version: 1
 - Supported and caved stoping methods
 - Stope
 - Mechanization, ore handling systems
+
 ## Mining Machinery
+
 - Generation and transmission of mechanical, hydraulic and pneumatic power
 - Materials handling: wire ropes
 - Haulages
@@ -145,15 +186,20 @@ version: 1
 - Hoisting systems
 - Pumps
 - Comminution methods and machinery
+
 # Surface Environment, Mine Ventilation and Underground Hazards
+
 ## Surface Environment
+
 - Air
 - Water and soil pollution: Standards of quality
 - Causes and dispersion of contamination and control
 - Noise pollution and control
 - Land reclamation
 - EIA
+
 ## Mine Ventilation
+
 - Underground atmosphere
 - Heat load sources and thermal environment, air cooling
 - Mechanics of airflow
@@ -163,7 +209,9 @@ version: 1
 - Auxiliary ventilation
 - Ventilation survey and planning
 - Ventilation networks
+
 ## Underground Hazards
+
 - Mine Gases, Methane drainage
 - Underground hazards from fires
 - Explosions
@@ -175,13 +223,18 @@ version: 1
 - Mine lighting
 - Mine legislation
 - Occupational health and safety
+
 # Mineral Economics, Mine Planning, Systems Engineering
+
 ## Mineral Economics
+
 - Mineral resource classification
 - Discounted cash flow analysis
 - Mine valuation
 - Mineral taxation
+
 ## Mine Planning
+
 - Sampling methods, practices and interpretation
 - Reserve estimation techniques: Basics of geostatistics and quality control
 - Optimization of facility location
@@ -191,7 +244,9 @@ version: 1
 - Stope planning
 - Design of haul road
 - Selection of mining system vis-à-vis equipment system
+
 ## Systems Engineering
+
 - Concepts of reliability
 - Reliability of simple systems
 - Maintainability and availability

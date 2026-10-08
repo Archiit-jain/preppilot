@@ -7,35 +7,51 @@ source: GATE 2026 official syllabus (TF), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Textile Engineering and Fibre Science
+
 ## Textile Engineering and Fibre Science
+
 - ENGINEERING MATHEMATICS
+
 ## Linear Algebra
+
 - Matrices and Determinants
 - Systems of linear equations
 - Eigen values and Eigen vectors
+
 ## Calculus
+
 - Limit, continuity and differentiability
 - Successive differentiation
 - Partial differentiation
@@ -46,14 +62,18 @@ version: 1
 - Test for convergence
 - Power series
 - Taylor series
+
 ## Differential Equations
+
 - First order linear and non-linear differential equations
 - Higher order linear differential equations with constant coefficients
 - Euler-Cauchy equation
 - Partial differential equations
 - Wave and heat equations
 - Laplace’s equation
+
 ## Probability and Statistics
+
 - Random variables
 - Poisson, binomial and normal distributions
 - Mean
@@ -66,13 +86,18 @@ version: 1
 - Regression analysis
 - Analysis of variance
 - Control charts
+
 ## Numerical Methods
+
 - Numerical solutions of linear and non-linear algebraic equations
 - Numerical integration by trapezoidal and Simpson’s rules
 - Single-step and multi-step numerical methods for differential equations
 - TEXTILE ENGINEERING AND FIBRE SCIENCE
+
 # Textile Fibres
+
 ## Textile Fibres
+
 - Classification of textile fibres
 - Essential requirements of fibre forming polymers
 - Gross and fine structures of natural fibres like cotton
@@ -116,8 +141,11 @@ version: 1
 - Mechanical properties of fibres
 - Moisture sorption of fibres
 - Fibre structure-property correlation
+
 # Yarn Manufacture, Yarn Structure and Properties
+
 ## Yarn Manufacture, Yarn Structure and Properties
+
 - Principles of ginning
 - Principles of opening, cleaning and blending
 - Working principles of modern blow room machines
@@ -164,8 +192,11 @@ version: 1
 - Compact
 - Rotor
 - Air-jet and friction spun yarns
+
 # Fabric Manufacture, Structure and Properties
+
 ## Fabric Manufacture, Structure and Properties
+
 - Principles of winding processes
 - Classification of winding methods
 - Patterning mechanism
@@ -232,8 +263,11 @@ version: 1
 - Geometry of plain weft knitted loop
 - Munden’s constants and tightness factor for plain weft knitted fabrics
 - Geometry of tubular braids
+
 # Textile Testing
+
 ## Textile Testing
+
 - Sampling techniques for fibres, yarns and fabrics
 - Sample size and sampling errors
 - Moisture in textiles
@@ -263,8 +297,11 @@ version: 1
 - Wetting and wicking
 - Water-vapour transmission through fabrics
 - Thermal resistance of fabrics
+
 # Chemical Processing
+
 ## Chemical Processing
+
 - Impurities in natural fibre
 - Singeing
 - Chemistry and practice of preparatory processes for cotton

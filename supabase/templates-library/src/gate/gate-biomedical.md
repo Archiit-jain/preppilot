@@ -7,35 +7,51 @@ source: GATE 2026 official syllabus (BM), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Biomedical Engineering
+
 ## Biomedical Engineering
+
 - Engineering Mathematics
+
 ## Linear Algebra
+
 - Matrix algebra
 - Systems of linear equations
 - Eigenvalues and eigenvectors
+
 ## Calculus
+
 - Mean value theorems
 - Theorems of integral calculus
 - Partial derivatives
@@ -47,19 +63,25 @@ version: 1
 - Surface and volume integrals
 - Stokes
 - Gauss and Green's theorems
+
 ## Differential equations
+
 - First order linear and nonlinear differential equations
 - Higher order linear differential equations with constant coefficients
 - Method of separation of variables
 - Cauchy's and Euler's equations
 - Initial and boundary value problems
 - Solution of partial differential equations
+
 ## Analysis of complex variables
+
 - Analytic functions
 - Cauchy's integral theorem and integral formula
 - Taylor's and Laurent's series
 - Residue theorem
+
 ## Probability and Statistics
+
 - Sampling theorems
 - Conditional probability
 - Mean
@@ -72,7 +94,9 @@ version: 1
 - Statistical power analysis
 - Sample size estimation
 - Linear Regression and correlation analysis
+
 ## Numerical Methods
+
 - Matrix inversion
 - Numerical solutions of nonlinear algebraic equations
 - Iterative methods for solving differential equations

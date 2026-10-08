@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (CY), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Physical Chemistry
+
 ## Structure
+
 - Postulates of quantum mechanics
 - Operators
 - Time dependent and time independent Schrödinger equations
@@ -57,13 +69,17 @@ version: 1
 - Applications of LCAO-MO theory to H2+, H2
 - Orbital theory (MOT) of homo- and heteronuclear diatomic molecules
 - Hückel approximation and its application to annular 𝜋 – electron systems
+
 ## Group theory
+
 - Symmetry elements and operations
 - Point groups and character tables
 - Internal coordinates and vibrational modes
 - Symmetry adapted linear combination of atomic orbitals (LCAO-MO)
 - Construction of hybrid orbitals using symmetry aspects
+
 ## Spectroscopy
+
 - Atomic spectroscopy
 - Russell-Saunders coupling
 - Term symbols and spectral details
@@ -76,7 +92,9 @@ version: 1
 - Relationship of transition moment integral with molar extinction coefficient and oscillator strength
 - Basic principles of nuclear magnetic resonance: gyromagnetic ratio
 - Chemical shift, nuclear coupling
+
 ## Equilibrium
+
 - Laws of thermodynamics
 - Standard states
 - Thermochemistry
@@ -112,7 +130,9 @@ version: 1
 - Canonical and grand canonical ensembles
 - Boltzmann distribution
 - Partition functions and thermodynamic properties
+
 ## Kinetics
+
 - Elementary
 - Parallel
 - Opposing and consecutive reactions
@@ -129,15 +149,20 @@ version: 1
 - Fast reaction kinetics: relaxation and flow methods
 - Diffusion controlled reactions
 - Kinetics of photochemical and photo physical processes
+
 ## Surfaces and Interfaces
+
 - Physisorption and chemisorption
 - Langmuir, Freundlich and Brunauer–Emmett–Teller (BET) isotherms
 - Surface catalysis: Langmuir-Hinshelwood mechanism
 - Surface tension, viscosity
 - Self-assembly
 - Physical chemistry of colloids, micelles and macromolecules
+
 # Inorganic Chemistry
+
 ## Main Group Elements
+
 - Hydrides
 - Halides
 - Oxides
@@ -156,7 +181,9 @@ version: 1
 - Pseudohalogens
 - Interhalogen compounds
 - Acid-base concepts and principles (Lewis, Brønsted, HSAB and acid-base catalysis)
+
 ## Transition Elements
+
 - Coordination chemistry – structure and isomerism
 - Theories of bonding (VBT, CFT, and MOT)
 - Energy level diagrams in various crystal fields
@@ -173,10 +200,14 @@ version: 1
 - Reaction mechanisms: kinetic and thermodynamic stability
 - Substitution and redox reactions
 - Metal-metal multiple bond
+
 ## Lanthanides and Actinides
+
 - Recovery
 - Periodic properties, spectra and magnetic properties
+
 ## Organometallics
+
 - 18-Electron rule
 - Metal-alkyl
 - Metal-carbonyl
@@ -188,12 +219,16 @@ version: 1
 - Acetic acid synthesis
 - Metathesis and olefin oxidation
 - Heterogeneous catalysis - FischerTropsch reaction, Ziegler-Natta polymerization
+
 ## Radioactivity
+
 - Detection of radioactivity
 - Decay processes
 - Half-life of radioactive elements
 - Fission and fusion processes
+
 ## Bioinorganic Chemistry
+
 - Ion (Na+ and K+) transport
 - Oxygen binding
 - Transport and utilization
@@ -204,7 +239,9 @@ version: 1
 - Iron
 - Cobalt
 - Copper and zinc
+
 ## Solids
+
 - Crystal systems and lattices
 - Miller planes
 - Crystal packing
@@ -217,7 +254,9 @@ version: 1
 - Spinels
 - Band theory
 - Metals and semiconductors
+
 ## Instrumental Methods of Analysis
+
 - UV-visible
 - Fluorescence and FTIR spectrophotometry
 - NMR and ESR spectroscopy
@@ -229,8 +268,11 @@ version: 1
 - Cyclic voltammetry
 - Ion-selective electrodes
 - Thermoanalytical methods
+
 # Organic Chemistry
+
 ## Stereochemistry
+
 - Chirality
 - Symmetry of organic molecules with or without chiral centres
 - Determination of their absolute configurations
@@ -259,7 +301,9 @@ version: 1
 - Nitrenes
 - Arynes and free radicals
 - Molecular rearrangements
+
 ## Organic Synthesis
+
 - Synthesis
 - Reactions
 - Mechanisms and selectivity involving the following classes of compounds – alkenes
@@ -304,7 +348,9 @@ version: 1
 - Carbon-carbon and carbon-heteroatom bond forming reactions through enolates (including boron enolates)
 - Enamines and silyl enol ethers
 - Stereoselective addition to C=O groups (Cram, Prelog and Felkin-Anh models)
+
 ## Pericyclic Reactions and Photochemistry
+
 - Electrocyclic, cycloaddition and sigmatropic reactions
 - Orbital correlations - FMO and PMO treatments, Woodward-Hoffmann rule
 - Photochemistry of alkenes, arenes and carbonyl compounds
@@ -312,7 +358,9 @@ version: 1
 - Di-𝜋-methane rearrangement
 - Barton-McCombie reaction
 - Norrish type-I and II cleavage reaction
+
 ## Heterocyclic Compounds
+
 - Structure
 - Preparation
 - Properties and reactions of furan
@@ -321,7 +369,9 @@ version: 1
 - Pyridine
 - Indole
 - Quinoline and isoquinoline
+
 ## Biomolecules
+
 - Structure
 - Properties and reactions of mono- and di-saccharides
 - Physicochemical properties of amino acids
@@ -334,7 +384,9 @@ version: 1
 - Terpenoids
 - Carotenoids
 - Alkaloids
+
 ## Experimental Techniques in Organic Chemistry
+
 - Optical rotation (polarimetry)
 - Applications of various chromatographic techniques such as thin-layer
 - Column

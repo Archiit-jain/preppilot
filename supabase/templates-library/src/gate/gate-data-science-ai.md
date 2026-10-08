@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (DA), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Data Science and Artificial Intelligence
+
 ## Probability and Statistics
+
 - Counting (permutation and combinations)
 - Probability axioms
 - Sample space
@@ -65,7 +77,9 @@ version: 1
 - Z-test
 - T-test
 - Chi-squared test
+
 ## Linear Algebra
+
 - Vector space
 - Subspaces
 - Linear dependence and independence of vectors
@@ -84,14 +98,18 @@ version: 1
 - Projections
 - LU decomposition
 - Singular value decomposition
+
 ## Calculus and Optimization
+
 - Functions of a single variable
 - Limit
 - Continuity and differentiability
 - Taylor series
 - Maxima and minima
 - Optimization involving a single variable
+
 ## Programming, Data Structures and Algorithms
+
 - Programming in Python
 - Basic data structures: stacks
 - Queues
@@ -104,7 +122,9 @@ version: 1
 - Divide and conquer: mergesort, quicksort
 - Introduction to graph theory
 - Basic graph algorithms: traversals and shortest path
+
 ## Database Management and Warehousing
+
 - ER-model
 - Relational model: relational algebra
 - Tuple calculus
@@ -121,7 +141,9 @@ version: 1
 - Data warehouse modelling: schema for multidimensional data models
 - Concept hierarchies
 - Measures: categorization and computations
+
 ## Machine Learning
+
 - Supervised Learning: regression and classification problems
 - Simple linear regression
 - Multiple linear regression

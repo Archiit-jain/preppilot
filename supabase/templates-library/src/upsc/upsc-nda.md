@@ -7,8 +7,11 @@ source: UPSC NDA and NA Examination (II) 2026 notification, Standard and Syllabu
 verified: false
 version: 1
 ---
+
 # Paper I: Mathematics
+
 ## Algebra
+
 - Sets: operations, Venn diagrams, De Morgan laws
 - Cartesian product, relation, equivalence relation
 - Representation of real numbers on a line
@@ -20,19 +23,25 @@ version: 1
 - Permutation and Combination
 - Binomial theorem and its applications
 - Logarithms and their applications
+
 ## Matrices and Determinants
+
 - Types of matrices and operations on matrices
 - Determinant of a matrix and basic properties of determinants
 - Adjoint and inverse of a square matrix
 - Solution of linear equations in two or three unknowns by Cramer's rule and by Matrix Method
+
 ## Trigonometry
+
 - Angles and their measures in degrees and in radians
 - Trigonometrical ratios and identities
 - Sum and difference formulae
 - Multiple and sub-multiple angles
 - Inverse trigonometric functions
 - Applications: height and distance, properties of triangles
+
 ## Analytical Geometry of Two and Three Dimensions
+
 - Rectangular Cartesian coordinate system and distance formula
 - Equation of a line in various forms
 - Angle between two lines and distance of a point from a line
@@ -44,7 +53,9 @@ version: 1
 - Equation of a plane and a line in various forms
 - Angle between two lines and between two planes
 - Equation of a sphere
+
 ## Differential Calculus
+
 - Real valued functions: domain, range and graph
 - Composite, one to one, onto and inverse functions
 - Notion of limit and standard limits
@@ -55,7 +66,9 @@ version: 1
 - Second order derivatives
 - Increasing and decreasing functions
 - Maxima and minima
+
 ## Integral Calculus and Differential Equations
+
 - Integration as inverse of differentiation
 - Integration by substitution and by parts
 - Standard integrals: algebraic, trigonometric, exponential and hyperbolic functions
@@ -64,13 +77,17 @@ version: 1
 - General and particular solutions of differential equations
 - First order and first degree differential equations of various types
 - Applications in problems of growth and decay
+
 ## Vector Algebra
+
 - Vectors in two and three dimensions: magnitude and direction
 - Unit and null vectors, addition and scalar multiplication
 - Scalar (dot) product of two vectors
 - Vector (cross) product of two vectors
 - Applications: work done by a force, moment of a force, geometrical problems
+
 ## Statistics and Probability
+
 - Classification of data, frequency and cumulative frequency distributions
 - Graphical representation: histogram, pie chart, frequency polygon
 - Measures of central tendency: mean, median and mode
@@ -84,14 +101,20 @@ version: 1
 - Conditional probability and Bayes' theorem
 - Random variable as a function on a sample space
 - Binomial distribution
+
 # Paper II: General Ability Test, Part A English
+
 ## English
+
 - Grammar and usage
 - Vocabulary
 - Comprehension
 - Cohesion in extended text
+
 # Paper II: General Ability Test, Part B General Knowledge
+
 ## Section A: Physics
+
 - Physical properties and states of matter
 - Mass, weight, volume, density and specific gravity
 - Principle of Archimedes, pressure, barometer
@@ -114,7 +137,9 @@ version: 1
 - Working of pressure cooker, thermos flask, gramophone, telegraphs and telephone
 - Working of periscope, telescope, microscope and mariner's compass
 - Lightning conductors and safety fuses
+
 ## Section B: Chemistry
+
 - Physical and chemical changes
 - Elements, mixtures and compounds
 - Symbols, formulae and simple chemical equations
@@ -127,7 +152,9 @@ version: 1
 - Fertilizers: natural and artificial
 - Materials used in soap, glass, ink, paper, cement, paints, safety matches and gun-powder
 - Structure of the atom; atomic, equivalent and molecular weights; valency
+
 ## Section C: General Science
+
 - Difference between the living and non-living
 - Basis of life: cells, protoplasm and tissues
 - Growth and reproduction in plants and animals
@@ -136,7 +163,9 @@ version: 1
 - Food: constituents of food, balanced diet
 - The Solar System: meteors and comets, eclipses
 - Achievements of eminent scientists
+
 ## Section D: History, Freedom Movement etc.
+
 - Broad survey of Indian history, with emphasis on culture and civilisation
 - Freedom Movement in India
 - Indian Constitution and Administration
@@ -151,7 +180,9 @@ version: 1
 - Concept of one world, United Nations and Panchsheel
 - Democracy, socialism and communism
 - Role of India in the present world
+
 ## Section E: Geography
+
 - The Earth: shape and size
 - Latitudes and longitudes, concept of time, International Date Line
 - Movements of Earth and their effects
@@ -169,15 +200,22 @@ version: 1
 - Location and distribution of agricultural and industrial activities in India
 - Important sea ports and main sea, land and air routes of India
 - Main items of imports and exports of India
+
 ## Section F: Current Events
+
 - Important events in India in recent years
 - Current important world events
 - Prominent personalities, Indian and international, including culture and sports
+
 # SSB: Intelligence and Personality Test
+
 ## Stage I
+
 - Officer Intelligence Rating (OIR) tests
 - Picture Perception and Description Test (PP&DT)
+
 ## Stage II
+
 - Interview
 - Group Testing Officer tasks
 - Psychology tests

@@ -7,8 +7,11 @@ source: UPSC Engineering Services Examination 2027 notification, Section III Sta
 verified: false
 version: 1
 ---
+
 # Prelims Paper I: General Studies and Engineering Aptitude
+
 ## General Studies and Engineering Aptitude
+
 - Current issues of national and international importance relating to social, economic and industrial development
 - Engineering Aptitude covering Logical reasoning and Analytical ability
 - Engineering Mathematics and Numerical Analysis
@@ -23,8 +26,11 @@ version: 1
 - Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking
 - E-governance and technology based education
 - Ethics and values in engineering profession
+
 # Mechanical Engineering: Paper I
+
 ## Fluid Mechanics
+
 - Basic Concepts and Properties of Fluids
 - Manometry
 - Fluid Statics
@@ -34,7 +40,9 @@ version: 1
 - Viscous flow of incompressible fluids
 - Laminar and Turbulent flows
 - Flow through pipes and head losses in pipes
+
 ## Thermodynamics and Heat transfer
+
 - Thermodynamic systems and processes
 - Properties of pure substance
 - Zeroth, First and Second Laws of Thermodynamics
@@ -53,7 +61,9 @@ version: 1
 - Correlations for convective heat transfer
 - Radiative heat transfer – Radiation heat transfer co-efficient
 - Boiling and condensation, Heat exchanger performance analysis
+
 ## IC Engines, Refrigeration and Air conditioning
+
 - SI and CI Engines
 - Engine Systems and Components
 - Performance characteristics and testing of IC Engines
@@ -71,7 +81,9 @@ version: 1
 - Comfort chart
 - Comfort and industrial air conditioning
 - Load calculations and Heat pumps
+
 ## Turbo Machinery
+
 - Reciprocating and Rotary pumps
 - Pelton wheel
 - Kaplan and Francis Turbines
@@ -80,7 +92,9 @@ version: 1
 - Steam and Gas Turbines
 - Theory of Jet Propulsion – Pulse jet and Ram Jet Engines
 - Reciprocating and Rotary Compressors – Theory and Applications
+
 ## Power Plant Engineering
+
 - Rankine and Brayton cycles with regeneration and reheat
 - Fuels and their properties
 - Flue gas analysis
@@ -89,7 +103,9 @@ version: 1
 - Air ejectors
 - Electrostatic precipitators and cooling towers – their theory and design
 - Types and applications
+
 ## Renewable Sources of Energy
+
 - Solar Radiation, Solar Thermal Energy collection - Flat Plate and focusing collectors their materials and performance
 - Solar Thermal Energy Storage
 - Applications – heating
@@ -98,8 +114,11 @@ version: 1
 - Harnessing of Wind Energy
 - Bio-mass and Tidal Energy – Methods and Applications
 - Working principles of Fuel Cells
+
 # Mechanical Engineering: Paper II
+
 ## Engineering Mechanics
+
 - Analysis of System of Forces
 - Friction
 - Centroid and Centre of Gravity
@@ -109,7 +128,9 @@ version: 1
 - Theory of Bending Stresses- Slope and deflection-Torsion
 - Thin and thick Cylinders
 - Spheres
+
 ## Engineering Materials
+
 - Basic Crystallography
 - Alloys and Phase diagrams
 - Heat Treatment
@@ -118,7 +139,9 @@ version: 1
 - Basics of Nano-materials
 - Mechanical Properties and Testing
 - Corrosion prevention and control
+
 ## Mechanisms and Machines
+
 - Types of Kinematics Pair
 - Mobility
 - Inversions
@@ -145,7 +168,9 @@ version: 1
 - Gyroscopes –Effect of Gyroscopic couple on automobiles
 - Ships and aircrafts
 - Governors
+
 ## Design of Machine Elements
+
 - Design for static and dynamic loading
 - Failure theories
 - Fatigue strength and the S-N diagram
@@ -155,7 +180,9 @@ version: 1
 - Rolling and sliding contact bearings
 - Brakes and clutches
 - Flywheels
+
 ## Manufacturing ,Industrial and Maintenance Engineering
+
 - Metal casting-Metal forming
 - Metal Joining
 - Machining and machine tool operations
@@ -177,7 +204,9 @@ version: 1
 - Wear and Debris Analysis
 - Signature Analysis
 - NDT Techniques in Condition Monitoring
+
 ## Mechatronics and Robotics
+
 - Microprocessors and Microcontrollers: Architecture
 - Microprocessors and Microcontrollers: Programming
 - Microprocessors and Microcontrollers: I/O

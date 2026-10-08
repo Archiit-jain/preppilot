@@ -7,8 +7,11 @@ source: UGC NET Bureau official syllabus, Paper I and subject code 17; topics sp
 verified: false
 version: 2
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Management
+
 ## Unit I
+
 - Management – Concept
 - Process
 - Theories and Approaches
@@ -155,7 +179,9 @@ version: 2
 - Elasticity & Forecasting Market Structures – Market Classification & Price Determination National Income – Concept
 - Types and Measurement Inflation – Concept
 - Types and Measurement Business Ethics & CSR Ethical Issues & Dilemma Corporate Governance Value Based Organisation
+
 ## Unit II
+
 - Organisational Behaviour – Significance & Theories Individual Behaviour – Personality
 - Perception
 - Values
@@ -171,14 +197,18 @@ version: 2
 - Induction
 - Training and Development Job Analysis
 - Job Evaluation and Compensation Management
+
 ## Unit III
+
 - Strategic Role of Human Resource Management Competency Mapping & Balanced Scoreboard Career Planning
 - Development Performance Management
 - Appraisal Organization Development
 - Change & OD Interventions Talent Management & Skill Development Employee Engagement & Work Life Balance Industrial…
 - Labour Welfare
 - Social Security Trade Union & Collective Bargaining International Human Resource Management – HR Challenge of…
+
 ## Unit IV
+
 - Accounting Principles and Standards
 - Preparation of Financial Statements Financial Statement Analysis – Ratio Analysis
 - Funds Flow and Cash Flow Analysis
@@ -193,7 +223,9 @@ version: 2
 - Financial and Combined Leverages
 - EBIT–EPS Analysis
 - Financial Breakeven Point & Indifference Level
+
 ## Unit V
+
 - Value & Returns – Time Preference for Money
 - Valuation of Bonds and Shares
 - Risk and Returns
@@ -214,7 +246,9 @@ version: 2
 - Receivables and Payables Management
 - Factoring International Financial Management
 - Foreign exchange market
+
 ## Unit VI
+
 - Strategic Management – Concept
 - Process
 - Decision & Types Strategic Analysis – External Analysis
@@ -240,7 +274,9 @@ version: 2
 - VMS
 - IMC
 - Advertising and Sales promotion
+
 ## Unit VII
+
 - Consumer and Industrial Buying Behaviour: Theories and Models of Consumer Behaviour Brand Management – Role of Brands
 - Consumer and Industrial Buying Behaviour: Brand Equity
 - Consumer and Industrial Buying Behaviour: Equity Models
@@ -260,7 +296,9 @@ version: 2
 - Direct Marketing
 - Digital Marketing and Green Marketing International Marketing – Entry Mode Decisions
 - Planning Marketing Mix for International Markets
+
 ## Unit VIII
+
 - Statistics for Management: Concept
 - Statistics for Management: Measures Of Central Tendency and Dispersion
 - Statistics for Management: Probability Distribution – Binominal
@@ -286,7 +324,9 @@ version: 2
 - Statistics for Management: ISO 9000 Series Standards Operation Research – Transportation
 - Statistics for Management: Queuing Decision Theory
 - Statistics for Management: PERT / CPM
+
 ## Unit IX
+
 - International Business – Managing Business in Globalization Era
 - Theories of International Trade
 - Balance of payment Foreign Direct Investment – Benefits
@@ -298,7 +338,9 @@ version: 2
 - MIS
 - DSS Artificial Intelligence and Big Data Data Warehousing
 - Data Mining and Knowledge Management – Concepts Managing Technological Change
+
 ## Unit X
+
 - Entrepreneurship Development – Concept
 - Types
 - Theories and Process

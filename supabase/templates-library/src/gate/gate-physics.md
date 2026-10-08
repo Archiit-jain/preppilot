@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (PH), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Mathematical Physics
+
 ## Vector Calculus
+
 - Linear vector space: basis, orthogonality and completeness
 - Matrices
 - Similarity transformations
@@ -42,8 +54,11 @@ version: 1
 - Residue theorem and applications
 - Laplace transform, Fourier analysis
 - Elementary ideas about tensors: covariant and contravariant tensors
+
 # Classical Mechanics
+
 ## Lagrangian Formulation
+
 - D'Alembert's principle
 - Euler-Lagrange equation
 - Hamilton's principle
@@ -60,12 +75,17 @@ version: 1
 - Canonical transformations: action-angle variables
 - Poisson brackets
 - Hamilton- Jacobi equation
+
 ## Special Theory of Relativity
+
 - Lorentz transformations
 - Relativistic kinematics
 - Mass-energy equivalence
+
 # Electromagnetic Theory
+
 ## Electromagnetic Theory
+
 - Solutions of electrostatic and magnetostatic problems including boundary value problems
 - Method of images
 - Separation of variables
@@ -82,8 +102,11 @@ version: 1
 - Poynting theorem
 - Energy and momentum of electromagnetic waves
 - Radiation from a moving charge
+
 # Quantum Mechanics
+
 ## Quantum Mechanics
+
 - Postulates of quantum mechanics
 - Uncertainty principle
 - Schrodinger equation
@@ -100,8 +123,11 @@ version: 1
 - Variational method and WKB approximation, time independent perturbation theory
 - Elementary scattering theory, Born approximation
 - Symmetries in quantum mechanical systems
+
 # Thermodynamics and Statistical Physics
+
 ## Thermodynamics and Statistical Physics
+
 - Laws of thermodynamics
 - Macrostates and microstates
 - Phase space
@@ -116,8 +142,11 @@ version: 1
 - First and second order phase transitions
 - Phase equilibria
 - Critical point
+
 # Atomic and Molecular Physics
+
 ## Atomic and Molecular Physics
+
 - Spectra of one-and many-electron atoms
 - Spin-orbit interaction: LS and jj couplings
 - Fine and hyperfine structures
@@ -133,8 +162,11 @@ version: 1
 - Lasers: Einstein coefficients
 - Population inversion
 - Two and three level systems
+
 # Solid State Physics
+
 ## Solid State Physics
+
 - Elements of crystallography
 - Diffraction methods for structure determination
 - Bonding in solids
@@ -160,8 +192,11 @@ version: 1
 - London equation
 - BCS Theory
 - Flux quantization
+
 # Electronics
+
 ## Semiconductors in Equilibrium
+
 - Electron and hole statistics in intrinsic and extrinsic semiconductors
 - Metal-semiconductor junctions
 - Ohmic and rectifying contacts
@@ -179,8 +214,11 @@ version: 1
 - Counters
 - Registers
 - A/D and D/A conversion
+
 # Nuclear and Particle Physics
+
 ## Nuclear and Particle Physics
+
 - Nuclear radii and charge distributions
 - Nuclear binding energy
 - Electric and magnetic moments

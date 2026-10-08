@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (NM), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Engineering Mathematics
+
 ## Engineering Mathematics
+
 - Determinants and matrices
 - Systems of linear equations
 - Eigen values and eigen vectors
@@ -54,14 +66,19 @@ version: 1
 - Numerical methods for differentiation and integration
 - Complex analysis
 - Probability and statistics
+
 # Applied Mechanics and Structures
+
 ## Engineering Mechanics
+
 - Free-body diagrams and equilibrium
 - Trusses and frames
 - Virtual work
 - Kinematics and dynamics of particles and rigid bodies in plane motion
 - Impulse and momentum (linear and angular) and energy formulations
+
 ## Mechanics of Materials
+
 - Stress and strain
 - Elastic constants
 - Poisson’s ratio
@@ -72,16 +89,23 @@ version: 1
 - Euler’s theory of columns
 - Energy methods
 - Theories and failure, material testing methods
+
 ## Vibrations
+
 - Free and forced vibration of damped and undamped systems, single and multi DOF systems
+
 ## Machine Design
+
 - Design for static and dynamic loading
 - Design of machine elements such as shafts
 - Gears
 - Rolling and sliding contact bearings
 - Joining techniques such as bolting, riveting and welding
+
 # Fluid Mechanics and Marine Hydrodynamics
+
 ## Fluid Mechanics
+
 - Fluid properties
 - Fluid statics, stability of floating bodies
 - Conservation laws: Mass, momentum and energy (Integral and differential form)
@@ -142,8 +166,11 @@ version: 1
 - Energy transport
 - Wave/body forces
 - Linearised theory of lifting surfaces
+
 # Naval Architecture and Ocean Engineering
+
 ## Naval Architecture and Ocean Engineering
+
 - Ship geometry and physical fundamentals - Archimedes’ principle
 - Buoyancy and weight of ship
 - Laws of flotation
@@ -152,7 +179,9 @@ version: 1
 - Importance of streamlined hull shape
 - Ship main particulars
 - Hydrostatic calculations
+
 ## Stability and Trim of Ships
+
 - Statical stability at small angles of heel, Inclining experiment
 - Shift of centre of gravity due to addition or removal of mass
 - Transverse movement of mass and effect
@@ -165,7 +194,9 @@ version: 1
 - Probabilistic and deterministic Damage Stability Different Characteristic curves of dynamic stability
 - Floodable length calculations and curves
 - Loss of stability due to grounding, docking stability
+
 ## Resistance and Propulsion
+
 - Components of ship resistance
 - Form factor
 - Hull roughness
@@ -184,7 +215,9 @@ version: 1
 - Different types of propellers and their working principles
 - Propeller material, strength and manufacturing
 - Unconventional propellers
+
 ## Ship Manoeuvring and Motions
+
 - Ship path keeping and changing
 - Equations of motion
 - Linearised equations and control fixed stability indexes
@@ -208,7 +241,9 @@ version: 1
 - BEM
 - FEM
 - Seakeeping features of high-performance marine vehicles
+
 ## Ship Structures and Strength
+
 - Shipbuilding materials
 - Joining techniques
 - Ship structural and framing systems – bottom
@@ -231,7 +266,9 @@ version: 1
 - Reliability analysis and ultimate strength of hull girder
 - Structural vibrations
 - Fatigue and fracture
+
 ## Physical Oceanography
+
 - Physical properties of seawater
 - Different types of ocean waves tides and wind waves
 - Their importance
@@ -247,8 +284,11 @@ version: 1
 - Liquid berths
 - Dredging
 - Navigation
+
 # Thermodynamics and Marine Engineering
+
 ## Thermodynamics
+
 - First law of thermodynamics - Closed system undergoing a cycle
 - Closed system undergoing a change of state
 - Internal energy of a system
@@ -286,7 +326,9 @@ version: 1
 - Cooling and dehumidification- Heating and humidification
 - Heating and dehumidification
 - Adiabatic mixing of air streams –cooling and heating load calculation
+
 ## Marine Diesel Engines
+
 - General engine principles
 - Low speed and medium speed diesel engines
 - Two and Four stroke engines
@@ -302,7 +344,9 @@ version: 1
 - Waste heat recovery system
 - MARPOL regulations and Energy Efficiency Design Index (EEDI)
 - Ship Energy Efficiency Management Plan (SEEMP)
+
 ## Marine Steam Turbines
+
 - Types of turbines
 - Compounding
 - Reheat
@@ -325,7 +369,9 @@ version: 1
 - Combined cycles
 - Nuclear propulsion – physical principles of the operation of nuclear reactors – use of nuclear propulsion on seagoing…
 - Electrical Propulsion
+
 ## Marine Boilers
+
 - Types - fire tube
 - Water tube boilers
 - Package boilers
@@ -341,7 +387,9 @@ version: 1
 - Combustion
 - Feed system
 - Feed water treatment
+
 ## Engine Dynamics
+
 - Torsional vibration of engine and shafting
 - Axial shaft vibration
 - Critical speeds
@@ -351,7 +399,9 @@ version: 1
 - Relationship of engine to the propeller classification society rules on engine construction
 - Engine room arrangement
 - Automation of ship propulsion plants, Maintenance requirements and reliability of propulsion plants
+
 ## Marine Auxiliary Machinery & Systems
+
 - Different types of pumps and piping systems in ships - hot water
 - Drinking water
 - Cooling water and seawater

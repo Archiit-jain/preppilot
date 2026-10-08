@@ -7,13 +7,19 @@ source: CSIR HRDG official syllabus, Mathematical Sciences; topics split from th
 verified: false
 version: 1
 ---
+
 # Part A: General Aptitude
+
 ## General Aptitude
+
 - General Science
 - Quantitative Reasoning and Analysis
 - Research Aptitude
+
 # Unit 1
+
 ## Analysis
+
 - Elementary set theory, finite
 - Countable and uncountable sets
 - Real number system as a complete ordered field
@@ -36,7 +42,9 @@ version: 1
 - Metric spaces, compactness, connectedness
 - Normed linear Spaces
 - Spaces of continuous functions as examples
+
 ## Linear Algebra
+
 - Vector spaces, subspaces
 - Linear dependence, basis, dimension
 - Algebra of linear transformations
@@ -46,8 +54,11 @@ version: 1
 - Change of basis, canonical forms, diagonal forms, triangular forms, Jordan forms
 - Inner product spaces, orthonormal basis
 - Quadratic forms, reduction and classification of quadratic forms
+
 # Unit 2
+
 ## Complex Analysis
+
 - Algebra of complex numbers
 - The complex plane, polynomials, power series
 - Transcendental functions such as exponential
@@ -61,7 +72,9 @@ version: 1
 - Open mapping theorem
 - Taylor series, Laurent series, calculus of residues
 - Conformal mappings, Mobius transformations
+
 ## Algebra
+
 - Permutations, combinations
 - Pigeon-hole principle
 - Inclusion-exclusion principle, derangements
@@ -80,13 +93,18 @@ version: 1
 - Euclidean domain
 - Polynomial rings and irreducibility criteria
 - Fields, finite fields, field extensions, Galois Theory
+
 ## Topology
+
 - Basis, dense sets
 - Subspace and product topology
 - Separation axioms
 - Connectedness and compactness
+
 # Unit 3
+
 ## Ordinary Differential Equations (ODEs)
+
 - Existence and uniqueness of solutions of initial value problems for first order ordinary differential equations
 - Singular solutions of first order ODEs
 - System of first order ODEs
@@ -94,13 +112,17 @@ version: 1
 - Variation of parameters
 - Sturm-Liouville boundary value problem
 - Green’s function
+
 ## Partial Differential Equations (PDEs)
+
 - Lagrange and Charpit methods for solving first order PDEs, Cauchy problem for first order PDEs
 - Classification of second order PDEs
 - General solution of higher order PDEs with constant coefficients
 - Method of separation of variables for Laplace
 - Heat and Wave equations
+
 ## Numerical Analysis
+
 - Numerical solutions of algebraic equations
 - Method of iteration and Newton-Raphson method
 - Rate of convergence
@@ -110,15 +132,21 @@ version: 1
 - Numerical differentiation and integration
 - Numerical solutions of ODEs using Picard, Euler
 - Modified Euler and Runge-Kutta methods
+
 ## Calculus of Variations
+
 - Variation of a functional
 - Euler-Lagrange equation
 - Necessary and sufficient conditions for extrema
 - Variational methods for boundary value problems in ordinary and partial differential equations
+
 ## Linear Integral Equations
+
 - Linear integral equation of the first and second kind of Fredholm and Volterra type, Solutions with separable kernels
 - Characteristic numbers and eigenfunctions, resolvent kernel
+
 ## Classical Mechanics
+
 - Generalized coordinates
 - Lagrange’s equations
 - Hamilton’s canonical equations
@@ -126,8 +154,11 @@ version: 1
 - Two-dimensional motion of rigid bodies
 - Euler’s dynamical equations for the motion of a rigid body about an axis
 - Theory of small oscillations
+
 # Unit 4
+
 ## Statistics
+
 - Descriptive statistics, exploratory data analysis
 - Sample space, discrete probability, independent events, Bayes theorem
 - Random variables and distribution functions (univariate and multivariate)

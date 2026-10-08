@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (XL), IIT Guwahati; topics split from the of
 verified: false
 version: 2
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Chemistry
+
 ## Atomic Structure and Periodicity
+
 - Planck’s quantum theory
 - Wave particle duality
 - Uncertainty principle
@@ -39,7 +51,9 @@ version: 2
 - Periodic table and periodic properties: ionization energy
 - Electron affinity
 - Electronegativity and atomic size
+
 ## Structure and Bonding
+
 - Ionic and covalent bonding
 - MO and VB approaches for diatomic molecules
 - VSEPR theory and shape of molecules
@@ -51,7 +65,9 @@ version: 2
 - Hydrogen bonding and van der Waals interactions
 - Ionic solids, ionic radii and lattice energy (Born‐Haber cycle)
 - HSAB principle
+
 ## S, p and d Block Elements
+
 - Oxides
 - Halides and hydrides of alkali
 - Alkaline earth metals
@@ -66,7 +82,9 @@ version: 2
 - Colour
 - Geometry
 - Magnetic properties and isomerism
+
 ## Chemical Equilibria
+
 - Osmotic pressure
 - Elevation of boiling point and depression of freezing point
 - Ionic equilibria in solution
@@ -83,7 +101,9 @@ version: 2
 - EMF
 - Nernst equation
 - Thermodynamic aspects and their applications
+
 ## Reaction Kinetics
+
 - Rate constant
 - Order of reaction
 - Molecularity
@@ -92,7 +112,9 @@ version: 2
 - First and second order kinetics
 - Catalysis and elementary enzyme reactions
 - Reversible and irreversible inhibition of enzymes
+
 ## Thermodynamics
+
 - Qualitative treatment of state and path functions
 - First law
 - Reversible and irreversible processes
@@ -124,7 +146,9 @@ version: 2
 - Grignard’s reagents and their uses
 - Aromatic electrophilic substitutions, orientation effect as exemplified by various functional groups
 - Identification of common functional groups by chemical tests
+
 ## Chemistry of Biomolecules
+
 - Amino acids
 - Proteins
 - Nucleic acids and nucleotides
@@ -134,8 +158,11 @@ version: 2
 - Lipids (triglycerides only)
 - Principles of biomolecule purification-Ion exchange and gel filtration chromatography
 - Identification of these biomolecules and Beer-Lambert’s law
+
 # Biochemistry
+
 ## Section 1
+
 - Organization of life
 - Importance of water
 - Structure and function of biomolecules: Amino acids
@@ -148,7 +175,9 @@ version: 2
 - Lysozyme
 - Ribonuclease A
 - Carboxypeptidase and Chymotrypsin
+
 ## Section 2
+
 - Enzyme kinetics, regulation and inhibition
 - Vitamins and Coenzymes
 - Bioenergetics and metabolism
@@ -161,7 +190,9 @@ version: 2
 - Glycogen and fatty acid metabolism
 - Metabolism of Nitrogen containing compounds: nitrogen fixation, amino acids and nucleotides
 - Photosynthesis, Calvin cycle
+
 ## Biochemical separation techniques
+
 - Ion exchange
 - Size exclusion and affinity chromatography
 - Centrifugation
@@ -169,7 +200,9 @@ version: 2
 - DNA- protein and protein – protein interactions
 - UV-visible and fluorescence spectroscopy
 - Mass spectrometry
+
 ## Section 5
+
 - Cell structure and organelles
 - Biological membranes
 - Action potential
@@ -178,7 +211,9 @@ version: 2
 - Signal transduction
 - Receptorligand interaction
 - Hormones and neurotransmitters
+
 ## Section 6
+
 - DNA replication, transcription and translation
 - DNA damage and repair
 - Biochemical regulation of gene expression
@@ -187,7 +222,9 @@ version: 2
 - DNA-microarray
 - Next generation sequencing
 - Gene silencing and editing
+
 ## Immune System
+
 - Innate and adaptive
 - Cell of the immune system
 - Active and passive immunity
@@ -201,15 +238,20 @@ version: 2
 - RIA and ELISA
 - Flow cytometry
 - Monoclonal antibodies and their applications
+
 # Botany
+
 ## Plant Systematics
+
 - Botanical nomenclature
 - History of plant taxonomy
 - Diversity and classification of plants
 - APG system of plant classification
 - Phylogenetics and cladistics, molecular taxonomy and DNA barcoding
 - Centers for plant taxonomy and herbaria in India
+
 ## Plant Anatomy
+
 - Anatomy of root
 - Stem and leaves
 - Floral organs
@@ -220,7 +262,9 @@ version: 2
 - Xylem and phloem structure
 - Secondary growth in plants and wood anatomy
 - Plant cell structure and differences from animal cells
+
 ## Plant Development; Cell and Tissue Morphogenesis
+
 - Life cycle of an angiosperm, development of male and female gametophyte
 - Cell fate determination and tissue patterning
 - Spacing mechanisms in trichomes and stomata
@@ -238,7 +282,9 @@ version: 2
 - Cytokinin
 - Gibberellins
 - Brassinosteroids on plant development
+
 ## Plant Physiology and Biochemistry
+
 - Plant water relations
 - Mechanisms of uptake and transport of water
 - Ions
@@ -270,7 +316,9 @@ version: 2
 - Abscisic acid
 - Salicylic and jasmonic acid
 - Senescence and programmed cell death
+
 ## Genetics and Genomics
+
 - Cell cycle and cell division
 - Principles of Mendelian inheritance
 - Linkage
@@ -292,7 +340,9 @@ version: 2
 - Transposons
 - Model organisms for functional genetics and genomics
 - Introduction to transcriptomics, proteomics and metabolomics
+
 ## Plant Breeding, Genetic Modification, Genome Editing
+
 - Principles
 - Methods – selection
 - Hybridization
@@ -314,7 +364,9 @@ version: 2
 - Introduction to genome editing: CRISPR/Cas9, Cre-Lox system to generate chimeras
 - Plastid transformation
 - Chemical mutagenesis
+
 ## Economic and Applied Botany
+
 - A general account of economically and medicinally important plants- cereals
 - Pulses
 - Plants yielding fibers
@@ -336,7 +388,9 @@ version: 2
 - Bt cotton
 - Bt brinjal
 - Golden rice etc
+
 ## Plant Pathology
+
 - Nature and classification of plant diseases
 - Diseases of important crops caused by fungi
 - Bacteria
@@ -351,7 +405,9 @@ version: 2
 - Signaling pathways in plant defence response
 - Salicylic acid (SA) and jasmonic acid (JA) in plantpathogen and plant-herbivore interaction, necrosis
 - Host-parasitic plant interaction (such as Cuscuta)
+
 ## Ecology and Environment
+
 - Ecosystems – types
 - Dynamics
 - Degradation
@@ -369,13 +425,18 @@ version: 2
 - Habitat restoration
 - Plant interactions with other organisms
 - Epiphytes, parasites and endophytes
+
 # Microbiology
+
 ## Historical Perspective
+
 - Discovery of microbial world
 - Landmark discoveries relevant to the field of microbiology
 - Controversy over spontaneous generation
 - Role of microorganisms in transformation of organic matter and in the causation of diseases
+
 ## Methods in Microbiology
+
 - Pure culture techniques
 - Principles of microbial nutrition
 - Enrichment culture techniques for isolation of microorganisms
@@ -385,12 +446,16 @@ version: 2
 - Fluorescence- and electron-microscopy
 - PCR, real-time PCR for quantitation of microbes
 - Next generation sequencing technologies in microbiology
+
 ## Microbial Taxonomy and Diversity
+
 - Bacteria, Archea and their broad classification
 - Eukaryotic microbes: Yeasts, molds and protozoa
 - Viruses and their classification
 - Molecular approaches to microbial taxonomy and phylogeny
+
 ## Prokaryotic Cells
+
 - Cell walls
 - Cell membranes and their biosynthesis
 - Mechanisms of solute transport across membranes
@@ -398,7 +463,9 @@ version: 2
 - Capsules
 - Cell inclusions like endospores and gas vesicles
 - Bacterial locomotion, including positive and negative chemotaxis
+
 ## Microbial Growth
+
 - Definition of growth
 - Growth curve
 - Mathematical expression of exponential growth phase
@@ -407,9 +474,13 @@ version: 2
 - Continuous culture
 - Effect of environmental factors on growth
 - Bacterial biofilm and biofouling
+
 ## Disinfection and Sterilization
+
 - Principles, methods and assessment of efficacy
+
 ## Energetics
+
 - Redox reactions and electron carriers
 - Electron transport and oxidative phosphorylation
 - An overview of metabolism
@@ -426,7 +497,9 @@ version: 2
 - Biosynthetic pathway for fatty acids synthesis
 - Common regulatory mechanisms in synthesis of amino acids
 - Regulation of major metabolic pathways
+
 ## Microbial Diseases and Host Pathogen Interaction
+
 - Normal microbiota
 - Classification of infectious diseases
 - Reservoirs of infection
@@ -443,11 +516,15 @@ version: 2
 - Human diseases caused by viruses
 - Bacteria
 - Pathogenic fungi
+
 ## Chemotherapy/Antibiotics
+
 - General characteristics of antimicrobial drugs
 - Antibiotics: Classification molecular mechanism of mode of action and resistance
 - Antifungal and antiviral drugs
+
 ## Microbial Genetics
+
 - Types of mutation
 - UV and chemical mutagens
 - Selection of mutants
@@ -466,25 +543,34 @@ version: 2
 - RNA
 - Mutation in virus genomes, virus recombination and reassortment
 - Basic concept of microbial genomics
+
 ## Microbial Ecology
+
 - Microbial interactions
 - Carbon, sulphur and nitrogen cycles
 - Soil microorganisms associated with vascular plants
 - Bioremediation
 - Uncultivable microorganisms
 - Basic concept of metagenomics and metatranscriptomics
+
 # Zoology
+
 ## Animal Diversity
+
 - Distribution
 - Systematics and classification of animals
 - Phylogenetic relationships (based on classical and molecular phylogenetic tools)
+
 ## Evolution
+
 - Origin and history of life on earth
 - Theories of evolution
 - Natural selection
 - Adaptation
 - Speciation
+
 ## Genetics
+
 - Basic Principles of inheritance
 - Molecular basis of heredity
 - Sex determination and sexlinked characteristics
@@ -494,7 +580,9 @@ version: 2
 - Population genetics
 - Genetic disorders
 - Roles of model organisms in understanding genetic principles
+
 ## Biochemistry and Molecular Biology
+
 - Nucleic acids
 - Proteins
 - Lipids and carbohydrates
@@ -505,7 +593,9 @@ version: 2
 - Enzyme catalysis
 - Hormones and their actions
 - Roles of vitamins and minerals
+
 ## Cell Biology
+
 - Basic principles of cellular microscopy
 - Structure of cell
 - Cytoskeletal organization
@@ -513,9 +603,13 @@ version: 2
 - Cell cycle
 - Cell division
 - Chromosomes and chromatin structure
+
 ## Gene expression in Eukaryotes
+
 - Eukaryotic genome organization and regulation of gene expression, transposable elements
+
 ## Animal Anatomy and Physiology
+
 - Comparative physiology
 - The respiratory system
 - Muscular system
@@ -526,13 +620,17 @@ version: 2
 - The endocrine system
 - The reproductive system
 - The skeletal system
+
 ## Parasitology and Immunology
+
 - Nature of parasite
 - Host-parasite relation
 - Protozoan and helminthic parasites
 - The immune response
 - Cellular and humoral immune response
+
 ## Development Biology
+
 - Gametogenesis
 - Embryonic development
 - Cellular differentiation
@@ -541,7 +639,9 @@ version: 2
 - Model organisms used in developmental biology
 - Genetic and molecular basis of development
 - Stem cells
+
 ## Ecology
+
 - The ecosystem
 - Animal distribution
 - Ecological niche and its contribution to ecological diversity
@@ -552,7 +652,9 @@ version: 2
 - Biogeochemical cycles
 - Conservation biology
 - Ecotoxicology
+
 ## Animal Behaviour
+
 - Type of behaviours
 - Courtship
 - Mating and territoriality
@@ -562,8 +664,11 @@ version: 2
 - Communication
 - Pheromones
 - Evolution of behavior in animals
+
 # Food Technology
+
 ## Carbohydrates
+
 - Structure and functional properties of mono-
 - Oligo-
 - & poly- saccharides including starch
@@ -597,7 +702,9 @@ version: 2
 - Nutraceuticals
 - Nutrient deficiency diseases
 - Chemical and biochemical changes: changes occur in foods during different processing
+
 ## Characteristics of Microorganisms
+
 - Morphology of bacteria
 - Yeast
 - Mold and actinomycetes
@@ -626,7 +733,9 @@ version: 2
 - Dose
 - Vinegar
 - Alcoholic beverages and sausage
+
 ## Processing Principles
+
 - Thermal processing
 - Chilling
 - Freezing
@@ -684,7 +793,9 @@ version: 2
 - ISI
 - HACCP
 - Food plant sanitation and cleaning in place (CIP)
+
 ## Mass and energy balance
+
 - Momentum transfer: Flow rate and pressure drop relationships for Newtonian fluids flowing through pipe
 - Reynolds number
 - Heat transfer: heat transfer by conduction

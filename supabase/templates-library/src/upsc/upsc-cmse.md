@@ -7,8 +7,11 @@ source: UPSC Combined Medical Services Examination 2026 notification, syllabus o
 verified: false
 version: 1
 ---
+
 # Paper I: General Medicine
+
 ## General Medicine
+
 - Cardiology
 - Respiratory diseases
 - Gastro-intestinal
@@ -30,7 +33,9 @@ version: 1
 - Pathophysiological basis of diseases
 - Vaccine-preventable and non-vaccine-preventable diseases
 - Vitamin deficiency diseases
+
 ## Infections and Communicable Diseases
+
 - Viral
 - Rickettsial
 - Bacterial
@@ -38,14 +43,19 @@ version: 1
 - Protozoan
 - Metazoan
 - Fungal
+
 ## Psychiatry
+
 - Depression
 - Psychosis
 - Anxiety
 - Bipolar disorder
 - Schizophrenia
+
 # Paper I: Paediatrics
+
 ## Paediatrics
+
 - Common childhood emergencies
 - Basic newborn care
 - Normal developmental milestones
@@ -54,8 +64,11 @@ version: 1
 - Immunization in children
 - Recognizing children with special needs, and management
 - National programmes related to child health
+
 # Paper II: Surgery
+
 ## General Surgery
+
 - Wounds
 - Infections
 - Tumours
@@ -74,7 +87,9 @@ version: 1
 - Peritoneum
 - Abdominal wall
 - Abdominal injuries
+
 ## Surgical Specialties
+
 - Urological surgery
 - Neurosurgery
 - Otorhinolaryngology (E.N.T.)
@@ -83,20 +98,27 @@ version: 1
 - Ophthalmology
 - Anaesthesiology
 - Traumatology
+
 ## Surgical Care
+
 - Diagnosis and management of common surgical ailments
 - Pre-operative and post-operative care of surgical patients
 - Medicolegal and ethical issues of surgery
 - Wound healing
 - Fluid and electrolyte management in surgery
 - Shock: pathophysiology and management
+
 # Paper II: Gynaecology and Obstetrics
+
 ## Obstetrics
+
 - Ante-natal conditions
 - Intra-natal conditions
 - Post-natal conditions
 - Management of normal or complicated labour
+
 ## Gynaecology
+
 - Applied anatomy
 - Applied physiology of menstruation and fertilization
 - Infections in the genital tract
@@ -107,13 +129,18 @@ version: 1
 - Abortions
 - Intra-uterine growth retardation
 - Medicolegal examination in obstetrics and gynaecology, including rape
+
 ## Family Planning
+
 - Conventional contraceptives
 - Intra-uterine devices and oral pills
 - Operative procedures, sterilization and organization of programmes in urban and rural surroundings
 - Medical termination of pregnancy
+
 # Paper II: Preventive, Social and Community Medicine
+
 ## Preventive, Social and Community Medicine
+
 - Social and community medicine
 - Concept of health, disease and preventive medicine
 - Health administration and planning

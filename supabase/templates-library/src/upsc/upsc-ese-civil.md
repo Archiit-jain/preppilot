@@ -7,8 +7,11 @@ source: UPSC Engineering Services Examination 2027 notification, Section III Sta
 verified: false
 version: 1
 ---
+
 # Prelims Paper I: General Studies and Engineering Aptitude
+
 ## General Studies and Engineering Aptitude
+
 - Current issues of national and international importance relating to social, economic and industrial development
 - Engineering Aptitude covering Logical reasoning and Analytical ability
 - Engineering Mathematics and Numerical Analysis
@@ -23,8 +26,11 @@ version: 1
 - Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking
 - E-governance and technology based education
 - Ethics and values in engineering profession
+
 # Civil Engineering: Paper I
+
 ## Building Materials
+
 - Stone
 - Lime
 - Glass
@@ -45,7 +51,9 @@ version: 1
 - Cement: Specifications and various Tests
 - Lime & Cement Mortars and Concrete: Properties and various Tests
 - Design of Concrete Mixes: Proportioning of aggregates and methods of mix design
+
 ## Solid Mechanics
+
 - Elastic constants
 - Stress
 - Plane stress
@@ -56,7 +64,9 @@ version: 1
 - Principal Stresses
 - Bending
 - Shear and Torsion
+
 ## Structural Analysis
+
 - Basics of strength of materials
 - Types of stresses and strains
 - Bending moments and shear force
@@ -71,7 +81,9 @@ version: 1
 - Free and Forced vibrations of single degree and multi degree freedom system
 - Suspended Cables
 - Concepts and use of Computer Aided Design
+
 ## Design of Steel Structures
+
 - Principles of Working Stress methods
 - Design of tension and compression members
 - Design of beams and beam column connections
@@ -79,7 +91,9 @@ version: 1
 - Girders
 - Industrial roofs
 - Principles of Ultimate load design
+
 ## Design of Concrete and Masonry structures
+
 - Limit state design for bending
 - Shear
 - Axial compression and combined forces
@@ -93,7 +107,9 @@ version: 1
 - Principles of prestressed concrete design including materials and methods
 - Earthquake resistant design of structures
 - Design of Masonry Structure
+
 ## Construction Practice, Planning and Management
+
 - Construction - Planning
 - Equipment
 - Site investigation
@@ -106,8 +122,11 @@ version: 1
 - Operation Cost
 - Land acquisition
 - Labour safety and welfare
+
 # Civil Engineering: Paper II
+
 ## Flow of Fluids, Hydraulic Machines and Hydro Power
+
 - (a) Fluid Mechanics
 - Open Channel Flow
 - Pipe Flow: Fluid properties
@@ -130,7 +149,9 @@ version: 1
 - Storage
 - Pondage
 - Control of supply
+
 ## Hydrology and Water Resources Engineering
+
 - Hydrological cycle
 - Ground water hydrology
 - Well hydrology and related data analysis
@@ -152,7 +173,9 @@ version: 1
 - Water Resources Engineering: Cross drainage works and head-works and their design
 - Water Resources Engineering: Concepts in canal design, construction & maintenance
 - Water Resources Engineering: River training, measurement and analysis of rainfall
+
 ## Environmental Engineering
+
 - (a) Water Supply Engineering: Sources
 - Estimation
 - Quality standards and testing of water and their treatment
@@ -175,7 +198,9 @@ version: 1
 - Disposal system
 - Beneficial aspects of wastes and Utilization by Civil Engineers. (d) Air
 - Noise pollution and Ecology: Concepts & general methodology
+
 ## Geo-technical Engineering and Foundation Engineering
+
 - (a)Geo-technical Engineering: Soil exploration - planning & methods
 - Properties of soil
 - Classification
@@ -193,7 +218,9 @@ version: 1
 - Dams and Earth retaining structures: types
 - Analysis and design
 - Principles of ground modifications
+
 ## Surveying and Geology
+
 - (a) Surveying: Classification of surveys
 - Various methodologies
 - Instruments & analysis of measurement of distances
@@ -207,7 +234,9 @@ version: 1
 - Bridges
 - Road/railway alignment and buildings
 - Setting out of Curves. (b) Geology: Basic knowledge of Engineering geology & its application in projects
+
 ## Transportation Engineering
+
 - Highways - Planning & construction methodology, Alignment and geometric design
 - Traffic Surveys and Controls
 - Principles of Flexible and Rigid pavements design

@@ -7,33 +7,47 @@ source: GATE 2026 official syllabus (CH), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Engineering Mathematics
+
 ## Linear Algebra
+
 - Matrix algebra
 - Systems of linear equations
 - Eigenvalues and eigenvectors
+
 ## Calculus
+
 - Functions of single variable
 - Limit
 - Continuity and differentiability
@@ -51,18 +65,24 @@ version: 1
 - Surface and Volume integrals
 - Stokes
 - Gauss and Green’s theorems
+
 ## Differential Equations
+
 - First order equations (linear and nonlinear)
 - Higher order linear differential equations with constant coefficients
 - Cauchy’s and Euler’s equations
 - Initial and boundary value problems
 - Laplace transforms
 - Solutions of one-dimensional heat and wave equations and Laplace equation
+
 ## Complex Variables
+
 - Complex number
 - Polar form of complex number
 - Triangle inequality
+
 ## Probability and Statistics
+
 - Definitions of probability and sampling theorems
 - Conditional probability
 - Mean
@@ -72,12 +92,17 @@ version: 1
 - Poisson
 - Normal and Binomial distributions
 - Linear regression analysis
+
 ## Numerical Methods
+
 - Numerical solutions of linear and non-linear algebraic equations
 - Integration by trapezoidal and Simpson’s rule
 - Single and multi-step methods for numerical solution of differential equations
+
 # Process Calculations and Thermodynamics
+
 ## Process Calculations and Thermodynamics
+
 - Steady and unsteady state mass and energy balances including multiphase
 - Multicomponent
 - Reacting and non-reacting systems
@@ -93,8 +118,11 @@ version: 1
 - Excess properties and activity coefficients
 - Phase equilibria: predicting VLE of systems
 - Chemical reaction equilibrium
+
 # Fluid Mechanics and Mechanical Operations
+
 ## Fluid Mechanics and Mechanical Operations
+
 - Fluid statics
 - Surface tension
 - Newtonian and non-Newtonian fluids
@@ -122,8 +150,11 @@ version: 1
 - Filtration
 - Agitation and mixing
 - Conveying of solids
+
 # Heat Transfer
+
 ## Heat Transfer
+
 - Equation of energy
 - Steady and unsteady heat conduction
 - Convection and radiation
@@ -134,8 +165,11 @@ version: 1
 - Design of double pipe
 - Shell and tube heat exchangers
 - Single and multiple effect evaporators
+
 # Mass Transfer
+
 ## Mass Transfer
+
 - Fick’s laws
 - Molecular diffusion in fluids
 - Mass transfer coefficients
@@ -152,8 +186,11 @@ version: 1
 - Humidification
 - Dehumidification and adsorption
 - Membrane separations (micro-filtration, ultra-filtration, nano-filtration and reverse osmosis)
+
 # Chemical Reaction Engineering
+
 ## Chemical Reaction Engineering
+
 - Theories of reaction rates
 - Kinetics of homogeneous reactions
 - Interpretation of kinetic data
@@ -165,8 +202,11 @@ version: 1
 - Kinetics of heterogeneous catalytic reactions
 - Diffusion effects in catalysis
 - Rate and performance equations for catalyst deactivation
+
 # Instrumentation and Process Control
+
 ## Instrumentation and Process Control
+
 - Measurement of process variables
 - Sensors and transducers
 - P&ID equipment symbols
@@ -181,8 +221,11 @@ version: 1
 - Frequency response
 - Controller tuning
 - Cascade and feed forward control
+
 # Plant Design and Economics
+
 ## Plant Design and Economics
+
 - Principles of process economics and cost estimation including depreciation and total annualized cost
 - Cost indices
 - Rate of return
@@ -191,8 +234,11 @@ version: 1
 - Optimization in process design
 - Sizing of chemical engineering equipments such as heat exchangers
 - Multistage contactors
+
 # Chemical Technology
+
 ## Chemical Technology
+
 - Inorganic chemical industries (sulfuric acid, phosphoric acid, chlor-alkali industry)
 - Fertilizers (Ammonia, Urea, SSP and TSP)
 - Natural products industries (Pulp and Paper, Sugar, Oil, and Fats)

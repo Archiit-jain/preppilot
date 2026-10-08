@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (ST), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Statistics
+
 ## Calculus
+
 - Finite, countable and uncountable sets
 - Real number system as a complete ordered field, Archimedean property
 - Sequences of real numbers
@@ -66,7 +78,9 @@ version: 1
 - Saddle point
 - Method of Lagrange multipliers
 - Double and triple integrals and their applications
+
 ## Matrix Theory
+
 - Subspaces of ℝ and ℂ
 - Span
 - Linear independence
@@ -93,7 +107,9 @@ version: 1
 - Positive definite and positive semi-definite matrices and their properties
 - Quadratic forms
 - Singular value decomposition
+
 ## Probability
+
 - Axiomatic definition of probability
 - Properties of probability function
 - Conditional probability
@@ -109,7 +125,9 @@ version: 1
 - Distribution of functions of a random variable
 - Chebyshev
 - Markov and Jensen inequalities
+
 ## Standard Discrete and Continuous Univariate Distributions
+
 - Bernoulli
 - Binomial
 - Geometric
@@ -149,7 +167,9 @@ version: 1
 - Borel-Cantelli lemma
 - Weak and strong laws of large numbers
 - Central limit theorem for i.i.d. random variables, delta method
+
 ## Stochastic Processes
+
 - Markov chains with finite and countable state space
 - Classification of states
 - Limiting behaviour of n-step transition probabilities
@@ -159,7 +179,9 @@ version: 1
 - Pure-birth process
 - Pure-death process
 - Brownian motion and its basic properties
+
 ## Estimation
+
 - Sufficiency
 - Minimal sufficiency
 - Factorization theorem
@@ -176,7 +198,9 @@ version: 1
 - Method of moments estimators
 - Method of maximum likelihood estimators and their properties
 - Interval estimation: pivotal quantities and confidence intervals based on them, coverage probability
+
 ## Testing of Hypotheses
+
 - Neyman-Pearson lemma
 - Most powerful tests
 - Monotone likelihood ratio (MLR) property
@@ -186,7 +210,9 @@ version: 1
 - Uniformly most powerful unbiased tests for exponential families
 - Likelihood ratio tests
 - Large sample tests
+
 ## Non-parametric Statistics
+
 - Empirical distribution function and its properties
 - Goodness of fit tests
 - Chi-square test
@@ -195,14 +221,18 @@ version: 1
 - Wilcoxon signed rank test
 - MannWhitney U-test
 - Rank correlation coefficients of Spearman and Kendall
+
 ## Multivariate Analysis
+
 - Multivariate normal distribution: properties
 - Conditional and marginal distributions
 - Maximum likelihood estimation of mean vector and dispersion matrix
 - Hotelling’s T2 test
 - Wishart distribution and its basic properties
 - Multiple and partial correlation coefficients and their basic properties
+
 ## Regression Analysis
+
 - Simple and multiple linear regression
 - R2 and adjusted R2 and their applications
 - Distributions of quadratic forms of random vectors: Fisher-Cochran theorem

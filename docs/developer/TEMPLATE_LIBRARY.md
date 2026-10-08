@@ -50,7 +50,9 @@ until then, and the app shows that before import.
 
    Names are at most 120 characters, the app's limit.
 
-2. Run `pnpm --filter @preppilot/shared test`. It builds every source file and
+2. Format the sources (CI checks them): `npx prettier --write "supabase/templates-library/src/**/*.md"`.
+   Prettier only adds blank lines, which the builder ignores. Then run
+   `pnpm --filter @preppilot/shared test`. It builds every source file and
    checks the result with the same validator the app uses.
 3. Build: `node supabase/templates-library/build-library.mjs` writes
    `supabase/templates-library/dist/`.
@@ -82,3 +84,13 @@ official GATE syllabus PDFs (`pdftotext -enc UTF-8`). It splits the official
 "Chapter: topic; topic" text into topics, adds the common General Aptitude
 section, and splits or shortens anything over 120 characters. Its output is
 reviewed before it is committed.
+
+The others work the same way, each for one official source:
+
+- `ugcnet_to_md.py`: UGC NET Paper I and nine Paper II subjects (UGC NET Bureau PDFs).
+- `upsc_ese_to_md.py`: UPSC ESE, from the notification's "Standard and Syllabi"
+  (uses the shared `numbered_to_md.py`).
+- `csir_net_to_md.py`: CSIR NET Chemical, Life (merged CSIR-DBT), Mathematical
+  and Physical Sciences, from the CSIR HRDG syllabus PDFs.
+
+UPSC CDS, NDA and CMSE are written by hand from their notifications.

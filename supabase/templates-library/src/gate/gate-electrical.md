@@ -7,34 +7,48 @@ source: GATE 2026 official syllabus (EE), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Engineering Mathematics
+
 ## Linear Algebra
+
 - Matrix Algebra
 - Systems of linear equations
 - Eigen values
 - Eigen vectors
+
 ## Calculus
+
 - Mean value theorems
 - Theorems of integral calculus
 - Evaluation of definite and improper integrals
@@ -51,7 +65,9 @@ version: 1
 - Gauss’s theorem
 - Divergence theorem
 - Green’s theorem
+
 ## Differential Equations
+
 - First order equations (linear and nonlinear)
 - Higher order linear differential equations with constant coefficients
 - Method of variation of parameters
@@ -60,7 +76,9 @@ version: 1
 - Initial and boundary value problems
 - Partial Differential Equations
 - Method of separation of variables
+
 ## Complex Variables
+
 - Analytic functions
 - Cauchy’s integral theorem
 - Cauchy’s integral formula
@@ -68,7 +86,9 @@ version: 1
 - Laurent series
 - Residue theorem
 - Solution integrals
+
 ## Probability and Statistics
+
 - Sampling theorems
 - Conditional probability
 - Mean
@@ -82,8 +102,11 @@ version: 1
 - Binomial distribution
 - Correlation analysis
 - Regression analysis
+
 # Electric circuits
+
 ## Network Elements
+
 - Ideal voltage and current sources
 - Dependent sources
 - R
@@ -103,8 +126,11 @@ version: 1
 - Balanced three phase circuits
 - Star-delta transformation
 - Complex power and power factor in AC circuits
+
 # Electromagnetic Fields
+
 ## Electromagnetic Fields
+
 - Coulomb's Law
 - Electric Field Intensity
 - Electric Flux Density
@@ -125,8 +151,11 @@ version: 1
 - Reluctance
 - Magnetic circuits
 - Self and Mutual inductance of simple configurations
+
 # Signals and Systems
+
 ## Signals and Systems
+
 - Representation of continuous and discrete time signals
 - Shifting and scaling properties
 - Linear time invariant and causal systems
@@ -135,8 +164,11 @@ version: 1
 - Applications of Fourier Transform for continuous and discrete time signals
 - Laplace Transform and Z transform
 - R.M.S. value, average value calculation for any general periodic waveform
+
 # Electrical Machines
+
 ## Single phase transformer
+
 - Equivalent circuit
 - Phasor diagram
 - Open circuit and short circuit tests
@@ -161,8 +193,11 @@ version: 1
 - Regulation and parallel operation of generators
 - Starting of synchronous motors
 - Types of losses and efficiency calculations of electric machines
+
 # Power Systems
+
 ## Power Systems
+
 - Basic concepts of electrical power generation
 - AC and DC transmission concepts
 - Models and performance of transmission lines and cables
@@ -183,8 +218,11 @@ version: 1
 - Circuit breakers
 - System stability concepts
 - Equal area criterion
+
 # Control Systems
+
 ## Control Systems
+
 - Mathematical modelling and representation of systems
 - Feedback principle
 - Transfer function
@@ -197,8 +235,11 @@ version: 1
 - Lead and Lead‐Lag compensators
 - P, PI and PID controllers
 - State space model, Solution of state equations of LTI systems
+
 # Electrical and Electronic Measurements
+
 ## Electrical and Electronic Measurements
+
 - Bridges and Potentiometers
 - Measurement of voltage
 - Current
@@ -209,8 +250,11 @@ version: 1
 - Phase
 - Time and Frequency measurement
 - Oscilloscopes, Error analysis
+
 # Analog and Digital Electronics
+
 ## Simple diode circuits
+
 - Clipping
 - Clamping
 - Rectifiers
@@ -227,8 +271,11 @@ version: 1
 - Schmitt triggers
 - Sample and hold circuits
 - A/D and D/A converters
+
 # Power Electronics
+
 ## Power Electronics
+
 - Static V-I characteristics and firing/gating circuits for Thyristor
 - MOSFET
 - IGBT

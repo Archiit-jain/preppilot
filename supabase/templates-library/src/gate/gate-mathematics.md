@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (MA), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Mathematics
+
 ## Calculus
+
 - Functions of two or more variables
 - Continuity
 - Directional derivatives
@@ -45,7 +57,9 @@ version: 1
 - Green’s theorem
 - Stokes’ theorem
 - Gauss divergence theorem
+
 ## Linear Algebra
+
 - Finite dimensional vector spaces over real or complex fields
 - Linear transformations and their matrix representations, rank and nullity
 - Systems of linear equations
@@ -64,7 +78,9 @@ version: 1
 - Orthogonal and unitary matrices
 - Diagonalization by a unitary matrix, Jordan canonical form
 - Bilinear and quadratic forms
+
 ## Real Analysis
+
 - Metric spaces
 - Connectedness
 - Compactness
@@ -80,7 +96,9 @@ version: 1
 - Fatou’s lemma
 - Monotone convergence theorem
 - Dominated convergence theorem
+
 ## Complex Analysis
+
 - Functions of a complex variable: continuity
 - Differentiability
 - Analytic functions
@@ -98,7 +116,9 @@ version: 1
 - Argument principle
 - Schwarz lemma
 - Conformal mappings, Mobius transformations
+
 ## Ordinary Differential Equations
+
 - First order ordinary differential equations
 - Existence and uniqueness theorems for initial value problems
 - Linear ordinary differential equations of higher order with constant coefficients
@@ -113,7 +133,9 @@ version: 1
 - Planar autonomous systems of ordinary differential equations: Stability of stationary points for linear systems with…
 - Linearized stability
 - Lyapunov functions
+
 ## Algebra
+
 - Groups
 - Subgroups
 - Normal subgroups
@@ -138,7 +160,9 @@ version: 1
 - Field extensions
 - Algebraic extensions
 - Algebraically closed fields
+
 ## Functional Analysis
+
 - Normed linear spaces
 - Banach spaces
 - Hahn-Banach theorem
@@ -151,7 +175,9 @@ version: 1
 - Projection theorem
 - Riesz representation theorem
 - Spectral theorem for compact self-adjoint operators
+
 ## Numerical Analysis
+
 - Systems of linear equations: Direct methods (Gaussian elimination, LU decomposition, Cholesky factorization)
 - Iterative methods (Gauss-Seidel and Jacobi) and their convergence for diagonally dominant coefficient matrices
 - Numerical solutions of nonlinear equations: bisection method
@@ -167,7 +193,9 @@ version: 1
 - Mathematical errors involved in numerical integration formulae
 - Numerical solution of initial value problems for ordinary differential equations: Methods of Euler
 - Runge-Kutta method of order 2
+
 ## Partial Differential Equations
+
 - Method of characteristics for first order linear and quasilinear partial differential equations
 - Second order partial differential equations in two independent variables: classification and canonical forms
 - Method of separation of variables for Laplace equation in Cartesian and polar coordinates
@@ -177,7 +205,9 @@ version: 1
 - Non-homogeneous wave equation
 - Heat equation: Cauchy problem
 - Laplace and Fourier transform methods
+
 ## Topology
+
 - Basic concepts of topology
 - Bases
 - Subbases
@@ -190,7 +220,9 @@ version: 1
 - Compactness
 - Countability and separation axioms
 - Urysohn’s Lemma
+
 ## Linear Programming
+
 - Linear programming models
 - Convex sets
 - Extreme points

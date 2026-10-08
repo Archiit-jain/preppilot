@@ -7,8 +7,11 @@ source: UGC NET Bureau official syllabus, Paper I and subject code 04; topics sp
 verified: false
 version: 2
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Psychology
+
 ## Emergence of Psychology
+
 - Psychological thought in some major Eastern Systems: Bhagavad Gita
 - Psychological thought in some major Eastern Systems: Buddhism
 - Psychological thought in some major Eastern Systems: Sufism and Integral Yoga
@@ -183,7 +207,9 @@ version: 2
 - Significant Indian paradigms on psychological knowledge: Integral Yoga
 - Science and spirituality (avidya and vidya)
 - The primacy of self-knowledge in Indian psychology
+
 ## Research Methodology and Statistics
+
 - Research: Meaning
 - Research: Purpose
 - Research: Dimensions
@@ -233,7 +259,9 @@ version: 2
 - Experimental Designs: MANOVA
 - Experimental Designs: ANCOVA
 - Single-subject designs
+
 ## Psychological testing
+
 - Types of tests Test construction: Item writing
 - Types of tests Test construction: Item analysis Test standardization: Reliability
 - Types of tests Test construction: Validity and Norms Areas of testing: Intelligence
@@ -250,7 +278,9 @@ version: 2
 - Counseling
 - Military
 - Career guidance
+
 ## Biological basis of behavior
+
 - Sensory systems: General and specific sensations
 - Sensory systems: Receptors and processes Neurons: Structure
 - Sensory systems: Functions
@@ -273,7 +303,9 @@ version: 2
 - Biological basis of emotion: Hormonal regulation of behavior
 - Genetics and behavior: Chromosomal anomalies
 - Genetics and behavior: Nature-Nurture controversy [Twin studies and adoption studies]
+
 ## Attention, Perception, Learning, Memory and Forgetting
+
 - Attention: Forms of attention
 - Models of attention Perception: Approaches to the Study of Perception: Gestalt
 - Physiological approaches Perceptual Organization: Gestalt
@@ -309,7 +341,9 @@ version: 2
 - Theories of Forgetting: Retrieval Failure
 - Theories of Forgetting: Decay
 - Theories of Forgetting: Motivated forgetting
+
 ## Thinking, Intelligence and Creativity
+
 - Theoretical perspectives on thought processes: Associationism
 - Theoretical perspectives on thought processes: Gestalt
 - Theoretical perspectives on thought processes: Information processing
@@ -330,7 +364,9 @@ version: 2
 - Das, Kar & Parrila Creativity: Getzels & Jackson
 - Das, Kar & Parrila Creativity: Guilford
 - Das, Kar & Parrila Creativity: Wallach & Kogan Relationship between Intelligence and Creativity
+
 ## Personality, Motivation, emotion, stress and coping
+
 - Determinants of personality: Biological and socio-cultural Approaches to the study of personality: Psychoanalytical
 - Determinants of personality: Neo-Freudian
 - Determinants of personality: Social learning
@@ -373,7 +409,9 @@ version: 2
 - Meditation
 - Yogasana
 - Stress Inoculation Training]
+
 ## Social Psychology
+
 - Nature
 - Scope and history of social psychology Traditional theoretical perspectives: Field theory
 - Cognitive Dissonance
@@ -396,7 +434,9 @@ version: 2
 - Personal space
 - Crowding
 - Territoriality
+
 ## Human Development and Interventions
+
 - Developmental processes: Nature
 - Developmental processes: Principles
 - Developmental processes: Factors in development
@@ -433,7 +473,9 @@ version: 2
 - Organizational set up and techniques Counselling: Process
 - Skills
 - Techniques
+
 ## Emerging Areas
+
 - Issues of Gender, Poverty, Disability, and Migration: Cultural bias and discrimination
 - Stigma
 - Marginalization

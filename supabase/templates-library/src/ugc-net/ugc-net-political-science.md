@@ -7,8 +7,11 @@ source: UGC NET Bureau official syllabus, Paper I and subject code 02; topics sp
 verified: false
 version: 2
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Political Science
+
 ## Political Theory
+
 - Concepts Liberty
 - Equality
 - Justice
@@ -145,7 +169,9 @@ version: 2
 - Power
 - Citizenship
 - Political Traditions Liberalism Conservatism Socialism Marxism Feminism Ecologism Multiculturalism Postmodernism
+
 ## Political Thought
+
 - Confucius
 - Plato
 - Aristotle
@@ -162,7 +188,9 @@ version: 2
 - Frantz Fanon
 - Mao Zedong
 - John Rawls
+
 ## Indian Political Thought
+
 - Dharamshastra
 - Kautilya
 - Aggannasutta
@@ -186,7 +214,9 @@ version: 2
 - Ram Manohar Lohia
 - Jaya Prakash Narayan
 - Deendayal Upadhyaya
+
 ## Comparative Political Analysis
+
 - Approaches: Institutional
 - Approaches: Political Culture
 - Approaches: Political Economy and New Institutionalism
@@ -221,7 +251,9 @@ version: 2
 - Structures of Power: New social movements
 - Structures of Power: Non Governmental Organisations (NGOs) and civil society campaigns
 - Structures of Power: Revolutions
+
 ## International Relations Approaches to the study of International relations: Idealism
+
 - Concepts: State
 - Concepts: State system and non-state actors
 - Concepts: Power
@@ -254,7 +286,9 @@ version: 2
 - Contemporary Challenges: Migration and Refugees
 - Contemporary Challenges: Poverty and Development
 - Contemporary Challenges: Role of Religion, Culture and Identity Politics
+
 ## India’s Foreign Policy Perspectives on India’s Foreign Policy: India’s Identity as postcolonial
+
 - India’s Engagement with multipolar world: India’s relations with European Union
 - India’s Engagement with multipolar world: BRICS
 - India’s Engagement with multipolar world: ASEAN
@@ -275,7 +309,9 @@ version: 2
 - India’s Negotiation Strategies in International Regimes: Water resources
 - India’s Negotiation Strategies in International Regimes: International terrorism
 - India’s Negotiation Strategies in International Regimes: Cyber security
+
 ## Political Institutions in India
+
 - Colonialism heritage
 - The contribution Indian National Movement to the making of the Indian Constitution Constituent Assembly: Composition
 - Making of the Indian Constitution: Ideological Moorings
@@ -311,7 +347,9 @@ version: 2
 - Constitutional and Statutory Bodies: National Commission for Human Rights
 - Constitutional and Statutory Bodies: National Commission for Women
 - Constitutional and Statutory Bodies: National Commission for Minorities
+
 ## Public Administration
+
 - Public Administration: Meaning and evolution
 - Public and private administration Approaches: System Theory
 - Public and private administration Approaches: Decision Making
@@ -329,7 +367,9 @@ version: 2
 - Organisational Communication: Theories and Principles
 - Organisational Communication: Chester Bernard Principles of Communication
 - Information Management in the organization Managing Conflict in the Organization: Mary Parker Follett Management by…
+
 ## Governance and Public Policy in India
+
 - Governance
 - Good governance and democratic governance
 - Role of state

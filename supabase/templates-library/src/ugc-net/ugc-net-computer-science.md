@@ -7,8 +7,11 @@ source: UGC NET Bureau official syllabus, Paper I and subject code 87; topics sp
 verified: false
 version: 2
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Computer Science and Applications
+
 ## Discrete Structures and Optimization
+
 - Mathematical Logic: Propositional and Predicate Logic
 - Mathematical Logic: Propositional Equivalences
 - Mathematical Logic: Normal Forms
@@ -191,7 +215,9 @@ version: 2
 - Optimization: Critical Path Calculations
 - Optimization: Resource Levelling
 - Optimization: Cost Consideration in Project Scheduling
+
 ## Computer System Architecture
+
 - Digital Logic Circuits and Components: Digital Computers
 - Digital Logic Circuits and Components: Logic Gates
 - Digital Logic Circuits and Components: Boolean Algebra
@@ -264,7 +290,9 @@ version: 2
 - Multiprocessors: Interprocessor Communication and Synchronization
 - Multiprocessors: Cache Coherence
 - Multiprocessors: Multicore Processors
+
 ## Programming Languages and Computer Graphics
+
 - Language Design and Translation Issues: Programming Language Concepts
 - Language Design and Translation Issues: Paradigms and Models
 - Language Design and Translation Issues: Programming Environments
@@ -347,7 +375,9 @@ version: 2
 - Polygon Rendering Methods
 - Viewing Pipeline and Coordinates
 - General Projection Transforms and Cipping
+
 ## Database Management Systems
+
 - Database System Concepts and Architecture: Data Models
 - Database System Concepts and Architecture: Schemas
 - Database System Concepts and Architecture: Instances
@@ -410,7 +440,9 @@ version: 2
 - NOSQL: Different NOSQL Products, Querying and Managing NOSQL
 - NOSQL: Indexing and Ordering Data Sets
 - NOSQL: NOSQL in Cloud
+
 ## System Software and Operating System
+
 - System Software: Machine
 - System Software: Assembly and High-Level Languages
 - System Software: Compilers and Interpreters
@@ -498,7 +530,9 @@ version: 2
 - Distributed Systems: Robustness
 - Distributed Systems: Design Issues
 - Distributed Systems: Distributed File Systems
+
 ## Software Engineering
+
 - Software Process Models: Software Process
 - Software Process Models: Generic Process Model – Framework Activity
 - Software Process Models: Task Set and Process Patterns
@@ -565,7 +599,9 @@ version: 2
 - Software Configuration Management: Software Reuse
 - Software Configuration Management: Software Re-engineering
 - Software Configuration Management: Reverse Engineering
+
 ## Data Structures and Algorithms
+
 - Data Structures: Arrays and their Applications
 - Data Structures: Sparse Matrix
 - Data Structures: Stacks
@@ -609,7 +645,9 @@ version: 2
 - Advanced Algorithms: Searching and Merging
 - Advanced Algorithms: Approximation Algorithms
 - Advanced Algorithms: Randomized Algorithms
+
 ## Theory of Computation and Compilers
+
 - Theory of Computation: Formal Language
 - Theory of Computation: Non-Computational Problems
 - Theory of Computation: Diagonal Argument
@@ -680,7 +718,9 @@ version: 2
 - Code Generation and Code Optimization: Loop Optimization
 - Code Generation and Code Optimization: Peep-Hole Optimization
 - Code Generation and Code Optimization: Instruction Scheduling
+
 ## Data Communication and Computer Networks
+
 - Data Communication: Components of a Data Communication System
 - Data Communication: Simplex
 - Data Communication: HalfDuplex and Duplex Modes of Communication
@@ -767,7 +807,9 @@ version: 2
 - Cloud Computing and IoT: Resource Management
 - Cloud Computing and IoT: Service Level Agreement
 - Cloud Computing and IoT: Basics of IoT
+
 ## Artificial Intelligence (AI)
+
 - Approaches to AI: Turing Test and Rational Agent Approaches
 - Approaches to AI: State Space Representation of Problems
 - Approaches to AI: Heuristic Search Techniques

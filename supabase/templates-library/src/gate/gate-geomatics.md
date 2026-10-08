@@ -7,29 +7,41 @@ source: GATE 2026 official syllabus (GE), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Engineering Mathematics and Basic Geomatics
+
 ## Engineering Mathematics
+
 - Surveying measurements
 - Accuracy
 - Precision
@@ -40,7 +52,9 @@ version: 1
 - Least square adjustment
 - Statistical significant value
 - Chi square test
+
 ## Remote Sensing
+
 - Basic concept
 - Electromagnetic spectrum
 - Spectral signature
@@ -54,13 +68,17 @@ version: 1
 - Thermal
 - Hyperspectral
 - Visual and digital interpretation methods
+
 ## GNSS
+
 - Principle used
 - Components of GNSS
 - Data collection methods
 - DGPS
 - Errors in observations and corrections
+
 ## GIS
+
 - Introduction
 - Data Sources
 - Data Models and Data Structures
@@ -71,8 +89,11 @@ version: 1
 - Buffer
 - Overlay
 - Terrain Modeling and Network analysis
+
 # Surveying and Mapping
+
 ## Maps
+
 - Importance of maps to engineering projects
 - Types of maps
 - Scales and uses
@@ -84,7 +105,9 @@ version: 1
 - Geoid
 - Spheroid
 - WGS-84
+
 ## Land Surveying
+
 - Various Levels
 - Levelling methods
 - Compass
@@ -93,7 +116,9 @@ version: 1
 - Trigonometric levelling
 - Traversing
 - Triangulation and Trilateration
+
 ## Aerial Photogrammetry
+
 - Types of photographs
 - Flying height and scale
 - Relief (height) displacement
@@ -102,25 +127,38 @@ version: 1
 - Height determination using Parallax Bar
 - Digital Elevation Model (DEM)
 - Slope
+
 # Image Processing and Analysis
+
 ## Data Quantization and Processing
+
 - Sampling and quantization theory
 - Principle of Linear System
 - Convolution
 - Continuous and Discrete Fourier Transform
+
 ## Digital Image Processing
+
 - Digital image characteristics: image histogram and scattergram and their significance
 - Variance-Covariance matrix
 - Correlation matrix and their significance
+
 ## Radiometric and Geometric Corrections
+
 - Registration and Resampling techniques
+
 ## Image Enhancement
+
 - Contrast Enhancement: Linear and Non-linear methods
 - Spatial Enhancement: Noise and Spatial filters
+
 ## Image Transformation
+
 - Principal Component Analysis (PCA)
 - Discriminant Analysis
 - Colour transformations (RGB - IHS, CMYK)
 - Indices (Ratios, NDVI, NDWI)
+
 ## Image Segmentation and Classification
+
 - Simple techniques

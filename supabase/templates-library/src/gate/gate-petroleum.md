@@ -7,33 +7,47 @@ source: GATE 2026 official syllabus (PE), IIT Guwahati; topics split from the of
 verified: false
 version: 1
 ---
+
 # General Aptitude
+
 ## Verbal Aptitude
+
 - Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions
 - Verb-noun agreement and other parts of speech
 - Basic vocabulary: words, idioms and phrases in context
 - Reading and comprehension
 - Narrative sequencing
+
 ## Quantitative Aptitude
+
 - Data interpretation: bar graphs, pie charts and other graphs
 - 2- and 3-dimensional plots, maps and tables
 - Numerical computation and estimation: ratios, percentages, powers, exponents and logarithms
 - Permutations, combinations and series
 - Mensuration and geometry
 - Elementary statistics and probability
+
 ## Analytical Aptitude
+
 - Logic: deduction and induction
 - Analogy
 - Numerical relations and reasoning
+
 ## Spatial Aptitude
+
 - Transformation of shapes: translation, rotation, scaling, mirroring, assembling and grouping
 - Paper folding, cutting and patterns in 2 and 3 dimensions
+
 # Petroleum Engineering
+
 ## Linear Algebra
+
 - Matrix algebra
 - Systems of linear equations
 - Eigen values and eigen vectors
+
 ## Calculus
+
 - Functions of single variable
 - Limit
 - Continuity and differentiability
@@ -51,18 +65,24 @@ version: 1
 - Surface and Volume integrals
 - Stokes
 - Gauss and Green’s theorems
+
 ## Differential Equations
+
 - First order equations (linear and nonlinear)
 - Higher order linear differential equations with constant coefficients
 - Cauchy’s and Euler’s equations
 - Initial and boundary value problems
 - Laplace transforms
 - Solutions of one dimensional heat and wave equations and Laplace equation
+
 ## Complex Variables
+
 - Complex number
 - Polar form of complex number
 - Triangle inequality
+
 ## Probability and Statistics
+
 - Definitions of probability and sampling theorems
 - Conditional probability
 - Mean
@@ -72,15 +92,21 @@ version: 1
 - Poisson
 - Normal and Binomial distributions
 - Linear regression analysis
+
 ## Numerical Methods
+
 - Numerical solutions of linear and non-linear algebraic equations
 - Integration by trapezoidal and Simpson’s rule
 - Single and multi-step methods for numerical solution of differential equations
+
 ## Petroleum Exploration
+
 - Classification and description of some common rocks with special reference to clastic and nonclastic reservoir rocks
 - Origin, migration and accumulation of Petroleum
 - Petroleum exploration methods
+
 ## Oil and Gas Well Drilling Technology
+
 - Well planning
 - Drilling method
 - Drilling rigs Rig operating systems
@@ -98,7 +124,9 @@ version: 1
 - Multilateral
 - Extended reach
 - Slim wells
+
 ## Reservoir Engineering
+
 - Petrophysical properties of reservoir rocks
 - Coring and core analysis
 - Reservoir fluid properties
@@ -108,7 +136,9 @@ version: 1
 - Reservoir pressure measurements
 - Reservoir drives, drive mechanics and recovery factors
 - Reserve estimation & techniques
+
 ## Petroleum Production Operations
+
 - Well equipments
 - Well completion techniques
 - Well production problems and mitigation
@@ -137,7 +167,9 @@ version: 1
 - Thickening and classification
 - Filtration, agitation and mixing
 - Conveying of solids
+
 ## Offshore Drilling and Production Practices
+
 - Offshore oil and gas operations & ocean environment
 - Offshore fixed platforms
 - Offshore mobile units
@@ -155,7 +187,9 @@ version: 1
 - Deep water drilling rig
 - Deep water production system
 - Emerging deep water technologies
+
 ## Petroleum Formation Evaluation
+
 - Evaluation of petrophysical of sub-surface formations: Principles applications
 - Advantages and disadvantages of SP
 - Resistivity
@@ -174,7 +208,9 @@ version: 1
 - NMR logging principles
 - Standard log interpretation methods
 - Cross-plotting methods
+
 ## Oil and Gas Well Testing
+
 - Diffusivity equation, derivation & solutions
 - Radius of investigation
 - Principle of superposition
@@ -189,7 +225,9 @@ version: 1
 - Pulse testing
 - Well-test analysis by use of type curves
 - Gas well testing
+
 ## Health Safety and Environment in Petroleum Industry
+
 - Health hazards in Petroleum Industry: Toxicity
 - Physiological
 - Asphyxiation
@@ -209,7 +247,9 @@ version: 1
 - Offshore environmental studies
 - Offshore oil spill and oil spill control
 - Waste treatment methods
+
 ## Enhanced Oil Recovery Techniques
+
 - Basic principles and mechanism of EOR, Screening of EOR process
 - Concept of pattern flooding
 - Recovery efficiency
@@ -219,7 +259,9 @@ version: 1
 - Miscible flooding
 - Thermal recoveries (steam stimulation, hot water & steam flooding, in-situ combustion)
 - Microbial EOR
+
 ## Latest Trends in Petroleum Engineering
+
 - Coal bed methane
 - Shale gas
 - Oil shale

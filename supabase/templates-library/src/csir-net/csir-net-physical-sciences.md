@@ -7,13 +7,19 @@ source: CSIR HRDG official syllabus, Physical Sciences; topics split from the of
 verified: false
 version: 1
 ---
+
 # Part A: General Aptitude
+
 ## General Aptitude
+
 - General Science
 - Quantitative Reasoning and Analysis
 - Research Aptitude
+
 # Physical Sciences: Core
+
 ## Mathematical Methods of Physics
+
 - Dimensional analysis
 - Vector algebra and vector calculus
 - Linear algebra, matrices, Cayley-Hamilton Theorem
@@ -27,7 +33,9 @@ version: 1
 - Random variables, binomial
 - Poisson and normal distributions
 - Central limit theorem
+
 ## Classical Mechanics
+
 - Newton’s laws
 - Dynamical systems, Phase space dynamics, stability analysis
 - Central force motions
@@ -41,7 +49,9 @@ version: 1
 - Periodic motion: small oscillations, normal modes
 - Special theory of relativity: Lorentz transformations
 - Special theory of relativity: Relativistic kinematics and mass–energy equivalence
+
 ## Electromagnetic Theory
+
 - Electrostatics: Gauss’s law and its applications
 - Electrostatics: Laplace and Poisson equations
 - Electrostatics: Boundary value problems
@@ -54,7 +64,9 @@ version: 1
 - Dielectrics and conductors
 - Reflection and refraction, polarization, Fresnel’s law, interference, coherence, diffraction
 - Dynamics of charged particles in static and uniform electromagnetic fields
+
 ## Quantum Mechanics
+
 - Wave-particle duality
 - Schrödinger equation (time-dependent and time-independent)
 - Eigenvalue problems (particle in a box, harmonic oscillator, etc.)
@@ -72,7 +84,9 @@ version: 1
 - Variational method
 - Time dependent perturbation theory and Fermi's golden rule, selection rules
 - Identical particles, Pauli exclusion principle, spin-statistics connection
+
 ## Thermodynamic and Statistical Physics
+
 - Laws of thermodynamics and their consequences
 - Thermodynamic potentials, Maxwell relations, chemical potential, phase equilibria
 - Phase space, micro- and macro-states
@@ -82,7 +96,9 @@ version: 1
 - Ideal Bose and Fermi gases
 - Principle of detailed balance
 - Blackbody radiation and Planck's distribution law
+
 ## Electronics and Experimental Methods
+
 - Semiconductor devices (diodes, junctions, transistors, field effect devices, homo- and hetero-junction devices)
 - Device structure
 - Device characteristics
@@ -96,8 +112,11 @@ version: 1
 - Precision and accuracy
 - Error analysis, propagation of errors
 - Least squares fitting
+
 # Physical Sciences: Advanced
+
 ## Mathematical Methods of Physics
+
 - Green’s function
 - Partial differential equations (Laplace, wave and heat equations in two and three dimensions)
 - Elements of computational techniques: Root of functions
@@ -108,23 +127,31 @@ version: 1
 - Finite difference methods
 - Tensors
 - Introductory group theory: SU(2), O(3)
+
 ## Classical Mechanics
+
 - Dynamical systems, Phase space dynamics, stability analysis
 - Poisson brackets and canonical transformations
 - Symmetry, invariance and Noether’s theorem
 - Hamilton-Jacobi theory
+
 ## Electromagnetic Theory
+
 - Dispersion relations in plasma
 - Lorentz invariance of Maxwell’s equation
 - Transmission lines and wave guides
 - Radiation- from moving charges and dipoles and retarded potentials
+
 ## Quantum Mechanics
+
 - Spin-orbit coupling, fine structure
 - WKB approximation
 - Elementary theory of scattering: phase shifts, partial waves, Born approximation
 - Relativistic quantum mechanics: Klein-Gordon and Dirac equations
 - Semi-classical theory of radiation
+
 ## Thermodynamic and Statistical Physics
+
 - First- and second-order phase transitions
 - Diamagnetism, paramagnetism, and ferromagnetism
 - Ising model
@@ -132,7 +159,9 @@ version: 1
 - Diffusion equation
 - Random walk and Brownian motion
 - Introduction to nonequilibrium processes
+
 ## Electronics and Experimental Methods
+
 - Linear and nonlinear curve fitting, chi-square test
 - Transducers (temperature, pressure/vacuum, magnetic fields, vibration, optical, and particle detectors)
 - Measurement and control
@@ -143,7 +172,9 @@ version: 1
 - Shielding and grounding
 - Fourier transforms, lock-in detector, box-car integrator, modulation techniques
 - High frequency devices (including generators and detectors)
+
 ## Atomic & Molecular Physics
+
 - Quantum states of an electron in an atom
 - Electron spin
 - Spectrum of helium and alkali atom
@@ -161,7 +192,9 @@ version: 1
 - Lasers: spontaneous and stimulated emission, Einstein A & B coefficients
 - Optical pumping, population inversion, rate equation
 - Modes of resonators and coherence length
+
 ## Condensed Matter Physics
+
 - Bravais lattices
 - Reciprocal lattice
 - Diffraction and the structure factor
@@ -181,7 +214,9 @@ version: 1
 - Ordered phases of matter: Translational and orientational order
 - Ordered phases of matter: Kinds of liquid crystalline order
 - Quasi crystals
+
 ## Nuclear and Particle Physics
+
 - Basic nuclear properties: size, shape and charge distribution, spin and parity
 - Binding energy, semiempirical mass formula, liquid drop model
 - Nature of the nuclear force

@@ -7,8 +7,11 @@ source: UPSC Engineering Services Examination 2027 notification, Section III Sta
 verified: false
 version: 1
 ---
+
 # Prelims Paper I: General Studies and Engineering Aptitude
+
 ## General Studies and Engineering Aptitude
+
 - Current issues of national and international importance relating to social, economic and industrial development
 - Engineering Aptitude covering Logical reasoning and Analytical ability
 - Engineering Mathematics and Numerical Analysis
@@ -23,8 +26,11 @@ version: 1
 - Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking
 - E-governance and technology based education
 - Ethics and values in engineering profession
+
 # Electronics & Telecommunication Engineering: Paper I
+
 ## Basic Electronics Engineering
+
 - Basics of semiconductors
 - Diode/Transistor basics and characteristics
 - Diodes for different uses
@@ -35,7 +41,9 @@ version: 1
 - Basics of linear ICs, operational amplifiers and their applications-linear/non-linear
 - Optical sources/detectors
 - Basics of Opto electronics and its applications
+
 ## Basic Electrical Engineering
+
 - DC circuits-Ohm’s & Kirchhoff’s laws
 - Mesh and nodal analysis
 - Circuit theorems
@@ -53,7 +61,9 @@ version: 1
 - Electrical power sources- basics: Wind
 - Electrical power sources- basics: Solar
 - Electrical power sources- basics: Basics of batteries and their uses
+
 ## Materials Science
+
 - Electrical Engineering materials
 - Crystal structure & defects
 - Ceramic materialsstructures
@@ -74,7 +84,9 @@ version: 1
 - Nano particles and uses
 - Nano-optical/magnetic/electronic materials and uses
 - Superconductivity, uses
+
 ## Electronic Measurements and Instrumentation
+
 - Principles of measurement
 - Accuracy
 - Precision and standards
@@ -86,7 +98,9 @@ version: 1
 - Basics of telemetry
 - Different types of transducers and displays
 - Data acquisition system basics
+
 ## Network Theory
+
 - Network graphs & matrices
 - Wye-Delta transformation
 - Linear constant coefficient differential equations- time domain analysis of RLC circuits
@@ -94,7 +108,9 @@ version: 1
 - 2-port network parameters-driving point & transfer functions
 - State equations for networks
 - Steady state sinusoidal analysis
+
 ## Analog and Digital Circuits
+
 - Small signal equivalent circuits of diodes, BJTS and FETs
 - Diode circuits for different uses
 - Biasing & stability of BJT & JFET amplifier circuits
@@ -112,8 +128,11 @@ version: 1
 - Basics of multiplexers
 - Counters/registers/ memories /microprocessors
 - Design& applications
+
 # Electronics & Telecommunication Engineering: Paper II
+
 ## Analog and Digital Communication Systems
+
 - Random signals
 - Noise
 - Probability theory
@@ -138,7 +157,9 @@ version: 1
 - Optical communication: Fibre optics
 - Optical communication: Theory
 - Optical communication: Practice/standards
+
 ## Control Systems
+
 - Classification of signals and systems
 - Application of signal and system theory
 - System realization
@@ -155,7 +176,9 @@ version: 1
 - Compensators
 - Elements of lead/lag compensation
 - PID and industrial controllers
+
 ## Computer Organization and Architecture
+
 - Basic architecture
 - CPU
 - I/O organisation
@@ -177,7 +200,9 @@ version: 1
 - Characteristics and design
 - Transactions and concurrency control
 - Elements of programming languages, typical examples
+
 ## Electro Magnetics
+
 - Elements of vector calculus, Maxwell’s equations-basic concepts
 - Gauss’, Stokes’ theorems
 - Wave propagation through different media
@@ -199,7 +224,9 @@ version: 1
 - Gain
 - Arraysactive/passive
 - Theory
+
 ## Advanced Electronics Topics
+
 - VLSI technology: Processing
 - VLSI technology: Lithography
 - VLSI technology: Interconnects
@@ -223,7 +250,9 @@ version: 1
 - Digital filters: Interfacing
 - Digital filters: Controllers & uses
 - Digital filters: Embedded systems
+
 ## Advanced Communication Topics
+
 - Communication networks: Principles /practices /technologies /uses /OSI model/security
 - Communication networks: Basic packet multiplexed streams/scheduling
 - Communication networks: Cellular networks

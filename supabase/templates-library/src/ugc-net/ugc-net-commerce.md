@@ -7,8 +7,11 @@ source: UGC NET Bureau official syllabus, Paper I and subject code 08; topics sp
 verified: false
 version: 2
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Commerce
+
 ## Business Environment and International Business
+
 - Concepts and elements of business environment: Economic environment- Economic systems
 - Concepts and elements of business environment: Economic policies(Monetary and fiscal policies)
 - Concepts and elements of business environment: Political environmentRole of government in business
@@ -169,7 +193,9 @@ version: 2
 - World Trade Organisation (WTO): GATS
 - World Trade Organisation (WTO): TRIPS
 - World Trade Organisation (WTO): TRIMS
+
 ## Accounting and Auditing
+
 - Basic accounting principles
 - Concepts and postulates
 - Partnership Accounts: Admission
@@ -209,7 +235,9 @@ version: 2
 - Recent Trends in Auditing: Environment audit
 - Recent Trends in Auditing: Systems audit
 - Recent Trends in Auditing: Safety audit
+
 ## Business Economics
+
 - Meaning and scope of business economics
 - Objectives of business firms
 - Demand analysis: Law of demand
@@ -227,7 +255,9 @@ version: 2
 - Pricing strategies: Price skimming
 - Pricing strategies: Price penetration
 - Pricing strategies: Peak load pricing
+
 ## Business Finance
+
 - Scope and sources of finance
 - Lease financing
 - Cost of capital and time value of money
@@ -245,7 +275,9 @@ version: 2
 - International financial markets and instruments: ADRs
 - International arbitrage
 - Multinational capital budgeting
+
 ## Business Statistics and Research Methods
+
 - Measures of central tendency
 - Measures of dispersion
 - Measures of skewness
@@ -271,7 +303,9 @@ version: 2
 - Hypothesis testing: Kruskal-Wallis test (H-test)
 - Hypothesis testing: Rank correlation test
 - Report writing
+
 ## Business Management and Human Resource Management
+
 - Principles and functions of management
 - Organization structure: Formal and informal organizations
 - Organization structure: Span of control
@@ -296,7 +330,9 @@ version: 2
 - Personality: Conflict and negotiation
 - Personality: Stress management
 - Organizational Culture: Organizational development and organizational change
+
 ## Banking and Financial Institutions
+
 - Overview of Indian financial system
 - Types of banks: Commercial banks
 - Types of banks: Regional Rural Banks (RRBs)
@@ -324,7 +360,9 @@ version: 2
 - Insurance: Factors limiting the insurability of risk
 - Insurance: Re-insurance
 - Insurance: Regulatory framework of insurance- IRDA and its role
+
 ## Marketing Management
+
 - Marketing: Concept and approaches
 - Marketing: Marketing channels
 - Marketing: Marketing mix
@@ -356,7 +394,9 @@ version: 2
 - Trends in marketing: Rural marketing
 - Trends in marketing: CRM
 - Logistics management
+
 ## Legal Aspects of Business
+
 - Indian Contract Act, 1872: Elements of a valid contract
 - Indian Contract Act, 1872: Capacity of parties
 - Indian Contract Act, 1872: Free consent
@@ -387,7 +427,9 @@ version: 2
 - Goods and Services Tax (GST): Benefits of GST
 - Goods and Services Tax (GST): Implementation mechanism
 - Goods and Services Tax (GST): Working of dual GST
+
 ## Income-tax and Corporate Tax Planning
+
 - Income-tax: Basic concepts
 - Income-tax: Residential status and tax incidence
 - Income-tax: Exempted incomes

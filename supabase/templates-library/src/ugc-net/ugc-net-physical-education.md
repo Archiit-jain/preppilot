@@ -5,10 +5,13 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 47; topics split from the official text.
 verified: false
-version: 2
+version: 3
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Physical Education
+
 ## Unit I
+
 - Physical education and adapted physical education
 - Their objectives Philosophies of education as applied to physical education Development of Physical education in Greece
 - Rome
@@ -164,7 +188,9 @@ version: 2
 - Ancient & Modern Olympics games, Asian and Commonwealth games
 - Structure and functions of international and national bodies controlling various games and sports
 - Prominent honours and awards in games and sports
+
 ## Unit II
+
 - Exercise physiology its scope and importance in the field of physical education and sports
 - Cardio respiratory adaptations to long and short term physical activities
 - Muscle- its types , characteristics and functions
@@ -187,16 +213,22 @@ version: 2
 - Physiological responses of various therapeutic modalities and rehabilitation
 - Physiological aspects of various Ergogenic aids
 - Massage manipulations and their physiological responses
+
 ## Kinesiology and biomechanics
+
 - Mechanical analyses of major sports skills
+
 ## Sports psychology- its importance in the field of physical education and sports
+
 - Group dynamics, Group cohesion and leadership in sports
 - Cognitive process- memory and thinking
 - Principles of Motor skill learning
 - Transfer of training and its types with its implication in sports
 - Long and short term psychological preparation for performance/ competition
 - Psychological skill training for activation and relaxation Spectators and sports performance
+
 ## Development of teacher education for physical education in India
+
 - Curriculum design and content- importance
 - Selection and classification of subject matter with reference to age
 - Sex and differently abled pupils
@@ -207,7 +239,9 @@ version: 2
 - Impact of technology in physical education and sports
 - Curriculum evaluation: Concepts and purpose
 - Procedure and appraisal
+
 ## Unit VI
+
 - Health- its objectives and spectrum
 - Health education, its importance and principles
 - Role of genetics and environment in achieving health
@@ -241,7 +275,9 @@ version: 2
 - Alcohol
 - & drugs on health
 - Prevention and rehabilitation
+
 ## Unit VII
+
 - Sports training- its characteristics and principles
 - Training load
 - Its features
@@ -274,7 +310,9 @@ version: 2
 - Concept of different periods - Preparatory, competition and transitional
 - Types of Competition
 - Talent identification- process and procedure
+
 ## Unit VIII
+
 - Research in physical education- its importance and classification
 - Ethical issues in research
 - Methods of research- Descriptive, historical and experimental
@@ -302,7 +340,9 @@ version: 2
 - Report
 - Abstract
 - Paper for publication and paper for presentation
+
 ## Unit IX
+
 - Test, measurement and evaluation -their types and importance in physical education and sports
 - Principles and processes of evaluation in physical education
 - Criteria of selecting an appropriate test and administration of testing programme
@@ -342,7 +382,9 @@ version: 2
 - Achievement motivation
 - Mental-toughness
 - Self-efficacy
+
 ## Unit X
+
 - Management- its principles and theories
 - Scope of management in physical education and sports
 - Guiding principles for organizing physical education & sports programmes in institutions
@@ -372,4 +414,3 @@ version: 2
 - Reporting and follow-up procedures of an event
 - Public relation- principles of public relations in physical education and sports
 - Mass Media- communication and publicity, qualifications of Public relation officer
-- ***********************************************************************

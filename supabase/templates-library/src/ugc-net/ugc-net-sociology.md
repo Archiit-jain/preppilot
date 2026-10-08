@@ -7,8 +7,11 @@ source: UGC NET Bureau official syllabus, Paper I and subject code 05; topics sp
 verified: false
 version: 2
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,12 +156,17 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Sociology
+
 ## Classical Sociological Traditions
+
 - Emile Durkheim
 - Max Weber
 - Karl Marx
+
 ## Structure- Functionalism and Structuralism
+
 - Bronislaw Malinowski
 - A.R
 - Radcliffe- Brown
@@ -148,7 +174,9 @@ version: 2
 - Robert K
 - Merton
 - Claude Levi Strauss
+
 ## Hermeneutic and Interpretative Traditions
+
 - G.H
 - Mead
 - Karl Manheim
@@ -156,14 +184,18 @@ version: 2
 - Harold Garfinkel
 - Erving Goffman
 - Clifford Geertz
+
 ## Post Modernism, Post Structuralism and Post Colonialism
+
 - Edward Said
 - Pierre Bourdieu
 - Michel Foucault
 - Jurgen Habermas
 - Anthony Giddens
 - Manuel Castells
+
 ## Indian Thinkers
+
 - M.K
 - Gandhi
 - B.R
@@ -175,31 +207,41 @@ version: 2
 - M.N
 - Srinivas
 - Irawati Karve
+
 ## Conceptualizing Social Reality
+
 - Philosophy of Science
 - Scientific Method and Epistemology in Social Science
 - Hermeneutic Traditions
 - Objectivity and Reflexivity in Social Science
 - Ethics and Politics
+
 ## Formulating Research Design
+
 - Reading Social Science Research, Data and Documents
 - Induction and Deduction
 - Fact, Concept and Theory
 - Hypotheses
 - Research Questions
 - Objectives
+
 ## Quantitative and Qualitative Methods
+
 - Ethnography
 - Survey Method
 - Historical Method
 - Comparative Method
+
 ## Techniques
+
 - Sampling
 - Questionnaire and Schedule
 - Statistical Analysis
 - Observation, Interview and Case study
 - Interpretation, Data Analysis and Report Writing
+
 ## Sociological Concepts
+
 - Social Structure
 - Culture
 - Network
@@ -210,40 +252,52 @@ version: 2
 - Values, Norms and Rules
 - Personhood, Habitus and Agency
 - Bureaucracy, Power and Authority
+
 ## Social Institutions
+
 - Marriage, Family and Kinship
 - Economy
 - Polity
 - Religion
 - Education
 - Law and Customs
+
 ## Social Stratification
+
 - Social Difference
 - Hierarchy
 - Inequality and Marginalization
 - Caste and Class
 - Gender, Sexuality and Disability
 - Race, Tribe and Ethnicity
+
 ## Social Change and Processes
+
 - Evolution and Diffusion
 - Modernization and Development
 - Social Transformations and Globalization
 - Social Mobility
+
 ## Rural and Peasant Society
+
 - Caste-Tribe Settlements
 - Agrarian Social Structure and Emergent Class Relations
 - Land Ownership and Agrarian Relations
 - Decline of Agrarian Economy, De-Peasantization and Migration
 - Agrarian Unrest and Peasant Movements
 - Changing Inter-Community Relations and Violence
+
 ## Urban Society
+
 - Urbanism, Urbanity and Urbanization
 - Towns, Cities and Mega-Cities
 - Industry, Service and Business
 - Neighbourhood, Slums and Ethnic Enclaves
 - Middle Class and Gated Communities
 - Urban Movements and Violence
+
 ## Political Processes in India
+
 - Tribe, Nation State and Border
 - Bureaucracy
 - Governance and Development
@@ -255,7 +309,9 @@ version: 2
 - Gender and Development
 - Corruption
 - Role of International Development Organizations
+
 ## Social Movements and Protests
+
 - Political Factions, Pressure Groups
 - Movements based on Caste
 - Ethnicity
@@ -266,7 +322,9 @@ version: 2
 - Civil Society and Citizenship
 - NGOs, Activism and Leadership
 - Reservations and Politics
+
 ## Economy and Society
+
 - Exchange
 - Gift
 - Capital
@@ -284,7 +342,9 @@ version: 2
 - Global Business and Corporates
 - Tourism
 - Consumption
+
 ## Environment and Society
+
 - Social and Cultural Ecology: Diverse Forms
 - Technological Change, Agriculture and Biodiversity
 - Indigenous Knowledge Systems and Ethno-Medicine
@@ -297,7 +357,9 @@ version: 2
 - Environmental Pollution, Public Health and Disability
 - Climate Change and International Policies
 - Environmental Movements
+
 ## Family, Marriage and Kinship
+
 - Theoretical Approaches: Structure-Functionalist
 - Theoretical Approaches: Alliance and Cultural
 - Gender Relations and Power Dynamics
@@ -311,7 +373,9 @@ version: 2
 - Family Laws
 - Domestic Violence and Crime against Women
 - Honour Killing
+
 ## Science, Technology and Society
+
 - History of Technological Development
 - Changing notions of Time and Space
 - Flows and Boundaries
@@ -325,7 +389,9 @@ version: 2
 - Technology and Changing Health Systems
 - Food and Technology
 - Cyber Crime
+
 ## Culture and Symbolic Transformations
+
 - Signs and Symbols
 - Rituals, Beliefs and Practices
 - Changing Material Culture

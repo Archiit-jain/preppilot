@@ -53,6 +53,11 @@ def items(text: str, separators: str = ";,") -> list:
 
 
 def topics_from(line: str) -> list:
+    # An inline numbered list ("1. Nature of law 2. Schools of jurisprudence")
+    # is one item per number.
+    numbered = [p for p in re.split(r"(?:^|\s)\d{1,2}\.\s+(?=[A-Z])", line) if p.strip()]
+    if len(numbered) > 1:
+        return [t for part in numbered for t in topics_from(part)]
     topics = []
     line = re.sub(r"\b(vs|etc|e\.g|i\.e)\.\s", lambda m: m.group(1) + " ", line)
     for sentence in re.split(r"\.\s+(?=[A-Z])", line):
@@ -67,7 +72,14 @@ def topics_from(line: str) -> list:
                 parts = items(headed.group(2), ",")
             else:
                 parts = items(clause, ",") if clause.count(",") >= 2 else [clause]
+            # "Forest Conservation Act, 1980": a year belongs to the piece before it.
+            joined = []
             for part in parts:
+                if joined and re.match(r"^\d{4}\b", part):
+                    joined[-1] = f"{joined[-1]}, {part}"
+                else:
+                    joined.append(part)
+            for part in joined:
                 prefixed = f"{carry}: {part}" if carry and part != clause or (carry and not headed) else part
                 topics.append(prefixed if len(prefixed) <= LIMIT else part)
     return [t for topic in topics for t in fit(topic)]
@@ -110,6 +122,8 @@ def units(text: str) -> list:
     for line in lines:
         if re.match(r"^NOTE\b", line):
             break  # exam-pattern notes after the last unit are not syllabus
+        if not re.search(r"[A-Za-z]", line):
+            continue  # a separator line such as "*****"
         if len(re.findall(r"\bUnit\b", line, re.I)) > 1:
             continue  # an overview line listing every unit
         unit = UNIT.match(line)

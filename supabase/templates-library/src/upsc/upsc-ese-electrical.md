@@ -7,8 +7,11 @@ source: UPSC Engineering Services Examination 2027 notification, Section III Sta
 verified: false
 version: 1
 ---
+
 # Prelims Paper I: General Studies and Engineering Aptitude
+
 ## General Studies and Engineering Aptitude
+
 - Current issues of national and international importance relating to social, economic and industrial development
 - Engineering Aptitude covering Logical reasoning and Analytical ability
 - Engineering Mathematics and Numerical Analysis
@@ -23,8 +26,11 @@ version: 1
 - Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking
 - E-governance and technology based education
 - Ethics and values in engineering profession
+
 # Electrical Engineering: Paper I
+
 ## Engineering Mathematics
+
 - Matrix theory
 - Eigen values & Eigen vectors
 - System of linear equations
@@ -46,7 +52,9 @@ version: 1
 - Random variables
 - Normal and Poisson distributions
 - Correlation and regression analysis
+
 ## Electrical Materials
+
 - Electrical Engineering Materials
 - Crystal structures and defects
 - Ceramic materials
@@ -57,7 +65,9 @@ version: 1
 - Basics of solid state physics, conductors
 - Photo-conductivity
 - Basics of Nano materials and Superconductors
+
 ## Electric Circuits and Fields
+
 - Circuit elements
 - Network graph
 - KCL
@@ -82,7 +92,9 @@ version: 1
 - Dielectrics
 - Capacitance
 - Maxwell’s equations
+
 ## Electrical and Electronic Measurements
+
 - Principles of measurement
 - Accuracy
 - Precision and standards
@@ -105,7 +117,9 @@ version: 1
 - Basics of sensors
 - Transducers
 - Basics of data acquisition systems
+
 ## Computer Fundamentals
+
 - Number systems
 - Boolean algebra
 - Arithmetic functions
@@ -118,14 +132,19 @@ version: 1
 - Virtual memory
 - File systems
 - Elements of programming languages, typical examples
+
 ## Basic Electronics Engineering
+
 - Basics of Semiconductor diodes and transistors and characteristics
 - Junction and field effect transistors (BJT, FET and MOSFETS)
 - Different types of transistor amplifiers
 - Equivalent circuits and frequency response
 - Oscillators and other circuits, feedback amplifiers
+
 # Electrical Engineering: Paper II
+
 ## Analog and Digital Electronics
+
 - Operational amplifiers – characteristics and applications
 - Combinational and sequential logic circuits
 - Multiplexers
@@ -146,7 +165,9 @@ version: 1
 - Coding
 - Frequency and time domain multiplexing
 - Power line carrier communication systems
+
 ## Systems and Signal Processing
+
 - Representation of continuous and discrete-time signals
 - Shifting and scaling operations
 - Linear
@@ -162,7 +183,9 @@ version: 1
 - FIR filter
 - IIR filter
 - Bilinear transformation
+
 ## Control Systems
+
 - Principles of feedback
 - Transfer function
 - Block diagrams and signal flow graphs
@@ -181,7 +204,9 @@ version: 1
 - Controllability and observability
 - Linear state variable feedback
 - PID and industrial controllers
+
 ## Electrical Machines
+
 - Single phase transformers
 - Three phase transformers - connections
 - Parallel operation
@@ -202,7 +227,9 @@ version: 1
 - Motor starting
 - Characteristics and applications
 - Servo and stepper motors
+
 ## Power Systems
+
 - Basic power generation concepts
 - Steam
 - Gas and water turbines
@@ -229,7 +256,9 @@ version: 1
 - Smart grid concepts
 - Environmental implications
 - Fundamentals of power economics
+
 ## Power Electronics and Drives
+
 - Semiconductor power diodes
 - Transistors
 - Thyristors

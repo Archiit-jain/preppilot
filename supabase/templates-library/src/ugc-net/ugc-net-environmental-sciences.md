@@ -5,10 +5,13 @@ description: Paper I (Teaching and Research Aptitude) and the Paper II syllabus 
 category: exam
 source: UGC NET Bureau official syllabus, Paper I and subject code 89; topics split from the official text.
 verified: false
-version: 2
+version: 3
 ---
+
 # Paper I: Teaching and Research Aptitude
+
 ## Teaching Aptitude
+
 - Teaching: Concept
 - Teaching: Objectives
 - Teaching: Levels of teaching (Memory, Understanding and Reflective)
@@ -28,7 +31,9 @@ version: 2
 - Evaluation Systems: Evaluation in Choice Based Credit System in Higher education
 - Evaluation Systems: Computer based testing
 - Evaluation Systems: Innovations in evaluation systems
+
 ## Research Aptitude
+
 - Research: Meaning
 - Research: Types
 - Research: Characteristics
@@ -41,10 +46,14 @@ version: 2
 - Thesis and Article writing: Format and styles of referencing
 - Application of ICT in research
 - Research ethics
+
 ## Comprehension
+
 - A passage of text be given
 - Questions be asked from the passage to be answered
+
 ## Communication
+
 - Communication: Meaning
 - Communication: Types and characteristics of communication
 - Effective communication: Verbal and Non-verbal
@@ -52,7 +61,9 @@ version: 2
 - Effective communication: Classroom communication
 - Barriers to effective communication
 - Mass-Media and Society
+
 ## Mathematical Reasoning and Aptitude
+
 - Types of reasoning
 - Number series
 - Letter series
@@ -64,7 +75,9 @@ version: 2
 - Mathematical Aptitude: Profit and Loss
 - Mathematical Aptitude: Interest and Discounting
 - Mathematical Aptitude: Averages etc
+
 ## Logical Reasoning
+
 - Understanding the structure of arguments: Argument forms
 - Understanding the structure of arguments: Structure of categorical propositions
 - Understanding the structure of arguments: Mood and Figure
@@ -84,13 +97,17 @@ version: 2
 - Structure and kinds of Anumana (inference)
 - Vyapti (invariable relation)
 - Hetvabhasas (fallacies of inference)
+
 ## Data Interpretation
+
 - Sources, acquisition and classification of Data
 - Quantitative and Qualitative Data
 - Graphical representation (Bar-chart, Histograms, Pie-chart, Table-chart and Line-chart) and mapping of Data
 - Data Interpretation
 - Data and Governance
+
 ## Unit VIII
+
 - Information and Communication Technology (ICT) ICT: General abbreviations and terminology
 - Basics of Internet
 - Intranet
@@ -98,7 +115,9 @@ version: 2
 - Audio and Video-conferencing
 - Digital initiatives in higher education
 - ICT and Governance
+
 ## People, Development and Environment
+
 - Development and environment: Millennium development and Sustainable development goals
 - Human and environment interaction: Anthropogenic activities and their impacts on environment
 - Environmental issues: Local
@@ -126,7 +145,9 @@ version: 2
 - Kyoto Protocol
 - Paris Agreement
 - International Solar Alliance
+
 ## Higher Education System
+
 - Institutions of higher learning and education in ancient India
 - Evolution of higher learning and research in Post Independence India
 - Oriental, Conventional and Non-conventional learning programmes in India
@@ -135,8 +156,11 @@ version: 2
 - Policies
 - Governance
 - Administration
+
 # Paper II: Environmental Sciences
+
 ## Fundamentals of Environmental Sciences
+
 - Definition, Principles and Scope of Environmental Science
 - Structure and composition of atmosphere
 - Hydrosphere
@@ -168,7 +192,9 @@ version: 2
 - Waste management and climate change
 - Environmental education and awareness
 - Environmental ethics
+
 ## Environmental Chemistry
+
 - Fundamentals of Environmental Chemistry: Classification of elements
 - Fundamentals of Environmental Chemistry: Stoichiometry
 - Fundamentals of Environmental Chemistry: Gibbs’ energy
@@ -219,7 +245,9 @@ version: 2
 - Principles of analytical methods: GC-MS
 - Principles of analytical methods: SEM
 - Principles of analytical methods: TEM
+
 ## Environmental Biology
+
 - Ecology as an inter-disciplinary science
 - Origin of life and speciation
 - Human Ecology and Settlement
@@ -296,7 +324,9 @@ version: 2
 - Bioindicators
 - Biofertilizers
 - Biofuels and Biosensors
+
 ## Environmental Geosciences
+
 - Origin of earth
 - Primary geochemical differentiation and formation of core
 - Mantle
@@ -353,7 +383,9 @@ version: 2
 - Natural Hazards: Avalanche
 - Natural Hazards: Tsunami and cloud bursts
 - Prediction of hazards and mitigation of their impacts
+
 ## Energy and Environment
+
 - Sun as source of energy
 - Solar radiation and its spectral characteristics
 - Fossil fuels: Classification
@@ -381,7 +413,9 @@ version: 2
 - Impacts of large scale exploitation of solar
 - Wind
 - Hydro and nuclear energy sources
+
 ## Environmental Pollution and Control
+
 - Air Pollution: Sources and types of Pollutants - Natural and anthropogenic sources
 - Air Pollution: Primary and secondary pollutants
 - Criteria air pollutants
@@ -428,8 +462,7 @@ version: 2
 - Measurement of water quality parameters: Sulphates
 - Measurement of water quality parameters: Heavy metals and organic contaminants
 - Microbiological analysis – MPN
-- Indian standards for drinking water (IS: 10500
-- Indian standards for drinking water (IS: 2012)
+- Indian standards for drinking water (IS: 10500, 2012)
 - Drinking water treatment: Coagulation and flocculation
 - Drinking water treatment: Sedimentation and Filtration
 - Drinking water treatment: Disinfection and Softening
@@ -451,7 +484,9 @@ version: 2
 - Biological effects of ionizing radiations
 - Radiation exposure and radiation standards
 - Radiation protection
+
 ## Solid and Hazardous Waste Management
+
 - Solid Waste - types and sources
 - Solid waste characteristics
 - Generation rates
@@ -478,7 +513,9 @@ version: 2
 - Fly ash: Composition and utilisation
 - Plastic waste: Sources
 - Plastic waste: Consequences and management
+
 ## Environmental Assessment, Management and Legislation
+
 - Aims and objectives of Environmental Impact Assessment (EIA)
 - Environmental Impact Statement (EIS) and Environmental Management Plan (EMP)
 - EIA Guidelines
@@ -495,68 +532,52 @@ version: 2
 - Scenarios of exposure
 - Risk characterization and Risk management
 - Overview of Environmental Laws in India: Constitutional provisions in India (Article 48A and 51A)
-- Wildlife Protection Act
-- 1972 amendments 1991
-- Forest Conservation Act
-- 1980
+- Wildlife Protection Act, 1972 amendments 1991
+- Forest Conservation Act, 1980
 - Indian Forest Act
 - Revised 1982
-- Biological Diversity Act
-- 2002
-- Water (Prevention and Control of Pollution) Act
-- 1974 amended 1988 and Rules 1975
-- Air (Prevention and Control of Pollution) Act
-- 1981 amended 1987 and Rules 1982
-- Environmental (Protection) Act
-- 1986 and Rules 1986
-- Motor Vehicle Act
-- 1988
-- The Hazardous and Other Waste (Management and Transboundary Movement) Rules
-- 2016
-- The Plastic Waste Management Rules
-- The Bio-Medical Waste Management Rules
-- The Solid Waste Management Rules
+- Biological Diversity Act, 2002
+- Water (Prevention and Control of Pollution) Act, 1974 amended 1988 and Rules 1975
+- Air (Prevention and Control of Pollution) Act, 1981 amended 1987 and Rules 1982
+- Environmental (Protection) Act, 1986 and Rules 1986
+- Motor Vehicle Act, 1988
+- The Hazardous and Other Waste (Management and Transboundary Movement) Rules, 2016
+- The Plastic Waste Management Rules, 2016
+- The Bio-Medical Waste Management Rules, 2016
+- The Solid Waste Management Rules, 2016
 - The e-waste (Management) Rules 2016
-- The Construction and Demolition Waste Management Rules
+- The Construction and Demolition Waste Management Rules, 2016
 - The Manufacture
-- Storage and Import of Hazardous Chemical (Amendment) Rules
-- 2000
-- The Batteries (Management and Handling) Rules
-- 2010 with Amendments
-- The Public Liability Insurance Act
-- 1991 and Rules 1991
-- Noise Pollution (Regulation and Control) Rules
+- Storage and Import of Hazardous Chemical (Amendment) Rules, 2000
+- The Batteries (Management and Handling) Rules, 2010 with Amendments
+- The Public Liability Insurance Act, 1991 and Rules 1991
+- Noise Pollution (Regulation and Control) Rules, 2000
 - Coastal Regulation Zones (CRZ) 1991 amended from time to time
-- National Forest Policy
-- National Water Policy
-- National Environmental Policy
-- 2006
+- National Forest Policy, 1988
+- National Water Policy, 2002
+- National Environmental Policy, 2006
 - Environmental Conventions and Agreements: Stockholm Conference on Human Environment 1972
-- Environmental Conventions and Agreements: Montreal Protocol
-- Environmental Conventions and Agreements: 1987
+- Environmental Conventions and Agreements: Montreal Protocol, 1987
 - Environmental Conventions and Agreements: Conference of Parties (COPs)
 - Environmental Conventions and Agreements: Basel Convention (1989, 1992)
 - Environmental Conventions and Agreements: Ramsar Convention on Wetlands (1971)
-- Environmental Conventions and Agreements: Earth Summit at Rio de Janeiro
-- Environmental Conventions and Agreements: 1992
+- Environmental Conventions and Agreements: Earth Summit at Rio de Janeiro, 1992
 - Environmental Conventions and Agreements: Agenda-21
 - Environmental Conventions and Agreements: Global Environmental Facility (GEF)
 - Environmental Conventions and Agreements: Convention on Biodiversity (1992)
 - Environmental Conventions and Agreements: UNFCCC
-- Environmental Conventions and Agreements: Kyoto Protocol
-- Environmental Conventions and Agreements: 1997
+- Environmental Conventions and Agreements: Kyoto Protocol, 1997
 - Environmental Conventions and Agreements: Clean Development Mechanism (CDM)
-- Environmental Conventions and Agreements: Earth Summit at Johannesburg
-- Environmental Conventions and Agreements: 2002
+- Environmental Conventions and Agreements: Earth Summit at Johannesburg, 2002
 - Environmental Conventions and Agreements: RIO+20
-- Environmental Conventions and Agreements: UN Summit on Millennium Development Goals
-- Environmental Conventions and Agreements: 2000
-- Environmental Conventions and Agreements: Copenhagen Summit
-- Environmental Conventions and Agreements: 2009
+- Environmental Conventions and Agreements: UN Summit on Millennium Development Goals, 2000
+- Environmental Conventions and Agreements: Copenhagen Summit, 2009
 - IPCC
 - UNEP
 - IGBP
+
 ## Statistical Approaches and Modelling in Environmental Sciences
+
 - Attributes and Variables: Types of variables
 - Attributes and Variables: Scales of measurement
 - Attributes and Variables: Measurement of Central tendency and Dispersion
@@ -580,7 +601,9 @@ version: 2
 - Validation and forecasting
 - Models of population growth and interactions: Lotka-Voltera model
 - Models of population growth and interactions: Leslie’s matrix model
+
 ## Contemporary Environmental Issues
+
 - Global Environmental Issues – Biodiversity loss
 - Climate change
 - Ozone layer depletion
@@ -630,9 +653,6 @@ version: 2
 - Epidemiological Issues: Dengue
 - Environmental Disasters: Minnamata Disaster
 - Environmental Disasters: Love Canal Disaster
-- Environmental Disasters: Bhopal Gas Disaster
-- Environmental Disasters: 1984
-- Environmental Disasters: Chernobyl Disaster
-- Environmental Disasters: 1986
-- Environmental Disasters: Fukusima Daiichi nuclear disaster
-- Environmental Disasters: 2011
+- Environmental Disasters: Bhopal Gas Disaster, 1984
+- Environmental Disasters: Chernobyl Disaster, 1986
+- Environmental Disasters: Fukusima Daiichi nuclear disaster, 2011
