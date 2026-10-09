@@ -129,6 +129,11 @@ Course, Material Design 3). Data Structures and Algorithms follows MIT OCW 6.006
 ACM 2021 data science competencies, and Design Patterns the pattern catalogue of Gamma et al.
 Each file's `source` line names its curriculum.
 
+The maths topics (`src/maths/`) each follow one MIT OpenCourseWare course: 18.01SC (Calculus),
+18.06 (Linear Algebra), 6.042J (Discrete Mathematics), 18.314 (Combinatorics and Graph Theory),
+6.254 (Game Theory), 24.241 (Logic), 18.781 (Number Theory), 6.041 (Probability), 18.650
+(Statistics) and 18.901 (Topology).
+
 ## Syllabus change check
 
 `supabase/templates-library/sources.json` lists the official document behind each

@@ -1361,6 +1361,86 @@
       "sha256": "c69fe6ef1901d3a5cc638917ea06d7532d8bb3f046aef84056f24f28d1ca372b",
       "textHash": "c69fe6ef1901d3a5cc638917ea06d7532d8bb3f046aef84056f24f28d1ca372b",
       "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-18-01sc-calculus",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+      "templates": ["calculus"],
+      "sha256": "a4322d00062cdc4b455f1ff8c21c1d022e71c80ed97f024a20d30aa07caa1b67",
+      "textHash": "a4322d00062cdc4b455f1ff8c21c1d022e71c80ed97f024a20d30aa07caa1b67",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-18-06-linear-algebra",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/calendar/",
+      "templates": ["linear-algebra"],
+      "sha256": "bea0f22fe5aa9b55c0ea50fd80f107e34877a7991fc005b3655323e4ec50e1c7",
+      "textHash": "bea0f22fe5aa9b55c0ea50fd80f107e34877a7991fc005b3655323e4ec50e1c7",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-6-254-game-theory",
+      "url": "https://ocw.mit.edu/courses/6-254-game-theory-with-engineering-applications-spring-2010/pages/calendar/",
+      "templates": ["game-theory"],
+      "sha256": "504dc143d8029f21b10cc4fcbcca7cf9660ec1f2e5933ad83972ff63f5315371",
+      "textHash": "504dc143d8029f21b10cc4fcbcca7cf9660ec1f2e5933ad83972ff63f5315371",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-24-241-logic",
+      "url": "https://ocw.mit.edu/courses/24-241-logic-i-fall-2009/pages/calendar/",
+      "templates": ["logic"],
+      "sha256": "9c90fdff912f5d4f8845eeb63377999da3c5c954065c4883f48ddcf490817c71",
+      "textHash": "9c90fdff912f5d4f8845eeb63377999da3c5c954065c4883f48ddcf490817c71",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-18-781-number-theory",
+      "url": "https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/pages/calendar/",
+      "templates": ["number-theory"],
+      "sha256": "003d0c4cd9468aa13d1889fa31609dbf30de0d62029726db482e3eb6c6868ebb",
+      "textHash": "003d0c4cd9468aa13d1889fa31609dbf30de0d62029726db482e3eb6c6868ebb",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-6-041-probability",
+      "url": "https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/pages/calendar/",
+      "templates": ["probability"],
+      "sha256": "7565e862fa67f9273abc75172744864ad6775284630bfa337760275dc1e9871d",
+      "textHash": "7565e862fa67f9273abc75172744864ad6775284630bfa337760275dc1e9871d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-18-901-topology",
+      "url": "https://ocw.mit.edu/courses/18-901-introduction-to-topology-fall-2004/pages/calendar/",
+      "templates": ["topology"],
+      "sha256": "2b756976646b5bb52d819ecf6298420dd8315ae2f85d5e3dba847138ef094329",
+      "textHash": "2b756976646b5bb52d819ecf6298420dd8315ae2f85d5e3dba847138ef094329",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-18-314-combinatorial-analysis",
+      "url": "https://ocw.mit.edu/courses/18-314-combinatorial-analysis-fall-2014/pages/calendar/",
+      "templates": ["combinatorics", "graph-theory"],
+      "sha256": "e3be07a9836162a05808d85117b068ebe10fa0383531ad7a2bac13afe01c1935",
+      "textHash": "e3be07a9836162a05808d85117b068ebe10fa0383531ad7a2bac13afe01c1935",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-18-650-statistics",
+      "url": "https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/video_galleries/lecture-videos/",
+      "templates": ["statistics"],
+      "sha256": "778ad58bef78bc53d98d1c02b2177acf6681ec594e90d1277dc8658d26bdef9a",
+      "textHash": "778ad58bef78bc53d98d1c02b2177acf6681ec594e90d1277dc8658d26bdef9a",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-6-042j-discrete-maths",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/pages/calendar/",
+      "templates": ["discrete-mathematics"],
+      "sha256": "015977624c70fffce68a13ba3c47aa0789e57d392e89872a589826f8bcaa7d22",
+      "textHash": "015977624c70fffce68a13ba3c47aa0789e57d392e89872a589826f8bcaa7d22",
+      "recorded": "2026-10-09"
     }
   ]
 }
