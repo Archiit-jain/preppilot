@@ -134,6 +134,11 @@ The maths topics (`src/maths/`) each follow one MIT OpenCourseWare course: 18.01
 6.254 (Game Theory), 24.241 (Logic), 18.781 (Number Theory), 6.041 (Probability), 18.650
 (Statistics) and 18.901 (Topology).
 
+School-level Arithmetic, Algebra, Geometry, Trigonometry and Set Theory, and the four starters
+(Mathematics, Physics, Chemistry, Biology), are in `src/ncert/`. They regroup the NCERT chapters
+already in the bundled CBSE subjects (Arithmetic adds the Ganita Prakash number chapters for
+Classes 6 to 8), so when a CBSE subject changes, regenerate these from it.
+
 ## Syllabus change check
 
 `supabase/templates-library/sources.json` lists the official document behind each
