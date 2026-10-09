@@ -1145,6 +1145,222 @@
       "sha256": "fe4c1a0e4e4c4566bb43282662cd2f14b7dda0966612c33075bd7a64ab94ddcc",
       "textHash": "fe4c1a0e4e4c4566bb43282662cd2f14b7dda0966612c33075bd7a64ab94ddcc",
       "recorded": "2026-10-08"
+    },
+    {
+      "key": "aws-clf-c02-exam-guide",
+      "url": "https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf",
+      "templates": ["aws-cloud-practitioner"],
+      "sha256": "ba81d8c415f93f348989fd1967dac1032b172d78aea60c19a266c997dcfc1e88",
+      "textHash": "6d83ff90ac512f734d303a19493f3f0cc1b4c1e9f66b00f9a5311efe02c2e462",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "microsoft-az-900-study-guide",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "templates": ["microsoft-azure"],
+      "sha256": "efa26302cf29f5d0f08a9bed30ea50c5714f4a361bf4fe3b7d756f9e5c8d1bed",
+      "textHash": "efa26302cf29f5d0f08a9bed30ea50c5714f4a361bf4fe3b7d756f9e5c8d1bed",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "google-cloud-digital-leader-guide",
+      "url": "https://cloud.google.com/learn/certification/guides/cloud-digital-leader",
+      "templates": ["google-cloud"],
+      "sha256": "5e26705d7da9701171d65444a303b3781af69c98fe0f109d0cd77f513e9575b4",
+      "textHash": "5e26705d7da9701171d65444a303b3781af69c98fe0f109d0cd77f513e9575b4",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "python-institute-pcep-syllabus",
+      "url": "https://pythoninstitute.org/pcep-exam-syllabus",
+      "templates": ["python"],
+      "sha256": "7d76a1abb77a1db81cbc3e72f77970b151a91a923b3c443aaa4c28447f51f6c8",
+      "textHash": "7d76a1abb77a1db81cbc3e72f77970b151a91a923b3c443aaa4c28447f51f6c8",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "python-institute-pcap-syllabus",
+      "url": "https://pythoninstitute.org/pcap-exam-syllabus",
+      "templates": ["python"],
+      "sha256": "0f15a3193efc294055cd6d9c141bb86ee2e402d697b6dc60fcffd59829578543",
+      "textHash": "0f15a3193efc294055cd6d9c141bb86ee2e402d697b6dc60fcffd59829578543",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "js-institute-jse-syllabus",
+      "url": "https://jsinstitute.org/jse-exam-syllabus",
+      "templates": ["javascript"],
+      "sha256": "43479ca883d398b3eba15b9dd456250a9ff325b73d3928340d52b9fb421cb79b",
+      "textHash": "43479ca883d398b3eba15b9dd456250a9ff325b73d3928340d52b9fb421cb79b",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "js-institute-jsa-syllabus",
+      "url": "https://jsinstitute.org/jsa-exam-syllabus",
+      "templates": ["javascript"],
+      "sha256": "620a20f642af3488b6237cfa49c749c78f72e17bee839cfb3ee3d059dce40869",
+      "textHash": "620a20f642af3488b6237cfa49c749c78f72e17bee839cfb3ee3d059dce40869",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "cpp-institute-cle",
+      "url": "https://cppinstitute.org/cle",
+      "templates": ["c-language"],
+      "sha256": "8d9e7e3c23ff2e2ba2f2a221afd974fb204c06b174b013ae960af25147002846",
+      "textHash": "8d9e7e3c23ff2e2ba2f2a221afd974fb204c06b174b013ae960af25147002846",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "cpp-institute-cla",
+      "url": "https://cppinstitute.org/cla",
+      "templates": ["c-language"],
+      "sha256": "7e4a3c6dbbb9f02f77157536103be38822efc1529dfefa7ddaa86d319db14202",
+      "textHash": "7e4a3c6dbbb9f02f77157536103be38822efc1529dfefa7ddaa86d319db14202",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "cpp-institute-cpe",
+      "url": "https://cppinstitute.org/cpe",
+      "templates": ["cpp"],
+      "sha256": "81913cc0b15c28d1e60379eed140b8579ff94d1a02fb3e1b6eaa35ac57f87ee9",
+      "textHash": "81913cc0b15c28d1e60379eed140b8579ff94d1a02fb3e1b6eaa35ac57f87ee9",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "cpp-institute-cpa",
+      "url": "https://cppinstitute.org/cpa",
+      "templates": ["cpp"],
+      "sha256": "43714c78a47f7e11d9549d6054a94faeb25fcfa9e0b2aaccdbbf3bd8b7860041",
+      "textHash": "43714c78a47f7e11d9549d6054a94faeb25fcfa9e0b2aaccdbbf3bd8b7860041",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "react-learn",
+      "url": "https://react.dev/learn",
+      "templates": ["reactjs"],
+      "sha256": "277ebfff62c52b7028589c780cbe0378e6f6a5dc588b9efcc39f02a67723ca64",
+      "textHash": "277ebfff62c52b7028589c780cbe0378e6f6a5dc588b9efcc39f02a67723ca64",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nextjs-learn-app-router",
+      "url": "https://nextjs.org/learn/dashboard-app",
+      "templates": ["nextjs"],
+      "sha256": "ea6c14465c80c106b1a8e57e5d873903be04d2b742ba3782ccf23c60e87ab6cd",
+      "textHash": "ea6c14465c80c106b1a8e57e5d873903be04d2b742ba3782ccf23c60e87ab6cd",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "express-guide",
+      "url": "https://expressjs.com/en/guide/routing.html",
+      "templates": ["expressjs"],
+      "sha256": "64ea9e9cf2fafd234353544767eb2447ba2a9d6a4ba8d3be3ed1f29d9891664c",
+      "textHash": "64ea9e9cf2fafd234353544767eb2447ba2a9d6a4ba8d3be3ed1f29d9891664c",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "fastapi-tutorial",
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "templates": ["fastapi"],
+      "sha256": "d0a5936461b7e1f482e3261840f948e92edc9db6fd5b660c2d06fbfce6563a4b",
+      "textHash": "d0a5936461b7e1f482e3261840f948e92edc9db6fd5b660c2d06fbfce6563a4b",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "flask-docs",
+      "url": "https://flask.palletsprojects.com/en/stable/",
+      "templates": ["flask"],
+      "sha256": "6e26e51442f58372d157ff52f7032af0811db28897e41b8f8e718bd31224756c",
+      "textHash": "6e26e51442f58372d157ff52f7032af0811db28897e41b8f8e718bd31224756c",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mdn-curriculum",
+      "url": "https://developer.mozilla.org/en-US/curriculum/",
+      "templates": ["front-end"],
+      "sha256": "20a0db1eb37242e9323bd0fe9d629eb872e332c7158bb9e25de1885af37851e0",
+      "textHash": "20a0db1eb37242e9323bd0fe9d629eb872e332c7158bb9e25de1885af37851e0",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mdn-server-side",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side",
+      "templates": ["back-end"],
+      "sha256": "ed5317102d933c23547e4709725155018e34313ebd6bbd46a88277adfc1bfe81",
+      "textHash": "ed5317102d933c23547e4709725155018e34313ebd6bbd46a88277adfc1bfe81",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "google-ml-crash-course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "templates": ["machine-learning"],
+      "sha256": "caa31e7299a551bf57f711c0f32e48cd690a4b05b23ebc3d818f1bab36565d31",
+      "textHash": "caa31e7299a551bf57f711c0f32e48cd690a4b05b23ebc3d818f1bab36565d31",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "android-basics-compose",
+      "url": "https://developer.android.com/courses/android-basics-compose/course",
+      "templates": ["android"],
+      "sha256": "e89a5bbc6115e86f0ebd8014cadf0ff8b3bcbf13a93c6bbaf2a941ee0857ffcf",
+      "textHash": "e89a5bbc6115e86f0ebd8014cadf0ff8b3bcbf13a93c6bbaf2a941ee0857ffcf",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "flutter-docs",
+      "url": "https://docs.flutter.dev/",
+      "templates": ["flutter"],
+      "sha256": "a7528adb5215c0e4a6f4263a2fcab09b4f0c621ca39646eee074353cb41021c7",
+      "textHash": "a7528adb5215c0e4a6f4263a2fcab09b4f0c621ca39646eee074353cb41021c7",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "dev-java-learn",
+      "url": "https://dev.java/learn/",
+      "templates": ["java"],
+      "sha256": "e22944ee0968218db3a2408032ac1d1aff173ee8877e299db14bd290e8de99ed",
+      "textHash": "e22944ee0968218db3a2408032ac1d1aff173ee8877e299db14bd290e8de99ed",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nodejs-learn",
+      "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs",
+      "templates": ["nodejs"],
+      "sha256": "3f0da1f0ebdf91ace7e3c71ab2b2e761138807713e775c887bfaa2946b471a93",
+      "textHash": "3f0da1f0ebdf91ace7e3c71ab2b2e761138807713e775c887bfaa2946b471a93",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "mit-ocw-6006-lectures",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/video_galleries/lecture-videos/",
+      "templates": ["data-structures-and-algorithms"],
+      "sha256": "d51fb2061d6dc14f64d3ab498b159ed5b8123a3c878d9ab7beb5acf54039a65e",
+      "textHash": "d51fb2061d6dc14f64d3ab498b159ed5b8123a3c878d9ab7beb5acf54039a65e",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "acm-data-science-2021",
+      "url": "https://www.acm.org/binaries/content/assets/education/curricula-recommendations/dstf_ccdsc2021.pdf",
+      "templates": ["data-science"],
+      "sha256": "217bb340785820497650a5b26002d9fc71fe34a70750f9dfe92dfdac478d9576",
+      "textHash": "57531d1c35413f56e76e7bb51e5a7a4cb1d7276807c248e1b07b8675051dfa88",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "unity-associate-game-developer",
+      "url": "https://images.response.unity3d.com/Web/Unity/%7B49e92fbc-2b28-4405-9e4c-64b56e231fbe%7D_Unity_Certified_Associate__Game_Developer_Exam_Objectives_document.pdf",
+      "templates": ["game-development"],
+      "sha256": "b5428a5b5f2762970a79e0ba3e8bf0452701ac20ed86690522b3258cfadce9e1",
+      "textHash": "215c60f758b77b8c7680e5b1c4c572eeaae98cc6c39052068a25e08cbddda2a0",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "firebase-docs",
+      "url": "https://firebase.google.com/docs",
+      "templates": ["firebase"],
+      "sha256": "c69fe6ef1901d3a5cc638917ea06d7532d8bb3f046aef84056f24f28d1ca372b",
+      "textHash": "c69fe6ef1901d3a5cc638917ea06d7532d8bb3f046aef84056f24f28d1ca372b",
+      "recorded": "2026-10-09"
     }
   ]
 }

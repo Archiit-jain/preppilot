@@ -119,6 +119,16 @@ The others work the same way, each for one official source:
 
 UPSC CDS, NDA, CMSE, SSC CHSL and GD, and CSEET are written by hand from their notices.
 
+The programming and tech templates (`src/programming/`) are also written by hand, each from one
+named official curriculum: a certification's exam objectives (AWS CLF-C02, AZ-900, Cloud Digital
+Leader, Python Institute PCEP and PCAP, JS Institute JSE and JSA, C++ Institute CLE, CLA, CPE and
+CPA, EC-Council CEH, Unity Certified Associate) or the owner's own learning path (react.dev, the
+Next.js Learn course, the Express, FastAPI, Flask, Flutter, Firebase and Node.js docs, dev.java,
+the MDN Curriculum, Android Basics with Compose, Apple's Develop in Swift, Google's ML Crash
+Course, Material Design 3). Data Structures and Algorithms follows MIT OCW 6.006, Data Science the
+ACM 2021 data science competencies, and Design Patterns the pattern catalogue of Gamma et al.
+Each file's `source` line names its curriculum.
+
 ## Syllabus change check
 
 `supabase/templates-library/sources.json` lists the official document behind each
@@ -136,6 +146,10 @@ visible text) and compares:
 The **Syllabus check** workflow runs it every Monday and can be started by hand
 from the Actions tab. A failed run means a syllabus changed; its summary lists the
 templates. GitHub emails a failed scheduled run to the repository owner.
+
+Some sources are not watched because their pages are built in the browser or change on every
+load: Apple's Develop in Swift, Material Design 3, and the EC-Council CEH page. Design Patterns
+follows a book. Check these by hand when you revise those templates.
 
 It only watches documents it knows. When an exam publishes a new cycle's
 notification at a new address, add that address to `sources.json` and rebuild.
