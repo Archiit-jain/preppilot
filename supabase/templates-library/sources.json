@@ -1561,6 +1561,286 @@
       "sha256": "b452fbf94e116c87e8b7b91a39f39e62cd2d9cbfb9f423215c0b0bae7b52219f",
       "textHash": "893afc9ec8987adb7a6c97201b52e2927ec78721d0cffb9666facb4083d8b8b3",
       "recorded": "2026-10-09"
+    },
+    {
+      "key": "coe-cefr-self-assessment-grid",
+      "url": "https://rm.coe.int/CoERMPublicCommonSearchServices/DisplayDCTMContent?documentId=090000168045bb52",
+      "templates": ["english", "french", "german", "spanish", "italian"],
+      "sha256": "0ef7c81cecbecf6a55be52bc2a78cd872256022898e2bd673e81872e8a063a0a",
+      "textHash": "49568c8307be8d60f07ac3738a14377c85b41d09f636beabdd5064494986194d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "jlpt-level-summary",
+      "url": "https://www.jlpt.jp/e/about/levelsummary.html",
+      "templates": ["japanese"],
+      "sha256": "75dfde826c4f31191aab5e64b353a59b415b185155eb1f8308d461f59b1fde32",
+      "textHash": "75dfde826c4f31191aab5e64b353a59b415b185155eb1f8308d461f59b1fde32",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "hsk-about",
+      "url": "https://www.chinesetest.cn/HSK",
+      "templates": ["chinese"],
+      "sha256": "fb1660fb890745cbffe1bc185066899a626de3217782e7f04221f800c511c94b",
+      "textHash": "fb1660fb890745cbffe1bc185066899a626de3217782e7f04221f800c511c94b",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-piano-syllabus",
+      "url": "https://www.trinitycollege.com/resource?id=9079",
+      "templates": ["piano"],
+      "sha256": "f1b84b408d2421161c4451785e9697fb1d8e3eea4e5d08efa36c3ecffb4ce93d",
+      "textHash": "d0e5dee9fe41750135ea4a79bbe5a4f68a6197439e4969556f1a7a6e90fdcdff",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-woodwind-syllabus",
+      "url": "https://www.trinitycollege.com/resource?id=7385",
+      "templates": ["flute", "saxophone"],
+      "sha256": "db61bc16110b4dbd526bbeb189e8bd03f9d0451b8d1de5ec6a2263e06c871075",
+      "textHash": "342e4d4fcec37c7baf6705f21edd22c8fa8cf3bb86cdeef00a743865e86c2f08",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-strings-syllabus",
+      "url": "https://www.trinitycollege.com/resource?id=8739",
+      "templates": ["violin"],
+      "sha256": "d189be4e8de4cc90a2916f487f4a9de2a133d804413e22e2cd698ef79d421dda",
+      "textHash": "a24b87a1037775529ce8d94585fbe535f7d3a7947c81bb0dc4e12bca0b80f6e4",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "meta-dma-exam",
+      "url": "https://www.facebook.com/business/learn/certification/exams/100-101-exam?locale=en_US",
+      "templates": ["facebook-ads"],
+      "sha256": "3f72d88242af1c7896c293c3d1ba019b3a510c47d6e15283d2e7f8c10111fa65",
+      "textHash": "3f72d88242af1c7896c293c3d1ba019b3a510c47d6e15283d2e7f8c10111fa65",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "google-seo-starter-guide",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "templates": ["seo"],
+      "sha256": "c91568537acf744dc758490df5c15ba1fdaad2dafb95304aadce192430b81b41",
+      "textHash": "c91568537acf744dc758490df5c15ba1fdaad2dafb95304aadce192430b81b41",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-initial",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/initial",
+      "templates": ["drums"],
+      "sha256": "1a6cda32373af10336336efacf1e84c8e9b78a7bb04fd24b43384d282db4bf20",
+      "textHash": "1a6cda32373af10336336efacf1e84c8e9b78a7bb04fd24b43384d282db4bf20",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-1",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade1",
+      "templates": ["drums"],
+      "sha256": "b2b63707fefc2163ba0fb1ad9c76ef52d2028c752a2945005b10e0a55b397dd7",
+      "textHash": "b2b63707fefc2163ba0fb1ad9c76ef52d2028c752a2945005b10e0a55b397dd7",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-2",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade2",
+      "templates": ["drums"],
+      "sha256": "d49ec62d6de94bf5ca0226faa8ec7cb1a86ef6876d440e03cd096aa16396e390",
+      "textHash": "d49ec62d6de94bf5ca0226faa8ec7cb1a86ef6876d440e03cd096aa16396e390",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-3",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade3",
+      "templates": ["drums"],
+      "sha256": "1eaf476be2889fdb5e82201bc4038346329f5be6fa4b098f42997feeb0217de7",
+      "textHash": "1eaf476be2889fdb5e82201bc4038346329f5be6fa4b098f42997feeb0217de7",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-4",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade4",
+      "templates": ["drums"],
+      "sha256": "a23e68e548db63596c01ce938b7365366503997bcb4425eeadc2685408a7c139",
+      "textHash": "a23e68e548db63596c01ce938b7365366503997bcb4425eeadc2685408a7c139",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-5",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade5",
+      "templates": ["drums"],
+      "sha256": "9d2550445c09bf9c701d5720343763163622180ba29637f673eb05495129e6a2",
+      "textHash": "9d2550445c09bf9c701d5720343763163622180ba29637f673eb05495129e6a2",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-6",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade6",
+      "templates": ["drums"],
+      "sha256": "51d19e6b40eb5011f9161fbfa288889fd4cca3dcd4a7c0fbef696304d18b49d0",
+      "textHash": "51d19e6b40eb5011f9161fbfa288889fd4cca3dcd4a7c0fbef696304d18b49d0",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-7",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade7",
+      "templates": ["drums"],
+      "sha256": "fe4af5c5072c0786f39e35e8a770c8b135500c447df8831831397cb1095c1993",
+      "textHash": "fe4af5c5072c0786f39e35e8a770c8b135500c447df8831831397cb1095c1993",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-drums-8",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/drums/grade8",
+      "templates": ["drums"],
+      "sha256": "ec8fd6684bf078613b573e996df15864d882e0a63beec7e6d49ce30ba9294f88",
+      "textHash": "ec8fd6684bf078613b573e996df15864d882e0a63beec7e6d49ce30ba9294f88",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-initial",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/initial",
+      "templates": ["guitar"],
+      "sha256": "8fd21005f61ce3667c055f526a25b8bc2895532beca4c4ac9dea9cf031f74e38",
+      "textHash": "8fd21005f61ce3667c055f526a25b8bc2895532beca4c4ac9dea9cf031f74e38",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-1",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade1",
+      "templates": ["guitar"],
+      "sha256": "b7b16ff4f5cd8e2900a58357fde34ad12c9890012e8db8c0f16a7b9b709319ca",
+      "textHash": "b7b16ff4f5cd8e2900a58357fde34ad12c9890012e8db8c0f16a7b9b709319ca",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-2",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade2",
+      "templates": ["guitar"],
+      "sha256": "7ad5394a8e7a5b6cbe650f9a904d83ca5d6d3a2e3bb46d39d11271a83945660d",
+      "textHash": "7ad5394a8e7a5b6cbe650f9a904d83ca5d6d3a2e3bb46d39d11271a83945660d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-3",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade3",
+      "templates": ["guitar"],
+      "sha256": "74555dd0d25ab36024ab7067d6160e9c16b1df515be694e50187be6cb6678a6d",
+      "textHash": "74555dd0d25ab36024ab7067d6160e9c16b1df515be694e50187be6cb6678a6d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-4",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade4",
+      "templates": ["guitar"],
+      "sha256": "6ee67ff687a080c125d942a799c1a5dbd4354520ee30879021efb9355c29d547",
+      "textHash": "6ee67ff687a080c125d942a799c1a5dbd4354520ee30879021efb9355c29d547",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-5",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade5",
+      "templates": ["guitar"],
+      "sha256": "8df1937015ab753f58a1a356ca15c040119a992b82a48cc72122e96a9c53ee76",
+      "textHash": "8df1937015ab753f58a1a356ca15c040119a992b82a48cc72122e96a9c53ee76",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-6",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade6",
+      "templates": ["guitar"],
+      "sha256": "6065643112d0397ea9990ae5989057e20fe7547e14d6822d42905f36ba068074",
+      "textHash": "6065643112d0397ea9990ae5989057e20fe7547e14d6822d42905f36ba068074",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-7",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade7",
+      "templates": ["guitar"],
+      "sha256": "23bccb5f135ce9289653604b2c4ca49363d15683419eca09e0f1848a850d29d2",
+      "textHash": "23bccb5f135ce9289653604b2c4ca49363d15683419eca09e0f1848a850d29d2",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-guitar-8",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/guitar/grade8",
+      "templates": ["guitar"],
+      "sha256": "fd7a385a5713e1ccd9e402b8575ac377bc0058523ee06bd71e05f89c2a00e4d7",
+      "textHash": "fd7a385a5713e1ccd9e402b8575ac377bc0058523ee06bd71e05f89c2a00e4d7",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-initial",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/initial",
+      "templates": ["singing"],
+      "sha256": "e463d15c8b03ab202e84005a48c445dfb2ecd162fca0d00f459a801532c0295f",
+      "textHash": "e463d15c8b03ab202e84005a48c445dfb2ecd162fca0d00f459a801532c0295f",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-1",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade1",
+      "templates": ["singing"],
+      "sha256": "3affa912e661a75964111614f50716302ce16a9b8ba13b87ea5cab6370cfdd4b",
+      "textHash": "3affa912e661a75964111614f50716302ce16a9b8ba13b87ea5cab6370cfdd4b",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-2",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade2",
+      "templates": ["singing"],
+      "sha256": "6e95a051377bde1c5b7e0203dacdbb600e682379e3812c98d4c7c4b99d24026d",
+      "textHash": "6e95a051377bde1c5b7e0203dacdbb600e682379e3812c98d4c7c4b99d24026d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-3",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade3",
+      "templates": ["singing"],
+      "sha256": "12af951b0ad1a0745dfb6e0ddc01324e4a2d22378eaecb55375004f386b39ce9",
+      "textHash": "12af951b0ad1a0745dfb6e0ddc01324e4a2d22378eaecb55375004f386b39ce9",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-4",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade4",
+      "templates": ["singing"],
+      "sha256": "424e4eb737dccabbdb5783db85627283286de055e8499deebd21dbff73221246",
+      "textHash": "424e4eb737dccabbdb5783db85627283286de055e8499deebd21dbff73221246",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-5",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade5",
+      "templates": ["singing"],
+      "sha256": "288c8840e3bfaa6b0fedaba9f5b9142f8310507d2c383f5535f4a5878eeaa576",
+      "textHash": "288c8840e3bfaa6b0fedaba9f5b9142f8310507d2c383f5535f4a5878eeaa576",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-6",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade6",
+      "templates": ["singing"],
+      "sha256": "19e86a8cf0bfd613ecc28b98573508267e250cacf60b5c59e441385d8d6c8d48",
+      "textHash": "19e86a8cf0bfd613ecc28b98573508267e250cacf60b5c59e441385d8d6c8d48",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-7",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade7",
+      "templates": ["singing"],
+      "sha256": "b4e3b69766cf64089fb87cb60f756770f1c6d2342157c48c08e8ffa0c0280b7d",
+      "textHash": "b4e3b69766cf64089fb87cb60f756770f1c6d2342157c48c08e8ffa0c0280b7d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "trinity-rock-vocals-8",
+      "url": "https://sogtrinityrock.trinitycollege.co.uk/instruments/vocals/grade8",
+      "templates": ["singing"],
+      "sha256": "69f40b44aad8426e23bb8dae06a27ec092fb3cff048634275dd4e151cc6e708b",
+      "textHash": "69f40b44aad8426e23bb8dae06a27ec092fb3cff048634275dd4e151cc6e708b",
+      "recorded": "2026-10-09"
     }
   ]
 }

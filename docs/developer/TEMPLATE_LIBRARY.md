@@ -134,6 +134,15 @@ postgraduate guidelines (MD, MS, DM and MCh). Where NMC has none online (Cardiol
 Gastroenterology, Nephrology, Neurology, Medical Oncology) they follow the NBEMS DrNB curriculum.
 The three MBBS phase templates regroup the bundled MBBS template's subjects.
 
+Languages (`src/languages/`): the five European languages follow the CEFR levels (Council of Europe
+self-assessment grid, in our words) with each language's official exam per level; Japanese follows
+the JLPT level summaries, Chinese the new HSK levels, Korean the TOPIK structure. Music
+(`src/music/`): piano, violin, flute and saxophone follow Trinity College London's graded syllabuses
+(technical work per grade); drums, guitar and singing follow Trinity Rock & Pop. Marketing
+(`src/marketing/`): Meta's Digital Marketing Associate exam (Facebook Ads), Google's SEO Starter
+Guide, HubSpot Academy certification courses (content, email, social, digital marketing), and Google
+Ads by D113. The generators for these live outside the repo; the Node port will bring them in.
+
 The maths topics (`src/maths/`) each follow one MIT OpenCourseWare course: 18.01SC (Calculus),
 18.06 (Linear Algebra), 6.042J (Discrete Mathematics), 18.314 (Combinatorics and Graph Theory),
 6.254 (Game Theory), 24.241 (Logic), 18.781 (Number Theory), 6.041 (Probability), 18.650
@@ -163,8 +172,8 @@ from the Actions tab. A failed run means a syllabus changed; its summary lists t
 templates. GitHub emails a failed scheduled run to the repository owner.
 
 Some sources are not watched because their pages are built in the browser or change on every
-load: Apple's Develop in Swift, Material Design 3, the EC-Council CEH page and the Google Cloud
-Digital Leader exam guide. Design Patterns
+load: Apple's Develop in Swift, Material Design 3, the EC-Council CEH page, the Google Cloud
+Digital Leader exam guide and the HubSpot Academy courses. Design Patterns
 follows a book. Check these by hand when you revise those templates.
 
 It only watches documents it knows. When an exam publishes a new cycle's
