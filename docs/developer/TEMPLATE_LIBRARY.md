@@ -129,6 +129,11 @@ Course, Material Design 3). Data Structures and Algorithms follows MIT OCW 6.006
 ACM 2021 data science competencies, and Design Patterns the pattern catalogue of Gamma et al.
 Each file's `source` line names its curriculum.
 
+The medical specialities in `src/medical/` follow the National Medical Commission's competency-based
+postgraduate guidelines (MD, MS, DM and MCh). Where NMC has none online (Cardiology,
+Gastroenterology, Nephrology, Neurology, Medical Oncology) they follow the NBEMS DrNB curriculum.
+The three MBBS phase templates regroup the bundled MBBS template's subjects.
+
 The maths topics (`src/maths/`) each follow one MIT OpenCourseWare course: 18.01SC (Calculus),
 18.06 (Linear Algebra), 6.042J (Discrete Mathematics), 18.314 (Combinatorics and Graph Theory),
 6.254 (Game Theory), 24.241 (Logic), 18.781 (Number Theory), 6.041 (Probability), 18.650
@@ -158,7 +163,8 @@ from the Actions tab. A failed run means a syllabus changed; its summary lists t
 templates. GitHub emails a failed scheduled run to the repository owner.
 
 Some sources are not watched because their pages are built in the browser or change on every
-load: Apple's Develop in Swift, Material Design 3, and the EC-Council CEH page. Design Patterns
+load: Apple's Develop in Swift, Material Design 3, the EC-Council CEH page and the Google Cloud
+Digital Leader exam guide. Design Patterns
 follows a book. Check these by hand when you revise those templates.
 
 It only watches documents it knows. When an exam publishes a new cycle's

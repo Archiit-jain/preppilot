@@ -1163,14 +1163,6 @@
       "recorded": "2026-10-09"
     },
     {
-      "key": "google-cloud-digital-leader-guide",
-      "url": "https://cloud.google.com/learn/certification/guides/cloud-digital-leader",
-      "templates": ["google-cloud"],
-      "sha256": "5e26705d7da9701171d65444a303b3781af69c98fe0f109d0cd77f513e9575b4",
-      "textHash": "5e26705d7da9701171d65444a303b3781af69c98fe0f109d0cd77f513e9575b4",
-      "recorded": "2026-10-09"
-    },
-    {
       "key": "python-institute-pcep-syllabus",
       "url": "https://pythoninstitute.org/pcep-exam-syllabus",
       "templates": ["python"],
@@ -1440,6 +1432,134 @@
       "templates": ["discrete-mathematics"],
       "sha256": "015977624c70fffce68a13ba3c47aa0789e57d392e89872a589826f8bcaa7d22",
       "textHash": "015977624c70fffce68a13ba3c47aa0789e57d392e89872a589826f8bcaa7d22",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-md-anaesthesia",
+      "url": "https://nmc.org.in/storage/new/MD-Anesthesia.pdf",
+      "templates": ["anesthesiology"],
+      "sha256": "62f235d2c6eabacb445f087943997e503ccede93c8f38918243d8cdf87f47f3f",
+      "textHash": "3915efeafd0b523be8d7f998f0a856ecac51ba7669269d5d6b425b6f95987186",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-md-dermatology",
+      "url": "https://nmc.org.in/storage/new/MD-Dermatology.pdf",
+      "templates": ["dermatology"],
+      "sha256": "c4296f1de49c05b444036f3ecacf71a0ddafea41a2c873fef5476008d98947a9",
+      "textHash": "b668fa0e1940789e134f8a0c4f6c858d22b289dab883d4247c167491b20aa98e",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-md-emergency-medicine",
+      "url": "https://nmc.org.in/storage/new/NMC%20MD%20EM%20CURRICULUM-V6%20with%20logo%20revised-1.pdf",
+      "templates": ["emergency-medicine"],
+      "sha256": "4e819a7cba804c3df27fc35f9681fed779110a89f8aadd9af65cc0bc6bc1a73c",
+      "textHash": "79375319723a7acc134589f43de6089b2fef8c9e0d8896418115c2d1dd668458",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-dm-endocrinology",
+      "url": "https://nmc.org.in/storage/new/DM_Endocrinology_Guidelines.pdf",
+      "templates": ["endocrinology"],
+      "sha256": "f4e93db5cd9a1568bf6afa5d7eef90f896bc9224d3a88e590e6baee41d682f21",
+      "textHash": "c1135e8f4cb870a5e58e23fe41ee2e9219d4506d10c17194a6bed804cca6e162",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-ms-obgy",
+      "url": "https://nmc.org.in/storage/new/MS-OBGY.pdf",
+      "templates": ["obstetrics-gynecology"],
+      "sha256": "caed770ba16e79db9330d8ff7a51f9902c1651077a337eb8918808fa2241426f",
+      "textHash": "7fd69ed3b9d94d2801da6e8aabd3004d504f4e51b81b1f9887e9f0dba22233e9",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-ms-ophthalmology",
+      "url": "https://nmc.org.in/storage/new/MS-Ophthamology.pdf",
+      "templates": ["ophthalmology"],
+      "sha256": "c030c6ee7fc68f037b2c5d360b625e33b1dc5356f70e43853a3ac8b08ca96e3d",
+      "textHash": "226468129404b41de051c78aacb42c296a742f0e44a05f72bce182214ae5be37",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-ms-orthopaedics",
+      "url": "https://nmc.org.in/storage/new/MS_Orthopedics_(%20revised%20).pdf",
+      "templates": ["orthopedics"],
+      "sha256": "b2c60654cb74c7d2664ab16ef62d4bb3b797c28cbac99fc75b76678f856d76c5",
+      "textHash": "679a6a98753366967b588493891804d3c2727a5e70b759a93ddddd6355ffa531",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-md-psychiatry",
+      "url": "https://nmc.org.in/storage/new/MD_Psychiatry_(%20revised%20).pdf",
+      "templates": ["psychiatry"],
+      "sha256": "00a4056e3081b17f7ff87c565a141e379e3c186559fcd6730e70117ba32a838f",
+      "textHash": "6249a2bbfb8b493f011ea448c1de1ebe3731a27bd28df5bf44a01f7069da9f8d",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-md-pulmonary-medicine",
+      "url": "https://nmc.org.in/storage/new/MD-Pulmonary-Medicine.pdf",
+      "templates": ["pulmonology"],
+      "sha256": "c90242c21a0aa4f500e2342e07717bbf1104831846395ee22973787b428329c8",
+      "textHash": "7f7c44a32f8b84b1d3899f3c87142ad6ae82a3535e13b830dcbc74deb722a70f",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-md-radiodiagnosis",
+      "url": "https://nmc.org.in/storage/new/MD-Radiodiagnosis.pdf",
+      "templates": ["radiology"],
+      "sha256": "1024af1f87c70f1b6a9f28a2497e07feab038c4cc57521015960393ab4909bb6",
+      "textHash": "71f273b10df2bdc332e0840e8286b5566eab9968e71aa82bd2a2b1c0b36f6bb0",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nmc-mch-urology",
+      "url": "https://nmc.org.in/storage/new/Curriculam.pdf",
+      "templates": ["urology"],
+      "sha256": "e72ccce8e34ed1476a24a08c0082e347998b432276be081d20a70673dbde67ca",
+      "textHash": "25499c0127fc460e9a8834df9e0b28dbb97309f0d0d37fde84f6d94427df2d7a",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nbe-drnb-cardiology",
+      "url": "https://www.nbe.edu.in/mainpdf/curriculum/Cardiology-Curriculum.pdf",
+      "templates": ["cardiology"],
+      "sha256": "76d92a1eef133d1d654bc8961aec3032e1e7b26b2d441bd00959f18fbb0577a2",
+      "textHash": "3ac79f9cdef564f2fcfb9f47e346963f7b21bac524d7d1ced09f4ba14512b1f8",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nbe-drnb-gastroenterology",
+      "url": "https://www.nbe.edu.in/mainpdf/curriculum/Gastroenterology-Curriculum.pdf",
+      "templates": ["gastroenterology"],
+      "sha256": "9a7bac0c3adfc2c7572ee6550aa591ef3f5c519d4255ed992f082537273e9902",
+      "textHash": "e2fed2c57f5a6e09b3b015fa9f11d357ae115a436285b452705ac672ba6d898b",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nbe-drnb-nephrology",
+      "url": "https://www.nbe.edu.in/mainpdf/curriculum/Nephrology-2017.pdf",
+      "templates": ["nephrology"],
+      "sha256": "740cab7ad9b03146c942f6e85b50013927d6ef3a347820b788c29a10fdbdbfda",
+      "textHash": "d95491d20aed77b02e4a5f37209ea46e1fc0406c1f39fa55648f7ee3bbdfe057",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nbe-drnb-neurology",
+      "url": "https://www.nbe.edu.in/mainpdf/curriculum/Neurology-new.pdf",
+      "templates": ["neurology"],
+      "sha256": "acc6e9eac863254b28f5b47cf15679b3720bfb5e1e4ac91172c2f5592e7f2eeb",
+      "textHash": "6492393c196a36ff0d6f475562fec96adf4631ef633f87a68bff69a370868428",
+      "recorded": "2026-10-09"
+    },
+    {
+      "key": "nbe-drnb-medical-oncology",
+      "url": "https://nbe.edu.in/mainpdf/curriculum/Medical_Oncology.pdf",
+      "templates": ["oncology"],
+      "sha256": "b452fbf94e116c87e8b7b91a39f39e62cd2d9cbfb9f423215c0b0bae7b52219f",
+      "textHash": "893afc9ec8987adb7a6c97201b52e2927ec78721d0cffb9666facb4083d8b8b3",
       "recorded": "2026-10-09"
     }
   ]
