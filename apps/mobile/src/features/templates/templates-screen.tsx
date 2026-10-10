@@ -1,17 +1,18 @@
 import {
-  TEMPLATE_CATEGORIES,
-  bundledTemplates,
+  countFacet,
+  countGroups,
+  countSubgroups,
   countTemplate,
-  searchCatalog,
-  searchTemplates,
-  templatesInCategory,
+  filterLibrary,
+  placeTemplate,
+  subgroupLabel,
+  templateGroup,
+  type LibrarySort,
   type SyllabusTemplate,
-  type TemplateCatalogEntry,
-  type TemplateCategory,
 } from '@preppilot/shared';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { FlatList, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import {
   AppHeader,
   Button,
@@ -23,20 +24,38 @@ import {
   TextField,
 } from '../../components/ui';
 import { getRepositories } from '../../db/client';
-import { emptyStateCopy } from '../../constants/copy';
 import { useAuthStore } from '../auth/auth-store';
 import { useTrackersStore } from '../trackers/trackers-store';
 import { useTheme } from '../../theme/theme-context';
+import { CategoryGrid, ChipRow, TemplateCard, type ChipOption } from './components/library-parts';
 import { importTemplate } from './import-template';
+import { useLibraryItems, useRecentTemplateIds, type LibraryTemplateItem } from './library-items';
 import { useTemplateLibraryStore } from './template-library-store';
 
-type Filter = TemplateCategory | 'all';
+/** Null follows the search: best match while searching, by category otherwise. */
+type SortChoice = LibrarySort | null;
+
+interface Filters {
+  readonly group: string | null;
+  readonly subgroup: string | null;
+  readonly classLevel: string | null;
+  readonly stream: string | null;
+}
+
+const NO_FILTERS: Filters = { group: null, subgroup: null, classLevel: null, stream: null };
+
+const plural = (n: number) => `${n} ${n === 1 ? 'template' : 'templates'}`;
 
 /**
  * Template library.
  *
  * Flow:
- * browse → preview → confirm → import
+ * browse (categories, or search) → preview → confirm → import
+ *
+ * The library is organised by the shelf plan in `@preppilot/shared`
+ * (taxonomy.ts): every template sits in one category and subcategory, and
+ * search reads names, aliases, category names and the subjects inside. Only
+ * catalog metadata is listed; a syllabus is loaded when its preview opens.
  *
  * Importing a template starts a NEW course holding only that template's
  * subjects. Nothing already on the account is touched: the course the student
@@ -46,7 +65,8 @@ export function TemplatesScreen() {
   const theme = useTheme();
   const userId = useAuthStore((state) => state.user?.id ?? null);
 
-  const [filter, setFilter] = useState<Filter>('all');
+  const [filters, setFilters] = useState<Filters>(NO_FILTERS);
+  const [sortChoice, setSortChoice] = useState<SortChoice>(null);
   const [previewing, setPreviewing] = useState<SyllabusTemplate | null>(null);
   /**
    * What the student already has, so the preview can say it will be left alone.
@@ -60,33 +80,77 @@ export function TemplatesScreen() {
   const [importing, setImporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Category first, then the query, so a search runs inside the filter a
-  // student can see rather than silently ignoring it.
-  const visible = searchTemplates(templatesInCategory(bundledTemplates, filter), query);
-
-  // The online library, listed after the bundled templates and filtered the
-  // same way. A template that also ships with the app is shown once, bundled.
   const library = useTemplateLibraryStore();
   const loadLibrary = library.load;
   useEffect(() => {
     if (useTemplateLibraryStore.getState().status === 'idle') void loadLibrary();
   }, [loadLibrary]);
-  const bundledIds = new Set(bundledTemplates.map((template) => template.id));
-  const online = searchCatalog(
-    library.entries.filter(
-      (entry) => !bundledIds.has(entry.id) && (filter === 'all' || entry.category === filter),
-    ),
-    query,
-  );
-  const total = visible.length + online.length;
 
-  const openOnline = async (entry: TemplateCatalogEntry) => {
-    setError(null);
-    const template = await library.open(entry);
-    if (template === null) return;
-    setPreviewing(template);
-    void countWhatIsAlreadyThere();
+  const items = useLibraryItems();
+  const recent = useRecentTemplateIds();
+  const searching = query.trim().length > 0;
+  const filtering = filters.group !== null;
+  const sort: LibrarySort = sortChoice ?? (searching ? 'relevance' : 'category');
+
+  // Search first, then each filter: the counts beside every choice say how many
+  // results picking it would leave, so no chip leads to an empty page.
+  const matching = useMemo(() => filterLibrary(items, { query }), [items, query]);
+  const inGroup = useMemo(
+    () =>
+      filters.group === null ? matching : matching.filter((item) => item.group === filters.group),
+    [matching, filters.group],
+  );
+  const results = useMemo(
+    () => filterLibrary(inGroup, { ...filters, query, sort, recent }),
+    [inGroup, filters, query, sort, recent],
+  );
+
+  const groups = useMemo(() => countGroups(matching), [matching]);
+  const allGroups = useMemo(() => countGroups(items), [items]);
+  const subgroups = useMemo(
+    () => (filters.group === null ? [] : countSubgroups(inGroup, filters.group)),
+    [inGroup, filters.group],
+  );
+  const inSubgroup = useMemo(
+    () =>
+      filters.subgroup === null
+        ? inGroup
+        : inGroup.filter((item) => item.subgroup === filters.subgroup),
+    [inGroup, filters.subgroup],
+  );
+  const classes = useMemo(() => countFacet(inSubgroup, 'classLevel'), [inSubgroup]);
+  const streams = useMemo(
+    () =>
+      countFacet(
+        filters.classLevel === null
+          ? inSubgroup
+          : inSubgroup.filter((item) => item.facets.classLevel === filters.classLevel),
+        'stream',
+      ),
+    [inSubgroup, filters.classLevel],
+  );
+
+  const chooseGroup = (group: string | null) => {
+    setFilters({ ...NO_FILTERS, group });
   };
+  const reset = () => {
+    setQuery('');
+    setFilters(NO_FILTERS);
+    setSortChoice(null);
+  };
+
+  const openItem = useCallback(async (item: LibraryTemplateItem) => {
+    setError(null);
+    if (item.source.kind === 'bundled') {
+      setPreviewing(item.source.template);
+    } else {
+      const template = await useTemplateLibraryStore.getState().open(item.source.entry);
+      if (template === null) return;
+      setPreviewing(template);
+    }
+    const counted = await countWhatIsAlreadyThere();
+    if (counted !== undefined) setExisting(counted);
+  }, []);
 
   const confirmImport = async () => {
     if (previewing === null || userId === null) return;
@@ -114,218 +178,245 @@ export function TemplatesScreen() {
     }
   };
 
-  /**
-   * Whether the student already has a syllabus.
-   *
-   * Only decides whether to reassure them that this import leaves it alone —
-   * there is nothing to warn about, since nothing is removed.
-   */
-  const countWhatIsAlreadyThere = async () => {
-    if (userId === null) return;
+  const sortOptions: ChipOption[] = [
+    ...(searching
+      ? [{ id: 'relevance', label: 'Best match' }]
+      : [{ id: 'category', label: 'By category' }]),
+    { id: 'name', label: 'A–Z' },
+    { id: 'size', label: 'Most topics' },
+    ...(recent.length > 0 ? [{ id: 'recent', label: 'Recently used' }] : []),
+  ];
 
-    try {
-      const repositories = getRepositories();
-      // Scoped to the course showing: what sits in another course is not what
-      // the student is being reassured about here.
-      const tracker = useTrackersStore.getState().activeId;
-      const [subjects, notes] = await Promise.all([
-        repositories.subjects.listByUser(userId, tracker),
-        repositories.notes.listByUser(userId, tracker),
-      ]);
-      setExisting({ subjects: subjects.length, notes: notes.length });
-    } catch {
-      // A missing count must not stop the preview opening; the copy falls back
-      // to the general warning below.
-      setExisting(null);
-    }
-  };
+  const groupLabel = filters.group === null ? null : templateGroup(filters.group).label;
+  const browsing = !searching && !filtering;
+
+  const header = (
+    <View style={{ gap: theme.spacing.base, marginBottom: theme.spacing.base }}>
+      <AppHeader overline="Choose a course" title="Templates">
+        <Text variant="body" tone="secondary">
+          Pick the exam or course you are preparing for and PrepPilot fills in its syllabus. You can
+          edit any of it afterwards.
+        </Text>
+      </AppHeader>
+
+      <TextField
+        label="Search"
+        placeholder="Exam, board, class or course"
+        value={query}
+        onChangeText={setQuery}
+        autoCorrect={false}
+        autoCapitalize="none"
+        testID="template-search"
+        autoFocus={search === '1'}
+        returnKeyType="search"
+        accessibilityHint="Searches template names, exam names, boards, classes and subjects"
+        hint={searching ? `${plural(results.length)}` : undefined}
+      />
+
+      {browsing ? (
+        <>
+          <Text variant="caption" tone="muted" overline accessibilityRole="header">
+            Browse by category
+          </Text>
+          <CategoryGrid groups={allGroups} onSelect={chooseGroup} />
+        </>
+      ) : (
+        <View style={{ gap: theme.spacing.sm }}>
+          {groupLabel !== null && (
+            <View style={styles.breadcrumb}>
+              <Button
+                label="‹ All categories"
+                size="small"
+                variant="ghost"
+                onPress={() => chooseGroup(null)}
+                testID="library-all-categories"
+              />
+              <Text
+                variant="body"
+                weight="semibold"
+                accessibilityRole="header"
+                style={styles.crumb}
+              >
+                {groupLabel}
+              </Text>
+            </View>
+          )}
+
+          {filters.group === null ? (
+            <ChipRow
+              label="Category"
+              options={[{ id: null, label: 'All', count: matching.length }, ...groups]}
+              selected={null}
+              onSelect={chooseGroup}
+              testID="filter-category"
+            />
+          ) : (
+            subgroups.length > 1 && (
+              <ChipRow
+                label="Subcategory"
+                options={[{ id: null, label: 'All', count: inGroup.length }, ...subgroups]}
+                selected={filters.subgroup}
+                onSelect={(subgroup) =>
+                  setFilters({ ...filters, subgroup, classLevel: null, stream: null })
+                }
+                testID="filter-subcategory"
+              />
+            )
+          )}
+
+          {classes.length > 1 && (
+            <ChipRow
+              label="Class"
+              options={[{ id: null, label: 'Any class' }, ...classes]}
+              selected={filters.classLevel}
+              onSelect={(classLevel) => setFilters({ ...filters, classLevel, stream: null })}
+              testID="filter-class"
+            />
+          )}
+          {streams.length > 1 && (
+            <ChipRow
+              label="Stream"
+              options={[{ id: null, label: 'Any stream' }, ...streams]}
+              selected={filters.stream}
+              onSelect={(stream) => setFilters({ ...filters, stream })}
+              testID="filter-stream"
+            />
+          )}
+        </View>
+      )}
+
+      <View style={{ gap: theme.spacing.sm }}>
+        <Text
+          variant="body"
+          weight="semibold"
+          accessibilityRole="header"
+          testID="library-count"
+          accessibilityLiveRegion="polite"
+        >
+          {browsing ? `All templates · ${results.length}` : `${plural(results.length)} found`}
+        </Text>
+        {results.length > 1 && (
+          <ChipRow
+            label="Sort by"
+            options={sortOptions}
+            selected={sort}
+            onSelect={(choice) => setSortChoice(choice as LibrarySort)}
+            testID="sort"
+          />
+        )}
+      </View>
+    </View>
+  );
+
+  const footer = (
+    <View style={{ gap: theme.spacing.base, marginTop: theme.spacing.base }}>
+      {library.error !== null && (
+        <Text variant="small" tone="danger" accessibilityRole="alert" testID="library-error">
+          {library.error}
+        </Text>
+      )}
+      {library.status === 'loading' && (
+        <Text variant="small" tone="muted" testID="library-loading">
+          Loading more templates…
+        </Text>
+      )}
+      {library.status === 'failed' && (
+        <View style={{ gap: theme.spacing.sm }}>
+          <Text variant="small" tone="secondary" testID="library-failed">
+            {"Couldn't load the online templates. Check your connection."}
+          </Text>
+          <Button
+            label="Try again"
+            size="small"
+            variant="ghost"
+            testID="library-retry"
+            onPress={() => void library.load()}
+          />
+        </View>
+      )}
+
+      <Card>
+        <Text variant="caption" tone="muted" overline>
+          Custom
+        </Text>
+
+        <Text variant="bodyLarge" weight="semibold" style={{ marginTop: theme.spacing.xxs }}>
+          Build your own
+        </Text>
+
+        <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
+          Start a new course of your own: name it, then add its subjects, chapters and topics.
+          Nothing here has to come from a template, and the course you are on is left as it is.
+        </Text>
+
+        <View style={{ marginTop: theme.spacing.base }}>
+          {/*
+            A new course, not a subject in the one showing. It used to write a
+            subject straight into the active course, which made it a second
+            "Add subject" rather than a way to start something new.
+          */}
+          <Button
+            label="Build from scratch"
+            variant="secondary"
+            testID="build-from-scratch"
+            onPress={() => router.push('/build-course')}
+          />
+        </View>
+      </Card>
+
+      <Card>
+        <Text variant="caption" tone="muted" overline>
+          About These Templates
+        </Text>
+
+        <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.sm }}>
+          Importing a template starts a separate course with that syllabus in it, leaving anything
+          you are already studying untouched. You can rename, reorder, add to or delete any part of
+          it afterwards, and switch between courses from the button at the top left.
+        </Text>
+      </Card>
+    </View>
+  );
+
+  const renderItem = useCallback(
+    ({ item }: { item: LibraryTemplateItem }) => (
+      <TemplateCard
+        item={item}
+        opening={library.opening === item.id}
+        disabled={library.opening !== null}
+        onOpen={(chosen) => void openItem(chosen)}
+      />
+    ),
+    [library.opening, openItem],
+  );
 
   return (
     <Screen padded={false}>
-      <ScrollView
-        contentContainerStyle={{
-          padding: theme.spacing.base,
-          gap: theme.spacing.base,
-        }}
+      <FlatList
+        data={results}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        ListHeaderComponent={header}
+        ListFooterComponent={footer}
+        ListEmptyComponent={
+          <EmptyState
+            title="No templates found"
+            description="Try a different name or browse all categories."
+            actionLabel="Clear search and filters"
+            onAction={reset}
+            testID={searching ? 'templates-no-results' : 'templates-empty'}
+          />
+        }
+        ItemSeparatorComponent={Separator}
+        contentContainerStyle={{ padding: theme.spacing.base }}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
+        initialNumToRender={12}
+        maxToRenderPerBatch={12}
+        windowSize={9}
         showsVerticalScrollIndicator={false}
-      >
-        <AppHeader overline="Choose a course" title="Templates">
-          <Text variant="body" tone="secondary">
-            Pick the exam you are preparing for and PrepPilot fills in its syllabus. You can edit
-            any of it afterwards.
-          </Text>
-        </AppHeader>
-
-        <TextField
-          label="Search"
-          placeholder="Try “class 12”, “accountancy” or “GATE”"
-          value={query}
-          onChangeText={setQuery}
-          autoCorrect={false}
-          autoCapitalize="none"
-          testID="template-search"
-          autoFocus={search === '1'}
-          returnKeyType="search"
-          hint={
-            query.trim().length === 0
-              ? undefined
-              : `${total} ${total === 1 ? 'template' : 'templates'}`
-          }
-        />
-
-        <View style={styles.filters}>
-          {(['all', ...TEMPLATE_CATEGORIES] as Filter[]).map((option) => (
-            <Button
-              key={option}
-              label={filterLabel(option)}
-              size="small"
-              variant={option === filter ? 'primary' : 'secondary'}
-              onPress={() => setFilter(option)}
-            />
-          ))}
-        </View>
-
-        {total === 0 ? (
-          query.trim().length > 0 ? (
-            <EmptyState
-              title="No template matches that"
-              description="Try a shorter search, or build the syllabus yourself below."
-              testID="templates-no-results"
-            />
-          ) : (
-            <EmptyState {...emptyStateCopy.templates} testID="templates-empty" />
-          )
-        ) : (
-          visible.map((template) => {
-            const counts = countTemplate(template);
-
-            return (
-              <Pressable
-                key={template.id}
-                accessibilityRole="button"
-                accessibilityLabel={template.name}
-                accessibilityHint="Opens a preview before importing"
-                onPress={() => {
-                  setError(null);
-                  setPreviewing(template);
-                  void countWhatIsAlreadyThere();
-                }}
-                testID={`template-${template.id}`}
-              >
-                <Card>
-                  <Text variant="bodyLarge" weight="semibold">
-                    {template.name}
-                  </Text>
-
-                  <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
-                    {template.description}
-                  </Text>
-
-                  <Text variant="caption" tone="muted" style={{ marginTop: theme.spacing.sm }}>
-                    {counts.subjects} subjects · {counts.chapters} chapters · {counts.topics} topics
-                  </Text>
-                </Card>
-              </Pressable>
-            );
-          })
-        )}
-
-        {online.map((entry) => {
-          const opening = library.opening === entry.id;
-          return (
-            <Pressable
-              key={entry.id}
-              accessibilityRole="button"
-              accessibilityLabel={entry.name}
-              accessibilityHint="Downloads the syllabus and opens a preview"
-              accessibilityState={{ busy: opening }}
-              disabled={library.opening !== null}
-              onPress={() => void openOnline(entry)}
-              testID={`template-${entry.id}`}
-            >
-              <Card>
-                <Text variant="bodyLarge" weight="semibold">
-                  {entry.name}
-                </Text>
-                <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
-                  {entry.description}
-                </Text>
-                <Text variant="caption" tone="muted" style={{ marginTop: theme.spacing.sm }}>
-                  {opening
-                    ? 'Downloading…'
-                    : `${entry.counts.subjects} subjects · ${entry.counts.chapters} chapters · ${entry.counts.topics} topics · online`}
-                </Text>
-              </Card>
-            </Pressable>
-          );
-        })}
-
-        {library.error !== null && (
-          <Text variant="small" tone="danger" accessibilityRole="alert" testID="library-error">
-            {library.error}
-          </Text>
-        )}
-        {library.status === 'loading' && (
-          <Text variant="small" tone="muted" testID="library-loading">
-            Loading more templates…
-          </Text>
-        )}
-        {library.status === 'failed' && (
-          <View style={{ gap: theme.spacing.sm }}>
-            <Text variant="small" tone="secondary" testID="library-failed">
-              Couldn't load the online templates. Check your connection.
-            </Text>
-            <Button
-              label="Try again"
-              size="small"
-              variant="ghost"
-              testID="library-retry"
-              onPress={() => void library.load()}
-            />
-          </View>
-        )}
-
-        <Card>
-          <Text variant="caption" tone="muted" overline>
-            Custom
-          </Text>
-
-          <Text variant="bodyLarge" weight="semibold" style={{ marginTop: theme.spacing.xxs }}>
-            Build your own
-          </Text>
-
-          <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.xxs }}>
-            Start a new course of your own: name it, then add its subjects, chapters and topics.
-            Nothing here has to come from a template, and the course you are on is left as it is.
-          </Text>
-
-          <View style={{ marginTop: theme.spacing.base }}>
-            {/*
-              A new course, not a subject in the one showing. It used to write a
-              subject straight into the active course, which made it a second
-              "Add subject" rather than a way to start something new.
-            */}
-            <Button
-              label="Build from scratch"
-              variant="secondary"
-              testID="build-from-scratch"
-              onPress={() => router.push('/build-course')}
-            />
-          </View>
-        </Card>
-
-        <Card>
-          <Text variant="caption" tone="muted" overline>
-            About These Templates
-          </Text>
-
-          <Text variant="small" tone="secondary" style={{ marginTop: theme.spacing.sm }}>
-            Importing a template starts a separate course with that syllabus in it, leaving anything
-            you are already studying untouched. You can rename, reorder, add to or delete any part
-            of it afterwards, and switch between courses from the button at the top left.
-          </Text>
-        </Card>
-      </ScrollView>
+        testID="template-results"
+      />
 
       <Sheet
         visible={previewing !== null}
@@ -362,6 +453,43 @@ export function TemplatesScreen() {
   );
 }
 
+/**
+ * Whether the student already has a syllabus.
+ *
+ * Only decides whether to reassure them that this import leaves it alone —
+ * there is nothing to warn about, since nothing is removed. Undefined when
+ * nobody is signed in; null when the count could not be read.
+ */
+async function countWhatIsAlreadyThere(): Promise<
+  { subjects: number; notes: number } | null | undefined
+> {
+  const user = useAuthStore.getState().user?.id ?? null;
+  if (user === null) return undefined;
+
+  try {
+    const repositories = getRepositories();
+    // Scoped to the course showing: what sits in another course is not what
+    // the student is being reassured about here.
+    const tracker = useTrackersStore.getState().activeId;
+    const [subjects, notes] = await Promise.all([
+      repositories.subjects.listByUser(user, tracker),
+      repositories.notes.listByUser(user, tracker),
+    ]);
+    return { subjects: subjects.length, notes: notes.length };
+  } catch {
+    // A missing count must not stop the preview opening; the copy falls back
+    // to the general warning below.
+    return null;
+  }
+}
+
+function Separator() {
+  return <View style={styles.separator} />;
+}
+
+/** How many topics to show under each chapter of the open subject. */
+const SAMPLE_TOPICS = 3;
+
 export function TemplatePreview({
   template,
   existing = null,
@@ -371,15 +499,28 @@ export function TemplatePreview({
   readonly existing?: { subjects: number; notes: number } | null;
 }) {
   const theme = useTheme();
-  const counts = countTemplate(template);
+  const counts = useMemo(() => countTemplate(template), [template]);
   const startsAnother = existing !== null && existing.subjects > 0;
+  const placement = placeTemplate(template.id);
+  // One subject open at a time: a 60-subject syllabus listed in full would bury
+  // the Import button under thousands of lines.
+  const [open, setOpen] = useState(0);
 
   return (
     <>
+      {placement.group !== 'other' && (
+        <Text variant="caption" tone="muted" overline testID="preview-category">
+          {templateGroup(placement.group).label} ·{' '}
+          {subgroupLabel(placement.group, placement.subgroup)}
+        </Text>
+      )}
       <Text variant="title">{template.name}</Text>
 
       <Text variant="small" tone="secondary">
         Adds {counts.subjects} subjects, {counts.chapters} chapters and {counts.topics} topics.
+      </Text>
+      <Text variant="caption" tone="muted">
+        This is a preview. Nothing is added until you press Import.
       </Text>
 
       {/*
@@ -422,53 +563,71 @@ export function TemplatePreview({
           : `Not checked — ${template.source}. Compare it against your own syllabus.`}
       </Text>
 
-      <ScrollView style={styles.preview} showsVerticalScrollIndicator={false}>
-        {template.subjects.map((subject) => (
-          <View key={subject.name} style={{ marginBottom: theme.spacing.sm }}>
-            <Text variant="body" weight="medium">
-              {subject.name}
-            </Text>
-
-            {subject.chapters.map((chapter) => (
-              <Text
-                key={chapter.name}
-                variant="caption"
-                tone="muted"
-                style={{ marginLeft: theme.spacing.md }}
+      <ScrollView style={styles.preview} showsVerticalScrollIndicator={false} nestedScrollEnabled>
+        {template.subjects.map((subject, index) => {
+          const expanded = index === open;
+          const topics = subject.chapters.reduce((n, chapter) => n + chapter.topics.length, 0);
+          return (
+            <View key={`${index}-${subject.name}`} style={{ marginBottom: theme.spacing.sm }}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ expanded }}
+                accessibilityHint={expanded ? undefined : 'Shows its chapters'}
+                onPress={() => setOpen(expanded ? -1 : index)}
+                style={styles.subjectRow}
+                testID={`preview-subject-${index}`}
               >
-                {chapter.name} · {chapter.topics.length} topics
-              </Text>
-            ))}
-          </View>
-        ))}
+                <Text variant="body" weight="medium" style={styles.subjectName}>
+                  {subject.name}
+                </Text>
+                <Text variant="caption" tone="muted">
+                  {subject.chapters.length} ch · {topics} topics {expanded ? '▴' : '▾'}
+                </Text>
+              </Pressable>
+
+              {expanded &&
+                subject.chapters.map((chapter, c) => (
+                  <View
+                    key={`${c}-${chapter.name}`}
+                    style={{ marginLeft: theme.spacing.md, marginTop: theme.spacing.xxs }}
+                  >
+                    <Text variant="caption" tone="secondary">
+                      {chapter.name} · {chapter.topics.length} topics
+                    </Text>
+                    {chapter.topics.length > 0 && (
+                      <Text
+                        variant="caption"
+                        tone="muted"
+                        numberOfLines={1}
+                        style={{ marginLeft: theme.spacing.sm }}
+                      >
+                        {chapter.topics
+                          .slice(0, SAMPLE_TOPICS)
+                          .map((topic) => topic.name)
+                          .join(', ')}
+                        {chapter.topics.length > SAMPLE_TOPICS ? ', …' : ''}
+                      </Text>
+                    )}
+                  </View>
+                ))}
+            </View>
+          );
+        })}
       </ScrollView>
     </>
   );
 }
 
-function filterLabel(filter: Filter): string {
-  switch (filter) {
-    case 'all':
-      return 'All';
-    case 'exam':
-      return 'Exams';
-    case 'school':
-      return 'School';
-    case 'custom':
-      return 'Other';
-  }
-}
-
 const styles = StyleSheet.create({
   warning: { borderLeftWidth: 3 },
-  filters: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
+  breadcrumb: { flexDirection: 'row', alignItems: 'center', gap: 4, flexWrap: 'wrap' },
+  crumb: { flexShrink: 1 },
+  separator: { height: 12 },
+  subjectRow: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 36 },
+  subjectName: { flex: 1 },
 
   preview: {
-    maxHeight: 220,
+    maxHeight: 320,
   },
 
   actions: {

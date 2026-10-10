@@ -135,8 +135,10 @@ describe('online templates on the Templates screen', () => {
       respond(url.endsWith('catalog.json') ? { format: 1, templates: [entry] } : template),
     );
     renderWithTheme(<TemplatesScreen />);
+    await waitFor(() => expect(store().status).toBe('ready'));
+    fireEvent.press(screen.getByTestId('category-engineering'));
 
-    await waitFor(() => expect(screen.getByTestId('template-gate-civil')).toBeOnTheScreen());
+    expect(screen.getByTestId('template-gate-civil')).toBeOnTheScreen();
     expect(screen.getByText(/· online/)).toBeOnTheScreen();
 
     fireEvent.changeText(screen.getByTestId('template-search'), 'geotechnical');
@@ -153,9 +155,12 @@ describe('online templates on the Templates screen', () => {
   it('hides them under a filter they do not belong to', async () => {
     fetchMock.mockReturnValue(respond({ format: 1, templates: [entry] }));
     renderWithTheme(<TemplatesScreen />);
-    await waitFor(() => expect(screen.getByTestId('template-gate-civil')).toBeOnTheScreen());
+    await waitFor(() => expect(store().status).toBe('ready'));
+    fireEvent.press(screen.getByTestId('category-engineering'));
+    expect(screen.getByTestId('template-gate-civil')).toBeOnTheScreen();
 
-    fireEvent.press(screen.getByRole('button', { name: 'School' }));
+    fireEvent.press(screen.getByTestId('library-all-categories'));
+    fireEvent.press(screen.getByTestId('category-school'));
 
     expect(screen.queryByTestId('template-gate-civil')).toBeNull();
   });
@@ -175,6 +180,7 @@ describe('online templates on the Templates screen', () => {
       });
     });
     rerender(<TemplatesScreen />);
+    fireEvent.changeText(screen.getByTestId('template-search'), 'gate civil');
     expect(screen.getByTestId('library-failed')).toBeOnTheScreen();
     expect(screen.getByTestId('library-error')).toBeOnTheScreen();
     expect(screen.getByText('Downloading…')).toBeOnTheScreen();
@@ -193,7 +199,8 @@ describe('online templates on the Templates screen', () => {
         : respond({}, false),
     );
     renderWithTheme(<TemplatesScreen />);
-    await waitFor(() => expect(screen.getByTestId('template-gate-civil')).toBeOnTheScreen());
+    await waitFor(() => expect(store().status).toBe('ready'));
+    fireEvent.changeText(screen.getByTestId('template-search'), 'gate civil');
 
     await act(async () => {
       fireEvent.press(screen.getByTestId('template-gate-civil'));

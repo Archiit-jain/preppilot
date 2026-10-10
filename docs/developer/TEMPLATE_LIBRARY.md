@@ -77,6 +77,17 @@ npx supabase storage cp catalog.json ss:///templates/catalog.json --linked --exp
 
 No app build is needed.
 
+## Categories in the app
+
+The Templates screen is organised by `packages/shared/src/templates/taxonomy.ts`,
+not by the coarse `category` field (exam, school, custom). Every template id, bundled
+or online, is placed there once: a category, a subcategory and the aliases students
+search by ("JEE", "GATE AI", "C++"). It is metadata only; no syllabus is touched.
+
+When you add a template, add its id to `taxonomy.ts` too. Until you do, the app lists
+it under "Other Templates" rather than hiding it, and `taxonomy.test.ts` fails, since it
+checks every id in `dist/catalog.json` and every bundled template has a real place.
+
 ## Generators
 
 `supabase/templates-library/tools/gate_to_md.mjs` drafts every GATE paper from the

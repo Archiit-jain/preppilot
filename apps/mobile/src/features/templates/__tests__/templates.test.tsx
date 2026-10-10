@@ -1,9 +1,9 @@
 import {
-  TEMPLATE_CATEGORIES,
+  TEMPLATE_GROUPS,
   bundledTemplates,
   countTemplate,
+  placeTemplate,
   type SyllabusTemplate,
-  type TemplateCategory,
 } from '@preppilot/shared';
 import { act, fireEvent, screen, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
@@ -28,9 +28,14 @@ jest.mock('../../../lib/supabase', () => ({
 
 const USER = 'user-1';
 
-/** Mirrors the screen's own filter labels. */
-function filterLabelFor(category: TemplateCategory): string {
-  return { exam: 'Exams', school: 'School', custom: 'Other' }[category];
+/**
+ * Opens a template's preview the way a student reaches one far down the list:
+ * by searching for it. The list is virtualised, so only the first screenful of
+ * cards exists until it is scrolled.
+ */
+function openTemplate(template: { readonly id: string; readonly name: string }) {
+  fireEvent.changeText(screen.getByTestId('template-search'), template.name);
+  fireEvent.press(screen.getByTestId(`template-${template.id}`));
 }
 
 let db: ReturnType<typeof createTestDatabase>;
@@ -173,50 +178,78 @@ describe('the templates screen', () => {
     return renderWithTheme(<TemplatesScreen />);
   };
 
-  it('lists the bundled templates', () => {
+  it('lists the bundled templates, each findable by name', () => {
     render();
 
+    expect(screen.getByTestId('library-count')).toHaveTextContent(
+      `All templates · ${bundledTemplates.length}`,
+    );
     for (const template of bundledTemplates) {
+      fireEvent.changeText(screen.getByTestId('template-search'), template.name);
       expect(screen.getByTestId(`template-${template.id}`)).toBeOnTheScreen();
     }
   });
 
-  it('filters by category', () => {
-    const exam = bundledTemplates.find((entry) => entry.category === 'exam');
-    const school = bundledTemplates.find((entry) => entry.category === 'school');
-    if (exam === undefined || school === undefined) {
-      throw new Error('The library needs one template of each category to test the filter.');
-    }
-
+  it('opens a category and shows only what is in it', () => {
     render();
-    fireEvent.press(screen.getByRole('button', { name: 'Exams' }));
+    fireEvent.press(screen.getByTestId('category-engineering'));
 
-    expect(screen.getByTestId(`template-${exam.id}`)).toBeOnTheScreen();
-    expect(screen.queryByTestId(`template-${school.id}`)).toBeNull();
+    expect(screen.getByTestId('template-jee-main-2026')).toBeOnTheScreen();
+    expect(screen.queryByTestId('template-cbse-class-9')).toBeNull();
+    expect(screen.queryByTestId('category-school')).toBeNull();
 
-    fireEvent.press(screen.getByRole('button', { name: 'School' }));
+    fireEvent.press(screen.getByTestId('library-all-categories'));
+    fireEvent.press(screen.getByTestId('category-school'));
 
-    expect(screen.getByTestId(`template-${school.id}`)).toBeOnTheScreen();
-    expect(screen.queryByTestId(`template-${exam.id}`)).toBeNull();
+    expect(screen.getByTestId('template-cbse-class-9')).toBeOnTheScreen();
+    expect(screen.queryByTestId('template-jee-main-2026')).toBeNull();
   });
 
-  /** The empty state is still reachable — just not by a category that has content. */
-  it('shows the empty state for a category with nothing in it', () => {
-    const untouched = TEMPLATE_CATEGORIES.find(
-      (category) => !bundledTemplates.some((entry) => entry.category === category),
-    );
-    if (untouched === undefined) return;
-
+  it('narrows a category by class and stream', () => {
     render();
-    fireEvent.press(screen.getByRole('button', { name: filterLabelFor(untouched) }));
+    fireEvent.press(screen.getByTestId('category-school'));
 
-    expect(screen.getByTestId('templates-empty')).toBeOnTheScreen();
+    fireEvent.press(screen.getByTestId('filter-class-Class 12'));
+    fireEvent.press(screen.getByTestId('filter-stream-Commerce'));
+
+    expect(screen.getByTestId('library-count')).toHaveTextContent('1 template found');
+    expect(screen.getByTestId('template-cbse-class-12-commerce')).toBeOnTheScreen();
+    expect(screen.queryByTestId('template-cbse-class-12-pcm')).toBeNull();
+  });
+
+  it('shows each category with how many templates it holds', () => {
+    render();
+
+    for (const group of TEMPLATE_GROUPS) {
+      const count = bundledTemplates.filter((t) => placeTemplate(t.id).group === group.id).length;
+      if (count === 0) {
+        expect(screen.queryByTestId(`category-${group.id}`)).toBeNull();
+      } else {
+        expect(screen.getByTestId(`category-${group.id}`)).toHaveTextContent(
+          new RegExp(`${count} templates?$`),
+        );
+      }
+    }
+  });
+
+  it('offers a way out of an empty result', () => {
+    render();
+    fireEvent.press(screen.getByTestId('category-school'));
+    fireEvent.changeText(screen.getByTestId('template-search'), 'gate');
+
+    expect(screen.getByTestId('templates-no-results')).toBeOnTheScreen();
+    fireEvent.press(screen.getByRole('button', { name: 'Clear search and filters' }));
+
+    expect(screen.getByTestId('library-count')).toHaveTextContent(
+      `All templates · ${bundledTemplates.length}`,
+    );
+    expect(screen.getByTestId('category-school')).toBeOnTheScreen();
   });
 
   it('shows how much a template will add before importing', () => {
     render();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
 
     expect(screen.getByText(/Adds \d+ subjects, \d+ chapters and \d+ topics/)).toBeOnTheScreen();
   });
@@ -228,7 +261,7 @@ describe('the templates screen', () => {
   it('shows where a bundled syllabus came from, without warning about it', () => {
     render();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
 
     expect(screen.getByText(/included with PrepPilot/i)).toBeOnTheScreen();
     expect(screen.queryByText(/Not checked/)).toBeNull();
@@ -247,7 +280,7 @@ describe('the templates screen', () => {
   it('imports on confirmation and returns to the tracker', async () => {
     await renderReady();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
     await act(async () => {
       fireEvent.press(getInModal('Import'));
     });
@@ -261,7 +294,7 @@ describe('the templates screen', () => {
     await renderReady();
     const template = bundledTemplates[0]!;
 
-    fireEvent.press(screen.getByTestId(`template-${template.id}`));
+    openTemplate(template);
     await act(async () => {
       fireEvent.press(getInModal('Import'));
     });
@@ -277,7 +310,7 @@ describe('the templates screen', () => {
   it('imports nothing when the preview is cancelled', async () => {
     render();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
     await act(async () => {
       fireEvent.press(getInModal('Cancel'));
     });
@@ -289,7 +322,7 @@ describe('the templates screen', () => {
     jest.spyOn(repositories.subjects, 'create').mockRejectedValue(new Error('SQLITE_BUSY'));
     render();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
     await act(async () => {
       fireEvent.press(getInModal('Import'));
     });
@@ -300,16 +333,40 @@ describe('the templates screen', () => {
     expect(screen.queryByText(/SQLITE_BUSY/)).toBeNull();
   });
 
-  it.each(['All', 'Exams', 'School', 'Other'])('offers the %s filter', (label) => {
+  it('says which category a template belongs to in its preview', () => {
     render();
 
-    expect(screen.getByRole('button', { name: label })).toBeOnTheScreen();
+    openTemplate(bundledTemplates[0]!);
+
+    expect(screen.getAllByText(/Engineering & Science Entrance · JEE/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Nothing is added until you press Import/)).toBeOnTheScreen();
+  });
+
+  it('sorts by size when asked', () => {
+    render();
+    fireEvent.press(screen.getByTestId('sort-size'));
+
+    const largest = [...bundledTemplates].sort(
+      (a, b) => countTemplate(b).topics - countTemplate(a).topics,
+    )[0]!;
+    expect(screen.getByTestId(`template-${largest.id}`)).toBeOnTheScreen();
+  });
+
+  it('lists the templates a course was started from first under Recently used', async () => {
+    await useTrackersStore.getState().load(USER, repositories);
+    await useTrackersStore.getState().add('My CA course', 'ca-final');
+    renderWithTheme(<TemplatesScreen />);
+
+    fireEvent.press(screen.getByTestId('sort-recent'));
+
+    const cards = screen.getAllByTestId(/^template-(?!search|results)/);
+    expect(cards[0]).toHaveProp('testID', 'template-ca-final');
   });
 
   it('shows the chapters a template will add', () => {
     render();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
 
     const first = bundledTemplates[0]!.subjects[0]!;
     expect(screen.getByText(first.name)).toBeOnTheScreen();
@@ -319,7 +376,7 @@ describe('the templates screen', () => {
   it('closes the preview from the backdrop', async () => {
     render();
 
-    fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
+    openTemplate(bundledTemplates[0]!);
     await act(async () => {
       fireEvent.press(getInModal('Dismiss Template preview'));
     });
@@ -488,6 +545,7 @@ describe('telling a student their work is safe', () => {
 
   const openPreview = async () => {
     renderWithTheme(<TemplatesScreen />);
+    fireEvent.changeText(screen.getByTestId('template-search'), bundledTemplates[0]!.name);
     await act(async () => {
       fireEvent.press(screen.getByTestId(`template-${bundledTemplates[0]!.id}`));
     });
@@ -601,16 +659,34 @@ describe('searching the library', () => {
   it('brings the whole list back when the search is cleared', async () => {
     render();
     fireEvent.changeText(screen.getByTestId('template-search'), 'gate');
+    expect(screen.queryByTestId('category-school')).toBeNull();
 
     fireEvent.changeText(screen.getByTestId('template-search'), '');
 
-    expect(screen.getByTestId('template-ca-final')).toBeOnTheScreen();
+    expect(screen.getByTestId('category-school')).toBeOnTheScreen();
+    expect(screen.getByTestId('library-count')).toHaveTextContent(
+      `All templates · ${bundledTemplates.length}`,
+    );
+  });
+
+  it('finds templates by the names students use for them', async () => {
+    render();
+
+    for (const [query, id] of [
+      ['JEE', 'jee-main-2026'],
+      ['gate cse', 'gate-cs-it'],
+      ['class 12 commerce', 'cbse-class-12-commerce'],
+      ['icai', 'ca-final'],
+    ] as const) {
+      fireEvent.changeText(screen.getByTestId('template-search'), query);
+      expect(screen.getByTestId(`template-${id}`)).toBeOnTheScreen();
+    }
   });
 
   /** Searching inside a filter the student can see, rather than ignoring it. */
   it('searches within the chosen category', async () => {
     render();
-    fireEvent.press(screen.getByRole('button', { name: 'School' }));
+    fireEvent.press(screen.getByTestId('category-school'));
 
     fireEvent.changeText(screen.getByTestId('template-search'), 'gate');
 
