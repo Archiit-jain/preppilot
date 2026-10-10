@@ -1,9 +1,11 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { bundledTemplates } from './bundled';
 import { countTemplate } from './template';
-import { parseTemplateCatalog } from './template-library';
+// @ts-expect-error -- a plain .mjs build script, imported for its parser.
+import { parseSource } from '../../../../supabase/templates-library/build-library.mjs';
+import { parseLibraryTemplate } from './template-library';
 import {
   PLACED_TEMPLATE_IDS,
   TEMPLATE_GROUPS,
@@ -17,18 +19,24 @@ import {
   type LibrarySource,
 } from './taxonomy';
 
-const CATALOG = join(
-  __dirname,
-  '..',
-  '..',
-  '..',
-  '..',
-  'supabase',
-  'templates-library',
-  'dist',
-  'catalog.json',
-);
-const online = parseTemplateCatalog(JSON.parse(readFileSync(CATALOG, 'utf8'))).templates;
+// The online library, built from its sources the way build-library.mjs builds
+// it (dist/ is not committed, so the sources are what CI can see).
+const SRC = join(__dirname, '..', '..', '..', '..', 'supabase', 'templates-library', 'src');
+function sources(dir: string): string[] {
+  return readdirSync(dir).flatMap((name) => {
+    const path = join(dir, name);
+    return statSync(path).isDirectory() ? sources(path) : name.endsWith('.md') ? [path] : [];
+  });
+}
+const online: LibrarySource[] = sources(SRC).map((file) => {
+  const { version: _version, ...body } = parseSource(readFileSync(file, 'utf8'), file);
+  const template = parseLibraryTemplate(body);
+  return {
+    ...template,
+    counts: countTemplate(template),
+    subjects: template.subjects.map((subject) => subject.name),
+  };
+});
 const bundled: LibrarySource[] = bundledTemplates.map((template) => ({
   ...template,
   counts: countTemplate(template),
