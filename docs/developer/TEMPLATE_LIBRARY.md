@@ -79,7 +79,7 @@ No app build is needed.
 
 ## Generators
 
-`supabase/templates-library/tools/gate_to_md.py` drafts every GATE paper from the
+`supabase/templates-library/tools/gate_to_md.mjs` drafts every GATE paper from the
 official GATE syllabus PDFs (`pdftotext -enc UTF-8`). It splits the official
 "Chapter: topic; topic" text into topics, adds the common General Aptitude
 section, and splits or shortens anything over 120 characters. Its output is
@@ -87,33 +87,33 @@ reviewed before it is committed.
 
 The others work the same way, each for one official source:
 
-- `ugcnet_to_md.py`: UGC NET Paper I and nine Paper II subjects (UGC NET Bureau PDFs).
-- `upsc_ese_to_md.py`: UPSC ESE, from the notification's "Standard and Syllabi"
-  (uses the shared `numbered_to_md.py`).
-- `csir_net_to_md.py`: CSIR NET Chemical, Life (merged CSIR-DBT), Mathematical
+- `ugcnet_to_md.mjs`: UGC NET Paper I and nine Paper II subjects (UGC NET Bureau PDFs).
+- `upsc_ese_to_md.mjs`: UPSC ESE, from the notification's "Standard and Syllabi"
+  (uses the shared `numbered_to_md.mjs`).
+- `csir_net_to_md.mjs`: CSIR NET Chemical, Life (merged CSIR-DBT), Mathematical
   and Physical Sciences, from the CSIR HRDG syllabus PDFs.
 
-- `ssc_je_to_md.py`: SSC JE Civil, Electrical and Mechanical (SSC JE 2026 notice).
-- `rrb_je_to_md.py`: RRB JE Civil, Electrical, Electronics and Mechanical (RRB CEN 05/2025,
+- `ssc_je_to_md.mjs`: SSC JE Civil, Electrical and Mechanical (SSC JE 2026 notice).
+- `rrb_je_to_md.mjs`: RRB JE Civil, Electrical, Electronics and Mechanical (RRB CEN 05/2025,
   para 13 and Annexure VII A to D).
 
-- `bank_to_md.py`: IBPS PO and Clerk, SBI PO and Clerk. These boards publish no topic
+- `bank_to_md.mjs`: IBPS PO and Clerk, SBI PO and Clerk. These boards publish no topic
   syllabus (D113): stages and sections are official; topics are those listed by at least
   two independent exam analyses, and the script's docstring names them.
 
-- `entrance_to_md.py`: NIMCET, BITSAT, IISER IAT, AMU B.Tech and CFTRI M.Sc. Food
+- `entrance_to_md.mjs`: NIMCET, BITSAT, IISER IAT, AMU B.Tech and CFTRI M.Sc. Food
   Technology, each from its official syllabus.
-- `aptitude_to_md.py`: CAT, IPMAT Indore, CLAT UG and CLAT PG (D113, like the banking exams).
-- `med_to_md.py`: FMGE and INI-CET (NBEMS extract of the MBBS curriculum), BDS and NEET MDS
+- `aptitude_to_md.mjs`: CAT, IPMAT Indore, CLAT UG and CLAT PG (D113, like the banking exams).
+- `med_to_md.mjs`: FMGE and INI-CET (NBEMS extract of the MBBS curriculum), BDS and NEET MDS
   (DCI BDS regulations; NBEMS subject list), GPAT (PCI B. Pharm syllabus in GPAT's five areas).
   The DCI gazette PDF is a scanned image, so the change check can only compare its bytes.
 
-- `cs_cma_to_md.py`: CS Executive and Professional (the syllabus page of each ICSI study material)
+- `cs_cma_to_md.mjs`: CS Executive and Professional (the syllabus page of each ICSI study material)
   and CMA Foundation, Intermediate and Final (ICMAI prospectus, Syllabus 2022).
-- `cisce_to_md.py`: ICSE Class 9 and 10 and ISC Class 11 and 12 (Science, Commerce, Humanities),
+- `cisce_to_md.mjs`: ICSE Class 9 and 10 and ISC Class 11 and 12 (Science, Commerce, Humanities),
   from the ICSE 2027 and ISC 2027 subject syllabuses. English is transcribed in the script.
 
-- `intl_to_md.py`: CFA Levels I-III (CFA Institute topic outlines), USMLE (content outline), MCAT
+- `intl_to_md.mjs`: CFA Levels I-III (CFA Institute topic outlines), USMLE (content outline), MCAT
   (AAMC outline), SMLE (SCFHS guide), GCSE (DfE subject content), and SAT, GRE, GMAT, TOEFL, IELTS,
   LSAT and MRCS Part A transcribed from the owners' pages. GMAT's Quant topics follow D113.
 
@@ -153,9 +153,9 @@ School-level Arithmetic, Algebra, Geometry, Trigonometry and Set Theory, and the
 already in the bundled CBSE subjects (Arithmetic adds the Ganita Prakash number chapters for
 Classes 6 to 8), so when a CBSE subject changes, regenerate these from it.
 
-Hard sources: `tools/enem_to_md.py` (INEP Matriz de Referência, kept in Portuguese), `tools/aiapget_to_md.py`
+Hard sources: `tools/enem_to_md.mjs` (INEP Matriz de Referência, kept in Portuguese), `tools/aiapget_to_md.mjs`
 (AIAPGET Ayurveda from NCISM's BAMS subject curricula; ncismindia.org needs a browser cookie, so these PDFs
-are not watched), `tools/bhms_to_md.py` (AIAPGET Homoeopathy from NCH's BHMS syllabus). MDCAT is written by
+are not watched), `tools/bhms_to_md.mjs` (AIAPGET Homoeopathy from NCH's BHMS syllabus). MDCAT is written by
 hand from PMDC's 2025 curriculum (copy on Khyber Medical University's site). NORCET and Salesforce Admin
 follow D113 (no official topic list reachable). The app allows at most 120 chapters per subject, so long
 subjects are split into parts; `pnpm --filter @preppilot/shared test` catches this, the builder does not.
@@ -164,13 +164,13 @@ subjects are split into parts; `pnpm --filter @preppilot/shared test` catches th
 
 `supabase/templates-library/sources.json` lists the official document behind each
 template, with fingerprints of the copy the template was built from.
-`tools/check_sources.py` downloads each one again (a PDF, or a web page compared by its
+`tools/check_sources.mjs` downloads each one again (a PDF, or a web page compared by its
 visible text) and compares:
 
 - **unchanged**: nothing to do.
 - **changed**: the text differs. Rebuild the listed templates from the new
   document, bump their `version`, upload, then record the new copy:
-  `python tools/check_sources.py --record <dir with <key>.pdf>`.
+  `node tools/check_sources.mjs --record <dir with <key>.pdf>`.
 - **re-saved**: the file differs but its text does not. Nothing to do.
 - **unreachable**: the site did not answer. Check it by hand if it keeps happening.
 

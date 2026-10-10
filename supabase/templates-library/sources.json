@@ -1,5 +1,5 @@
 {
-  "note": "Official documents behind the library. See tools/check_sources.py.",
+  "note": "Official documents behind the library. See tools/check_sources.mjs.",
   "sources": [
     {
       "key": "gate-ga",
