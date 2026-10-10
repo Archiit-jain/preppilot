@@ -153,6 +153,13 @@ School-level Arithmetic, Algebra, Geometry, Trigonometry and Set Theory, and the
 already in the bundled CBSE subjects (Arithmetic adds the Ganita Prakash number chapters for
 Classes 6 to 8), so when a CBSE subject changes, regenerate these from it.
 
+Hard sources: `tools/enem_to_md.py` (INEP Matriz de Referência, kept in Portuguese), `tools/aiapget_to_md.py`
+(AIAPGET Ayurveda from NCISM's BAMS subject curricula; ncismindia.org needs a browser cookie, so these PDFs
+are not watched), `tools/bhms_to_md.py` (AIAPGET Homoeopathy from NCH's BHMS syllabus). MDCAT is written by
+hand from PMDC's 2025 curriculum (copy on Khyber Medical University's site). NORCET and Salesforce Admin
+follow D113 (no official topic list reachable). The app allows at most 120 chapters per subject, so long
+subjects are split into parts; `pnpm --filter @preppilot/shared test` catches this, the builder does not.
+
 ## Syllabus change check
 
 `supabase/templates-library/sources.json` lists the official document behind each

@@ -1841,6 +1841,38 @@
       "sha256": "69f40b44aad8426e23bb8dae06a27ec092fb3cff048634275dd4e151cc6e708b",
       "textHash": "69f40b44aad8426e23bb8dae06a27ec092fb3cff048634275dd4e151cc6e708b",
       "recorded": "2026-10-09"
+    },
+    {
+      "key": "inep-enem-matriz",
+      "url": "https://download.inep.gov.br/enem/outros_documentos/enem_matriz_de_referencia_v1.pdf",
+      "templates": ["enem"],
+      "sha256": "4f540d5439df00f88e13363ecaff3d884b83d16c1ae6cedbe5c2c3aabbf288b6",
+      "textHash": "534287364d2806a944f9b1108a0a4d97ea8c6bf7df587c558670282f2bd39dbd",
+      "recorded": "2026-10-10"
+    },
+    {
+      "key": "pmdc-mdcat-2025-kmu",
+      "url": "https://cat.kmu.edu.pk/sitedocuments/Uniform-Curriculum-MDCAT-2025-Final-26-05-2025.pdf",
+      "templates": ["mdcat"],
+      "sha256": "ab6c0c1e045af5652ae331af09a8f9870683fd99fa74b5f2b35c738c23b4738a",
+      "textHash": "f3a36f5b64a146f55d13eff1e7e8f166b122d2542b63036d35d392cde7cea676",
+      "recorded": "2026-10-10"
+    },
+    {
+      "key": "nch-bhms-syllabus",
+      "url": "https://nch.org.in/upload/bhms_syllabus.pdf",
+      "templates": ["aiapget-homoeopathy"],
+      "sha256": "8640ad4d546defc9ebb0bad782736cc862fb49226a75decf59a57e4e8250e963",
+      "textHash": "1b72faa334ef1f7e6c7fecea6f395ccd6ff394ac418d186c8a3a707e343a47d3",
+      "recorded": "2026-10-10"
+    },
+    {
+      "key": "nta-aiapget-2026-bulletin",
+      "url": "https://cdnbbsr.s3waas.gov.in/s388a839f2f6f1427879fc33ee4acf4f66/uploads/2026/07/202607111067394464.pdf",
+      "templates": ["aiapget-ayurveda", "aiapget-homoeopathy"],
+      "sha256": "a1c61ff89bc1f04f55ac36a5a2c1e92ff36eb87bb021e41abbe0f54e92e79965",
+      "textHash": "b49b8d131df61be5acae0b1a8801fc281bc7902b4e0ab311821d0c22dd1aeac4",
+      "recorded": "2026-10-10"
     }
   ]
 }
